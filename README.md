@@ -58,14 +58,15 @@ Open `http://localhost:8000` and you're running the production site.
 
 ```
 .
-├── index.html                          # Entire site — markup, styles, scripts, translations
-├── melaniemainpic.jpg                  # About-section portrait
-├── BlockchainFuturistConference.jpeg   # NEAR section gallery
-├── nearBountyWinners.jpeg              # NEAR banner team photo
-├── discordWinnerAnnouncement.jpeg      # NEAR section gallery
-├── blockchainConferenceViews.jpeg      # NEAR section gallery
-├── melsmeta.jpeg                       # Mel's Meta logo
-└── README.md                           # You are here
+├── index.html                                    # Entire site — markup, styles, scripts, translations
+├── images/
+│   ├── melaniemainpic.webp                       # About-section portrait (with Roko)
+│   ├── BlockchainFuturistConference.webp         # NEAR section gallery
+│   ├── nearBountyWinners.webp                    # NEAR banner team photo
+│   ├── discordWinnerAnnouncement.webp            # NEAR section gallery
+│   ├── blockchainConferenceViews.webp            # NEAR section gallery
+│   └── melsmeta.webp                             # Mel's Meta logo
+└── README.md                                     # You are here
 ```
 
 ---
