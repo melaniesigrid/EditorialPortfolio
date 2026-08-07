@@ -935,6 +935,588 @@
     }
 
     /* ══════════════════════════════════════
+   THE PRESS RUN — independent projects
+   Each project is a letterpress plate. Hover
+   "pulls an impression": paper floods up from
+   the base and the type reverses to ink.
+══════════════════════════════════════ */
+    .press {
+      background: var(--ink);
+      border-top: 1px solid var(--rule);
+    }
+
+    .press-header,
+    .press-line-head,
+    .press-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .press-header {
+      padding: 3.5rem 3rem 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .press-label {
+      font-family: var(--M);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .press-meta {
+      font-family: var(--M);
+      font-size: .8rem;
+      font-weight: 300;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* sub-run header: the studio's four products */
+    .press-line-head {
+      padding: 2.5rem 3rem 1.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .press-line-label {
+      font-family: var(--D);
+      font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(244, 241, 236, .38);
+    }
+
+    /* The spread: two columns, right column dropped — the
+       deliberate break that makes it read as a laid-out
+       page rather than a card grid. */
+    .press-line-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .press-line-grid>.plate:nth-child(odd) {
+      border-inline-end: 1px solid var(--rule);
+    }
+
+    .press-line-grid>.plate:nth-child(2) {
+      margin-top: 7rem;
+    }
+
+    /* ── The plate ───────────────────────────── */
+    .plate {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rule);
+      padding: 2.75rem 2.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 27rem;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .plate.on {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .plate--hero {
+      min-height: 0;
+      padding: 3.5rem 3rem 3rem;
+    }
+
+    /* the impression — paper pulled up from the base */
+    .plate::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--paper);
+      transform: scaleY(0);
+      transform-origin: 50% 100%;
+      transition: transform .55s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .plate:hover::before,
+    .plate:focus-within::before {
+      transform: scaleY(1);
+    }
+
+    /* ── Registration mark — the print-shop crosshair ── */
+    .plate-reg {
+      position: absolute;
+      top: 1.6rem;
+      inset-inline-end: 1.6rem;
+      width: 15px;
+      height: 15px;
+      opacity: .3;
+      transition: transform .55s cubic-bezier(.16, 1, .3, 1), opacity .35s;
+    }
+
+    .plate-reg::before,
+    .plate-reg::after {
+      content: '';
+      position: absolute;
+      background: var(--paper);
+      transition: background .4s;
+    }
+
+    .plate-reg::before {
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+    }
+
+    .plate-reg::after {
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+    }
+
+    .plate:hover .plate-reg,
+    .plate:focus-within .plate-reg {
+      transform: rotate(45deg);
+      opacity: 1;
+    }
+
+    .plate:hover .plate-reg::before,
+    .plate:hover .plate-reg::after,
+    .plate:focus-within .plate-reg::before,
+    .plate:focus-within .plate-reg::after {
+      background: var(--red);
+    }
+
+    /* ── Folio: the plate number ─────────────── */
+    .plate-folio {
+      display: flex;
+      align-items: baseline;
+      gap: .55rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .plate-folio-word {
+      font-family: var(--M);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--dim);
+      transition: color .4s;
+    }
+
+    .plate-folio-no {
+      font-family: var(--D);
+      font-size: 1.5rem;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(244, 241, 236, .35);
+      transition: -webkit-text-stroke-color .4s;
+    }
+
+    .plate--hero .plate-folio-no {
+      font-size: 2.1rem;
+    }
+
+    /* ── The name ────────────────────────────── */
+    .plate-name {
+      font-family: var(--D);
+      font-size: clamp(2.3rem, 4.1vw, 3.8rem);
+      line-height: .95;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      color: var(--paper);
+      margin-bottom: .7rem;
+      transition: color .4s;
+    }
+
+    .plate--hero .plate-name {
+      font-size: clamp(3.2rem, 9.5vw, 8.5rem);
+      line-height: .9;
+      margin-bottom: 1rem;
+    }
+
+    .plate-name-link {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .plate-name-link::after {
+      content: '\2197';
+      font-family: var(--M);
+      font-size: .3em;
+      font-weight: 400;
+      color: var(--red);
+      margin-inline-start: .35em;
+      vertical-align: super;
+      opacity: 0;
+      transform: translate(-3px, 3px);
+      transition: opacity .3s ease, transform .3s ease;
+      display: inline-block;
+    }
+
+    .plate:hover .plate-name-link::after,
+    .plate-name-link:focus-visible::after {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* ── Specimen line — the one-sentence read ── */
+    .plate-line {
+      font-family: var(--S);
+      font-size: clamp(1.12rem, 1.5vw, 1.38rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--dim);
+      max-width: 42ch;
+      margin-bottom: 1.6rem;
+      transition: color .4s;
+    }
+
+    .plate--hero .plate-line {
+      font-size: clamp(1.3rem, 2.1vw, 1.85rem);
+      max-width: 30ch;
+      margin-bottom: 0;
+    }
+
+    /* hero: name runs the full measure, then line | points beneath it */
+    .plate--hero .plate-body {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Points ──────────────────────────────── */
+    .plate-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-bottom: 1.8rem;
+      max-width: 56ch;
+    }
+
+    .plate--hero .plate-points {
+      margin-bottom: 0;
+    }
+
+    .plate-points li {
+      font-family: var(--B);
+      font-size: .97rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #b9b1a8;
+      padding-inline-start: 1.3rem;
+      position: relative;
+      transition: color .4s;
+    }
+
+    .plate-points li::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      top: .82em;
+      width: 5px;
+      height: 1.5px;
+      background: var(--red);
+    }
+
+    .plate-points li strong {
+      font-weight: 500;
+      color: var(--paper);
+      transition: color .4s;
+    }
+
+    .plate-points code {
+      font-family: var(--M);
+      font-size: .87em;
+      color: var(--paper);
+      transition: color .4s;
+    }
+
+    .plate:hover .plate-points code,
+    .plate:focus-within .plate-points code {
+      color: var(--ink);
+    }
+
+    /* ── Colophon — set in / pressed / status ── */
+    .plate-colophon {
+      margin-top: auto;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--rule);
+      transition: border-color .4s;
+    }
+
+    .plate-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .plate-chip {
+      font-family: var(--M);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid rgba(244, 241, 236, .16);
+      padding: .28rem .6rem;
+      transition: color .4s, border-color .4s, background .2s;
+    }
+
+    .plate-foot {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    }
+
+    .plate-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--M);
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .plate-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: plate-pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes plate-pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .3;
+        transform: scale(.65)
+      }
+    }
+
+    .plate-links {
+      display: flex;
+      gap: 1.2rem;
+      margin-inline-start: auto;
+    }
+
+    .plate-link {
+      font-family: var(--M);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color .3s;
+    }
+
+    .plate-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .plate-link:hover::after,
+    .plate-link:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .plate-link:hover {
+      color: var(--red);
+    }
+
+    /* ── Inked state — the whole plate reverses ── */
+    .plate:hover .plate-name,
+    .plate:focus-within .plate-name,
+    .plate:hover .plate-points li strong,
+    .plate:focus-within .plate-points li strong,
+    .plate:hover .plate-link,
+    .plate:focus-within .plate-link {
+      color: var(--ink);
+    }
+
+    .plate:hover .plate-line,
+    .plate:focus-within .plate-line,
+    .plate:hover .plate-folio-word,
+    .plate:focus-within .plate-folio-word,
+    .plate:hover .plate-chip,
+    .plate:focus-within .plate-chip {
+      color: var(--dim2);
+    }
+
+    .plate:hover .plate-points li,
+    .plate:focus-within .plate-points li {
+      color: #2a2520;
+    }
+
+    .plate:hover .plate-folio-no,
+    .plate:focus-within .plate-folio-no {
+      -webkit-text-stroke-color: rgba(14, 14, 14, .35);
+    }
+
+    .plate:hover .plate-colophon,
+    .plate:focus-within .plate-colophon {
+      border-top-color: var(--ruled);
+    }
+
+    .plate:hover .plate-chip,
+    .plate:focus-within .plate-chip {
+      border-color: rgba(14, 14, 14, .2);
+    }
+
+    .plate:hover .plate-chip:hover {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .plate:hover .plate-link:hover,
+    .plate:focus-within .plate-link:focus-visible {
+      color: var(--red);
+    }
+
+    /* ── Press footer — the closing colophon ─── */
+    .press-foot {
+      padding: 2rem 3rem 3.5rem;
+      font-family: var(--M);
+      font-size: .72rem;
+      font-weight: 300;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--dim2);
+    }
+
+    .press-foot a {
+      color: var(--dim);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(244, 241, 236, .2);
+      padding-bottom: 1px;
+      transition: color .3s, border-color .3s;
+    }
+
+    .press-foot a:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    @media(max-width:1100px) {
+      .plate--hero .plate-body {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+
+      .plate--hero .plate-line {
+        max-width: 46ch;
+      }
+    }
+
+    @media(max-width:900px) {
+      .press-line-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .press-line-grid>.plate:nth-child(odd) {
+        border-right: none;
+      }
+
+      .press-line-grid>.plate:nth-child(2) {
+        margin-top: 0;
+      }
+
+      .plate {
+        min-height: 0;
+      }
+    }
+
+    @media(max-width:768px) {
+
+      .press-header,
+      .press-line-head,
+      .press-foot {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .plate {
+        padding: 2.25rem 1.5rem 2rem;
+      }
+
+      .plate--hero {
+        padding: 2.5rem 1.5rem 2.25rem;
+      }
+
+      .plate-reg {
+        top: 1.1rem;
+        right: 1.1rem;
+      }
+
+      .plate-links {
+        margin-left: 0;
+      }
+    }
+
+    /* Touch devices never hover — keep the mark legible */
+    @media(hover:none) {
+      .plate-reg {
+        opacity: .45;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .plate,
+      .plate::before,
+      .plate-reg {
+        transition-duration: .01ms;
+      }
+
+      .plate-status::before {
+        animation: none;
+      }
+    }
+
+    /* ══════════════════════════════════════
    BETWEEN-SECTION BIG TEXT
 ══════════════════════════════════════ */
     .big-section {
@@ -3435,6 +4017,7 @@
     id="mobileNav" role="dialog">
     <button class="nav-close" data-i18n-html="nav.close" id="navClose">Close ✕</button>
     <a class="mob-link" data-i18n="nav.work" href="#work">Work</a>
+    <a class="mob-link" data-i18n="nav.studio" href="#studio">Studio</a>
     <a class="mob-link" data-i18n="nav.expertise" href="#expertise">Expertise</a>
     <a class="mob-link" data-i18n="nav.about" href="#about">About</a>
     <a class="mob-link" data-i18n="nav.contact" href="#contact">Contact</a>
@@ -3446,6 +4029,7 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a data-i18n="nav.work" href="#work">Work</a></li>
+        <li><a data-i18n="nav.studio" href="#studio">Studio</a></li>
         <li><a data-i18n="nav.expertise" href="#expertise">Expertise</a></li>
         <li><a data-i18n="nav.about" href="#about">About</a></li>
         <li><a data-i18n="nav.contact" href="#contact">Contact</a></li>
@@ -3792,6 +4376,247 @@
           <div class="comm-year">2021</div>
         </div>
       </div>
+    </div>
+  </section>
+  <!-- ══ BIG TEXT — STUDIO INTRO ═════════════ -->
+  <div class="big-section dark" data-splits="">
+    <span class="spl"><span class="spl-in light" data-i18n="split.shipped">Shipped</span></span>
+    <span class="spl"><span class="spl-in serif red" data-i18n="split.onMyOwn">On my own.</span></span>
+    <span class="spl"><span class="spl-in ghost-d" data-i18n="split.fiveProducts">Five products.</span></span>
+  </div>
+  <!-- ══ THE PRESS RUN — INDEPENDENT WORK ════════════════════════════════ -->
+  <section class="press" id="studio">
+    <div class="press-header">
+      <div class="press-label" data-i18n="press.label">Independent Work</div>
+      <div class="press-meta" data-i18n="press.meta">One studio · four products · shipped solo</div>
+    </div>
+
+    <!-- ── PLATE 01 · NORTHBOUND (hero) ── -->
+    <article class="plate plate--hero" data-plate="">
+      <span aria-hidden="true" class="plate-reg"></span>
+      <div class="plate-folio">
+        <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+        <span class="plate-folio-no">01</span>
+      </div>
+      <h3 class="plate-name"><a class="plate-name-link" href="https://northboundsoftwarestudio.com/" rel="noopener"
+          target="_blank">Northbound</a></h3>
+      <div class="plate-body">
+        <p class="plate-line" data-i18n="press.nb.line">An AI-native software studio in Toronto — fixed scope, fixed
+          price, fixed date. Products built in 7 to 30 days.</p>
+        <ul class="plate-points">
+          <li data-i18n-html="press.nb.p1">A hand-built <strong>EN/FR bilingual layer</strong> — 247 translation
+            bindings across text, markup, ARIA labels and placeholders, persisted to <code>localStorage</code>, with the
+            mobile comparison table re-derived on every language switch.</li>
+          <li data-i18n-html="press.nb.p2">A <strong>serverless contact pipeline</strong> on Vercel — a Node function
+            posting to Resend, with per-field HTML escaping and a plain-text fallback body.</li>
+          <li data-i18n-html="press.nb.p3">A cross-referenced <strong>JSON-LD entity graph</strong>, sitemap, robots and
+            full icon set across 23 pages and ~10,000 lines — <strong>zero dependencies, no build step</strong>.</li>
+          <li data-i18n-html="press.nb.p4">Ships its own agent tooling: <strong>seven authored Claude Code
+              skills</strong> that run client scoping, with a manifest template and an eval harness.</li>
+        </ul>
+      </div>
+      <div class="plate-colophon">
+        <div class="plate-stack">
+          <span class="plate-chip">HTML</span>
+          <span class="plate-chip">CSS</span>
+          <span class="plate-chip">Vanilla JS</span>
+          <span class="plate-chip">Vercel Functions</span>
+          <span class="plate-chip">Resend</span>
+          <span class="plate-chip">JSON-LD</span>
+          <span class="plate-chip">i18n · EN/FR</span>
+        </div>
+        <div class="plate-foot">
+          <span class="plate-status" data-i18n="press.live">Live</span>
+          <div class="plate-links">
+            <a class="plate-link" href="https://northboundsoftwarestudio.com/" rel="noopener" target="_blank"
+              data-i18n="press.visit">Visit</a>
+            <a class="plate-link" href="https://github.com/melaniesigrid/northbound-studio" rel="noopener"
+              target="_blank" data-i18n="press.source">Source</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── THE LINE · four products ── -->
+    <div class="press-line-head">
+      <div class="press-line-label" data-i18n="press.line.label">The Line</div>
+      <div class="press-meta" data-i18n="press.line.meta">Four products · designed, built and shipped inside 48 hours
+      </div>
+    </div>
+    <div class="press-line-grid">
+
+      <!-- ── PLATE 02 · DUEBOOK ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">02</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/duebook/"
+              rel="noopener" target="_blank">Duebook</a></h3>
+          <p class="plate-line" data-i18n="press.duebook.line">A repeat-customer engine for service businesses — it
+            ranks who is due, and drafts the reminder for a human to approve.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.duebook.p1">The brand mark is a <strong>live tear-off calendar</strong> — the
+              logo writes today's real date into every instance on load.</li>
+            <li data-i18n-html="press.duebook.p2">Two independent <strong>IntersectionObservers</strong>: one for scroll
+              reveals, one that animates each service's interval bar to its own percentage only on entry.</li>
+            <li data-i18n-html="press.duebook.p3"><strong>Reduced motion is a code path, not a media query</strong> — a
+              <code>matchMedia</code> check and a feature test both short-circuit to the final state, so nothing hides
+              behind an animation that will never run.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip" data-i18n="press.chip.singleFile">Single-File HTML</span>
+            <span class="plate-chip">Vanilla JS</span>
+            <span class="plate-chip">IntersectionObserver</span>
+            <span class="plate-chip">JSON-LD</span>
+            <span class="plate-chip">GitHub Pages</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/duebook/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/duebook" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 03 · ZIPQUARRY ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">03</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/zipQuarry/"
+              rel="noopener" target="_blank">ZipQuarry</a></h3>
+          <p class="plate-line" data-i18n="press.zip.line">Local prospecting by ZIP radius — it finds the businesses
+            nearby, enriches each lead, and drafts the first email.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.zip.p1">The hero's <strong>animated radius search</strong> is pure CSS keyframes
+              and inline SVG — no images, no libraries, no canvas.</li>
+            <li data-i18n-html="press.zip.p2">Every colour, radius, shadow and typeface is a <code>:root</code> token,
+              so <strong>one line repaints the whole site</strong>.</li>
+            <li data-i18n-html="press.zip.p3">Real CI/CD for a static page — a <strong>GitHub Actions Pages
+                pipeline</strong> publishing an artifact deployment on every push, with in-progress runs cancelled.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip" data-i18n="press.chip.singleFile">Single-File HTML</span>
+            <span class="plate-chip" data-i18n="press.chip.keyframes">CSS Keyframes</span>
+            <span class="plate-chip" data-i18n="press.chip.inlineSvg">Inline SVG</span>
+            <span class="plate-chip">GitHub Actions</span>
+            <span class="plate-chip" data-i18n="press.chip.tokens">Design Tokens</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/zipQuarry/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/zipQuarry" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 04 · MILLWRIGHT ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">04</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/millwright/"
+              rel="noopener" target="_blank">Millwright</a></h3>
+          <p class="plate-line" data-i18n="press.mill.line">Custom internal apps, automated workflows and AI agents —
+            built around the process a business already runs.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.mill.p1"><strong>Accessibility designed in, not bolted on</strong> — a described
+              <code>aria-label</code> on the workflow diagram with the decorative SVG hidden from assistive tech,
+              visible focus rings throughout, and every animation disabled under reduced motion.</li>
+            <li data-i18n-html="press.mill.p2">A <strong>semantic token system</strong> — ink, paper, volt and jade —
+              drives the page's entire light/dark alternation from two variables.</li>
+            <li data-i18n-html="press.mill.p3">The animated workflow diagram is <strong>inline SVG and three keyframe
+                sets</strong> — no illustration assets, nothing to download.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip" data-i18n="press.chip.singleFile">Single-File HTML</span>
+            <span class="plate-chip" data-i18n="press.chip.inlineSvg">Inline SVG</span>
+            <span class="plate-chip" data-i18n="press.chip.tokens">Design Tokens</span>
+            <span class="plate-chip">WCAG 2.1 AA</span>
+            <span class="plate-chip">GitHub Pages</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/millwright/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/millwright" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 05 · QUOTEFRONT ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">05</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/quoteFront/"
+              rel="noopener" target="_blank">Quotefront</a></h3>
+          <p class="plate-line" data-i18n="press.qf.line">Estimate intake for trades — a guided, photo-first request
+            that comes back as a structured scope and a ballpark range.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.qf.p1">A <strong>15-token documented design system</strong> — a full navy/blue
+              scale plus amber and jade for estimate and confirmation states, with dark sections inverting the palette.
+            </li>
+            <li data-i18n-html="press.qf.p2"><strong>Eight component-scoped breakpoints</strong> — each attached to the
+              component that needs it rather than to one global grid.</li>
+            <li data-i18n-html="press.qf.p3"><strong>Progressive enhancement held to</strong> — all copy lives in
+              markup, the FAQ is native <code>&lt;details&gt;</code>, and hero reveals fire on load so nothing above the
+              fold waits for a scroll.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip" data-i18n="press.chip.singleFile">Single-File HTML</span>
+            <span class="plate-chip" data-i18n="press.chip.designSystem">Design System</span>
+            <span class="plate-chip" data-i18n="press.chip.progressive">Progressive Enhancement</span>
+            <span class="plate-chip">GitHub Pages</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/quoteFront/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/quoteFront" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="press-foot">
+      <span data-i18n="press.foot">Five repositories · all public · all live</span>
+      <a href="https://github.com/melaniesigrid" rel="noopener" target="_blank"
+        data-i18n="press.footLink">Everything on GitHub ↗</a>
     </div>
   </section>
   <!-- ══ BIG TEXT 2 ══════════════════════════ -->
@@ -4248,6 +5073,9 @@
     /* Work + contact panels */
     watch('[data-obs]', (el, i) => setTimeout(() => el.classList.add('on'), i * 80));
 
+    /* Press-run plates — stagger the impression */
+    watch('[data-plate]', (el, i) => setTimeout(() => el.classList.add('on'), i * 110), .06);
+
     /* Photo + about */
     watch('[data-photo]', el => el.classList.add('on'), .05);
     watch('[data-about]', el => el.classList.add('on'), .05);
@@ -4472,6 +5300,47 @@
       "split.building": "Building",
       "split.beautifulThings": "Beautiful things.",
       "split.since2021": "Since 2021.",
+      "nav.studio": "Studio",
+      "split.shipped": "Shipped",
+      "split.onMyOwn": "On my own.",
+      "split.fiveProducts": "Five products.",
+      "press.label": "Independent Work",
+      "press.meta": "One studio · four products · shipped solo",
+      "press.folio": "Plate",
+      "press.line.label": "The Line",
+      "press.line.meta": "Four products · designed, built and shipped inside 48 hours",
+      "press.live": "Live",
+      "press.visit": "Visit",
+      "press.source": "Source",
+      "press.foot": "Five repositories · all public · all live",
+      "press.footLink": "Everything on GitHub ↗",
+      "press.chip.singleFile": "Single-File HTML",
+      "press.chip.keyframes": "CSS Keyframes",
+      "press.chip.inlineSvg": "Inline SVG",
+      "press.chip.tokens": "Design Tokens",
+      "press.chip.designSystem": "Design System",
+      "press.chip.progressive": "Progressive Enhancement",
+      "press.nb.line": "An AI-native software studio in Toronto — fixed scope, fixed price, fixed date. Products built in 7 to 30 days.",
+      "press.nb.p1": "A hand-built <strong>EN/FR bilingual layer</strong> — 247 translation bindings across text, markup, ARIA labels and placeholders, persisted to <code>localStorage</code>, with the mobile comparison table re-derived on every language switch.",
+      "press.nb.p2": "A <strong>serverless contact pipeline</strong> on Vercel — a Node function posting to Resend, with per-field HTML escaping and a plain-text fallback body.",
+      "press.nb.p3": "A cross-referenced <strong>JSON-LD entity graph</strong>, sitemap, robots and full icon set across 23 pages and ~10,000 lines — <strong>zero dependencies, no build step</strong>.",
+      "press.nb.p4": "Ships its own agent tooling: <strong>seven authored Claude Code skills</strong> that run client scoping, with a manifest template and an eval harness.",
+      "press.duebook.line": "A repeat-customer engine for service businesses — it ranks who is due, and drafts the reminder for a human to approve.",
+      "press.duebook.p1": "The brand mark is a <strong>live tear-off calendar</strong> — the logo writes today's real date into every instance on load.",
+      "press.duebook.p2": "Two independent <strong>IntersectionObservers</strong>: one for scroll reveals, one that animates each service's interval bar to its own percentage only on entry.",
+      "press.duebook.p3": "<strong>Reduced motion is a code path, not a media query</strong> — a <code>matchMedia</code> check and a feature test both short-circuit to the final state, so nothing hides behind an animation that will never run.",
+      "press.zip.line": "Local prospecting by ZIP radius — it finds the businesses nearby, enriches each lead, and drafts the first email.",
+      "press.zip.p1": "The hero's <strong>animated radius search</strong> is pure CSS keyframes and inline SVG — no images, no libraries, no canvas.",
+      "press.zip.p2": "Every colour, radius, shadow and typeface is a <code>:root</code> token, so <strong>one line repaints the whole site</strong>.",
+      "press.zip.p3": "Real CI/CD for a static page — a <strong>GitHub Actions Pages pipeline</strong> publishing an artifact deployment on every push, with in-progress runs cancelled.",
+      "press.mill.line": "Custom internal apps, automated workflows and AI agents — built around the process a business already runs.",
+      "press.mill.p1": "<strong>Accessibility designed in, not bolted on</strong> — a described <code>aria-label</code> on the workflow diagram with the decorative SVG hidden from assistive tech, visible focus rings throughout, and every animation disabled under reduced motion.",
+      "press.mill.p2": "A <strong>semantic token system</strong> — ink, paper, volt and jade — drives the page's entire light/dark alternation from two variables.",
+      "press.mill.p3": "The animated workflow diagram is <strong>inline SVG and three keyframe sets</strong> — no illustration assets, nothing to download.",
+      "press.qf.line": "Estimate intake for trades — a guided, photo-first request that comes back as a structured scope and a ballpark range.",
+      "press.qf.p1": "A <strong>15-token documented design system</strong> — a full navy/blue scale plus amber and jade for estimate and confirmation states, with dark sections inverting the palette.",
+      "press.qf.p2": "<strong>Eight component-scoped breakpoints</strong> — each attached to the component that needs it rather than to one global grid.",
+      "press.qf.p3": "<strong>Progressive enhancement held to</strong> — all copy lives in markup, the FAQ is native <code>&lt;details&gt;</code>, and hero reveals fire on load so nothing above the fold waits for a scroll.",
       "split.cleanCode": "Clean Code.",
       "split.beautiful": "Beautiful",
       "split.interfaces": "Interfaces.",
@@ -4632,6 +5501,47 @@
         "split.building": "Construyendo",
         "split.beautifulThings": "cosas hermosas.",
         "split.since2021": "Desde 2021.",
+        "nav.studio": "Estudio",
+        "split.shipped": "Lanzado",
+        "split.onMyOwn": "Por mi cuenta.",
+        "split.fiveProducts": "Cinco productos.",
+        "press.label": "Trabajo independiente",
+        "press.meta": "Un estudio · cuatro productos · en solitario",
+        "press.folio": "Lámina",
+        "press.line.label": "La Línea",
+        "press.line.meta": "Cuatro productos · diseñados, construidos y lanzados en 48 horas",
+        "press.live": "Activo",
+        "press.visit": "Visitar",
+        "press.source": "Código",
+        "press.foot": "Cinco repositorios · todos públicos · todos activos",
+        "press.footLink": "Todo en GitHub ↗",
+        "press.chip.singleFile": "HTML de un solo archivo",
+        "press.chip.keyframes": "Keyframes CSS",
+        "press.chip.inlineSvg": "SVG en línea",
+        "press.chip.tokens": "Tokens de diseño",
+        "press.chip.designSystem": "Sistema de diseño",
+        "press.chip.progressive": "Mejora progresiva",
+        "press.nb.line": "Un estudio de software AI-native en Toronto: alcance fijo, precio fijo, fecha fija. Productos construidos en 7 a 30 días.",
+        "press.nb.p1": "Una <strong>capa bilingüe EN/FR</strong> hecha a mano: 247 enlaces de traducción sobre texto, marcado, etiquetas ARIA y placeholders, persistidos en <code>localStorage</code>, con la tabla comparativa móvil regenerada en cada cambio de idioma.",
+        "press.nb.p2": "Un <strong>pipeline de contacto serverless</strong> en Vercel: una función Node que envía a Resend, con escapado HTML por campo y cuerpo alternativo en texto plano.",
+        "press.nb.p3": "Un <strong>grafo de entidades JSON-LD</strong> con referencias cruzadas, sitemap, robots y set completo de iconos en 23 páginas y ~10.000 líneas: <strong>cero dependencias, sin build</strong>.",
+        "press.nb.p4": "Incluye su propio instrumental de agentes: <strong>siete skills de Claude Code</strong> escritas por mí que ejecutan el scoping de clientes, con plantilla de manifiesto y arnés de evaluación.",
+        "press.duebook.line": "Un motor de clientes recurrentes para negocios de servicios: ordena a quién le toca y redacta el recordatorio para que una persona lo apruebe.",
+        "press.duebook.p1": "La marca es un <strong>calendario de hojas arrancables en vivo</strong>: el logo escribe la fecha real de hoy en cada instancia al cargar.",
+        "press.duebook.p2": "Dos <strong>IntersectionObservers</strong> independientes: uno para las revelaciones al hacer scroll y otro que anima la barra de intervalo de cada servicio hasta su propio porcentaje solo al entrar en pantalla.",
+        "press.duebook.p3": "<strong>El movimiento reducido es una ruta de código, no una media query</strong>: una comprobación con <code>matchMedia</code> y un test de soporte saltan directo al estado final, para que nada quede oculto tras una animación que nunca se ejecutará.",
+        "press.zip.line": "Prospección local por radio de código postal: encuentra los negocios cercanos, enriquece cada lead y redacta el primer correo.",
+        "press.zip.p1": "La <strong>búsqueda por radio animada</strong> del hero es puro CSS keyframes y SVG en línea: sin imágenes, sin librerías, sin canvas.",
+        "press.zip.p2": "Cada color, radio, sombra y tipografía es un token de <code>:root</code>, así que <strong>una sola línea repinta todo el sitio</strong>.",
+        "press.zip.p3": "CI/CD real para una página estática: un <strong>pipeline de GitHub Actions Pages</strong> que publica un artefacto en cada push, cancelando las ejecuciones en curso.",
+        "press.mill.line": "Apps internas a medida, flujos automatizados y agentes de IA, construidos alrededor del proceso que el negocio ya tiene.",
+        "press.mill.p1": "<strong>Accesibilidad diseñada desde el inicio, no añadida al final</strong>: un <code>aria-label</code> descriptivo en el diagrama de flujo con el SVG decorativo oculto a las tecnologías de asistencia, anillos de foco visibles en todo el sitio y todas las animaciones desactivadas con movimiento reducido.",
+        "press.mill.p2": "Un <strong>sistema de tokens semánticos</strong> —tinta, papel, volt y jade— gobierna toda la alternancia claro/oscuro de la página desde dos variables.",
+        "press.mill.p3": "El diagrama de flujo animado es <strong>SVG en línea y tres conjuntos de keyframes</strong>: sin ilustraciones, nada que descargar.",
+        "press.qf.line": "Recepción de presupuestos para oficios: una solicitud guiada, con fotos primero, que vuelve como alcance estructurado y rango orientativo.",
+        "press.qf.p1": "Un <strong>sistema de diseño documentado de 15 tokens</strong>: una escala completa de azul marino más ámbar y jade para los estados de presupuesto y confirmación, con las secciones oscuras invirtiendo la paleta.",
+        "press.qf.p2": "<strong>Ocho breakpoints acotados por componente</strong>: cada uno asociado al componente que lo necesita en vez de a una única rejilla global.",
+        "press.qf.p3": "<strong>Mejora progresiva sostenida</strong>: todo el texto vive en el marcado, el FAQ son <code>&lt;details&gt;</code> nativos y las revelaciones del hero se disparan al cargar, así nada por encima del pliegue espera a un scroll.",
         "split.cleanCode": "Código limpio.",
         "split.beautiful": "Interfaces",
         "split.interfaces": "hermosas.",
@@ -4787,6 +5697,47 @@
         "split.building": "Ich baue",
         "split.beautifulThings": "schöne Dinge.",
         "split.since2021": "Seit 2021.",
+        "nav.studio": "Studio",
+        "split.shipped": "Ausgeliefert",
+        "split.onMyOwn": "Im Alleingang.",
+        "split.fiveProducts": "Fünf Produkte.",
+        "press.label": "Eigenständige Arbeit",
+        "press.meta": "Ein Studio · vier Produkte · im Alleingang",
+        "press.folio": "Druckplatte",
+        "press.line.label": "Die Reihe",
+        "press.line.meta": "Vier Produkte · entworfen, gebaut und in 48 Stunden ausgeliefert",
+        "press.live": "Live",
+        "press.visit": "Ansehen",
+        "press.source": "Quellcode",
+        "press.foot": "Fünf Repositories · alle öffentlich · alle live",
+        "press.footLink": "Alles auf GitHub ↗",
+        "press.chip.singleFile": "Einzeldatei-HTML",
+        "press.chip.keyframes": "CSS-Keyframes",
+        "press.chip.inlineSvg": "Inline-SVG",
+        "press.chip.tokens": "Design-Tokens",
+        "press.chip.designSystem": "Designsystem",
+        "press.chip.progressive": "Progressive Enhancement",
+        "press.nb.line": "Ein KI-natives Software-Studio in Toronto — fester Umfang, fester Preis, festes Datum. Produkte in 7 bis 30 Tagen.",
+        "press.nb.p1": "Eine handgebaute <strong>zweisprachige EN/FR-Schicht</strong> — 247 Übersetzungsbindungen über Text, Markup, ARIA-Labels und Platzhalter, im <code>localStorage</code> gespeichert, wobei die mobile Vergleichstabelle bei jedem Sprachwechsel neu aufgebaut wird.",
+        "press.nb.p2": "Eine <strong>serverlose Kontakt-Pipeline</strong> auf Vercel — eine Node-Funktion, die an Resend sendet, mit HTML-Escaping pro Feld und einem Klartext-Fallback.",
+        "press.nb.p3": "Ein querverweisender <strong>JSON-LD-Entitätsgraph</strong>, Sitemap, robots und vollständiges Icon-Set über 23 Seiten und ~10.000 Zeilen — <strong>null Abhängigkeiten, kein Build-Schritt</strong>.",
+        "press.nb.p4": "Bringt eigenes Agenten-Werkzeug mit: <strong>sieben selbst geschriebene Claude-Code-Skills</strong> für das Kunden-Scoping, mit Manifest-Vorlage und Eval-Harness.",
+        "press.duebook.line": "Ein Stammkunden-Motor für Dienstleistungsbetriebe — er sortiert, wer fällig ist, und entwirft die Erinnerung zur Freigabe durch einen Menschen.",
+        "press.duebook.p1": "Die Wortmarke ist ein <strong>lebender Abreißkalender</strong> — das Logo schreibt beim Laden das echte heutige Datum in jede Instanz.",
+        "press.duebook.p2": "Zwei unabhängige <strong>IntersectionObserver</strong>: einer für Scroll-Einblendungen, einer, der die Intervallleiste jeder Leistung erst beim Eintreten auf ihren eigenen Prozentwert animiert.",
+        "press.duebook.p3": "<strong>Reduzierte Bewegung ist ein Codepfad, keine Media Query</strong> — eine <code>matchMedia</code>-Prüfung und ein Feature-Test springen beide direkt zum Endzustand, damit sich nichts hinter einer Animation versteckt, die nie läuft.",
+        "press.zip.line": "Lokale Akquise per PLZ-Radius — findet die Betriebe in der Nähe, reichert jeden Lead an und entwirft die erste E-Mail.",
+        "press.zip.p1": "Die <strong>animierte Radiussuche</strong> im Hero ist reines CSS mit Keyframes und Inline-SVG — keine Bilder, keine Bibliotheken, kein Canvas.",
+        "press.zip.p2": "Jede Farbe, jeder Radius, Schatten und Schriftschnitt ist ein <code>:root</code>-Token, sodass <strong>eine Zeile die ganze Seite neu einfärbt</strong>.",
+        "press.zip.p3": "Echtes CI/CD für eine statische Seite — eine <strong>GitHub-Actions-Pages-Pipeline</strong>, die bei jedem Push ein Artefakt-Deployment veröffentlicht und laufende Durchläufe abbricht.",
+        "press.mill.line": "Maßgeschneiderte interne Apps, automatisierte Workflows und KI-Agenten — gebaut um den Prozess, den ein Betrieb bereits fährt.",
+        "press.mill.p1": "<strong>Barrierefreiheit von Anfang an mitgedacht, nicht nachgerüstet</strong> — ein beschreibendes <code>aria-label</code> am Workflow-Diagramm, während das dekorative SVG vor assistiven Technologien verborgen bleibt, durchgehend sichtbare Fokusringe und jede Animation bei reduzierter Bewegung abgeschaltet.",
+        "press.mill.p2": "Ein <strong>semantisches Token-System</strong> — Tinte, Papier, Volt und Jade — steuert den gesamten Hell-/Dunkel-Wechsel der Seite über zwei Variablen.",
+        "press.mill.p3": "Das animierte Workflow-Diagramm besteht aus <strong>Inline-SVG und drei Keyframe-Sätzen</strong> — keine Illustrationsdateien, nichts zum Herunterladen.",
+        "press.qf.line": "Angebotsannahme für Handwerksbetriebe — eine geführte Anfrage mit Fotos zuerst, die als strukturierter Umfang und Richtpreisrahmen zurückkommt.",
+        "press.qf.p1": "Ein <strong>dokumentiertes Designsystem aus 15 Tokens</strong> — eine vollständige Marineblau-Skala plus Bernstein und Jade für Kostenvoranschlags- und Bestätigungszustände, wobei dunkle Abschnitte die Palette umkehren.",
+        "press.qf.p2": "<strong>Acht komponentenbezogene Breakpoints</strong> — jeder an die Komponente gebunden, die ihn braucht, statt an ein globales Raster.",
+        "press.qf.p3": "<strong>Konsequentes Progressive Enhancement</strong> — aller Text steht im Markup, das FAQ nutzt natives <code>&lt;details&gt;</code>, und die Hero-Einblendungen starten beim Laden, damit nichts über der Falz auf ein Scrollen wartet.",
         "split.cleanCode": "Sauberer Code.",
         "split.beautiful": "Schöne",
         "split.interfaces": "Interfaces.",
@@ -4942,6 +5893,47 @@
         "split.building": "Créer",
         "split.beautifulThings": "de belles choses.",
         "split.since2021": "Depuis 2021.",
+        "nav.studio": "Studio",
+        "split.shipped": "Livré",
+        "split.onMyOwn": "En solo.",
+        "split.fiveProducts": "Cinq produits.",
+        "press.label": "Travail indépendant",
+        "press.meta": "Un studio · quatre produits · livrés en solo",
+        "press.folio": "Planche",
+        "press.line.label": "La Gamme",
+        "press.line.meta": "Quatre produits · conçus, construits et livrés en 48 heures",
+        "press.live": "En ligne",
+        "press.visit": "Visiter",
+        "press.source": "Code source",
+        "press.foot": "Cinq dépôts · tous publics · tous en ligne",
+        "press.footLink": "Tout sur GitHub ↗",
+        "press.chip.singleFile": "HTML en un fichier",
+        "press.chip.keyframes": "Keyframes CSS",
+        "press.chip.inlineSvg": "SVG en ligne",
+        "press.chip.tokens": "Tokens de design",
+        "press.chip.designSystem": "Design system",
+        "press.chip.progressive": "Amélioration progressive",
+        "press.nb.line": "Un studio logiciel AI-native à Toronto — périmètre fixe, prix fixe, date fixe. Des produits construits en 7 à 30 jours.",
+        "press.nb.p1": "Une <strong>couche bilingue EN/FR</strong> écrite à la main — 247 liaisons de traduction sur le texte, le balisage, les libellés ARIA et les placeholders, conservées dans <code>localStorage</code>, avec le tableau comparatif mobile reconstruit à chaque changement de langue.",
+        "press.nb.p2": "Un <strong>pipeline de contact serverless</strong> sur Vercel — une fonction Node qui poste vers Resend, avec échappement HTML champ par champ et un corps de repli en texte brut.",
+        "press.nb.p3": "Un <strong>graphe d'entités JSON-LD</strong> à références croisées, sitemap, robots et jeu d'icônes complet sur 23 pages et ~10 000 lignes — <strong>zéro dépendance, aucune étape de build</strong>.",
+        "press.nb.p4": "Embarque son propre outillage d'agents : <strong>sept skills Claude Code</strong> que j'ai écrites pour le cadrage client, avec modèle de manifeste et harnais d'évaluation.",
+        "press.duebook.line": "Un moteur de clients récurrents pour les entreprises de service — il classe qui est à relancer et rédige le rappel qu'un humain valide.",
+        "press.duebook.p1": "La marque est un <strong>calendrier à effeuiller vivant</strong> — le logo inscrit la vraie date du jour dans chaque instance au chargement.",
+        "press.duebook.p2": "Deux <strong>IntersectionObserver</strong> indépendants : l'un pour les révélations au scroll, l'autre qui anime la barre d'intervalle de chaque service jusqu'à son propre pourcentage, uniquement à l'entrée.",
+        "press.duebook.p3": "<strong>Le mouvement réduit est un chemin de code, pas une media query</strong> — un test <code>matchMedia</code> et une détection de fonctionnalité basculent tous deux directement à l'état final, pour que rien ne se cache derrière une animation qui ne s'exécutera jamais.",
+        "press.zip.line": "Prospection locale par rayon de code postal — elle trouve les entreprises alentour, enrichit chaque piste et rédige le premier e-mail.",
+        "press.zip.p1": "La <strong>recherche par rayon animée</strong> du hero est en pur CSS keyframes et SVG en ligne — aucune image, aucune bibliothèque, aucun canvas.",
+        "press.zip.p2": "Chaque couleur, rayon, ombre et police est un token <code>:root</code>, donc <strong>une seule ligne repeint tout le site</strong>.",
+        "press.zip.p3": "Du vrai CI/CD pour une page statique — un <strong>pipeline GitHub Actions Pages</strong> qui publie un déploiement d'artefact à chaque push, en annulant les exécutions en cours.",
+        "press.mill.line": "Applications internes sur mesure, workflows automatisés et agents IA — construits autour du processus que l'entreprise applique déjà.",
+        "press.mill.p1": "<strong>Accessibilité pensée dès la conception, pas ajoutée après coup</strong> — un <code>aria-label</code> descriptif sur le diagramme de workflow avec le SVG décoratif masqué aux technologies d'assistance, des anneaux de focus visibles partout et toute animation désactivée en mouvement réduit.",
+        "press.mill.p2": "Un <strong>système de tokens sémantiques</strong> — encre, papier, volt et jade — pilote toute l'alternance clair/sombre de la page depuis deux variables.",
+        "press.mill.p3": "Le diagramme de workflow animé, c'est <strong>du SVG en ligne et trois jeux de keyframes</strong> — aucune illustration, rien à télécharger.",
+        "press.qf.line": "Réception de devis pour les métiers du bâtiment — une demande guidée, photos d'abord, qui revient en périmètre structuré et fourchette indicative.",
+        "press.qf.p1": "Un <strong>design system documenté de 15 tokens</strong> — une gamme complète de bleu marine plus ambre et jade pour les états de devis et de confirmation, les sections sombres inversant la palette.",
+        "press.qf.p2": "<strong>Huit points de rupture cadrés par composant</strong> — chacun rattaché au composant qui en a besoin plutôt qu'à une grille globale unique.",
+        "press.qf.p3": "<strong>Amélioration progressive tenue jusqu'au bout</strong> — tout le texte vit dans le balisage, la FAQ utilise des <code>&lt;details&gt;</code> natifs, et les révélations du hero se déclenchent au chargement pour que rien au-dessus de la ligne de flottaison n'attende un scroll.",
         "split.cleanCode": "Code propre.",
         "split.beautiful": "Interfaces",
         "split.interfaces": "élégantes.",
@@ -5097,6 +6089,47 @@
         "split.building": "בונה",
         "split.beautifulThings": "דברים יפים.",
         "split.since2021": "מאז 2021.",
+        "nav.studio": "סטודיו",
+        "split.shipped": "נשלח לאוויר",
+        "split.onMyOwn": "לבד לגמרי.",
+        "split.fiveProducts": "חמישה מוצרים.",
+        "press.label": "עבודה עצמאית",
+        "press.meta": "סטודיו אחד · ארבעה מוצרים · הכול לבד",
+        "press.folio": "לוח",
+        "press.line.label": "הסדרה",
+        "press.line.meta": "ארבעה מוצרים · עוצבו, נבנו ועלו לאוויר תוך 48 שעות",
+        "press.live": "באוויר",
+        "press.visit": "לאתר",
+        "press.source": "קוד מקור",
+        "press.foot": "חמישה מאגרים · כולם ציבוריים · כולם באוויר",
+        "press.footLink": "הכול ב-GitHub ↗",
+        "press.chip.singleFile": "HTML בקובץ אחד",
+        "press.chip.keyframes": "CSS Keyframes",
+        "press.chip.inlineSvg": "SVG מוטבע",
+        "press.chip.tokens": "טוקני עיצוב",
+        "press.chip.designSystem": "מערכת עיצוב",
+        "press.chip.progressive": "שיפור הדרגתי",
+        "press.nb.line": "סטודיו תוכנה מבוסס־AI בטורונטו — היקף קבוע, מחיר קבוע, תאריך קבוע. מוצרים שנבנים תוך 7 עד 30 יום.",
+        "press.nb.p1": "<strong>שכבה דו־לשונית אנגלית/צרפתית</strong> שנכתבה ידנית — 247 קישורי תרגום על טקסט, תגיות, תוויות ARIA ומצייני מיקום, נשמרים ב-<code>localStorage</code>, כשטבלת ההשוואה במובייל נבנית מחדש בכל החלפת שפה.",
+        "press.nb.p2": "<strong>צינור יצירת קשר ללא שרת</strong> על Vercel — פונקציית Node ששולחת ל-Resend, עם בריחת HTML לכל שדה וגוף חלופי בטקסט רגיל.",
+        "press.nb.p3": "<strong>גרף ישויות JSON-LD</strong> עם הפניות צולבות, sitemap, robots וסט אייקונים מלא על פני 23 עמודים ו-~10,000 שורות — <strong>אפס תלויות, ללא שלב בנייה</strong>.",
+        "press.nb.p4": "מגיע עם כלי סוכנים משלו: <strong>שבע מיומנויות Claude Code</strong> שכתבתי בעצמי להגדרת היקף מול לקוחות, עם תבנית מניפסט ומערך הערכה.",
+        "press.duebook.line": "מנוע לקוחות חוזרים לעסקי שירות — מדרג למי הגיע הזמן, ומנסח את התזכורת שאדם מאשר.",
+        "press.duebook.p1": "סמל המותג הוא <strong>לוח שנה תלוש חי</strong> — הלוגו כותב את התאריך האמיתי של היום בכל מופע בזמן הטעינה.",
+        "press.duebook.p2": "שני <strong>IntersectionObservers</strong> נפרדים: אחד לחשיפות בגלילה, ואחד שמנפיש את פס המרווח של כל שירות לאחוז שלו רק בכניסה למסך.",
+        "press.duebook.p3": "<strong>תנועה מופחתת היא נתיב קוד, לא מדיה קווארי</strong> — בדיקת <code>matchMedia</code> ובדיקת תמיכה שתיהן קופצות ישר למצב הסופי, כך ששום דבר לא מתחבא מאחורי אנימציה שלא תרוץ לעולם.",
+        "press.zip.line": "איתור לקוחות מקומי לפי רדיוס מיקוד — מוצא את העסקים בסביבה, מעשיר כל ליד ומנסח את המייל הראשון.",
+        "press.zip.p1": "<strong>חיפוש הרדיוס המונפש</strong> בראש העמוד בנוי כולו מ-CSS keyframes ו-SVG מוטבע — בלי תמונות, בלי ספריות, בלי canvas.",
+        "press.zip.p2": "כל צבע, רדיוס, צל וגופן הוא טוקן ב-<code>:root</code>, כך ש<strong>שורה אחת צובעת מחדש את כל האתר</strong>.",
+        "press.zip.p3": "CI/CD אמיתי לעמוד סטטי — <strong>צינור GitHub Actions Pages</strong> שמפרסם פריסת ארטיפקט בכל push, ומבטל ריצות שעדיין פועלות.",
+        "press.mill.line": "אפליקציות פנימיות מותאמות, תהליכים אוטומטיים וסוכני AI — נבנים סביב התהליך שהעסק כבר מפעיל.",
+        "press.mill.p1": "<strong>נגישות מתוכננת מראש, לא מולבשת בסוף</strong> — <code>aria-label</code> מתאר על תרשים התהליך כשה-SVG הדקורטיבי מוסתר מטכנולוגיות מסייעות, טבעות פוקוס גלויות לכל אורך האתר, וכל אנימציה מכובה במצב תנועה מופחתת.",
+        "press.mill.p2": "<strong>מערכת טוקנים סמנטית</strong> — דיו, נייר, וולט וירקן — מנהלת את כל המעבר בהיר/כהה של העמוד משני משתנים בלבד.",
+        "press.mill.p3": "תרשים התהליך המונפש הוא <strong>SVG מוטבע ושלוש קבוצות keyframes</strong> — בלי קבצי איור, בלי שום דבר להוריד.",
+        "press.qf.line": "קליטת הצעות מחיר לבעלי מקצוע — פנייה מונחית שמתחילה בתמונות וחוזרת כהיקף מובנה וטווח מחיר משוער.",
+        "press.qf.p1": "<strong>מערכת עיצוב מתועדת של 15 טוקנים</strong> — סקאלת כחול־נייבי מלאה בתוספת ענבר וירקן למצבי הצעת מחיר ואישור, כשמקטעים כהים הופכים את הפלטה.",
+        "press.qf.p2": "<strong>שמונה נקודות שבירה ברמת הרכיב</strong> — כל אחת מוצמדת לרכיב שזקוק לה במקום לרשת גלובלית אחת.",
+        "press.qf.p3": "<strong>שיפור הדרגתי שנשמר עד הסוף</strong> — כל הטקסט חי בתגיות, השאלות הנפוצות הן <code>&lt;details&gt;</code> מקוריים, וחשיפות ראש העמוד נורות בטעינה כדי ששום דבר מעל הקיפול לא יחכה לגלילה.",
         "split.cleanCode": "קוד נקי.",
         "split.beautiful": "ממשקים",
         "split.interfaces": "יפים.",
@@ -5253,6 +6286,47 @@
         "split.building": "Создаю",
         "split.beautifulThings": "красивые вещи.",
         "split.since2021": "С 2021 года.",
+        "nav.studio": "Студия",
+        "split.shipped": "Выпущено",
+        "split.onMyOwn": "В одиночку.",
+        "split.fiveProducts": "Пять продуктов.",
+        "press.label": "Самостоятельные проекты",
+        "press.meta": "Одна студия · четыре продукта · всё в одиночку",
+        "press.folio": "Форма",
+        "press.line.label": "Линейка",
+        "press.line.meta": "Четыре продукта · спроектированы, собраны и выпущены за 48 часов",
+        "press.live": "В сети",
+        "press.visit": "Открыть",
+        "press.source": "Исходники",
+        "press.foot": "Пять репозиториев · все открытые · все в сети",
+        "press.footLink": "Всё на GitHub ↗",
+        "press.chip.singleFile": "HTML в одном файле",
+        "press.chip.keyframes": "CSS-кейфреймы",
+        "press.chip.inlineSvg": "Встроенный SVG",
+        "press.chip.tokens": "Дизайн-токены",
+        "press.chip.designSystem": "Дизайн-система",
+        "press.chip.progressive": "Прогрессивное улучшение",
+        "press.nb.line": "AI-native студия разработки в Торонто — фиксированный объём, фиксированная цена, фиксированный срок. Продукты за 7–30 дней.",
+        "press.nb.p1": "Написанный вручную <strong>двуязычный слой EN/FR</strong> — 247 привязок перевода для текста, разметки, ARIA-меток и плейсхолдеров, сохраняемых в <code>localStorage</code>, с пересборкой мобильной таблицы сравнения при каждой смене языка.",
+        "press.nb.p2": "<strong>Бессерверный конвейер обратной связи</strong> на Vercel — Node-функция, отправляющая в Resend, с экранированием HTML по каждому полю и текстовым запасным телом письма.",
+        "press.nb.p3": "Перекрёстно связанный <strong>граф сущностей JSON-LD</strong>, sitemap, robots и полный набор иконок на 23 страницах и ~10 000 строк — <strong>ноль зависимостей, без сборки</strong>.",
+        "press.nb.p4": "Поставляется с собственным инструментарием агентов: <strong>семь написанных мной навыков Claude Code</strong>, которые ведут оценку клиентских задач, с шаблоном манифеста и стендом для проверок.",
+        "press.duebook.line": "Движок повторных клиентов для сервисного бизнеса — ранжирует, кому пора, и составляет напоминание, которое утверждает человек.",
+        "press.duebook.p1": "Логотип — это <strong>живой отрывной календарь</strong>: при загрузке он вписывает реальную сегодняшнюю дату в каждый экземпляр.",
+        "press.duebook.p2": "Два независимых <strong>IntersectionObserver</strong>: один для появления при прокрутке, другой анимирует полосу интервала каждой услуги до её собственного процента только при входе в экран.",
+        "press.duebook.p3": "<strong>Уменьшенная анимация — это ветка кода, а не media query</strong>: проверка <code>matchMedia</code> и тест поддержки сразу переводят элементы в конечное состояние, чтобы ничего не осталось спрятанным за анимацией, которая не запустится.",
+        "press.zip.line": "Локальный поиск клиентов по радиусу почтового индекса — находит бизнесы рядом, обогащает каждый лид и составляет первое письмо.",
+        "press.zip.p1": "<strong>Анимированный поиск по радиусу</strong> в шапке — это чистые CSS-кейфреймы и встроенный SVG: без изображений, библиотек и canvas.",
+        "press.zip.p2": "Каждый цвет, радиус, тень и шрифт — токен в <code>:root</code>, поэтому <strong>одна строка перекрашивает весь сайт</strong>.",
+        "press.zip.p3": "Настоящий CI/CD для статической страницы — <strong>конвейер GitHub Actions Pages</strong>, публикующий артефакт при каждом push и отменяющий незавершённые запуски.",
+        "press.mill.line": "Внутренние приложения под заказ, автоматизированные процессы и AI-агенты — вокруг процесса, который у бизнеса уже работает.",
+        "press.mill.p1": "<strong>Доступность заложена изначально, а не привинчена в конце</strong> — описательный <code>aria-label</code> на схеме процесса при скрытом от вспомогательных технологий декоративном SVG, видимые кольца фокуса по всему сайту и отключение всех анимаций при уменьшенной анимации.",
+        "press.mill.p2": "<strong>Семантическая система токенов</strong> — чернила, бумага, вольт и нефрит — управляет всем чередованием светлых и тёмных секций страницы из двух переменных.",
+        "press.mill.p3": "Анимированная схема процесса — это <strong>встроенный SVG и три набора кейфреймов</strong>: никаких иллюстраций, нечего загружать.",
+        "press.qf.line": "Приём заявок на смету для мастеров — пошаговый запрос, начинающийся с фотографий, который возвращается структурированным объёмом работ и ориентировочной вилкой.",
+        "press.qf.p1": "<strong>Задокументированная дизайн-система из 15 токенов</strong> — полная тёмно-синяя шкала плюс янтарный и нефритовый для состояний сметы и подтверждения, а тёмные секции инвертируют палитру.",
+        "press.qf.p2": "<strong>Восемь брейкпоинтов на уровне компонентов</strong> — каждый привязан к компоненту, которому нужен, а не к единой глобальной сетке.",
+        "press.qf.p3": "<strong>Прогрессивное улучшение доведено до конца</strong> — весь текст живёт в разметке, FAQ собран на нативных <code>&lt;details&gt;</code>, а появление шапки срабатывает при загрузке, поэтому ничто над сгибом не ждёт прокрутки.",
         "split.cleanCode": "Чистый код.",
         "split.beautiful": "Красивые",
         "split.interfaces": "интерфейсы.",
@@ -5411,6 +6485,47 @@
         "split.building": "Construindo",
         "split.beautifulThings": "coisas belas.",
         "split.since2021": "Desde 2021.",
+        "nav.studio": "Estúdio",
+        "split.shipped": "Lançado",
+        "split.onMyOwn": "Por minha conta.",
+        "split.fiveProducts": "Cinco produtos.",
+        "press.label": "Trabalho independente",
+        "press.meta": "Um estúdio · quatro produtos · feitos sozinha",
+        "press.folio": "Chapa",
+        "press.line.label": "A Linha",
+        "press.line.meta": "Quatro produtos · desenhados, construídos e lançados em 48 horas",
+        "press.live": "No ar",
+        "press.visit": "Visitar",
+        "press.source": "Código",
+        "press.foot": "Cinco repositórios · todos públicos · todos no ar",
+        "press.footLink": "Tudo no GitHub ↗",
+        "press.chip.singleFile": "HTML em ficheiro único",
+        "press.chip.keyframes": "Keyframes CSS",
+        "press.chip.inlineSvg": "SVG embutido",
+        "press.chip.tokens": "Tokens de design",
+        "press.chip.designSystem": "Design system",
+        "press.chip.progressive": "Melhoria progressiva",
+        "press.nb.line": "Um estúdio de software AI-native em Toronto — âmbito fixo, preço fixo, data fixa. Produtos construídos em 7 a 30 dias.",
+        "press.nb.p1": "Uma <strong>camada bilingue EN/FR</strong> feita à mão — 247 ligações de tradução em texto, marcação, rótulos ARIA e placeholders, guardadas em <code>localStorage</code>, com a tabela comparativa móvel reconstruída a cada mudança de idioma.",
+        "press.nb.p2": "Um <strong>pipeline de contacto serverless</strong> na Vercel — uma função Node que envia para a Resend, com escape de HTML campo a campo e um corpo alternativo em texto simples.",
+        "press.nb.p3": "Um <strong>grafo de entidades JSON-LD</strong> com referências cruzadas, sitemap, robots e conjunto completo de ícones em 23 páginas e ~10 000 linhas — <strong>zero dependências, sem passo de build</strong>.",
+        "press.nb.p4": "Traz o seu próprio instrumental de agentes: <strong>sete skills de Claude Code</strong> escritas por mim que conduzem o levantamento de âmbito com clientes, com modelo de manifesto e arnês de avaliação.",
+        "press.duebook.line": "Um motor de clientes recorrentes para negócios de serviços — ordena quem está em atraso e redige o lembrete para uma pessoa aprovar.",
+        "press.duebook.p1": "A marca é um <strong>calendário de folhas destacáveis vivo</strong> — o logótipo escreve a data real de hoje em cada instância ao carregar.",
+        "press.duebook.p2": "Dois <strong>IntersectionObservers</strong> independentes: um para as revelações ao rolar, outro que anima a barra de intervalo de cada serviço até à sua própria percentagem apenas à entrada.",
+        "press.duebook.p3": "<strong>Movimento reduzido é um caminho de código, não uma media query</strong> — uma verificação <code>matchMedia</code> e um teste de suporte saltam ambos para o estado final, para que nada fique escondido atrás de uma animação que nunca vai correr.",
+        "press.zip.line": "Prospeção local por raio de código postal — encontra os negócios próximos, enriquece cada lead e redige o primeiro e-mail.",
+        "press.zip.p1": "A <strong>pesquisa por raio animada</strong> do hero é puro CSS keyframes e SVG embutido — sem imagens, sem bibliotecas, sem canvas.",
+        "press.zip.p2": "Cada cor, raio, sombra e tipo de letra é um token de <code>:root</code>, por isso <strong>uma linha repinta o site inteiro</strong>.",
+        "press.zip.p3": "CI/CD a sério para uma página estática — um <strong>pipeline GitHub Actions Pages</strong> que publica um artefacto a cada push, cancelando execuções em curso.",
+        "press.mill.line": "Aplicações internas à medida, fluxos automatizados e agentes de IA — construídos em torno do processo que o negócio já usa.",
+        "press.mill.p1": "<strong>Acessibilidade pensada de raiz, não acrescentada no fim</strong> — um <code>aria-label</code> descritivo no diagrama de fluxo com o SVG decorativo escondido das tecnologias de apoio, anéis de foco visíveis em todo o lado e todas as animações desligadas em movimento reduzido.",
+        "press.mill.p2": "Um <strong>sistema de tokens semânticos</strong> — tinta, papel, volt e jade — comanda toda a alternância claro/escuro da página a partir de duas variáveis.",
+        "press.mill.p3": "O diagrama de fluxo animado é <strong>SVG embutido e três conjuntos de keyframes</strong> — sem ilustrações, nada para descarregar.",
+        "press.qf.line": "Receção de orçamentos para ofícios — um pedido guiado, com fotografias primeiro, que volta como âmbito estruturado e intervalo aproximado.",
+        "press.qf.p1": "Um <strong>design system documentado de 15 tokens</strong> — uma escala completa de azul-marinho mais âmbar e jade para os estados de orçamento e confirmação, com as secções escuras a inverter a paleta.",
+        "press.qf.p2": "<strong>Oito breakpoints ao nível do componente</strong> — cada um ligado ao componente que precisa dele em vez de a uma única grelha global.",
+        "press.qf.p3": "<strong>Melhoria progressiva levada até ao fim</strong> — todo o texto vive na marcação, as FAQ são <code>&lt;details&gt;</code> nativos, e as revelações do hero disparam ao carregar para que nada acima da dobra espere por um scroll.",
         "split.cleanCode": "Código limpo.",
         "split.beautiful": "Interfaces",
         "split.interfaces": "bonitas.",
@@ -5568,6 +6683,47 @@
         "split.building": "Створюю",
         "split.beautifulThings": "красиві речі.",
         "split.since2021": "З 2021 року.",
+        "nav.studio": "Студія",
+        "split.shipped": "Випущено",
+        "split.onMyOwn": "Самотужки.",
+        "split.fiveProducts": "П'ять продуктів.",
+        "press.label": "Самостійні проєкти",
+        "press.meta": "Одна студія · чотири продукти · усе самотужки",
+        "press.folio": "Форма",
+        "press.line.label": "Лінійка",
+        "press.line.meta": "Чотири продукти · спроєктовані, зібрані й випущені за 48 годин",
+        "press.live": "У мережі",
+        "press.visit": "Відкрити",
+        "press.source": "Код",
+        "press.foot": "П'ять репозиторіїв · усі відкриті · усі в мережі",
+        "press.footLink": "Усе на GitHub ↗",
+        "press.chip.singleFile": "HTML в одному файлі",
+        "press.chip.keyframes": "CSS-кейфрейми",
+        "press.chip.inlineSvg": "Вбудований SVG",
+        "press.chip.tokens": "Дизайн-токени",
+        "press.chip.designSystem": "Дизайн-система",
+        "press.chip.progressive": "Прогресивне покращення",
+        "press.nb.line": "AI-native студія розробки в Торонто — фіксований обсяг, фіксована ціна, фіксований термін. Продукти за 7–30 днів.",
+        "press.nb.p1": "Написаний вручну <strong>двомовний шар EN/FR</strong> — 247 прив'язок перекладу для тексту, розмітки, ARIA-міток і плейсхолдерів, збережених у <code>localStorage</code>, з перебудовою мобільної таблиці порівняння за кожної зміни мови.",
+        "press.nb.p2": "<strong>Безсерверний конвеєр зворотного зв'язку</strong> на Vercel — Node-функція, що надсилає до Resend, з екрануванням HTML для кожного поля та резервним текстовим тілом листа.",
+        "press.nb.p3": "Перехресно пов'язаний <strong>граф сутностей JSON-LD</strong>, sitemap, robots і повний набір іконок на 23 сторінках та ~10 000 рядків — <strong>нуль залежностей, без збірки</strong>.",
+        "press.nb.p4": "Постачається з власним інструментарієм агентів: <strong>сім написаних мною навичок Claude Code</strong>, які ведуть оцінку клієнтських задач, із шаблоном маніфесту та стендом перевірок.",
+        "press.duebook.line": "Рушій повторних клієнтів для сервісного бізнесу — ранжує, кому вже час, і складає нагадування, яке затверджує людина.",
+        "press.duebook.p1": "Логотип — це <strong>живий відривний календар</strong>: під час завантаження він вписує справжню сьогоднішню дату в кожен екземпляр.",
+        "press.duebook.p2": "Два незалежні <strong>IntersectionObserver</strong>: один для появи під час прокручування, інший анімує смугу інтервалу кожної послуги до її власного відсотка лише при вході в екран.",
+        "press.duebook.p3": "<strong>Зменшений рух — це гілка коду, а не media query</strong>: перевірка <code>matchMedia</code> й тест підтримки одразу переводять елементи в кінцевий стан, щоб ніщо не лишилося схованим за анімацією, яка не запуститься.",
+        "press.zip.line": "Локальний пошук клієнтів за радіусом поштового індексу — знаходить бізнеси поруч, збагачує кожен лід і складає перший лист.",
+        "press.zip.p1": "<strong>Анімований пошук за радіусом</strong> у шапці — це чисті CSS-кейфрейми і вбудований SVG: без зображень, бібліотек і canvas.",
+        "press.zip.p2": "Кожен колір, радіус, тінь і шрифт — токен у <code>:root</code>, тож <strong>один рядок перефарбовує весь сайт</strong>.",
+        "press.zip.p3": "Справжній CI/CD для статичної сторінки — <strong>конвеєр GitHub Actions Pages</strong>, що публікує артефакт за кожного push і скасовує незавершені запуски.",
+        "press.mill.line": "Внутрішні застосунки на замовлення, автоматизовані процеси та AI-агенти — навколо процесу, який у бізнесу вже працює.",
+        "press.mill.p1": "<strong>Доступність закладена від початку, а не пригвинчена наприкінці</strong> — описовий <code>aria-label</code> на схемі процесу за прихованого від допоміжних технологій декоративного SVG, видимі кільця фокуса по всьому сайту та вимкнення всіх анімацій за зменшеного руху.",
+        "press.mill.p2": "<strong>Семантична система токенів</strong> — чорнило, папір, вольт і нефрит — керує всім чергуванням світлих і темних секцій сторінки з двох змінних.",
+        "press.mill.p3": "Анімована схема процесу — це <strong>вбудований SVG і три набори кейфреймів</strong>: жодних ілюстрацій, нічого завантажувати.",
+        "press.qf.line": "Приймання заявок на кошторис для майстрів — покроковий запит, що починається з фотографій і повертається структурованим обсягом робіт та орієнтовною вилкою.",
+        "press.qf.p1": "<strong>Задокументована дизайн-система з 15 токенів</strong> — повна темно-синя шкала плюс бурштиновий і нефритовий для станів кошторису та підтвердження, а темні секції інвертують палітру.",
+        "press.qf.p2": "<strong>Вісім брейкпоїнтів на рівні компонентів</strong> — кожен прив'язаний до компонента, якому потрібен, а не до єдиної глобальної сітки.",
+        "press.qf.p3": "<strong>Прогресивне покращення доведене до кінця</strong> — увесь текст живе в розмітці, FAQ зібрано на нативних <code>&lt;details&gt;</code>, а поява шапки спрацьовує під час завантаження, тож ніщо над згином не чекає на прокручування.",
         "split.cleanCode": "Чистий код.",
         "split.beautiful": "Красиві",
         "split.interfaces": "інтерфейси.",
@@ -5725,6 +6881,47 @@
         "split.building": "构建",
         "split.beautifulThings": "美好的事物。",
         "split.since2021": "自 2021 年起。",
+        "nav.studio": "工作室",
+        "split.shipped": "已上线",
+        "split.onMyOwn": "独立完成。",
+        "split.fiveProducts": "五个产品。",
+        "press.label": "独立作品",
+        "press.meta": "一间工作室 · 四个产品 · 独立交付",
+        "press.folio": "印版",
+        "press.line.label": "产品线",
+        "press.line.meta": "四个产品 · 在 48 小时内完成设计、开发与上线",
+        "press.live": "已上线",
+        "press.visit": "访问",
+        "press.source": "源码",
+        "press.foot": "五个仓库 · 全部公开 · 全部在线",
+        "press.footLink": "在 GitHub 上查看全部 ↗",
+        "press.chip.singleFile": "单文件 HTML",
+        "press.chip.keyframes": "CSS 关键帧",
+        "press.chip.inlineSvg": "内联 SVG",
+        "press.chip.tokens": "设计令牌",
+        "press.chip.designSystem": "设计系统",
+        "press.chip.progressive": "渐进增强",
+        "press.nb.line": "多伦多的 AI 原生软件工作室——范围固定、价格固定、交付日期固定。产品在 7 到 30 天内完成。",
+        "press.nb.p1": "手写的<strong>英法双语层</strong>——247 处翻译绑定，覆盖文本、标记、ARIA 标签与占位符，状态存入 <code>localStorage</code>，每次切换语言时移动端对比表都会重新生成。",
+        "press.nb.p2": "部署在 Vercel 上的<strong>无服务器联系表单管道</strong>——一个向 Resend 投递的 Node 函数，逐字段做 HTML 转义，并附纯文本备用正文。",
+        "press.nb.p3": "带交叉引用的 <strong>JSON-LD 实体图谱</strong>，加上 sitemap、robots 与完整图标集，覆盖 23 个页面、约 10,000 行——<strong>零依赖，无构建步骤</strong>。",
+        "press.nb.p4": "自带 agent 工具链：<strong>七个我亲自编写的 Claude Code skill</strong>，用于客户需求界定，并配有清单模板与评测框架。",
+        "press.duebook.line": "面向服务型企业的回头客引擎——排出谁该回访了，并起草提醒邮件交由人工确认。",
+        "press.duebook.p1": "品牌标识是一本<strong>活的撕页日历</strong>——页面加载时，logo 会把今天的真实日期写进每一个实例。",
+        "press.duebook.p2": "两个彼此独立的 <strong>IntersectionObserver</strong>：一个负责滚动显现，另一个只在元素进入视口时才把每项服务的周期条动画到各自的百分比。",
+        "press.duebook.p3": "<strong>减弱动效是一条代码分支，而不是一条媒体查询</strong>——<code>matchMedia</code> 检测与特性检测都会直接跳到最终状态，绝不让内容藏在一个永远不会播放的动画后面。",
+        "press.zip.line": "按邮编半径做本地开发——找出附近的商家，补全每条线索，并起草第一封邮件。",
+        "press.zip.p1": "首屏的<strong>半径搜索动画</strong>完全由 CSS 关键帧和内联 SVG 实现——没有图片，没有第三方库，也没有 canvas。",
+        "press.zip.p2": "每一种颜色、圆角、阴影和字体都是 <code>:root</code> 上的令牌，因此<strong>改一行就能重绘整站</strong>。",
+        "press.zip.p3": "为一个静态页面做了真正的 CI/CD——<strong>GitHub Actions Pages 流水线</strong>在每次 push 时发布一份构建产物，并取消仍在进行的运行。",
+        "press.mill.line": "定制内部应用、自动化流程与 AI agent——围绕企业本就在跑的流程来搭建。",
+        "press.mill.p1": "<strong>无障碍是设计进去的，不是后期补上的</strong>——流程图带有描述性 <code>aria-label</code>，装饰性 SVG 对辅助技术隐藏，全站焦点环清晰可见，减弱动效时关闭所有动画。",
+        "press.mill.p2": "一套<strong>语义化令牌系统</strong>——墨、纸、电光与玉色——用两个变量驱动整个页面的明暗交替。",
+        "press.mill.p3": "会动的流程图由<strong>内联 SVG 和三组关键帧</strong>构成——没有插画素材，没有任何需要下载的东西。",
+        "press.qf.line": "面向施工工种的报价收集——一次以照片为先的引导式请求，返回结构化的工作范围和大致价格区间。",
+        "press.qf.p1": "一套<strong>有文档的 15 令牌设计系统</strong>——完整的藏青蓝色阶，加上用于报价与确认状态的琥珀色和玉色，深色区块会反转整个配色。",
+        "press.qf.p2": "<strong>八个按组件划分的断点</strong>——每个断点都挂在真正需要它的组件上，而不是挂在一张全局网格上。",
+        "press.qf.p3": "<strong>渐进增强贯彻到底</strong>——所有文案都写在标记里，FAQ 使用原生 <code>&lt;details&gt;</code>，首屏显现在 load 时触发，因此首屏内容不必等待滚动。",
         "split.cleanCode": "整洁代码。",
         "split.beautiful": "美观",
         "split.interfaces": "界面。",
@@ -5882,6 +7079,47 @@
         "split.building": "أبني",
         "split.beautifulThings": "أشياء جميلة.",
         "split.since2021": "منذ 2021.",
+        "nav.studio": "الاستوديو",
+        "split.shipped": "أُطلقت",
+        "split.onMyOwn": "بمفردي.",
+        "split.fiveProducts": "خمسة منتجات.",
+        "press.label": "عمل مستقل",
+        "press.meta": "استوديو واحد · أربعة منتجات · بمفردي",
+        "press.folio": "لوح",
+        "press.line.label": "الخط",
+        "press.line.meta": "أربعة منتجات · صُممت وبُنيت وأُطلقت خلال 48 ساعة",
+        "press.live": "مباشر",
+        "press.visit": "زيارة",
+        "press.source": "الكود",
+        "press.foot": "خمسة مستودعات · جميعها عامة · جميعها تعمل",
+        "press.footLink": "كل شيء على GitHub ↗",
+        "press.chip.singleFile": "HTML بملف واحد",
+        "press.chip.keyframes": "إطارات CSS",
+        "press.chip.inlineSvg": "SVG مضمَّن",
+        "press.chip.tokens": "رموز التصميم",
+        "press.chip.designSystem": "نظام تصميم",
+        "press.chip.progressive": "تحسين تدريجي",
+        "press.nb.line": "استوديو برمجيات قائم على الذكاء الاصطناعي في تورونتو — نطاق ثابت وسعر ثابت وموعد ثابت. منتجات تُبنى خلال 7 إلى 30 يومًا.",
+        "press.nb.p1": "<strong>طبقة ثنائية اللغة إنجليزي/فرنسي</strong> مكتوبة يدويًا — 247 ارتباط ترجمة عبر النصوص والوسوم وتسميات ARIA والنصوص النائبة، محفوظة في <code>localStorage</code>، مع إعادة بناء جدول المقارنة على الجوال عند كل تبديل للغة.",
+        "press.nb.p2": "<strong>مسار تواصل بلا خادم</strong> على Vercel — دالة Node ترسل إلى Resend، مع تهريب HTML لكل حقل ونسخة احتياطية بنص عادي.",
+        "press.nb.p3": "<strong>رسم بياني لكيانات JSON-LD</strong> بمراجع متقاطعة، وخريطة موقع، وrobots، وطقم أيقونات كامل عبر 23 صفحة و~10,000 سطر — <strong>بلا أي اعتماديات وبلا خطوة بناء</strong>.",
+        "press.nb.p4": "يأتي بأدوات وكلاء خاصة به: <strong>سبع مهارات Claude Code</strong> كتبتها بنفسي لتحديد نطاق العمل مع العملاء، مع قالب بيان ومنظومة تقييم.",
+        "press.duebook.line": "محرك للعملاء المتكررين لأعمال الخدمات — يرتّب من حان دوره، ويصيغ التذكير ليوافق عليه إنسان.",
+        "press.duebook.p1": "علامة المنتج هي <strong>تقويم ورقي حيّ</strong> — يكتب الشعار تاريخ اليوم الحقيقي في كل نسخة عند التحميل.",
+        "press.duebook.p2": "اثنان من <strong>IntersectionObservers</strong> مستقلين: أحدهما لظهور العناصر عند التمرير، والآخر يحرّك شريط الفترة لكل خدمة إلى نسبته الخاصة عند دخوله الشاشة فقط.",
+        "press.duebook.p3": "<strong>تقليل الحركة مسار في الكود لا استعلام وسائط</strong> — فحص <code>matchMedia</code> واختبار دعم الميزة كلاهما ينتقل مباشرة إلى الحالة النهائية، فلا يختفي شيء خلف حركة لن تعمل أبدًا.",
+        "press.zip.line": "استكشاف العملاء محليًا بنطاق الرمز البريدي — يجد الأعمال القريبة، ويثري كل عميل محتمل، ويصيغ أول رسالة.",
+        "press.zip.p1": "<strong>بحث النطاق المتحرك</strong> في الواجهة مبني بالكامل من إطارات CSS وSVG مضمَّن — بلا صور ولا مكتبات ولا canvas.",
+        "press.zip.p2": "كل لون ونصف قطر وظل وخط هو رمز في <code>:root</code>، لذا <strong>سطر واحد يعيد طلاء الموقع بأكمله</strong>.",
+        "press.zip.p3": "تكامل ونشر مستمر حقيقي لصفحة ثابتة — <strong>مسار GitHub Actions Pages</strong> ينشر نسخة عند كل دفعة، مع إلغاء التشغيلات الجارية.",
+        "press.mill.line": "تطبيقات داخلية مخصصة وتدفقات آلية ووكلاء ذكاء اصطناعي — مبنية حول العملية التي يديرها النشاط التجاري بالفعل.",
+        "press.mill.p1": "<strong>إتاحة الوصول مصممة من الأساس لا مضافة لاحقًا</strong> — <code>aria-label</code> وصفي على مخطط سير العمل مع إخفاء الـSVG الزخرفي عن التقنيات المساعدة، وحلقات تركيز مرئية في كل مكان، وتعطيل كل حركة عند تقليل الحركة.",
+        "press.mill.p2": "<strong>نظام رموز دلالي</strong> — حبر وورق وفولت ويشم — يقود تناوب الفاتح والداكن في الصفحة كلها من متغيّرين اثنين.",
+        "press.mill.p3": "مخطط سير العمل المتحرك هو <strong>SVG مضمَّن وثلاث مجموعات إطارات</strong> — بلا ملفات رسوم وبلا أي شيء يُحمَّل.",
+        "press.qf.line": "استقبال طلبات التسعير للحرفيين — طلب موجَّه يبدأ بالصور ويعود بنطاق عمل منظَّم ونطاق سعر تقريبي.",
+        "press.qf.p1": "<strong>نظام تصميم موثَّق من 15 رمزًا</strong> — تدرّج كامل من الأزرق الداكن إضافة إلى الكهرماني واليشمي لحالات التسعير والتأكيد، مع أقسام داكنة تعكس لوحة الألوان.",
+        "press.qf.p2": "<strong>ثماني نقاط توقف على مستوى المكوّن</strong> — كل واحدة مرتبطة بالمكوّن الذي يحتاجها بدل شبكة عامة واحدة.",
+        "press.qf.p3": "<strong>تحسين تدريجي منفَّذ حتى النهاية</strong> — كل النصوص موجودة في الوسوم، والأسئلة الشائعة تستخدم <code>&lt;details&gt;</code> الأصلي، وظهور الواجهة يبدأ عند التحميل فلا ينتظر شيء فوق الطية حدوث تمرير.",
         "split.cleanCode": "كود نظيف.",
         "split.beautiful": "واجهات",
         "split.interfaces": "جميلة.",
