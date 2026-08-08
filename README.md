@@ -72,7 +72,7 @@ Open `http://localhost:8000` and you're running the production site.
 
 ---
 
-## ✦ Customising
+## ✦ Customizing
 
 **Adding a new language** — extend the `i18n` object in the inline `<script>` near the bottom of `index.html`:
 
