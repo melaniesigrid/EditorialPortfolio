@@ -7847,6 +7847,197 @@
       applyLang(initial);
     })();
   </script>
+<!-- ══ ANALYTICS ═══════════════════════════════════════════════════════════
+     GA4 plus engagement events: CTA/outbound/contact clicks, scroll depth,
+     and section views.
+
+     >>> SET THE MEASUREMENT ID BELOW. <<<
+     Until it is a real G-XXXX id the whole block no-ops: no network request
+     is made and no event is sent, so shipping it un-configured is harmless.
+
+     Exposes window.track(name, params) for page-specific events.
+════════════════════════════════════════════════════════════════════════ -->
+<script>
+  window.__ANALYTICS__ = { id: 'G-YEJYPBLXDV', site: 'portfolio' };
+</script>
+<script>
+  (function () {
+    'use strict';
+    var CFG = window.__ANALYTICS__ || {};
+    var ID = CFG.id || '';
+    // A real GA4 id looks like G-ABCDE12345. Anything else disables the block.
+    var READY = /^G-[A-Z0-9]{6,}$/.test(ID) && ID.indexOf('REPLACE') === -1;
+
+    window.dataLayer = window.dataLayer || [];
+    if (typeof window.gtag !== 'function') {
+      window.gtag = function () { window.dataLayer.push(arguments); };
+    }
+
+    // Load gtag.js only when configured, and only if some other block on the
+    // page has not already loaded it (the portfolio and Northbound have their
+    // own loader — this module then just adds the event layer on top).
+    if (READY && !document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+      document.head.appendChild(s);
+      window.gtag('js', new Date());
+      window.gtag('config', ID);
+    }
+
+    function track(name, params) {
+      if (!READY) return;
+      try { window.gtag('event', name, params || {}); } catch (e) { /* never break the page */ }
+    }
+    window.track = track;
+
+    function hostOf(u) { try { return new URL(u, location.href).host; } catch (e) { return ''; } }
+    function labelOf(el) { return (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 80); }
+
+    /* ── Clicks: explicit data-evt first, then contact / booking / outbound ── */
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      var el = t.closest('a,[data-evt]');
+      if (!el) return;
+
+      var custom = el.getAttribute('data-evt');
+      if (custom) {
+        track(custom, { label: el.getAttribute('data-evt-label') || labelOf(el) });
+        return;
+      }
+
+      var href = el.getAttribute('href') || '';
+      var label = labelOf(el);
+      if (/^mailto:/i.test(href)) { track('contact_click', { method: 'email', label: label }); return; }
+      if (/^tel:/i.test(href)) { track('contact_click', { method: 'phone', label: label }); return; }
+      if (/cal\.com|calendly/i.test(href)) { track('cta_click', { cta: 'book_call', label: label }); return; }
+      if (/^https?:/i.test(href)) {
+        var h = hostOf(href);
+        if (h && h !== location.host) {
+          track('outbound_click', { domain: h, url: href, label: label });
+        }
+      }
+    }, true);
+
+    /* ── Scroll depth: 25/50/75/100, each fired once ── */
+    var MARKS = [25, 50, 75, 100], hit = {};
+    function depth() {
+      var doc = document.documentElement, body = document.body;
+      var full = Math.max(doc.scrollHeight, body.scrollHeight) - window.innerHeight;
+      if (full <= 0) return;
+      var pct = Math.min(100, Math.round((window.pageYOffset / full) * 100));
+      for (var i = 0; i < MARKS.length; i++) {
+        var m = MARKS[i];
+        if (pct >= m && !hit[m]) { hit[m] = 1; track('scroll_depth', { percent: m }); }
+      }
+    }
+    function throttle(fn, ms) {
+      var last = 0, timer = null;
+      return function () {
+        var now = Date.now();
+        if (now - last >= ms) { last = now; fn(); }
+        else { clearTimeout(timer); timer = setTimeout(function () { last = Date.now(); fn(); }, ms); }
+      };
+    }
+    window.addEventListener('scroll', throttle(depth, 300), { passive: true });
+
+    /* ── Section views: which parts of the page actually get seen ── */
+    if ('IntersectionObserver' in window) {
+      var seen = {};
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var en = entries[i];
+          if (!en.isIntersecting) continue;
+          var id = en.target.id || en.target.getAttribute('data-section');
+          if (!id || seen[id]) continue;
+          seen[id] = 1;
+          track('section_view', { section: id });
+        }
+      }, { threshold: 0.35 });
+      var nodes = document.querySelectorAll('section[id],[data-section]');
+      for (var i = 0; i < nodes.length; i++) io.observe(nodes[i]);
+    }
+  })();
+</script>
+
+<!-- ══ PORTFOLIO-SPECIFIC EVENTS ═══════════════════════════════════════════
+     Which projects recruiters actually engage with, which language they read
+     the site in, and whether the contact form converts.
+════════════════════════════════════════════════════════════════════════ -->
+<script>
+  (function () {
+    'use strict';
+    var track = window.track || function () {};
+
+    function plateName(el) {
+      var plate = el.closest && el.closest('.plate');
+      if (!plate) return '';
+      var n = plate.querySelector('.plate-name');
+      return n ? n.textContent.trim() : '';
+    }
+
+    /* Project plate clicks — which project, and visit vs source. */
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      var link = t.closest('.plate-link,.plate-name-link');
+      if (!link) return;
+      var name = plateName(link);
+      if (!name) return;
+      var kind = link.classList.contains('plate-name-link')
+        ? 'title'
+        : ((link.textContent || '').trim().toLowerCase().indexOf('source') > -1 ? 'source' : 'visit');
+      track('project_click', { project: name, link_kind: kind });
+    }, true);
+
+    /* Plate dwell — a hover held past 1s counts as real interest, so idle
+       pointer drift across the spread doesn't flood the report. */
+    var timers = new WeakMap(), dwelt = {};
+    document.querySelectorAll('.plate').forEach(function (plate) {
+      plate.addEventListener('mouseenter', function () {
+        timers.set(plate, setTimeout(function () {
+          var n = plate.querySelector('.plate-name');
+          var name = n ? n.textContent.trim() : '';
+          if (!name || dwelt[name]) return;
+          dwelt[name] = 1;
+          track('project_hover', { project: name });
+        }, 1000));
+      });
+      plate.addEventListener('mouseleave', function () {
+        clearTimeout(timers.get(plate));
+      });
+    });
+
+    /* Language switcher — tells you which translations are earning their keep. */
+    document.querySelectorAll('[data-lang-set]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        track('language_change', { language: btn.getAttribute('data-lang-set') });
+      });
+    });
+
+    /* Contact form — submit attempt is the conversion that matters here. */
+    var form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', function () {
+        track('generate_lead', { form: 'contact', method: 'formspree' });
+      });
+    }
+
+    /* Resume/CV and profile links out. */
+    document.querySelectorAll('a[href*="linkedin"],a[href*="github"],a[href*="medium"],a[href*="wellfound"]')
+      .forEach(function (a) {
+        a.addEventListener('click', function () {
+          track('profile_click', { network: (a.getAttribute('href') || '').replace(/^https?:\/\//, '').split('/')[0] });
+        });
+      });
+  })();
+</script>
+
+<!-- Vercel Web Analytics + Speed Insights (real-user Core Web Vitals).
+     Both 404 harmlessly until enabled on the project in the Vercel dashboard. -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 
 </html>
