@@ -4400,13 +4400,13 @@
   <div class="big-section dark" data-splits="">
     <span class="spl"><span class="spl-in light" data-i18n="split.shipped">Shipped</span></span>
     <span class="spl"><span class="spl-in serif red" data-i18n="split.onMyOwn">On my own.</span></span>
-    <span class="spl"><span class="spl-in ghost-d" data-i18n="split.fiveProducts">Five products.</span></span>
+    <span class="spl"><span class="spl-in ghost-d" data-i18n="split.fiveProducts">Nine projects.</span></span>
   </div>
   <!-- ══ THE PRESS RUN — INDEPENDENT WORK ════════════════════════════════ -->
   <section class="press" id="studio">
     <div class="press-header">
       <div class="press-label" data-i18n="press.label">Independent Work</div>
-      <div class="press-meta" data-i18n="press.meta">One studio · four products · shipped solo</div>
+      <div class="press-meta" data-i18n="press.meta">One studio · eight projects · shipped solo</div>
     </div>
 
     <!-- ── PLATE 01 · NORTHBOUND (hero) ── -->
@@ -4631,8 +4631,182 @@
       </article>
     </div>
 
+    <!-- ── THE WORKSHOP · engines, simulations, client work ── -->
+    <div class="press-line-head">
+      <div class="press-line-label" data-i18n="press.workshop.label">The Workshop</div>
+      <div class="press-meta" data-i18n="press.workshop.meta">Four projects · engines, simulations and client work
+      </div>
+    </div>
+    <div class="press-line-grid">
+
+      <!-- ── PLATE 06 · LASKA ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">06</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://playlaska.com/" rel="noopener"
+              target="_blank">Laska</a></h3>
+          <p class="plate-line" data-i18n="press.laska.line">Emanuel Lasker's 1911 column-capturing draughts, rebuilt
+            as a full-stack TypeScript game with its own engine and opponent AI.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.laska.p1">One <strong>zero-dependency rules engine</strong> is imported verbatim
+              by both the React client and the authoritative game server, so the two can never disagree about what a
+              legal move is.</li>
+            <li data-i18n-html="press.laska.p2">The opponent runs <strong>negamax with alpha-beta pruning and
+                quiescence search</strong> over a column-aware evaluation, across six difficulty tiers.</li>
+            <li data-i18n-html="press.laska.p3"><strong>130+ tests</strong>, a Playwright end-to-end suite and CI on
+              GitHub Actions — and the engine is validated by replaying <strong>Lasker's own 1911 games</strong> on
+              every import.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">TypeScript</span>
+            <span class="plate-chip">React</span>
+            <span class="plate-chip">Vite</span>
+            <span class="plate-chip">Node</span>
+            <span class="plate-chip">Playwright</span>
+            <span class="plate-chip">GitHub Actions</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://playlaska.com/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/Laska" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 07 · EMERGENCE ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">07</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/emergence/"
+              rel="noopener" target="_blank">Emergence</a></h3>
+          <p class="plate-line" data-i18n="press.emergence.line">A particle-life simulator where membranes, chasers,
+            oscillators and galaxies emerge from nothing but an N×N attraction matrix.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.emergence.p1"><strong>Eleven behavioural archetypes</strong> identified and
+              formally classified, each with a real-time computational detector that names the pattern as it forms.</li>
+            <li data-i18n-html="press.emergence.p2">Written against <strong>raw canvas with typed arrays</strong> and
+              an O(N) spatial hash for neighbour lookup, so thousands of particles stay smooth.</li>
+            <li data-i18n-html="press.emergence.p3">No framework, no build step, no dependencies — every line of the
+              simulation is hand-written.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">JavaScript</span>
+            <span class="plate-chip">Canvas</span>
+            <span class="plate-chip" data-i18n="press.chip.typedArrays">Typed Arrays</span>
+            <span class="plate-chip" data-i18n="press.chip.spatialHash">Spatial Hashing</span>
+            <span class="plate-chip">GitHub Pages</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/emergence/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/emergence" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 08 · OUTFITORACLE ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">08</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://github.com/melaniesigrid/OutfitOracle"
+              rel="noopener" target="_blank">OutfitOracle</a></h3>
+          <p class="plate-line" data-i18n="press.oracle.line">A weather-powered styling app — it reads live conditions
+            for any city and returns a structured outfit verdict.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.oracle.p1">Cross-platform <strong>React Native</strong> (Expo, TypeScript 5.3)
+              for iOS and Android from a single codebase.</li>
+            <li data-i18n-html="press.oracle.p2">Geocodes any city through Open-Meteo, then passes the live conditions
+              to the <strong>Claude API</strong> for a structured verdict rather than free text.</li>
+            <li data-i18n-html="press.oracle.p3">Built around a <strong>state-machine hook</strong> for the fetch
+              lifecycle, with AsyncStorage persistence and native-driver entrance animations.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">React Native</span>
+            <span class="plate-chip">Expo</span>
+            <span class="plate-chip">TypeScript</span>
+            <span class="plate-chip">Claude API</span>
+            <span class="plate-chip">Open-Meteo</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status quiet" data-i18n="press.mobileApp">iOS · Android</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://github.com/melaniesigrid/OutfitOracle" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 09 · MONTECASINO ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">09</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link"
+              href="https://melaniesigrid.github.io/Montecasino_Restaurant/" rel="noopener"
+              target="_blank">Montecasino</a></h3>
+          <p class="plate-line" data-i18n="press.monte.line">My first paid client project — a Spanish-language
+            restaurant, hotel and event venue, taken from brief to launch.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.monte.p1">A multi-page marketing and menu site built in <strong>HTML5, SASS and
+                vanilla JavaScript</strong>, before any framework was involved.</li>
+            <li data-i18n-html="press.monte.p2">Shipped with a sitemap, robots.txt and <strong>documented SEO
+                guidelines</strong> handed over to the owner.</li>
+            <li data-i18n-html="press.monte.p3">Worked directly with the owner <strong>in Spanish</strong>, from the
+              first brief through to launch.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">HTML5</span>
+            <span class="plate-chip">SASS</span>
+            <span class="plate-chip">JavaScript</span>
+            <span class="plate-chip">SEO</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/Montecasino_Restaurant/" rel="noopener"
+                target="_blank" data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/Montecasino_Restaurant" rel="noopener"
+                target="_blank" data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
     <div class="press-foot">
-      <span data-i18n="press.foot">Five repositories · all public · all live</span>
+      <span data-i18n="press.foot">Nine repositories · all public · eight live</span>
       <a href="https://github.com/melaniesigrid" rel="noopener" target="_blank"
         data-i18n="press.footLink">Everything on GitHub ↗</a>
     </div>
@@ -5343,16 +5517,37 @@
       "nav.studio": "Studio",
       "split.shipped": "Shipped",
       "split.onMyOwn": "On my own.",
-      "split.fiveProducts": "Five products.",
+      "split.fiveProducts": "Nine projects.",
       "press.label": "Independent Work",
-      "press.meta": "One studio · four products · shipped solo",
+      "press.meta": "One studio · eight projects · shipped solo",
       "press.folio": "Plate",
+      "press.workshop.label": "The Workshop",
+      "press.workshop.meta": "Four projects · engines, simulations and client work",
+      "press.mobileApp": "iOS · Android",
+      "press.chip.typedArrays": "Typed Arrays",
+      "press.chip.spatialHash": "Spatial Hashing",
+      "press.laska.line": "Emanuel Lasker's 1911 column-capturing draughts, rebuilt as a full-stack TypeScript game with its own engine and opponent AI.",
+      "press.laska.p1": "One <strong>zero-dependency rules engine</strong> is imported verbatim by both the React client and the authoritative game server, so the two can never disagree about what a legal move is.",
+      "press.laska.p2": "The opponent runs <strong>negamax with alpha-beta pruning and quiescence search</strong> over a column-aware evaluation, across six difficulty tiers.",
+      "press.laska.p3": "<strong>130+ tests</strong>, a Playwright end-to-end suite and CI on GitHub Actions — and the engine is validated by replaying <strong>Lasker's own 1911 games</strong> on every import.",
+      "press.emergence.line": "A particle-life simulator where membranes, chasers, oscillators and galaxies emerge from nothing but an N×N attraction matrix.",
+      "press.emergence.p1": "<strong>Eleven behavioural archetypes</strong> identified and formally classified, each with a real-time computational detector that names the pattern as it forms.",
+      "press.emergence.p2": "Written against <strong>raw canvas with typed arrays</strong> and an O(N) spatial hash for neighbour lookup, so thousands of particles stay smooth.",
+      "press.emergence.p3": "No framework, no build step, no dependencies — every line of the simulation is hand-written.",
+      "press.oracle.line": "A weather-powered styling app — it reads live conditions for any city and returns a structured outfit verdict.",
+      "press.oracle.p1": "Cross-platform <strong>React Native</strong> (Expo, TypeScript 5.3) for iOS and Android from a single codebase.",
+      "press.oracle.p2": "Geocodes any city through Open-Meteo, then passes the live conditions to the <strong>Claude API</strong> for a structured verdict rather than free text.",
+      "press.oracle.p3": "Built around a <strong>state-machine hook</strong> for the fetch lifecycle, with AsyncStorage persistence and native-driver entrance animations.",
+      "press.monte.line": "My first paid client project — a Spanish-language restaurant, hotel and event venue, taken from brief to launch.",
+      "press.monte.p1": "A multi-page marketing and menu site built in <strong>HTML5, SASS and vanilla JavaScript</strong>, before any framework was involved.",
+      "press.monte.p2": "Shipped with a sitemap, robots.txt and <strong>documented SEO guidelines</strong> handed over to the owner.",
+      "press.monte.p3": "Worked directly with the owner <strong>in Spanish</strong>, from the first brief through to launch.",
       "press.line.label": "The Line",
       "press.line.meta": "Four products · designed, built and shipped inside 48 hours",
       "press.live": "Live",
       "press.visit": "Visit",
       "press.source": "Source",
-      "press.foot": "Five repositories · all public · all live",
+      "press.foot": "Nine repositories · all public · eight live",
       "press.footLink": "Everything on GitHub ↗",
       "press.chip.singleFile": "Single-File HTML",
       "press.chip.keyframes": "CSS Keyframes",
@@ -5549,16 +5744,37 @@
         "nav.studio": "Estudio",
         "split.shipped": "Lanzado",
         "split.onMyOwn": "Por mi cuenta.",
-        "split.fiveProducts": "Cinco productos.",
+        "split.fiveProducts": "Nueve proyectos.",
         "press.label": "Trabajo independiente",
-        "press.meta": "Un estudio · cuatro productos · en solitario",
+        "press.meta": "Un estudio · ocho proyectos · en solitario",
         "press.folio": "Lámina",
+        "press.workshop.label": "El Taller",
+        "press.workshop.meta": "Cuatro proyectos · motores, simulaciones y trabajo para clientes",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "Typed Arrays",
+        "press.chip.spatialHash": "Hash espacial",
+        "press.laska.line": "Las damas de captura por columnas de Emanuel Lasker (1911), reconstruidas como un juego full-stack en TypeScript con motor propio e IA rival.",
+        "press.laska.p1": "Un único <strong>motor de reglas sin dependencias</strong> que importan literalmente tanto el cliente React como el servidor autoritativo, así que jamás pueden discrepar sobre qué jugada es legal.",
+        "press.laska.p2": "El rival usa <strong>negamax con poda alfa-beta y búsqueda de quiescencia</strong> sobre una evaluación consciente de las columnas, en seis niveles de dificultad.",
+        "press.laska.p3": "<strong>Más de 130 pruebas</strong>, una suite end-to-end con Playwright y CI en GitHub Actions; además el motor se valida repitiendo <strong>las propias partidas de Lasker de 1911</strong> en cada importación.",
+        "press.emergence.line": "Un simulador de vida de partículas donde membranas, perseguidores, osciladores y galaxias emergen de nada más que una matriz de atracción N×N.",
+        "press.emergence.p1": "<strong>Once arquetipos de comportamiento</strong> identificados y clasificados formalmente, cada uno con un detector computacional en tiempo real que nombra el patrón mientras se forma.",
+        "press.emergence.p2": "Escrito directamente sobre canvas con <strong>typed arrays</strong> y un hash espacial O(N) para buscar vecinos, de modo que miles de partículas siguen fluidas.",
+        "press.emergence.p3": "Sin framework, sin paso de build, sin dependencias: cada línea de la simulación está escrita a mano.",
+        "press.oracle.line": "Una app de estilismo impulsada por el clima: lee las condiciones en vivo de cualquier ciudad y devuelve un veredicto de vestuario estructurado.",
+        "press.oracle.p1": "<strong>React Native</strong> multiplataforma (Expo, TypeScript 5.3) para iOS y Android desde una sola base de código.",
+        "press.oracle.p2": "Geocodifica cualquier ciudad con Open-Meteo y pasa las condiciones en vivo a la <strong>API de Claude</strong> para obtener un veredicto estructurado en vez de texto libre.",
+        "press.oracle.p3": "Construida sobre un <strong>hook de máquina de estados</strong> para el ciclo de carga, con persistencia en AsyncStorage y animaciones de entrada con native driver.",
+        "press.monte.line": "Mi primer proyecto pagado: un restaurante, hotel y salón de eventos en español, llevado desde el brief hasta el lanzamiento.",
+        "press.monte.p1": "Un sitio de marketing y menú de varias páginas hecho en <strong>HTML5, SASS y JavaScript puro</strong>, antes de que hubiera framework alguno.",
+        "press.monte.p2": "Entregado con sitemap, robots.txt y <strong>guías de SEO documentadas</strong> para el propietario.",
+        "press.monte.p3": "Trabajé directamente con el dueño <strong>en español</strong>, desde el primer brief hasta el lanzamiento.",
         "press.line.label": "La Línea",
         "press.line.meta": "Cuatro productos · diseñados, construidos y lanzados en 48 horas",
         "press.live": "Activo",
         "press.visit": "Visitar",
         "press.source": "Código",
-        "press.foot": "Cinco repositorios · todos públicos · todos activos",
+        "press.foot": "Nueve repositorios · todos públicos · ocho activos",
         "press.footLink": "Todo en GitHub ↗",
         "press.chip.singleFile": "HTML de un solo archivo",
         "press.chip.keyframes": "Keyframes CSS",
@@ -5750,16 +5966,37 @@
         "nav.studio": "Studio",
         "split.shipped": "Ausgeliefert",
         "split.onMyOwn": "Im Alleingang.",
-        "split.fiveProducts": "Fünf Produkte.",
+        "split.fiveProducts": "Neun Projekte.",
         "press.label": "Eigenständige Arbeit",
-        "press.meta": "Ein Studio · vier Produkte · im Alleingang",
+        "press.meta": "Ein Studio · acht Projekte · im Alleingang",
         "press.folio": "Druckplatte",
+        "press.workshop.label": "Die Werkstatt",
+        "press.workshop.meta": "Vier Projekte · Engines, Simulationen und Kundenarbeit",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "Typed Arrays",
+        "press.chip.spatialHash": "Spatial Hashing",
+        "press.laska.line": "Emanuel Laskers Spaltenschlag-Damespiel von 1911, neu gebaut als Full-Stack-TypeScript-Spiel mit eigener Engine und Gegner-KI.",
+        "press.laska.p1": "Eine einzige <strong>abhängigkeitsfreie Regel-Engine</strong>, die der React-Client und der autoritative Spielserver wortgleich importieren — beide können sich also nie darüber uneinig sein, welcher Zug legal ist.",
+        "press.laska.p2": "Der Gegner rechnet mit <strong>Negamax, Alpha-Beta-Pruning und Quiescence-Suche</strong> über eine spaltenbewusste Bewertung, in sechs Schwierigkeitsstufen.",
+        "press.laska.p3": "<strong>130+ Tests</strong>, eine Playwright-End-to-End-Suite und CI auf GitHub Actions — und die Engine wird validiert, indem sie bei jedem Import <strong>Laskers eigene Partien von 1911</strong> nachspielt.",
+        "press.emergence.line": "Ein Particle-Life-Simulator, in dem Membranen, Jäger, Oszillatoren und Galaxien aus nichts als einer N×N-Anziehungsmatrix entstehen.",
+        "press.emergence.p1": "<strong>Elf Verhaltens-Archetypen</strong> identifiziert und formal klassifiziert, jeder mit einem Echtzeit-Detektor, der das Muster benennt, während es entsteht.",
+        "press.emergence.p2": "Direkt auf rohem Canvas mit <strong>Typed Arrays</strong> geschrieben, mit einem O(N)-Spatial-Hash für die Nachbarsuche — so bleiben Tausende Partikel flüssig.",
+        "press.emergence.p3": "Kein Framework, kein Build-Schritt, keine Abhängigkeiten — jede Zeile der Simulation ist handgeschrieben.",
+        "press.oracle.line": "Eine wettergestützte Styling-App — sie liest die aktuellen Bedingungen jeder Stadt und liefert ein strukturiertes Outfit-Urteil.",
+        "press.oracle.p1": "Plattformübergreifendes <strong>React Native</strong> (Expo, TypeScript 5.3) für iOS und Android aus einer einzigen Codebasis.",
+        "press.oracle.p2": "Geocodiert jede Stadt über Open-Meteo und übergibt die Live-Bedingungen an die <strong>Claude-API</strong> — für ein strukturiertes Urteil statt Freitext.",
+        "press.oracle.p3": "Gebaut um einen <strong>State-Machine-Hook</strong> für den Fetch-Lebenszyklus, mit AsyncStorage-Persistenz und Native-Driver-Einstiegsanimationen.",
+        "press.monte.line": "Mein erstes bezahltes Kundenprojekt — ein spanischsprachiges Restaurant, Hotel und Veranstaltungshaus, vom Briefing bis zum Launch.",
+        "press.monte.p1": "Eine mehrseitige Marketing- und Menüseite in <strong>HTML5, SASS und reinem JavaScript</strong>, noch ganz ohne Framework.",
+        "press.monte.p2": "Ausgeliefert mit Sitemap, robots.txt und <strong>dokumentierten SEO-Richtlinien</strong> für den Inhaber.",
+        "press.monte.p3": "Direkt mit dem Inhaber <strong>auf Spanisch</strong> gearbeitet, vom ersten Briefing bis zum Launch.",
         "press.line.label": "Die Reihe",
         "press.line.meta": "Vier Produkte · entworfen, gebaut und in 48 Stunden ausgeliefert",
         "press.live": "Live",
         "press.visit": "Ansehen",
         "press.source": "Quellcode",
-        "press.foot": "Fünf Repositories · alle öffentlich · alle live",
+        "press.foot": "Neun Repositories · alle öffentlich · acht live",
         "press.footLink": "Alles auf GitHub ↗",
         "press.chip.singleFile": "Einzeldatei-HTML",
         "press.chip.keyframes": "CSS-Keyframes",
@@ -5951,16 +6188,37 @@
         "nav.studio": "Studio",
         "split.shipped": "Livré",
         "split.onMyOwn": "En solo.",
-        "split.fiveProducts": "Cinq produits.",
+        "split.fiveProducts": "Neuf projets.",
         "press.label": "Travail indépendant",
-        "press.meta": "Un studio · quatre produits · livrés en solo",
+        "press.meta": "Un studio · huit projets · en solo",
         "press.folio": "Planche",
+        "press.workshop.label": "L'Atelier",
+        "press.workshop.meta": "Quatre projets · moteurs, simulations et travail client",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "Typed Arrays",
+        "press.chip.spatialHash": "Hachage spatial",
+        "press.laska.line": "Le jeu de dames à capture en colonnes d'Emanuel Lasker (1911), reconstruit en jeu TypeScript full-stack avec son propre moteur et son IA adverse.",
+        "press.laska.p1": "Un seul <strong>moteur de règles sans dépendances</strong>, importé tel quel par le client React et par le serveur de jeu autoritaire — les deux ne peuvent donc jamais diverger sur la légalité d'un coup.",
+        "press.laska.p2": "L'adversaire tourne en <strong>negamax avec élagage alpha-bêta et recherche de quiescence</strong> sur une évaluation tenant compte des colonnes, sur six niveaux de difficulté.",
+        "press.laska.p3": "<strong>Plus de 130 tests</strong>, une suite end-to-end Playwright et de la CI sur GitHub Actions — et le moteur est validé en rejouant <strong>les parties de Lasker de 1911</strong> à chaque import.",
+        "press.emergence.line": "Un simulateur de vie particulaire où membranes, poursuiveurs, oscillateurs et galaxies émergent de rien d'autre qu'une matrice d'attraction N×N.",
+        "press.emergence.p1": "<strong>Onze archétypes de comportement</strong> identifiés et formellement classés, chacun doté d'un détecteur temps réel qui nomme le motif à mesure qu'il se forme.",
+        "press.emergence.p2": "Écrit directement sur canvas avec des <strong>typed arrays</strong> et un hachage spatial en O(N) pour la recherche de voisins, afin que des milliers de particules restent fluides.",
+        "press.emergence.p3": "Aucun framework, aucune étape de build, aucune dépendance — chaque ligne de la simulation est écrite à la main.",
+        "press.oracle.line": "Une application de style pilotée par la météo — elle lit les conditions en direct de n'importe quelle ville et rend un verdict vestimentaire structuré.",
+        "press.oracle.p1": "<strong>React Native</strong> multiplateforme (Expo, TypeScript 5.3) pour iOS et Android depuis une seule base de code.",
+        "press.oracle.p2": "Géocode n'importe quelle ville via Open-Meteo, puis transmet les conditions en direct à l'<strong>API Claude</strong> pour un verdict structuré plutôt qu'un texte libre.",
+        "press.oracle.p3": "Construite autour d'un <strong>hook machine à états</strong> pour le cycle de chargement, avec persistance AsyncStorage et animations d'entrée en native driver.",
+        "press.monte.line": "Mon tout premier projet client rémunéré — un restaurant, hôtel et salle d'événements hispanophone, mené du brief au lancement.",
+        "press.monte.p1": "Un site vitrine et menu multi-pages en <strong>HTML5, SASS et JavaScript pur</strong>, avant tout framework.",
+        "press.monte.p2": "Livré avec un sitemap, un robots.txt et des <strong>consignes SEO documentées</strong> remises au propriétaire.",
+        "press.monte.p3": "Travail direct avec le propriétaire <strong>en espagnol</strong>, du premier brief jusqu'au lancement.",
         "press.line.label": "La Gamme",
         "press.line.meta": "Quatre produits · conçus, construits et livrés en 48 heures",
         "press.live": "En ligne",
         "press.visit": "Visiter",
         "press.source": "Code source",
-        "press.foot": "Cinq dépôts · tous publics · tous en ligne",
+        "press.foot": "Neuf dépôts · tous publics · huit en ligne",
         "press.footLink": "Tout sur GitHub ↗",
         "press.chip.singleFile": "HTML en un fichier",
         "press.chip.keyframes": "Keyframes CSS",
@@ -6152,16 +6410,37 @@
         "nav.studio": "סטודיו",
         "split.shipped": "נשלח לאוויר",
         "split.onMyOwn": "לבד לגמרי.",
-        "split.fiveProducts": "חמישה מוצרים.",
+        "split.fiveProducts": "תשעה פרויקטים.",
         "press.label": "עבודה עצמאית",
-        "press.meta": "סטודיו אחד · ארבעה מוצרים · הכול לבד",
+        "press.meta": "סטודיו אחד · שמונה פרויקטים · הכול לבד",
         "press.folio": "לוח",
+        "press.workshop.label": "הסדנה",
+        "press.workshop.meta": "ארבעה פרויקטים · מנועים, סימולציות ועבודת לקוחות",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "Typed Arrays",
+        "press.chip.spatialHash": "Spatial Hashing",
+        "press.laska.line": "משחק הדמקה עם לכידת עמודות של עמנואל לסקר משנת 1911, נבנה מחדש כמשחק TypeScript מלא עם מנוע משלו ובינה מלאכותית יריבה.",
+        "press.laska.p1": "<strong>מנוע חוקים אחד ללא תלויות</strong> מיובא כלשונו גם על ידי לקוח ה-React וגם על ידי שרת המשחק — כך ששניהם לעולם לא יכולים לחלוק על מהי מהלך חוקי.",
+        "press.laska.p2": "היריב מריץ <strong>negamax עם גיזום אלפא-בטא וחיפוש שקט</strong> מעל הערכה מודעת-עמודות, בשש רמות קושי.",
+        "press.laska.p3": "<strong>מעל 130 בדיקות</strong>, חבילת בדיקות מקצה לקצה ב-Playwright ו-CI ב-GitHub Actions — והמנוע מאומת בכך שהוא משחזר את <strong>משחקיו של לסקר מ-1911</strong> בכל ייבוא.",
+        "press.emergence.line": "סימולטור חיי חלקיקים שבו ממברנות, רודפים, מתנדים וגלקסיות צומחים מלא יותר ממטריצת משיכה בגודל N×N.",
+        "press.emergence.p1": "<strong>אחד־עשר ארכיטיפים התנהגותיים</strong> זוהו וסווגו באופן פורמלי, לכל אחד גלאי חישובי בזמן אמת שנותן שם לתבנית בזמן שהיא נוצרת.",
+        "press.emergence.p2": "נכתב ישירות מול canvas עם <strong>typed arrays</strong> וגיבוב מרחבי בסיבוכיות O(N) לחיפוש שכנים, כך שאלפי חלקיקים נשארים חלקים.",
+        "press.emergence.p3": "בלי פריימוורק, בלי שלב בנייה, בלי תלויות — כל שורה בסימולציה נכתבה ביד.",
+        "press.oracle.line": "אפליקציית סטיילינג מונעת מזג אוויר — היא קוראת את התנאים החיים בכל עיר ומחזירה פסיקת לבוש מובנית.",
+        "press.oracle.p1": "<strong>React Native</strong> חוצה־פלטפורמות (Expo, TypeScript 5.3) ל-iOS ול-Android מבסיס קוד יחיד.",
+        "press.oracle.p2": "ממפה כל עיר לקואורדינטות דרך Open-Meteo, ואז מעביר את התנאים החיים ל-<strong>Claude API</strong> לקבלת פסיקה מובנית במקום טקסט חופשי.",
+        "press.oracle.p3": "בנויה סביב <strong>hook של מכונת מצבים</strong> למחזור הטעינה, עם שמירה ב-AsyncStorage ואנימציות כניסה במנוע הנייטיב.",
+        "press.monte.line": "פרויקט הלקוח הראשון בתשלום שלי — מסעדה, מלון ואולם אירועים דוברי ספרדית, מהבריף ועד ההשקה.",
+        "press.monte.p1": "אתר שיווק ותפריט רב־עמודים שנבנה ב-<strong>HTML5, SASS ו-JavaScript טהור</strong>, עוד לפני שהיה פריימוורק בתמונה.",
+        "press.monte.p2": "נמסר עם מפת אתר, robots.txt ו<strong>הנחיות SEO מתועדות</strong> לבעלים.",
+        "press.monte.p3": "עבדתי ישירות מול הבעלים <strong>בספרדית</strong>, מהבריף הראשון ועד ההשקה.",
         "press.line.label": "הסדרה",
         "press.line.meta": "ארבעה מוצרים · עוצבו, נבנו ועלו לאוויר תוך 48 שעות",
         "press.live": "באוויר",
         "press.visit": "לאתר",
         "press.source": "קוד מקור",
-        "press.foot": "חמישה מאגרים · כולם ציבוריים · כולם באוויר",
+        "press.foot": "תשעה מאגרים · כולם ציבוריים · שמונה באוויר",
         "press.footLink": "הכול ב-GitHub ↗",
         "press.chip.singleFile": "HTML בקובץ אחד",
         "press.chip.keyframes": "CSS Keyframes",
@@ -6354,16 +6633,37 @@
         "nav.studio": "Студия",
         "split.shipped": "Выпущено",
         "split.onMyOwn": "В одиночку.",
-        "split.fiveProducts": "Пять продуктов.",
+        "split.fiveProducts": "Девять проектов.",
         "press.label": "Самостоятельные проекты",
-        "press.meta": "Одна студия · четыре продукта · всё в одиночку",
+        "press.meta": "Одна студия · восемь проектов · всё в одиночку",
         "press.folio": "Форма",
+        "press.workshop.label": "Мастерская",
+        "press.workshop.meta": "Четыре проекта · движки, симуляции и клиентская работа",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "Типизированные массивы",
+        "press.chip.spatialHash": "Пространственный хеш",
+        "press.laska.line": "Шашки Эмануэля Ласкера 1911 года со взятием в столбики, пересобранные как полноценная TypeScript-игра с собственным движком и ИИ-соперником.",
+        "press.laska.p1": "Единый <strong>движок правил без зависимостей</strong> дословно импортируют и React-клиент, и авторитетный игровой сервер — они физически не могут разойтись в том, какой ход законен.",
+        "press.laska.p2": "Соперник считает <strong>негамакс с альфа-бета отсечением и поиском спокойствия</strong> поверх оценки, учитывающей столбики, в шести уровнях сложности.",
+        "press.laska.p3": "<strong>130+ тестов</strong>, сквозной набор на Playwright и CI на GitHub Actions — а сам движок проверяется тем, что при каждом импорте переигрывает <strong>партии Ласкера 1911 года</strong>.",
+        "press.emergence.line": "Симулятор жизни частиц, где мембраны, преследователи, осцилляторы и галактики рождаются из одной лишь матрицы притяжения N×N.",
+        "press.emergence.p1": "<strong>Одиннадцать поведенческих архетипов</strong> выявлены и формально классифицированы, у каждого — детектор реального времени, называющий паттерн прямо по мере его появления.",
+        "press.emergence.p2": "Написано на голом canvas с <strong>типизированными массивами</strong> и пространственным хешем O(N) для поиска соседей, поэтому тысячи частиц идут плавно.",
+        "press.emergence.p3": "Ни фреймворка, ни шага сборки, ни зависимостей — каждая строка симуляции написана вручную.",
+        "press.oracle.line": "Приложение-стилист на данных о погоде: читает текущие условия любого города и возвращает структурированный вердикт по одежде.",
+        "press.oracle.p1": "Кроссплатформенный <strong>React Native</strong> (Expo, TypeScript 5.3) для iOS и Android из одной кодовой базы.",
+        "press.oracle.p2": "Геокодирует любой город через Open-Meteo, затем передаёт текущие условия в <strong>Claude API</strong> ради структурированного вердикта вместо свободного текста.",
+        "press.oracle.p3": "Построено вокруг <strong>хука-конечного автомата</strong> для жизненного цикла запроса, с сохранением в AsyncStorage и анимациями входа на нативном драйвере.",
+        "press.monte.line": "Мой первый оплачиваемый клиентский проект — испаноязычный ресторан, отель и площадка для мероприятий, от брифа до запуска.",
+        "press.monte.p1": "Многостраничный маркетинговый сайт с меню на <strong>HTML5, SASS и чистом JavaScript</strong> — ещё до всяких фреймворков.",
+        "press.monte.p2": "Сдан с картой сайта, robots.txt и <strong>задокументированными SEO-рекомендациями</strong> для владельца.",
+        "press.monte.p3": "Работала напрямую с владельцем <strong>на испанском</strong>, от первого брифа до запуска.",
         "press.line.label": "Линейка",
         "press.line.meta": "Четыре продукта · спроектированы, собраны и выпущены за 48 часов",
         "press.live": "В сети",
         "press.visit": "Открыть",
         "press.source": "Исходники",
-        "press.foot": "Пять репозиториев · все открытые · все в сети",
+        "press.foot": "Девять репозиториев · все открытые · восемь в сети",
         "press.footLink": "Всё на GitHub ↗",
         "press.chip.singleFile": "HTML в одном файле",
         "press.chip.keyframes": "CSS-кейфреймы",
@@ -6558,16 +6858,37 @@
         "nav.studio": "Estúdio",
         "split.shipped": "Lançado",
         "split.onMyOwn": "Por minha conta.",
-        "split.fiveProducts": "Cinco produtos.",
+        "split.fiveProducts": "Nove projetos.",
         "press.label": "Trabalho independente",
-        "press.meta": "Um estúdio · quatro produtos · feitos sozinha",
+        "press.meta": "Um estúdio · oito projetos · feitos sozinha",
         "press.folio": "Chapa",
+        "press.workshop.label": "A Oficina",
+        "press.workshop.meta": "Quatro projetos · motores, simulações e trabalho para clientes",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "Typed Arrays",
+        "press.chip.spatialHash": "Hash espacial",
+        "press.laska.line": "As damas de captura por colunas de Emanuel Lasker (1911), reconstruídas como um jogo full-stack em TypeScript com motor próprio e IA adversária.",
+        "press.laska.p1": "Um único <strong>motor de regras sem dependências</strong> importado tal e qual pelo cliente React e pelo servidor de jogo — os dois nunca podem discordar sobre que jogada é legal.",
+        "press.laska.p2": "O adversário corre <strong>negamax com poda alfa-beta e pesquisa de quiescência</strong> sobre uma avaliação atenta às colunas, em seis níveis de dificuldade.",
+        "press.laska.p3": "<strong>Mais de 130 testes</strong>, uma suite end-to-end em Playwright e CI no GitHub Actions — e o motor é validado repetindo <strong>as partidas do próprio Lasker de 1911</strong> a cada importação.",
+        "press.emergence.line": "Um simulador de vida de partículas onde membranas, perseguidores, osciladores e galáxias emergem apenas de uma matriz de atração N×N.",
+        "press.emergence.p1": "<strong>Onze arquétipos de comportamento</strong> identificados e formalmente classificados, cada um com um detetor computacional em tempo real que nomeia o padrão enquanto ele se forma.",
+        "press.emergence.p2": "Escrito sobre canvas puro com <strong>typed arrays</strong> e um hash espacial O(N) para procurar vizinhos, para que milhares de partículas se mantenham fluidas.",
+        "press.emergence.p3": "Sem framework, sem passo de build, sem dependências — cada linha da simulação é escrita à mão.",
+        "press.oracle.line": "Uma app de styling movida a meteorologia — lê as condições em direto de qualquer cidade e devolve um veredicto de roupa estruturado.",
+        "press.oracle.p1": "<strong>React Native</strong> multiplataforma (Expo, TypeScript 5.3) para iOS e Android a partir de uma única base de código.",
+        "press.oracle.p2": "Geocodifica qualquer cidade através do Open-Meteo e passa as condições em direto à <strong>API da Claude</strong> para um veredicto estruturado em vez de texto livre.",
+        "press.oracle.p3": "Construída à volta de um <strong>hook de máquina de estados</strong> para o ciclo de carregamento, com persistência em AsyncStorage e animações de entrada em native driver.",
+        "press.monte.line": "O meu primeiro projeto pago — um restaurante, hotel e espaço de eventos de língua espanhola, do briefing ao lançamento.",
+        "press.monte.p1": "Um site de marketing e menu com várias páginas em <strong>HTML5, SASS e JavaScript puro</strong>, antes de existir qualquer framework.",
+        "press.monte.p2": "Entregue com sitemap, robots.txt e <strong>diretrizes de SEO documentadas</strong> para o proprietário.",
+        "press.monte.p3": "Trabalhei diretamente com o proprietário <strong>em espanhol</strong>, do primeiro briefing até ao lançamento.",
         "press.line.label": "A Linha",
         "press.line.meta": "Quatro produtos · desenhados, construídos e lançados em 48 horas",
         "press.live": "No ar",
         "press.visit": "Visitar",
         "press.source": "Código",
-        "press.foot": "Cinco repositórios · todos públicos · todos no ar",
+        "press.foot": "Nove repositórios · todos públicos · oito no ar",
         "press.footLink": "Tudo no GitHub ↗",
         "press.chip.singleFile": "HTML em ficheiro único",
         "press.chip.keyframes": "Keyframes CSS",
@@ -6761,16 +7082,37 @@
         "nav.studio": "Студія",
         "split.shipped": "Випущено",
         "split.onMyOwn": "Самотужки.",
-        "split.fiveProducts": "П'ять продуктів.",
+        "split.fiveProducts": "Дев'ять проєктів.",
         "press.label": "Самостійні проєкти",
-        "press.meta": "Одна студія · чотири продукти · усе самотужки",
+        "press.meta": "Одна студія · вісім проєктів · усе самотужки",
         "press.folio": "Форма",
+        "press.workshop.label": "Майстерня",
+        "press.workshop.meta": "Чотири проєкти · рушії, симуляції та клієнтська робота",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "Типізовані масиви",
+        "press.chip.spatialHash": "Просторовий хеш",
+        "press.laska.line": "Шашки Емануеля Ласкера 1911 року зі взяттям у стовпчики, перезібрані як повноцінна TypeScript-гра з власним рушієм та ІІ-суперником.",
+        "press.laska.p1": "Єдиний <strong>рушій правил без залежностей</strong> дослівно імпортують і React-клієнт, і авторитетний ігровий сервер — вони фізично не можуть розійтися в тому, який хід законний.",
+        "press.laska.p2": "Суперник рахує <strong>негамакс з альфа-бета відсіканням і пошуком спокою</strong> поверх оцінки, що враховує стовпчики, у шести рівнях складності.",
+        "press.laska.p3": "<strong>130+ тестів</strong>, наскрізний набір на Playwright і CI на GitHub Actions — а сам рушій перевіряється тим, що за кожного імпорту переграє <strong>партії Ласкера 1911 року</strong>.",
+        "press.emergence.line": "Симулятор життя частинок, де мембрани, переслідувачі, осцилятори та галактики народжуються лише з матриці притягання N×N.",
+        "press.emergence.p1": "<strong>Одинадцять поведінкових архетипів</strong> виявлено й формально класифіковано, у кожного — детектор реального часу, що називає патерн просто в міру його появи.",
+        "press.emergence.p2": "Написано на голому canvas із <strong>типізованими масивами</strong> та просторовим хешем O(N) для пошуку сусідів, тож тисячі частинок лишаються плавними.",
+        "press.emergence.p3": "Ні фреймворка, ні кроку збірки, ні залежностей — кожен рядок симуляції написано вручну.",
+        "press.oracle.line": "Застосунок-стиліст на даних про погоду: читає поточні умови будь-якого міста й повертає структурований вердикт щодо одягу.",
+        "press.oracle.p1": "Кросплатформний <strong>React Native</strong> (Expo, TypeScript 5.3) для iOS та Android з однієї кодової бази.",
+        "press.oracle.p2": "Геокодує будь-яке місто через Open-Meteo, далі передає поточні умови в <strong>Claude API</strong> заради структурованого вердикту замість вільного тексту.",
+        "press.oracle.p3": "Побудовано навколо <strong>хука-скінченного автомата</strong> для життєвого циклу запиту, зі збереженням в AsyncStorage і анімаціями входу на нативному драйвері.",
+        "press.monte.line": "Мій перший оплачуваний клієнтський проєкт — іспаномовний ресторан, готель і майданчик для подій, від брифу до запуску.",
+        "press.monte.p1": "Багатосторінковий маркетинговий сайт із меню на <strong>HTML5, SASS і чистому JavaScript</strong> — ще до жодних фреймворків.",
+        "press.monte.p2": "Здано з картою сайту, robots.txt і <strong>задокументованими SEO-рекомендаціями</strong> для власника.",
+        "press.monte.p3": "Працювала напряму з власником <strong>іспанською</strong>, від першого брифу до запуску.",
         "press.line.label": "Лінійка",
         "press.line.meta": "Чотири продукти · спроєктовані, зібрані й випущені за 48 годин",
         "press.live": "У мережі",
         "press.visit": "Відкрити",
         "press.source": "Код",
-        "press.foot": "П'ять репозиторіїв · усі відкриті · усі в мережі",
+        "press.foot": "Дев'ять репозиторіїв · усі відкриті · вісім у мережі",
         "press.footLink": "Усе на GitHub ↗",
         "press.chip.singleFile": "HTML в одному файлі",
         "press.chip.keyframes": "CSS-кейфрейми",
@@ -6964,16 +7306,37 @@
         "nav.studio": "工作室",
         "split.shipped": "已上线",
         "split.onMyOwn": "独立完成。",
-        "split.fiveProducts": "五个产品。",
+        "split.fiveProducts": "九个项目。",
         "press.label": "独立作品",
-        "press.meta": "一间工作室 · 四个产品 · 独立交付",
+        "press.meta": "一间工作室 · 八个项目 · 独立交付",
         "press.folio": "印版",
+        "press.workshop.label": "工坊",
+        "press.workshop.meta": "四个项目 · 引擎、模拟与客户作品",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "类型化数组",
+        "press.chip.spatialHash": "空间哈希",
+        "press.laska.line": "把埃马努埃尔·拉斯克 1911 年的叠子跳棋，重建成一款自带引擎与对手 AI 的全栈 TypeScript 游戏。",
+        "press.laska.p1": "同一套<strong>零依赖规则引擎</strong>被 React 客户端与权威游戏服务器原样引入，因此两者对「什么是合法走法」永远不可能产生分歧。",
+        "press.laska.p2": "对手使用 <strong>negamax 配合 alpha-beta 剪枝与静默搜索</strong>，在一套理解叠子结构的评估函数上运行，共六个难度档位。",
+        "press.laska.p3": "<strong>130 多个测试</strong>、一套 Playwright 端到端用例，以及 GitHub Actions 上的 CI——而引擎本身靠每次导入时重演<strong>拉斯克 1911 年的实战棋谱</strong>来验证。",
+        "press.emergence.line": "一个粒子生命模拟器：膜、追逐者、振荡器与星系，全都从一个 N×N 吸引力矩阵中自行涌现。",
+        "press.emergence.p1": "识别并正式归类了<strong>十一种行为原型</strong>，每一种都配有实时计算检测器，在图案成形的当下就把它命名出来。",
+        "press.emergence.p2": "直接基于原生 canvas 与<strong>类型化数组</strong>编写，邻居查找采用 O(N) 空间哈希，因此上千个粒子依然流畅。",
+        "press.emergence.p3": "没有框架，没有构建步骤，没有依赖——模拟的每一行都是手写的。",
+        "press.oracle.line": "一个由天气驱动的穿搭应用——读取任意城市的实时天况，返回结构化的穿衣结论。",
+        "press.oracle.p1": "跨平台 <strong>React Native</strong>（Expo、TypeScript 5.3），一套代码同时支持 iOS 与 Android。",
+        "press.oracle.p2": "通过 Open-Meteo 对任意城市做地理编码，再把实时天况交给 <strong>Claude API</strong>，要的是结构化结论而非自由文本。",
+        "press.oracle.p3": "围绕一个管理请求生命周期的<strong>状态机 hook</strong> 构建，配合 AsyncStorage 持久化与原生驱动的入场动画。",
+        "press.monte.line": "我的第一个付费客户项目——一家西班牙语的餐厅、酒店兼活动场地，从需求沟通做到上线。",
+        "press.monte.p1": "用 <strong>HTML5、SASS 与原生 JavaScript</strong> 搭建的多页营销与菜单网站，那时还没有任何框架介入。",
+        "press.monte.p2": "交付时附带站点地图、robots.txt 和一份<strong>成文的 SEO 指南</strong>交给店主。",
+        "press.monte.p3": "全程<strong>用西班牙语</strong>与店主直接沟通，从第一次需求会谈直到上线。",
         "press.line.label": "产品线",
         "press.line.meta": "四个产品 · 在 48 小时内完成设计、开发与上线",
         "press.live": "已上线",
         "press.visit": "访问",
         "press.source": "源码",
-        "press.foot": "五个仓库 · 全部公开 · 全部在线",
+        "press.foot": "九个仓库 · 全部公开 · 八个在线",
         "press.footLink": "在 GitHub 上查看全部 ↗",
         "press.chip.singleFile": "单文件 HTML",
         "press.chip.keyframes": "CSS 关键帧",
@@ -7167,16 +7530,37 @@
         "nav.studio": "الاستوديو",
         "split.shipped": "أُطلقت",
         "split.onMyOwn": "بمفردي.",
-        "split.fiveProducts": "خمسة منتجات.",
+        "split.fiveProducts": "تسعة مشاريع.",
         "press.label": "عمل مستقل",
-        "press.meta": "استوديو واحد · أربعة منتجات · بمفردي",
+        "press.meta": "استوديو واحد · ثمانية مشاريع · بمفردي",
         "press.folio": "لوح",
+        "press.workshop.label": "الورشة",
+        "press.workshop.meta": "أربعة مشاريع · محرّكات ومحاكاة وأعمال عملاء",
+        "press.mobileApp": "iOS · Android",
+        "press.chip.typedArrays": "مصفوفات مُنمّطة",
+        "press.chip.spatialHash": "تجزئة مكانية",
+        "press.laska.line": "لعبة الداما ذات الأسر العمودي التي ابتكرها إيمانويل لاسكر عام 1911، أُعيد بناؤها كلعبة TypeScript متكاملة بمحرّك خاص وذكاء اصطناعي منافس.",
+        "press.laska.p1": "<strong>محرّك قواعد واحد بلا اعتماديات</strong> يستورده حرفيًا كل من عميل React وخادم اللعبة المرجعي، فلا يمكن أن يختلفا أبدًا حول ما هي النقلة القانونية.",
+        "press.laska.p2": "المنافس يعمل بخوارزمية <strong>negamax مع تقليم ألفا-بيتا وبحث السكون</strong> فوق تقييم يراعي بنية الأعمدة، عبر ست درجات صعوبة.",
+        "press.laska.p3": "<strong>أكثر من 130 اختبارًا</strong>، ومجموعة اختبارات شاملة بـPlaywright، وتكامل مستمر على GitHub Actions — والمحرّك يُتحقق منه بإعادة لعب <strong>مباريات لاسكر نفسه من 1911</strong> عند كل استيراد.",
+        "press.emergence.line": "محاكي حياة جسيمات تنشأ فيه الأغشية والمطاردات والمذبذبات والمجرّات من لا شيء سوى مصفوفة تجاذب بحجم N×N.",
+        "press.emergence.p1": "<strong>أحد عشر نمطًا سلوكيًا</strong> جرى تحديدها وتصنيفها رسميًا، لكل منها كاشف حوسبي لحظي يسمّي النمط وهو يتشكّل.",
+        "press.emergence.p2": "مكتوب مباشرة على canvas باستخدام <strong>مصفوفات مُنمّطة</strong> وتجزئة مكانية بتعقيد O(N) للبحث عن الجيران، فتبقى آلاف الجسيمات سلسة.",
+        "press.emergence.p3": "بلا إطار عمل وبلا خطوة بناء وبلا اعتماديات — كل سطر في المحاكاة مكتوب يدويًا.",
+        "press.oracle.line": "تطبيق تنسيق ملابس يعمل بالطقس — يقرأ الأحوال الحيّة لأي مدينة ويعيد حكمًا منظَّمًا على الملبس.",
+        "press.oracle.p1": "<strong>React Native</strong> متعدد المنصات (Expo وTypeScript 5.3) لنظامي iOS وAndroid من قاعدة شفرة واحدة.",
+        "press.oracle.p2": "يحوّل اسم أي مدينة إلى إحداثيات عبر Open-Meteo، ثم يمرّر الأحوال الحيّة إلى <strong>واجهة Claude</strong> للحصول على حكم منظَّم بدل نص حر.",
+        "press.oracle.p3": "مبني حول <strong>خطّاف آلة حالات</strong> لدورة حياة الجلب، مع حفظ في AsyncStorage وحركات دخول تعمل على المحرّك الأصلي.",
+        "press.monte.line": "أول مشروع مدفوع لي — مطعم وفندق وقاعة فعاليات ناطقة بالإسبانية، من الفكرة حتى الإطلاق.",
+        "press.monte.p1": "موقع تسويقي متعدد الصفحات مع قائمة طعام، مبني بـ<strong>HTML5 وSASS وجافاسكربت خالصة</strong>، قبل دخول أي إطار عمل.",
+        "press.monte.p2": "سُلّم مع خريطة موقع وrobots.txt و<strong>إرشادات SEO موثّقة</strong> بين يدي صاحب المكان.",
+        "press.monte.p3": "عملت مباشرة مع صاحب المكان <strong>بالإسبانية</strong>، من أول جلسة تعريف حتى الإطلاق.",
         "press.line.label": "الخط",
         "press.line.meta": "أربعة منتجات · صُممت وبُنيت وأُطلقت خلال 48 ساعة",
         "press.live": "مباشر",
         "press.visit": "زيارة",
         "press.source": "الكود",
-        "press.foot": "خمسة مستودعات · جميعها عامة · جميعها تعمل",
+        "press.foot": "تسعة مستودعات · جميعها عامة · ثمانية تعمل",
         "press.footLink": "كل شيء على GitHub ↗",
         "press.chip.singleFile": "HTML بملف واحد",
         "press.chip.keyframes": "إطارات CSS",
