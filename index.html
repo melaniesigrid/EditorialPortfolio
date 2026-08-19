@@ -1313,6 +1313,16 @@
       animation: plate-pulse 2.4s ease-in-out infinite;
     }
 
+    /* Not live — same marker, no heartbeat. */
+    .plate-status.quiet {
+      color: var(--dim);
+    }
+
+    .plate-status.quiet::before {
+      background: var(--dim);
+      animation: none;
+    }
+
     @keyframes plate-pulse {
 
       0%,
@@ -4805,6 +4815,277 @@
       </article>
     </div>
 
+    <!-- ── THE LABORATORY · simulations, languages and instruments ── -->
+    <div class="press-line-head">
+      <div class="press-line-label" data-i18n="press.lab.label">The Laboratory</div>
+      <div class="press-meta" data-i18n="press.lab.meta">Four experiments · simulations, languages and instruments
+      </div>
+    </div>
+    <div class="press-line-grid">
+
+      <!-- ── PLATE 10 · PRIMORDIUM ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">10</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/primordium/"
+              rel="noopener" target="_blank">Primordium</a></h3>
+          <p class="plate-line" data-i18n="press.prim.line">Two species of neural network — one hunting, one fleeing —
+            coevolve under the law of the Red Queen. An experiment built so that it can come back null.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.prim.p1">NEAT-style <strong>evolvable topology</strong> under a global innovation
+              registry, with compatibility-distance speciation and explicit fitness sharing — no architecture is
+              designed, all of it is mutated into existence.</li>
+            <li data-i18n-html="press.prim.p2">Every synapse carries its own evolvable learning rate, so
+              <strong>within-lifetime plasticity</strong> is inherited as a rule rather than as weights. Recurrence and
+              memory emerged in 10 runs out of 10.</li>
+            <li data-i18n-html="press.prim.p3">The verdict is a <strong>two-sided permutation test over 20,000
+                shuffles</strong> against a frozen-predator control — statistic and threshold both fixed before the
+              first run.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">Vanilla JS</span>
+            <span class="plate-chip">Canvas</span>
+            <span class="plate-chip">NEAT</span>
+            <span class="plate-chip" data-i18n="press.chip.permutation">Permutation Test</span>
+            <span class="plate-chip" data-i18n="press.chip.zeroDeps">Zero Dependencies</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/primordium/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/primordium" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 11 · LEXICON OBSERVATORY ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">11</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://github.com/melaniesigrid/lexicon"
+              rel="noopener" target="_blank">Lexicon</a></h3>
+          <p class="plate-line" data-i18n="press.lex.line">A population that begins with no shared words. A vocabulary,
+            a drifting myth and a taboo assemble themselves out of nothing but conversation.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.lex.p1">Three coupled models in one file — a <strong>naming game</strong> for
+              vocabulary, telephone-style mutation for myth, and prohibition spread backed by an optional
+              <strong>metanorm</strong>.</li>
+            <li data-i18n-html="press.lex.p2">Prestige and conformist <strong>transmission biases</strong> run over two
+              topologies — well-mixed for global consensus, spatial for persistent regional dialects.</li>
+            <li data-i18n-html="press.lex.p3">Every stochastic draw comes from one seeded <code>mulberry32</code> PRNG,
+              so <strong>any run replays exactly</strong> from its seed. Consensus, fragmentation and endless drift are
+              all valid outcomes.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip" data-i18n="press.chip.singleFile">Single-File HTML</span>
+            <span class="plate-chip">Vanilla JS</span>
+            <span class="plate-chip">Canvas</span>
+            <span class="plate-chip" data-i18n="press.chip.seededRng">Seeded PRNG</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status quiet" data-i18n="press.runsLocally">Runs locally</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://github.com/melaniesigrid/lexicon" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 12 · WEND ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">12</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://github.com/melaniesigrid/wendTheLanguage"
+              rel="noopener" target="_blank">Wend</a></h3>
+          <p class="plate-line" data-i18n="press.wend.line">A small programming language in which execution history is
+            part of the language — you rewind a run and ask when a value changed.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.wend.p1">A <strong>1,700-line interpreter with zero dependencies</strong> — lexer,
+              parser and a generator-driven evaluator that yields between steps, so a run can be stepped, paused and
+              wound back.</li>
+            <li data-i18n-html="press.wend.p2"><strong>Reversible execution and value history</strong> — deterministic
+              seeds make every run reproducible, and <code>--trace</code> replays how each binding changed instead of
+              printing only its last value.</li>
+            <li data-i18n-html="press.wend.p3">One runtime in both places — a <strong>Node CLI</strong> reading stdin
+              and a browser playground with a timeline scrubber — plus first-class <code>group_by</code>,
+              <code>to_csv</code> and <code>|&gt;</code> pipelines.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">JavaScript</span>
+            <span class="plate-chip" data-i18n="press.chip.interpreter">Interpreter</span>
+            <span class="plate-chip" data-i18n="press.chip.nodeCli">Node CLI</span>
+            <span class="plate-chip" data-i18n="press.chip.zeroDeps">Zero Dependencies</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status quiet" data-i18n="press.cliBrowser">CLI · Browser</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://github.com/melaniesigrid/wendTheLanguage" rel="noopener"
+                target="_blank" data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 13 · FATHOM ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">13</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/speed-read/"
+              rel="noopener" target="_blank">Fathom</a></h3>
+          <p class="plate-line" data-i18n="press.fathom.line">An RSVP speed-reader — one word at a time, each anchored
+            on the letter the eye actually lands on, so your gaze never has to move.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.fathom.p1">A <strong>framework-agnostic core package</strong> — tokenizer, optimal
+              recognition point solver, timing and transport — with a React reader built on top, held by <strong>122
+                specs</strong> across the monorepo.</li>
+            <li data-i18n-html="press.fathom.p2">Pacing is <strong>drift-corrected, not a naive interval</strong>: 100
+              to 800 WPM, with longer dwell on long words and real pauses at clause and sentence ends.</li>
+            <li data-i18n-html="press.fathom.p3">PDF and EPUB are parsed <strong>entirely on-device</strong>, and
+              <code>prefers-reduced-motion</code> turns auto-advance off in favour of manual stepping and a
+              non-flashing full-text view.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">TypeScript</span>
+            <span class="plate-chip">React</span>
+            <span class="plate-chip">Vite</span>
+            <span class="plate-chip" data-i18n="press.chip.monorepo">Monorepo</span>
+            <span class="plate-chip">Vitest</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/speed-read/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/speed-read" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── THE READING ROOM · long-form built as software ── -->
+    <div class="press-line-head">
+      <div class="press-line-label" data-i18n="press.reading.label">The Reading Room</div>
+      <div class="press-meta" data-i18n="press.reading.meta">Two long-form pieces · editorial built as software
+      </div>
+    </div>
+    <div class="press-line-grid">
+
+      <!-- ── PLATE 14 · FUEGO ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">14</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/fuego/"
+              rel="noopener" target="_blank">Fuego</a></h3>
+          <p class="plate-line" data-i18n="press.fuego.line">An interactive atlas of volcanic geology, built by someone
+            who grew up watching mountains breathe — Guatemala's ring of fire, in long form.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.fuego.p1">A <strong>cursor-following spotlight</strong> masks two layered
+              geological images against one another, so moving the pointer peels back the surface of the earth.</li>
+            <li data-i18n-html="press.fuego.p2">Full profiles of the four persistently active peaks — <strong>Fuego,
+                Pacaya, Santiaguito and Acatenango</strong> — with elevation, eruption cadence and historical record.
+            </li>
+            <li data-i18n-html="press.fuego.p3">A long-form editorial on the fire archipelago — its tectonics, its
+              cultural weight and its human cost — set in <strong>Playfair Display against Inter</strong>.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">React</span>
+            <span class="plate-chip">TypeScript</span>
+            <span class="plate-chip">Vite</span>
+            <span class="plate-chip">Tailwind CSS</span>
+            <span class="plate-chip">Canvas</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/fuego/" rel="noopener" target="_blank"
+                data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/fuego" rel="noopener" target="_blank"
+                data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── PLATE 15 · IS ANYONE HOME? ── -->
+      <article class="plate" data-plate="">
+        <span aria-hidden="true" class="plate-reg"></span>
+        <div class="plate-folio">
+          <span class="plate-folio-word" data-i18n="press.folio">Plate</span>
+          <span class="plate-folio-no">15</span>
+        </div>
+        <div class="plate-body">
+          <h3 class="plate-name"><a class="plate-name-link" href="https://melaniesigrid.github.io/is-anyone-home/"
+              rel="noopener" target="_blank">Is Anyone Home?</a></h3>
+          <p class="plate-line" data-i18n="press.iah.line">A long-form essay on machine consciousness where every
+            load-bearing claim carries an epistemic confidence tag — and the page enacts its own argument.</p>
+          <ul class="plate-points">
+            <li data-i18n-html="press.iah.p1">A <strong>certainty threshold control</strong> filters the essay in place
+              — raise it and the page visibly hollows out to only what is settled, which turns out to be very little.
+            </li>
+            <li data-i18n-html="press.iah.p2"><strong>Nine sections</strong> spanning the competing theories, the
+              steelmanned case on both sides, the published research and the loud public voices — each claim tagged
+              established, contested, speculative or unknowable.</li>
+            <li data-i18n-html="press.iah.p3">One React essay held together by <strong>a single <code>useState</code>
+                and one context</strong> threading the threshold down — no state library, fully keyboard-navigable,
+              honouring <code>prefers-reduced-motion</code>.</li>
+          </ul>
+        </div>
+        <div class="plate-colophon">
+          <div class="plate-stack">
+            <span class="plate-chip">React</span>
+            <span class="plate-chip">Vite</span>
+            <span class="plate-chip">Context API</span>
+            <span class="plate-chip">IntersectionObserver</span>
+          </div>
+          <div class="plate-foot">
+            <span class="plate-status" data-i18n="press.live">Live</span>
+            <div class="plate-links">
+              <a class="plate-link" href="https://melaniesigrid.github.io/is-anyone-home/" rel="noopener"
+                target="_blank" data-i18n="press.visit">Visit</a>
+              <a class="plate-link" href="https://github.com/melaniesigrid/is-anyone-home" rel="noopener"
+                target="_blank" data-i18n="press.source">Source</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
     <div class="press-foot">
       <span data-i18n="press.foot">Nine repositories · all public · eight live</span>
       <a href="https://github.com/melaniesigrid" rel="noopener" target="_blank"
@@ -5519,7 +5800,7 @@
       "split.onMyOwn": "On my own.",
       "split.fiveProducts": "Nine projects.",
       "press.label": "Independent Work",
-      "press.meta": "One studio · eight projects · shipped solo",
+      "press.meta": "One studio · fifteen projects · shipped solo",
       "press.folio": "Plate",
       "press.workshop.label": "The Workshop",
       "press.workshop.meta": "Four projects · engines, simulations and client work",
@@ -5547,8 +5828,44 @@
       "press.live": "Live",
       "press.visit": "Visit",
       "press.source": "Source",
-      "press.foot": "Nine repositories · all public · eight live",
+      "press.foot": "Fifteen repositories · all public · twelve live",
       "press.footLink": "Everything on GitHub ↗",
+      "press.lab.label": "The Laboratory",
+      "press.lab.meta": "Four experiments · simulations, languages and instruments",
+      "press.reading.label": "The Reading Room",
+      "press.reading.meta": "Two long-form pieces · editorial built as software",
+      "press.prim.line": "Two species of neural network — one hunting, one fleeing — coevolve under the law of the Red Queen. An experiment built so that it can come back null.",
+      "press.prim.p1": "NEAT-style <strong>evolvable topology</strong> under a global innovation registry, with compatibility-distance speciation and explicit fitness sharing — no architecture is designed, all of it is mutated into existence.",
+      "press.prim.p2": "Every synapse carries its own evolvable learning rate, so <strong>within-lifetime plasticity</strong> is inherited as a rule rather than as weights. Recurrence and memory emerged in 10 runs out of 10.",
+      "press.prim.p3": "The verdict is a <strong>two-sided permutation test over 20,000 shuffles</strong> against a frozen-predator control — statistic and threshold both fixed before the first run.",
+      "press.lex.line": "A population that begins with no shared words. A vocabulary, a drifting myth and a taboo assemble themselves out of nothing but conversation.",
+      "press.lex.p1": "Three coupled models in one file — a <strong>naming game</strong> for vocabulary, telephone-style mutation for myth, and prohibition spread backed by an optional <strong>metanorm</strong>.",
+      "press.lex.p2": "Prestige and conformist <strong>transmission biases</strong> run over two topologies — well-mixed for global consensus, spatial for persistent regional dialects.",
+      "press.lex.p3": "Every stochastic draw comes from one seeded <code>mulberry32</code> PRNG, so <strong>any run replays exactly</strong> from its seed. Consensus, fragmentation and endless drift are all valid outcomes.",
+      "press.wend.line": "A small programming language in which execution history is part of the language — you rewind a run and ask when a value changed.",
+      "press.wend.p1": "A <strong>1,700-line interpreter with zero dependencies</strong> — lexer, parser and a generator-driven evaluator that yields between steps, so a run can be stepped, paused and wound back.",
+      "press.wend.p2": "<strong>Reversible execution and value history</strong> — deterministic seeds make every run reproducible, and <code>--trace</code> replays how each binding changed instead of printing only its last value.",
+      "press.wend.p3": "One runtime in both places — a <strong>Node CLI</strong> reading stdin and a browser playground with a timeline scrubber — plus first-class <code>group_by</code>, <code>to_csv</code> and <code>|&gt;</code> pipelines.",
+      "press.fathom.line": "An RSVP speed-reader — one word at a time, each anchored on the letter the eye actually lands on, so your gaze never has to move.",
+      "press.fathom.p1": "A <strong>framework-agnostic core package</strong> — tokenizer, optimal recognition point solver, timing and transport — with a React reader built on top, held by <strong>122 specs</strong> across the monorepo.",
+      "press.fathom.p2": "Pacing is <strong>drift-corrected, not a naive interval</strong>: 100 to 800 WPM, with longer dwell on long words and real pauses at clause and sentence ends.",
+      "press.fathom.p3": "PDF and EPUB are parsed <strong>entirely on-device</strong>, and <code>prefers-reduced-motion</code> turns auto-advance off in favour of manual stepping and a non-flashing full-text view.",
+      "press.fuego.line": "An interactive atlas of volcanic geology, built by someone who grew up watching mountains breathe — Guatemala's ring of fire, in long form.",
+      "press.fuego.p1": "A <strong>cursor-following spotlight</strong> masks two layered geological images against one another, so moving the pointer peels back the surface of the earth.",
+      "press.fuego.p2": "Full profiles of the four persistently active peaks — <strong>Fuego, Pacaya, Santiaguito and Acatenango</strong> — with elevation, eruption cadence and historical record.",
+      "press.fuego.p3": "A long-form editorial on the fire archipelago — its tectonics, its cultural weight and its human cost — set in <strong>Playfair Display against Inter</strong>.",
+      "press.iah.line": "A long-form essay on machine consciousness where every load-bearing claim carries an epistemic confidence tag — and the page enacts its own argument.",
+      "press.iah.p1": "A <strong>certainty threshold control</strong> filters the essay in place — raise it and the page visibly hollows out to only what is settled, which turns out to be very little.",
+      "press.iah.p2": "<strong>Nine sections</strong> spanning the competing theories, the steelmanned case on both sides, the published research and the loud public voices — each claim tagged established, contested, speculative or unknowable.",
+      "press.iah.p3": "One React essay held together by <strong>a single <code>useState</code> and one context</strong> threading the threshold down — no state library, fully keyboard-navigable, honouring <code>prefers-reduced-motion</code>.",
+      "press.chip.permutation": "Permutation Test",
+      "press.chip.zeroDeps": "Zero Dependencies",
+      "press.chip.seededRng": "Seeded PRNG",
+      "press.chip.interpreter": "Interpreter",
+      "press.chip.nodeCli": "Node CLI",
+      "press.chip.monorepo": "Monorepo",
+      "press.runsLocally": "Runs locally",
+      "press.cliBrowser": "CLI · Browser",
       "press.chip.singleFile": "Single-File HTML",
       "press.chip.keyframes": "CSS Keyframes",
       "press.chip.inlineSvg": "Inline SVG",
@@ -5746,7 +6063,7 @@
         "split.onMyOwn": "Por mi cuenta.",
         "split.fiveProducts": "Nueve proyectos.",
         "press.label": "Trabajo independiente",
-        "press.meta": "Un estudio · ocho proyectos · en solitario",
+        "press.meta": "Un estudio · quince proyectos · en solitario",
         "press.folio": "Lámina",
         "press.workshop.label": "El Taller",
         "press.workshop.meta": "Cuatro proyectos · motores, simulaciones y trabajo para clientes",
@@ -5774,8 +6091,44 @@
         "press.live": "Activo",
         "press.visit": "Visitar",
         "press.source": "Código",
-        "press.foot": "Nueve repositorios · todos públicos · ocho activos",
+        "press.foot": "Quince repositorios · todos públicos · doce activos",
         "press.footLink": "Todo en GitHub ↗",
+        "press.lab.label": "El Laboratorio",
+        "press.lab.meta": "Cuatro experimentos · simulaciones, lenguajes e instrumentos",
+        "press.reading.label": "La Sala de Lectura",
+        "press.reading.meta": "Dos piezas de formato largo · editorial construido como software",
+        "press.prim.line": "Dos especies de red neuronal —una que caza, otra que huye— coevolucionan bajo la ley de la Reina Roja. Un experimento construido para poder dar resultado nulo.",
+        "press.prim.p1": "<strong>Topología evolutiva</strong> al estilo NEAT bajo un registro global de innovaciones, con especiación por distancia de compatibilidad y reparto explícito de aptitud: ninguna arquitectura se diseña, toda emerge por mutación.",
+        "press.prim.p2": "Cada sinapsis lleva su propia tasa de aprendizaje evolutiva, así que la <strong>plasticidad dentro de la vida del agente</strong> se hereda como regla y no como pesos. La recurrencia y la memoria emergieron en 10 de 10 ejecuciones.",
+        "press.prim.p3": "El veredicto es un <strong>test de permutación bilateral con 20.000 barajados</strong> contra un control de depredador congelado: estadístico y umbral fijados antes de la primera ejecución.",
+        "press.lex.line": "Una población que empieza sin palabras compartidas. Un vocabulario, un mito a la deriva y un tabú se ensamblan solos, a partir de nada más que conversación.",
+        "press.lex.p1": "Tres modelos acoplados en un solo archivo: un <strong>juego de nombres</strong> para el vocabulario, mutación tipo teléfono descompuesto para el mito, y difusión de prohibiciones respaldada por una <strong>metanorma</strong> opcional.",
+        "press.lex.p2": "Sesgos de transmisión por <strong>prestigio y conformidad</strong> sobre dos topologías: bien mezclada para el consenso global, espacial para dialectos regionales persistentes.",
+        "press.lex.p3": "Cada sorteo estocástico sale de un único PRNG <code>mulberry32</code> con semilla, así que <strong>cualquier ejecución se reproduce exactamente</strong> desde su semilla. Consenso, fragmentación y deriva infinita son todos resultados válidos.",
+        "press.wend.line": "Un pequeño lenguaje de programación donde el historial de ejecución forma parte del lenguaje: rebobinas una ejecución y preguntas cuándo cambió un valor.",
+        "press.wend.p1": "Un <strong>intérprete de 1.700 líneas sin dependencias</strong>: lexer, parser y un evaluador basado en generadores que cede el control entre pasos, de modo que una ejecución se puede avanzar, pausar y rebobinar.",
+        "press.wend.p2": "<strong>Ejecución reversible e historial de valores</strong>: las semillas deterministas hacen reproducible cada ejecución, y <code>--trace</code> reproduce cómo cambió cada binding en vez de imprimir solo su último valor.",
+        "press.wend.p3": "Un mismo runtime en ambos sitios: una <strong>CLI de Node</strong> que lee stdin y un playground en el navegador con línea de tiempo navegable, además de <code>group_by</code>, <code>to_csv</code> y tuberías <code>|&gt;</code> de primera clase.",
+        "press.fathom.line": "Un lector rápido RSVP: una palabra a la vez, cada una anclada en la letra donde el ojo realmente cae, para que la mirada nunca tenga que moverse.",
+        "press.fathom.p1": "Un <strong>paquete núcleo agnóstico al framework</strong> —tokenizador, cálculo del punto óptimo de reconocimiento, temporización y transporte— con un lector en React encima, sostenido por <strong>122 pruebas</strong> en el monorepo.",
+        "press.fathom.p2": "El ritmo está <strong>corregido por deriva, no es un intervalo ingenuo</strong>: de 100 a 800 palabras por minuto, con más tiempo en palabras largas y pausas reales al final de cláusulas y frases.",
+        "press.fathom.p3": "Los PDF y EPUB se analizan <strong>íntegramente en el dispositivo</strong>, y <code>prefers-reduced-motion</code> desactiva el avance automático en favor del paso manual y de una vista de texto completo sin parpadeo.",
+        "press.fuego.line": "Un atlas interactivo de geología volcánica, hecho por alguien que creció viendo respirar a las montañas: el anillo de fuego de Guatemala, en formato largo.",
+        "press.fuego.p1": "Un <strong>foco que sigue al cursor</strong> enmascara dos imágenes geológicas superpuestas entre sí, de modo que mover el puntero levanta la superficie de la tierra.",
+        "press.fuego.p2": "Perfiles completos de los cuatro picos permanentemente activos —<strong>Fuego, Pacaya, Santiaguito y Acatenango</strong>— con elevación, cadencia eruptiva y registro histórico.",
+        "press.fuego.p3": "Un editorial de formato largo sobre el archipiélago de fuego: su tectónica, su peso cultural y su costo humano, compuesto en <strong>Playfair Display sobre Inter</strong>.",
+        "press.iah.line": "Un ensayo largo sobre la conciencia de las máquinas donde cada afirmación que sostiene el argumento lleva una etiqueta de confianza epistémica, y la página representa su propia tesis.",
+        "press.iah.p1": "Un <strong>control de umbral de certeza</strong> filtra el ensayo en vivo: al subirlo, la página se vacía visiblemente hasta dejar solo lo que está asentado, que resulta ser muy poco.",
+        "press.iah.p2": "<strong>Nueve secciones</strong> que recorren las teorías en disputa, el caso mejor formulado de ambos lados, la investigación publicada y las voces públicas más ruidosas; cada afirmación etiquetada como establecida, disputada, especulativa o incognoscible.",
+        "press.iah.p3": "Un ensayo en React sostenido por <strong>un solo <code>useState</code> y un contexto</strong> que enhebra el umbral hacia abajo: sin librería de estado, navegable por completo con teclado y respetando <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "Test de Permutación",
+        "press.chip.zeroDeps": "Cero Dependencias",
+        "press.chip.seededRng": "PRNG con Semilla",
+        "press.chip.interpreter": "Intérprete",
+        "press.chip.nodeCli": "CLI de Node",
+        "press.chip.monorepo": "Monorepo",
+        "press.runsLocally": "Se ejecuta en local",
+        "press.cliBrowser": "CLI · Navegador",
         "press.chip.singleFile": "HTML de un solo archivo",
         "press.chip.keyframes": "Keyframes CSS",
         "press.chip.inlineSvg": "SVG en línea",
@@ -5968,7 +6321,7 @@
         "split.onMyOwn": "Im Alleingang.",
         "split.fiveProducts": "Neun Projekte.",
         "press.label": "Eigenständige Arbeit",
-        "press.meta": "Ein Studio · acht Projekte · im Alleingang",
+        "press.meta": "Ein Studio · fünfzehn Projekte · im Alleingang",
         "press.folio": "Druckplatte",
         "press.workshop.label": "Die Werkstatt",
         "press.workshop.meta": "Vier Projekte · Engines, Simulationen und Kundenarbeit",
@@ -5996,8 +6349,44 @@
         "press.live": "Live",
         "press.visit": "Ansehen",
         "press.source": "Quellcode",
-        "press.foot": "Neun Repositories · alle öffentlich · acht live",
+        "press.foot": "Fünfzehn Repositories · alle öffentlich · zwölf live",
         "press.footLink": "Alles auf GitHub ↗",
+        "press.lab.label": "Das Labor",
+        "press.lab.meta": "Vier Experimente · Simulationen, Sprachen und Instrumente",
+        "press.reading.label": "Der Lesesaal",
+        "press.reading.meta": "Zwei Langformate · Redaktion, gebaut als Software",
+        "press.prim.line": "Zwei Arten neuronaler Netze — eine jagt, eine flieht — koevolvieren nach dem Gesetz der Roten Königin. Ein Experiment, das auch ergebnislos ausgehen darf.",
+        "press.prim.p1": "<strong>Evolvierbare Topologie</strong> nach NEAT-Art unter einem globalen Innovationsregister, mit Speziation über Kompatibilitätsdistanz und explizitem Fitness-Sharing — keine Architektur wird entworfen, alles entsteht durch Mutation.",
+        "press.prim.p2": "Jede Synapse trägt ihre eigene evolvierbare Lernrate, sodass <strong>Plastizität innerhalb einer Lebensspanne</strong> als Regel vererbt wird und nicht als Gewichte. Rekurrenz und Gedächtnis entstanden in 10 von 10 Läufen.",
+        "press.prim.p3": "Das Urteil ist ein <strong>zweiseitiger Permutationstest über 20.000 Permutationen</strong> gegen eine Kontrolle mit eingefrorenem Räuber — Teststatistik und Schwelle wurden vor dem ersten Lauf festgelegt.",
+        "press.lex.line": "Eine Population, die ohne gemeinsame Wörter beginnt. Ein Wortschatz, ein driftender Mythos und ein Tabu setzen sich aus nichts als Gesprächen selbst zusammen.",
+        "press.lex.p1": "Drei gekoppelte Modelle in einer Datei — ein <strong>Naming Game</strong> für den Wortschatz, Stille-Post-Mutation für den Mythos und die Ausbreitung von Verboten, gestützt auf eine optionale <strong>Metanorm</strong>.",
+        "press.lex.p2": "<strong>Übertragungsverzerrungen</strong> durch Prestige und Konformität laufen über zwei Topologien — gut durchmischt für globalen Konsens, räumlich für dauerhafte regionale Dialekte.",
+        "press.lex.p3": "Jede stochastische Ziehung stammt aus einem einzigen geseedeten <code>mulberry32</code>-PRNG, sodass <strong>jeder Lauf exakt reproduzierbar</strong> ist. Konsens, Fragmentierung und endlose Drift sind alle gültige Ergebnisse.",
+        "press.wend.line": "Eine kleine Programmiersprache, in der die Ausführungshistorie Teil der Sprache ist — man spult einen Lauf zurück und fragt, wann sich ein Wert geändert hat.",
+        "press.wend.p1": "Ein <strong>Interpreter mit 1.700 Zeilen und null Abhängigkeiten</strong> — Lexer, Parser und ein generatorbasierter Evaluator, der zwischen den Schritten abgibt, sodass ein Lauf geschrittweise, pausiert und zurückgespult werden kann.",
+        "press.wend.p2": "<strong>Umkehrbare Ausführung und Wertehistorie</strong> — deterministische Seeds machen jeden Lauf reproduzierbar, und <code>--trace</code> spielt nach, wie sich jede Bindung verändert hat, statt nur ihren letzten Wert auszugeben.",
+        "press.wend.p3": "Eine Runtime an beiden Orten — eine <strong>Node-CLI</strong>, die stdin liest, und ein Browser-Playground mit Timeline-Scrubber — dazu erstklassige <code>group_by</code>, <code>to_csv</code> und <code>|&gt;</code>-Pipelines.",
+        "press.fathom.line": "Ein RSVP-Schnellleser — ein Wort nach dem anderen, jedes auf dem Buchstaben verankert, auf dem das Auge tatsächlich landet, damit der Blick nie wandern muss.",
+        "press.fathom.p1": "Ein <strong>framework-unabhängiges Core-Paket</strong> — Tokenizer, Optimal-Recognition-Point-Berechnung, Timing und Transport — mit einem React-Reader darüber, abgesichert durch <strong>122 Tests</strong> im Monorepo.",
+        "press.fathom.p2": "Das Tempo ist <strong>driftkorrigiert, kein naives Intervall</strong>: 100 bis 800 Wörter pro Minute, mit längerem Verweilen bei langen Wörtern und echten Pausen an Satz- und Teilsatzenden.",
+        "press.fathom.p3": "PDF und EPUB werden <strong>vollständig auf dem Gerät</strong> geparst, und <code>prefers-reduced-motion</code> schaltet den Auto-Vorlauf ab zugunsten manuellen Schrittens und einer nicht flackernden Volltextansicht.",
+        "press.fuego.line": "Ein interaktiver Atlas der Vulkangeologie, gebaut von jemandem, der damit aufwuchs, Berge atmen zu sehen — Guatemalas Feuerring, in Langform.",
+        "press.fuego.p1": "Ein <strong>dem Cursor folgender Lichtkegel</strong> maskiert zwei übereinanderliegende geologische Bilder gegeneinander, sodass die Mausbewegung die Erdoberfläche abhebt.",
+        "press.fuego.p2": "Vollständige Profile der vier dauerhaft aktiven Gipfel — <strong>Fuego, Pacaya, Santiaguito und Acatenango</strong> — mit Höhe, Eruptionsrhythmus und historischer Überlieferung.",
+        "press.fuego.p3": "Ein Langform-Essay über den Feuerarchipel — seine Tektonik, sein kulturelles Gewicht und seine menschlichen Kosten — gesetzt in <strong>Playfair Display auf Inter</strong>.",
+        "press.iah.line": "Ein Langform-Essay über Maschinenbewusstsein, in dem jede tragende Behauptung ein epistemisches Konfidenz-Label trägt — und die Seite ihr eigenes Argument vollzieht.",
+        "press.iah.p1": "Ein <strong>Schwellenregler für Gewissheit</strong> filtert den Essay an Ort und Stelle — zieht man ihn hoch, leert sich die Seite sichtbar auf das, was gesichert ist, und das ist erstaunlich wenig.",
+        "press.iah.p2": "<strong>Neun Abschnitte</strong> über die konkurrierenden Theorien, die stärkste Fassung beider Seiten, die veröffentlichte Forschung und die lauten öffentlichen Stimmen — jede Behauptung markiert als gesichert, umstritten, spekulativ oder unerkennbar.",
+        "press.iah.p3": "Ein React-Essay, getragen von <strong>einem einzigen <code>useState</code> und einem Context</strong>, der die Schwelle nach unten reicht — keine State-Bibliothek, vollständig per Tastatur bedienbar, respektiert <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "Permutationstest",
+        "press.chip.zeroDeps": "Null Abhängigkeiten",
+        "press.chip.seededRng": "Geseedeter PRNG",
+        "press.chip.interpreter": "Interpreter",
+        "press.chip.nodeCli": "Node-CLI",
+        "press.chip.monorepo": "Monorepo",
+        "press.runsLocally": "Läuft lokal",
+        "press.cliBrowser": "CLI · Browser",
         "press.chip.singleFile": "Einzeldatei-HTML",
         "press.chip.keyframes": "CSS-Keyframes",
         "press.chip.inlineSvg": "Inline-SVG",
@@ -6190,7 +6579,7 @@
         "split.onMyOwn": "En solo.",
         "split.fiveProducts": "Neuf projets.",
         "press.label": "Travail indépendant",
-        "press.meta": "Un studio · huit projets · en solo",
+        "press.meta": "Un studio · quinze projets · en solo",
         "press.folio": "Planche",
         "press.workshop.label": "L'Atelier",
         "press.workshop.meta": "Quatre projets · moteurs, simulations et travail client",
@@ -6218,8 +6607,44 @@
         "press.live": "En ligne",
         "press.visit": "Visiter",
         "press.source": "Code source",
-        "press.foot": "Neuf dépôts · tous publics · huit en ligne",
+        "press.foot": "Quinze dépôts · tous publics · douze en ligne",
         "press.footLink": "Tout sur GitHub ↗",
+        "press.lab.label": "Le Laboratoire",
+        "press.lab.meta": "Quatre expériences · simulations, langages et instruments",
+        "press.reading.label": "La Salle de Lecture",
+        "press.reading.meta": "Deux pièces au long cours · de l'éditorial construit comme un logiciel",
+        "press.prim.line": "Deux espèces de réseaux de neurones — l'une chasse, l'autre fuit — coévoluent sous la loi de la Reine Rouge. Une expérience conçue pour pouvoir ne rien conclure.",
+        "press.prim.p1": "<strong>Topologie évolutive</strong> à la manière de NEAT sous un registre global d'innovations, avec spéciation par distance de compatibilité et partage explicite de la fitness — aucune architecture n'est conçue, tout naît de la mutation.",
+        "press.prim.p2": "Chaque synapse porte son propre taux d'apprentissage évolutif : la <strong>plasticité au cours de la vie</strong> s'hérite comme règle et non comme poids. Récurrence et mémoire ont émergé dans 10 exécutions sur 10.",
+        "press.prim.p3": "Le verdict est un <strong>test de permutation bilatéral sur 20 000 mélanges</strong> face à un contrôle à prédateur figé — statistique et seuil fixés avant la première exécution.",
+        "press.lex.line": "Une population qui démarre sans aucun mot commun. Un vocabulaire, un mythe à la dérive et un tabou s'assemblent d'eux-mêmes, à partir de la seule conversation.",
+        "press.lex.p1": "Trois modèles couplés dans un seul fichier — un <strong>jeu de dénomination</strong> pour le vocabulaire, une mutation façon téléphone arabe pour le mythe, et la diffusion d'interdits adossée à une <strong>métanorme</strong> optionnelle.",
+        "press.lex.p2": "Des <strong>biais de transmission</strong> de prestige et de conformité s'exécutent sur deux topologies — bien mélangée pour le consensus global, spatiale pour des dialectes régionaux persistants.",
+        "press.lex.p3": "Chaque tirage stochastique provient d'un unique PRNG <code>mulberry32</code> initialisé, si bien que <strong>toute exécution se rejoue à l'identique</strong> depuis sa graine. Consensus, fragmentation et dérive sans fin sont tous des résultats valides.",
+        "press.wend.line": "Un petit langage de programmation où l'historique d'exécution fait partie du langage — on rembobine une exécution et on demande quand une valeur a changé.",
+        "press.wend.p1": "Un <strong>interpréteur de 1 700 lignes sans aucune dépendance</strong> — lexer, parseur et évaluateur à générateurs qui rend la main entre les étapes, si bien qu'une exécution se parcourt pas à pas, se met en pause et se rembobine.",
+        "press.wend.p2": "<strong>Exécution réversible et historique des valeurs</strong> — des graines déterministes rendent chaque exécution reproductible, et <code>--trace</code> rejoue l'évolution de chaque liaison au lieu d'afficher sa seule valeur finale.",
+        "press.wend.p3": "Un même runtime des deux côtés — une <strong>CLI Node</strong> qui lit stdin et un bac à sable navigateur doté d'une timeline navigable — plus <code>group_by</code>, <code>to_csv</code> et les pipelines <code>|&gt;</code> de première classe.",
+        "press.fathom.line": "Un lecteur rapide RSVP — un mot à la fois, chacun ancré sur la lettre où l'œil se pose réellement, pour que le regard n'ait jamais à se déplacer.",
+        "press.fathom.p1": "Un <strong>paquet cœur indépendant de tout framework</strong> — tokeniseur, calcul du point de reconnaissance optimal, minutage et transport — surmonté d'un lecteur React, tenu par <strong>122 tests</strong> dans le monorepo.",
+        "press.fathom.p2": "Le rythme est <strong>corrigé de la dérive, ce n'est pas un intervalle naïf</strong> : de 100 à 800 mots/minute, avec un temps d'affichage plus long sur les mots longs et de vraies pauses en fin de proposition et de phrase.",
+        "press.fathom.p3": "Les PDF et EPUB sont analysés <strong>entièrement sur l'appareil</strong>, et <code>prefers-reduced-motion</code> désactive l'avance automatique au profit d'un pas à pas manuel et d'une vue plein texte sans clignotement.",
+        "press.fuego.line": "Un atlas interactif de géologie volcanique, bâti par quelqu'un qui a grandi en regardant les montagnes respirer — la ceinture de feu du Guatemala, au long cours.",
+        "press.fuego.p1": "Un <strong>projecteur qui suit le curseur</strong> masque deux images géologiques superposées l'une par l'autre : déplacer le pointeur soulève la surface de la terre.",
+        "press.fuego.p2": "Des profils complets des quatre sommets durablement actifs — <strong>Fuego, Pacaya, Santiaguito et Acatenango</strong> — avec altitude, cadence éruptive et archives historiques.",
+        "press.fuego.p3": "Un éditorial au long cours sur l'archipel de feu — sa tectonique, son poids culturel et son coût humain — composé en <strong>Playfair Display sur Inter</strong>.",
+        "press.iah.line": "Un essai au long cours sur la conscience des machines où chaque affirmation porteuse reçoit une étiquette de confiance épistémique — et où la page met en scène son propre argument.",
+        "press.iah.p1": "Un <strong>curseur de seuil de certitude</strong> filtre l'essai sur place — on le monte et la page se vide à vue d'œil jusqu'à ne garder que l'établi, qui s'avère très mince.",
+        "press.iah.p2": "<strong>Neuf sections</strong> couvrant les théories concurrentes, la version la plus forte des deux camps, la recherche publiée et les voix publiques les plus bruyantes — chaque affirmation étiquetée établie, contestée, spéculative ou inconnaissable.",
+        "press.iah.p3": "Un essai React tenu par <strong>un seul <code>useState</code> et un contexte</strong> qui fait descendre le seuil — pas de bibliothèque d'état, entièrement navigable au clavier, respectant <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "Test de Permutation",
+        "press.chip.zeroDeps": "Zéro Dépendance",
+        "press.chip.seededRng": "PRNG à Graine",
+        "press.chip.interpreter": "Interpréteur",
+        "press.chip.nodeCli": "CLI Node",
+        "press.chip.monorepo": "Monorepo",
+        "press.runsLocally": "S'exécute en local",
+        "press.cliBrowser": "CLI · Navigateur",
         "press.chip.singleFile": "HTML en un fichier",
         "press.chip.keyframes": "Keyframes CSS",
         "press.chip.inlineSvg": "SVG en ligne",
@@ -6412,7 +6837,7 @@
         "split.onMyOwn": "לבד לגמרי.",
         "split.fiveProducts": "תשעה פרויקטים.",
         "press.label": "עבודה עצמאית",
-        "press.meta": "סטודיו אחד · שמונה פרויקטים · הכול לבד",
+        "press.meta": "סטודיו אחד · חמישה עשר פרויקטים · הכול לבד",
         "press.folio": "לוח",
         "press.workshop.label": "הסדנה",
         "press.workshop.meta": "ארבעה פרויקטים · מנועים, סימולציות ועבודת לקוחות",
@@ -6440,8 +6865,44 @@
         "press.live": "באוויר",
         "press.visit": "לאתר",
         "press.source": "קוד מקור",
-        "press.foot": "תשעה מאגרים · כולם ציבוריים · שמונה באוויר",
+        "press.foot": "חמישה עשר מאגרים · כולם ציבוריים · שנים עשר באוויר",
         "press.footLink": "הכול ב-GitHub ↗",
+        "press.lab.label": "המעבדה",
+        "press.lab.meta": "ארבעה ניסויים · סימולציות, שפות וכלים",
+        "press.reading.label": "חדר הקריאה",
+        "press.reading.meta": "שתי יצירות ארוכות · עריכה שנבנתה כתוכנה",
+        "press.prim.line": "שני מיני רשתות נוירונים — אחד צד, אחד בורח — מתפתחים יחד תחת חוק המלכה האדומה. ניסוי שנבנה כך שיוכל לחזור גם בלי ממצא.",
+        "press.prim.p1": "<strong>טופולוגיה מתפתחת</strong> בסגנון NEAT תחת רישום חדשנות גלובלי, עם ספציאציה לפי מרחק תאימות וחלוקת כשירות מפורשת — שום ארכיטקטורה לא מתוכננת, הכול נוצר במוטציה.",
+        "press.prim.p2": "לכל סינפסה קצב למידה מתפתח משלה, כך ש<strong>גמישות בתוך חיי הסוכן</strong> עוברת בירושה ככלל ולא כמשקלים. רקורסיה וזיכרון צמחו ב-10 הרצות מתוך 10.",
+        "press.prim.p3": "פסק הדין הוא <strong>מבחן פרמוטציה דו-צדדי על 20,000 ערבובים</strong> מול ביקורת עם טורף מוקפא — הסטטיסטי והסף נקבעו לפני ההרצה הראשונה.",
+        "press.lex.line": "אוכלוסייה שמתחילה בלי מילים משותפות. אוצר מילים, מיתוס נודד וטאבו מתגבשים מעצמם, מתוך שיחה בלבד.",
+        "press.lex.p1": "שלושה מודלים מקושרים בקובץ אחד — <strong>משחק שמות</strong> לאוצר המילים, מוטציה בסגנון טלפון שבור למיתוס, והתפשטות איסורים הנשענת על <strong>מטא-נורמה</strong> אופציונלית.",
+        "press.lex.p2": "<strong>הטיות העברה</strong> של יוקרה וקונפורמיות רצות על שתי טופולוגיות — מעורבת היטב לקונצנזוס גלובלי, מרחבית לניבים אזוריים מתמידים.",
+        "press.lex.p3": "כל הגרלה סטוכסטית מגיעה מ-PRNG יחיד מסוג <code>mulberry32</code> עם זרע, כך ש<strong>כל הרצה משוחזרת בדיוק</strong> מהזרע שלה. קונצנזוס, פיצול ונדידה אינסופית — כולם תוצאות תקפות.",
+        "press.wend.line": "שפת תכנות קטנה שבה היסטוריית ההרצה היא חלק מהשפה — מריצים אחורה ושואלים מתי ערך השתנה.",
+        "press.wend.p1": "<strong>מפרש בן 1,700 שורות ללא שום תלות</strong> — לקסר, פרסר ומעריך מבוסס גנרטורים שמוסר שליטה בין צעדים, כך שאפשר לצעוד, לעצור ולגלגל הרצה אחורה.",
+        "press.wend.p2": "<strong>הרצה הפיכה והיסטוריית ערכים</strong> — זרעים דטרמיניסטיים הופכים כל הרצה לשחזורית, ו-<code>--trace</code> מנגן מחדש כיצד השתנה כל קישור במקום להדפיס רק את ערכו האחרון.",
+        "press.wend.p3": "אותו זמן ריצה בשני המקומות — <strong>CLI של Node</strong> שקורא stdin ומגרש משחקים בדפדפן עם ציר זמן נגלל — ובנוסף <code>group_by</code>, <code>to_csv</code> וצינורות <code>|&gt;</code> כאזרחים מדרגה ראשונה.",
+        "press.fathom.line": "קורא מהיר בשיטת RSVP — מילה אחת בכל רגע, כל אחת מעוגנת באות שאליה העין באמת נוחתת, כך שהמבט לעולם לא צריך לזוז.",
+        "press.fathom.p1": "<strong>חבילת ליבה בלתי תלויה בפריימוורק</strong> — מפרק לאסימונים, חישוב נקודת הזיהוי האופטימלית, תזמון ובקרת נגינה — ומעליה קורא ב-React, מגובה ב-<strong>122 בדיקות</strong> ברחבי המונו-ריפו.",
+        "press.fathom.p2": "הקצב <strong>מתוקן-סחיפה, לא אינטרוול נאיבי</strong>: 100 עד 800 מילים בדקה, עם שהייה ארוכה יותר במילים ארוכות והפסקות אמיתיות בסופי פסוקית ומשפט.",
+        "press.fathom.p3": "קובצי PDF ו-EPUB מנותחים <strong>כולם על המכשיר</strong>, ו-<code>prefers-reduced-motion</code> מכבה את הקידום האוטומטי לטובת צעידה ידנית ותצוגת טקסט מלא ללא הבהוב.",
+        "press.fuego.line": "אטלס אינטראקטיבי של גאולוגיה וולקנית, שנבנה בידי מי שגדלה על מראה ההרים נושמים — טבעת האש של גואטמלה, בפורמט ארוך.",
+        "press.fuego.p1": "<strong>אלומת אור העוקבת אחר הסמן</strong> ממסכת שתי תמונות גאולוגיות שכבתיות זו כנגד זו, כך שהזזת המצביע מקלפת את פני האדמה.",
+        "press.fuego.p2": "פרופילים מלאים של ארבע הפסגות הפעילות ברציפות — <strong>פואגו, פקאיה, סנטיאגיטו ואקטננגו</strong> — עם גובה, קצב התפרצויות ותיעוד היסטורי.",
+        "press.fuego.p3": "מאמר ארוך על ארכיפלג האש — הטקטוניקה שלו, משקלו התרבותי ומחירו האנושי — מסודר ב-<strong>Playfair Display על גבי Inter</strong>.",
+        "press.iah.line": "מסה ארוכה על תודעת מכונה שבה כל טענה נושאת-משקל מסומנת בתגית ביטחון אפיסטמי — והדף עצמו מגלם את הטיעון שלו.",
+        "press.iah.p1": "<strong>בקר סף ודאות</strong> מסנן את המסה במקום — מעלים אותו והדף מתרוקן לעין עד שנשאר רק מה שמבוסס, ומתברר שזה מעט מאוד.",
+        "press.iah.p2": "<strong>תשעה פרקים</strong> המכסים את התיאוריות המתחרות, את הניסוח החזק ביותר של שני הצדדים, את המחקר שפורסם ואת הקולות הציבוריים הרועשים — כל טענה מתויגת כמבוססת, שנויה במחלוקת, ספקולטיבית או בלתי ניתנת לידיעה.",
+        "press.iah.p3": "מסה אחת ב-React הנשענת על <strong><code>useState</code> יחיד וקונטקסט אחד</strong> שמשחילים את הסף כלפי מטה — בלי ספריית ניהול מצב, נגישה לחלוטין במקלדת ומכבדת <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "מבחן פרמוטציה",
+        "press.chip.zeroDeps": "אפס תלויות",
+        "press.chip.seededRng": "PRNG עם זרע",
+        "press.chip.interpreter": "מפרש",
+        "press.chip.nodeCli": "Node CLI",
+        "press.chip.monorepo": "מונו-ריפו",
+        "press.runsLocally": "רץ מקומית",
+        "press.cliBrowser": "CLI · דפדפן",
         "press.chip.singleFile": "HTML בקובץ אחד",
         "press.chip.keyframes": "CSS Keyframes",
         "press.chip.inlineSvg": "SVG מוטבע",
@@ -6635,7 +7096,7 @@
         "split.onMyOwn": "В одиночку.",
         "split.fiveProducts": "Девять проектов.",
         "press.label": "Самостоятельные проекты",
-        "press.meta": "Одна студия · восемь проектов · всё в одиночку",
+        "press.meta": "Одна студия · пятнадцать проектов · всё в одиночку",
         "press.folio": "Форма",
         "press.workshop.label": "Мастерская",
         "press.workshop.meta": "Четыре проекта · движки, симуляции и клиентская работа",
@@ -6663,8 +7124,44 @@
         "press.live": "В сети",
         "press.visit": "Открыть",
         "press.source": "Исходники",
-        "press.foot": "Девять репозиториев · все открытые · восемь в сети",
+        "press.foot": "Пятнадцать репозиториев · все открытые · двенадцать в сети",
         "press.footLink": "Всё на GitHub ↗",
+        "press.lab.label": "Лаборатория",
+        "press.lab.meta": "Четыре эксперимента · симуляции, языки и инструменты",
+        "press.reading.label": "Читальный зал",
+        "press.reading.meta": "Две длинные работы · редакционный материал, собранный как софт",
+        "press.prim.line": "Два вида нейросетей — один охотится, другой убегает — коэволюционируют по закону Красной Королевы. Эксперимент построен так, чтобы мог вернуться и с нулевым результатом.",
+        "press.prim.p1": "<strong>Эволюционируемая топология</strong> в духе NEAT под глобальным реестром инноваций, со специацией по дистанции совместимости и явным разделением приспособленности — ни одна архитектура не спроектирована, всё возникает мутацией.",
+        "press.prim.p2": "У каждого синапса собственная эволюционируемая скорость обучения, поэтому <strong>пластичность в течение жизни</strong> наследуется как правило, а не как веса. Рекуррентность и память возникли в 10 запусках из 10.",
+        "press.prim.p3": "Вердикт — <strong>двусторонний перестановочный тест на 20 000 перемешиваний</strong> против контроля с замороженным хищником: статистика и порог зафиксированы до первого запуска.",
+        "press.lex.line": "Популяция, начинающая без единого общего слова. Словарь, дрейфующий миф и табу собираются сами — из одного лишь разговора.",
+        "press.lex.p1": "Три связанные модели в одном файле — <strong>игра в имена</strong> для словаря, мутация по принципу испорченного телефона для мифа и распространение запретов, подкреплённое опциональной <strong>метанормой</strong>.",
+        "press.lex.p2": "<strong>Смещения передачи</strong> по престижу и конформности работают на двух топологиях — хорошо перемешанной для глобального консенсуса и пространственной для устойчивых региональных диалектов.",
+        "press.lex.p3": "Каждый случайный выбор берётся из одного засеянного PRNG <code>mulberry32</code>, так что <strong>любой запуск воспроизводится в точности</strong> по своему сиду. Консенсус, фрагментация и бесконечный дрейф — все три исхода допустимы.",
+        "press.wend.line": "Маленький язык программирования, в котором история выполнения — часть самого языка: можно отмотать запуск назад и спросить, когда изменилось значение.",
+        "press.wend.p1": "<strong>Интерпретатор на 1 700 строк без единой зависимости</strong> — лексер, парсер и вычислитель на генераторах, отдающий управление между шагами, поэтому запуск можно прогонять по шагам, ставить на паузу и отматывать.",
+        "press.wend.p2": "<strong>Обратимое выполнение и история значений</strong> — детерминированные сиды делают каждый запуск воспроизводимым, а <code>--trace</code> проигрывает, как менялась каждая привязка, вместо печати одного лишь последнего значения.",
+        "press.wend.p3": "Один рантайм в обоих местах — <strong>Node CLI</strong>, читающий stdin, и браузерная песочница с прокруткой по таймлайну — плюс полноправные <code>group_by</code>, <code>to_csv</code> и конвейеры <code>|&gt;</code>.",
+        "press.fathom.line": "Скорочтение по методу RSVP — по одному слову за раз, каждое закреплено на той букве, куда действительно падает взгляд, так что глазам не нужно двигаться.",
+        "press.fathom.p1": "<strong>Ядро, не зависящее от фреймворка</strong> — токенизатор, расчёт оптимальной точки распознавания, тайминг и управление воспроизведением — с React-ридером поверх, покрытое <strong>122 тестами</strong> по всему монорепозиторию.",
+        "press.fathom.p2": "Темп <strong>скорректирован по дрейфу, а не наивный интервал</strong>: от 100 до 800 слов в минуту, с более долгой задержкой на длинных словах и настоящими паузами в конце частей предложения и фраз.",
+        "press.fathom.p3": "PDF и EPUB разбираются <strong>целиком на устройстве</strong>, а <code>prefers-reduced-motion</code> отключает автопрокрутку в пользу ручного шага и немерцающего полнотекстового режима.",
+        "press.fuego.line": "Интерактивный атлас вулканической геологии, сделанный тем, кто вырос, глядя, как дышат горы, — огненное кольцо Гватемалы в длинной форме.",
+        "press.fuego.p1": "<strong>Луч света, следующий за курсором</strong>, маскирует два наложенных геологических снимка друг относительно друга, так что движение указателя приподнимает поверхность земли.",
+        "press.fuego.p2": "Полные профили четырёх постоянно активных вершин — <strong>Фуэго, Пакайя, Сантьягито и Акатенанго</strong> — с высотой, ритмом извержений и историческими записями.",
+        "press.fuego.p3": "Длинный очерк об огненном архипелаге — его тектоника, культурный вес и человеческая цена — набранный <strong>Playfair Display поверх Inter</strong>.",
+        "press.iah.line": "Длинное эссе о машинном сознании, где каждое несущее утверждение снабжено меткой эпистемической уверенности, — и сама страница разыгрывает собственный аргумент.",
+        "press.iah.p1": "<strong>Регулятор порога достоверности</strong> фильтрует эссе на месте: поднимите его — и страница на глазах пустеет до того, что действительно установлено, а этого оказывается очень мало.",
+        "press.iah.p2": "<strong>Девять разделов</strong> охватывают конкурирующие теории, сильнейшую версию аргументов обеих сторон, опубликованные исследования и громкие публичные голоса — каждое утверждение помечено как установленное, спорное, спекулятивное или непознаваемое.",
+        "press.iah.p3": "Эссе на React держится на <strong>одном <code>useState</code> и одном контексте</strong>, протягивающем порог вниз, — без библиотеки состояния, полностью доступно с клавиатуры и уважает <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "Перестановочный тест",
+        "press.chip.zeroDeps": "Ноль зависимостей",
+        "press.chip.seededRng": "PRNG с сидом",
+        "press.chip.interpreter": "Интерпретатор",
+        "press.chip.nodeCli": "Node CLI",
+        "press.chip.monorepo": "Монорепозиторий",
+        "press.runsLocally": "Работает локально",
+        "press.cliBrowser": "CLI · Браузер",
         "press.chip.singleFile": "HTML в одном файле",
         "press.chip.keyframes": "CSS-кейфреймы",
         "press.chip.inlineSvg": "Встроенный SVG",
@@ -6860,7 +7357,7 @@
         "split.onMyOwn": "Por minha conta.",
         "split.fiveProducts": "Nove projetos.",
         "press.label": "Trabalho independente",
-        "press.meta": "Um estúdio · oito projetos · feitos sozinha",
+        "press.meta": "Um estúdio · quinze projetos · feitos sozinha",
         "press.folio": "Chapa",
         "press.workshop.label": "A Oficina",
         "press.workshop.meta": "Quatro projetos · motores, simulações e trabalho para clientes",
@@ -6888,8 +7385,44 @@
         "press.live": "No ar",
         "press.visit": "Visitar",
         "press.source": "Código",
-        "press.foot": "Nove repositórios · todos públicos · oito no ar",
+        "press.foot": "Quinze repositórios · todos públicos · doze no ar",
         "press.footLink": "Tudo no GitHub ↗",
+        "press.lab.label": "O Laboratório",
+        "press.lab.meta": "Quatro experiências · simulações, linguagens e instrumentos",
+        "press.reading.label": "A Sala de Leitura",
+        "press.reading.meta": "Duas peças de formato longo · editorial construído como software",
+        "press.prim.line": "Duas espécies de rede neuronal — uma que caça, outra que foge — coevoluem sob a lei da Rainha Vermelha. Uma experiência construída para poder dar resultado nulo.",
+        "press.prim.p1": "<strong>Topologia evolutiva</strong> ao estilo NEAT sob um registo global de inovações, com especiação por distância de compatibilidade e partilha explícita de aptidão — nenhuma arquitetura é desenhada, toda ela nasce da mutação.",
+        "press.prim.p2": "Cada sinapse carrega a sua própria taxa de aprendizagem evolutiva, pelo que a <strong>plasticidade dentro do tempo de vida</strong> se herda como regra e não como pesos. Recorrência e memória emergiram em 10 execuções em 10.",
+        "press.prim.p3": "O veredicto é um <strong>teste de permutação bilateral sobre 20 000 baralhamentos</strong> contra um controlo de predador congelado — estatística e limiar fixados antes da primeira execução.",
+        "press.lex.line": "Uma população que começa sem palavras em comum. Um vocabulário, um mito à deriva e um tabu montam-se sozinhos, a partir de nada além de conversa.",
+        "press.lex.p1": "Três modelos acoplados num único ficheiro — um <strong>jogo de nomeação</strong> para o vocabulário, mutação ao estilo telefone sem fios para o mito, e difusão de proibições sustentada por uma <strong>metanorma</strong> opcional.",
+        "press.lex.p2": "<strong>Vieses de transmissão</strong> de prestígio e de conformidade correm sobre duas topologias — bem misturada para consenso global, espacial para dialetos regionais persistentes.",
+        "press.lex.p3": "Cada sorteio estocástico sai de um único PRNG <code>mulberry32</code> com semente, pelo que <strong>qualquer execução se repete exatamente</strong> a partir da sua semente. Consenso, fragmentação e deriva sem fim são todos resultados válidos.",
+        "press.wend.line": "Uma pequena linguagem de programação onde o histórico de execução faz parte da linguagem — rebobina-se uma execução e pergunta-se quando é que um valor mudou.",
+        "press.wend.p1": "Um <strong>interpretador de 1 700 linhas sem qualquer dependência</strong> — lexer, parser e um avaliador baseado em geradores que cede controlo entre passos, para que uma execução possa ser percorrida, pausada e rebobinada.",
+        "press.wend.p2": "<strong>Execução reversível e histórico de valores</strong> — sementes determinísticas tornam cada execução reproduzível, e <code>--trace</code> reproduz como cada ligação mudou em vez de imprimir apenas o seu último valor.",
+        "press.wend.p3": "Um só runtime nos dois lados — uma <strong>CLI de Node</strong> que lê stdin e um playground de browser com linha temporal navegável — mais <code>group_by</code>, <code>to_csv</code> e pipelines <code>|&gt;</code> de primeira classe.",
+        "press.fathom.line": "Um leitor rápido RSVP — uma palavra de cada vez, cada uma ancorada na letra onde o olho realmente pousa, para que o olhar nunca tenha de se mover.",
+        "press.fathom.p1": "Um <strong>pacote central agnóstico de framework</strong> — tokenizador, cálculo do ponto ótimo de reconhecimento, temporização e transporte — com um leitor React por cima, sustentado por <strong>122 testes</strong> no monorepo.",
+        "press.fathom.p2": "O ritmo é <strong>corrigido à deriva, não um intervalo ingénuo</strong>: de 100 a 800 palavras por minuto, com permanência mais longa em palavras longas e pausas reais no fim de orações e frases.",
+        "press.fathom.p3": "PDF e EPUB são processados <strong>inteiramente no dispositivo</strong>, e <code>prefers-reduced-motion</code> desliga o avanço automático a favor do passo manual e de uma vista de texto integral sem intermitência.",
+        "press.fuego.line": "Um atlas interativo de geologia vulcânica, feito por quem cresceu a ver as montanhas respirar — o anel de fogo da Guatemala, em formato longo.",
+        "press.fuego.p1": "Um <strong>foco que segue o cursor</strong> mascara duas imagens geológicas sobrepostas uma contra a outra, de modo que mover o ponteiro levanta a superfície da terra.",
+        "press.fuego.p2": "Perfis completos dos quatro picos permanentemente ativos — <strong>Fuego, Pacaya, Santiaguito e Acatenango</strong> — com altitude, cadência eruptiva e registo histórico.",
+        "press.fuego.p3": "Um editorial de formato longo sobre o arquipélago de fogo — a sua tectónica, o seu peso cultural e o seu custo humano — composto em <strong>Playfair Display sobre Inter</strong>.",
+        "press.iah.line": "Um ensaio longo sobre consciência das máquinas em que cada afirmação estrutural carrega uma etiqueta de confiança epistémica — e a página encena o seu próprio argumento.",
+        "press.iah.p1": "Um <strong>controlo de limiar de certeza</strong> filtra o ensaio no lugar — sobe-se o limiar e a página esvazia-se à vista até restar só o que está assente, que se revela muito pouco.",
+        "press.iah.p2": "<strong>Nove secções</strong> que percorrem as teorias em disputa, a versão mais forte de ambos os lados, a investigação publicada e as vozes públicas mais ruidosas — cada afirmação etiquetada como estabelecida, contestada, especulativa ou incognoscível.",
+        "press.iah.p3": "Um ensaio em React sustentado por <strong>um único <code>useState</code> e um contexto</strong> que faz descer o limiar — sem biblioteca de estado, totalmente navegável por teclado e respeitando <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "Teste de Permutação",
+        "press.chip.zeroDeps": "Zero Dependências",
+        "press.chip.seededRng": "PRNG com Semente",
+        "press.chip.interpreter": "Interpretador",
+        "press.chip.nodeCli": "CLI de Node",
+        "press.chip.monorepo": "Monorepo",
+        "press.runsLocally": "Corre localmente",
+        "press.cliBrowser": "CLI · Browser",
         "press.chip.singleFile": "HTML em ficheiro único",
         "press.chip.keyframes": "Keyframes CSS",
         "press.chip.inlineSvg": "SVG embutido",
@@ -7084,7 +7617,7 @@
         "split.onMyOwn": "Самотужки.",
         "split.fiveProducts": "Дев'ять проєктів.",
         "press.label": "Самостійні проєкти",
-        "press.meta": "Одна студія · вісім проєктів · усе самотужки",
+        "press.meta": "Одна студія · п'ятнадцять проєктів · усе самотужки",
         "press.folio": "Форма",
         "press.workshop.label": "Майстерня",
         "press.workshop.meta": "Чотири проєкти · рушії, симуляції та клієнтська робота",
@@ -7112,8 +7645,44 @@
         "press.live": "У мережі",
         "press.visit": "Відкрити",
         "press.source": "Код",
-        "press.foot": "Дев'ять репозиторіїв · усі відкриті · вісім у мережі",
+        "press.foot": "П'ятнадцять репозиторіїв · усі відкриті · дванадцять у мережі",
         "press.footLink": "Усе на GitHub ↗",
+        "press.lab.label": "Лабораторія",
+        "press.lab.meta": "Чотири експерименти · симуляції, мови та інструменти",
+        "press.reading.label": "Читальна зала",
+        "press.reading.meta": "Дві довгі роботи · редакційний матеріал, зібраний як софт",
+        "press.prim.line": "Два види нейромереж — один полює, другий тікає — коеволюціонують за законом Червоної Королеви. Експеримент побудовано так, щоб він міг повернутися й з нульовим результатом.",
+        "press.prim.p1": "<strong>Еволюційна топологія</strong> у дусі NEAT під глобальним реєстром інновацій, зі спеціацією за відстанню сумісності та явним розподілом пристосованості — жодну архітектуру не спроєктовано, усе постає через мутацію.",
+        "press.prim.p2": "Кожен синапс має власну еволюційну швидкість навчання, тож <strong>пластичність упродовж життя</strong> успадковується як правило, а не як ваги. Рекурентність і пам'ять виникли в 10 запусках із 10.",
+        "press.prim.p3": "Вердикт — <strong>двобічний перестановочний тест на 20 000 перемішувань</strong> проти контролю із замороженим хижаком: статистику й поріг зафіксовано до першого запуску.",
+        "press.lex.line": "Популяція, що починає без жодного спільного слова. Словник, дрейфуючий міф і табу складаються самі — з самої лише розмови.",
+        "press.lex.p1": "Три пов'язані моделі в одному файлі — <strong>гра в імена</strong> для словника, мутація на кшталт зіпсутого телефона для міфу та поширення заборон, підперте необов'язковою <strong>метанормою</strong>.",
+        "press.lex.p2": "<strong>Зміщення передачі</strong> за престижем і конформністю працюють на двох топологіях — добре перемішаній для глобального консенсусу та просторовій для стійких регіональних діалектів.",
+        "press.lex.p3": "Кожен випадковий вибір походить з одного засіяного PRNG <code>mulberry32</code>, тож <strong>будь-який запуск відтворюється точно</strong> за своїм сідом. Консенсус, фрагментація й нескінченний дрейф — усі три результати чинні.",
+        "press.wend.line": "Невелика мова програмування, у якій історія виконання є частиною самої мови — ви відмотуєте запуск назад і питаєте, коли змінилося значення.",
+        "press.wend.p1": "<strong>Інтерпретатор на 1 700 рядків без жодної залежності</strong> — лексер, парсер і обчислювач на генераторах, що віддає керування між кроками, тож запуск можна проходити покроково, ставити на паузу й відмотувати.",
+        "press.wend.p2": "<strong>Оборотне виконання та історія значень</strong> — детерміновані сіди роблять кожен запуск відтворюваним, а <code>--trace</code> програє, як змінювалася кожна прив'язка, замість друку лише останнього значення.",
+        "press.wend.p3": "Один рантайм в обох місцях — <strong>Node CLI</strong>, що читає stdin, і браузерний майданчик із прокруткою по таймлайну — плюс повноправні <code>group_by</code>, <code>to_csv</code> та конвеєри <code>|&gt;</code>.",
+        "press.fathom.line": "Швидкочитання за методом RSVP — по одному слову за раз, кожне закріплене на тій літері, куди справді падає погляд, тож очам не доводиться рухатися.",
+        "press.fathom.p1": "<strong>Ядро, незалежне від фреймворку</strong> — токенізатор, обчислення оптимальної точки розпізнавання, тайминг і керування відтворенням — з React-читалкою згори, покрите <strong>122 тестами</strong> в монорепозиторії.",
+        "press.fathom.p2": "Темп <strong>скориговано за дрейфом, а не наївний інтервал</strong>: від 100 до 800 слів за хвилину, з довшою затримкою на довгих словах і справжніми паузами наприкінці частин речення та фраз.",
+        "press.fathom.p3": "PDF та EPUB розбираються <strong>цілком на пристрої</strong>, а <code>prefers-reduced-motion</code> вимикає автопрокрутку на користь ручного кроку й немерехтливого повнотекстового режиму.",
+        "press.fuego.line": "Інтерактивний атлас вулканічної геології, зроблений тим, хто виріс, дивлячись, як дихають гори, — вогняне кільце Гватемали у довгій формі.",
+        "press.fuego.p1": "<strong>Промінь світла, що йде за курсором</strong>, маскує два накладені геологічні знімки один щодо одного, тож рух вказівника підіймає поверхню землі.",
+        "press.fuego.p2": "Повні профілі чотирьох постійно активних вершин — <strong>Фуего, Пакая, Сантьягіто й Акатенанго</strong> — з висотою, ритмом вивержень та історичними записами.",
+        "press.fuego.p3": "Довгий нарис про вогняний архіпелаг — його тектоніка, культурна вага й людська ціна — набраний <strong>Playfair Display поверх Inter</strong>.",
+        "press.iah.line": "Довге есе про свідомість машин, де кожне несуче твердження має позначку епістемічної впевненості, — і сама сторінка розігрує власний аргумент.",
+        "press.iah.p1": "<strong>Регулятор порога певності</strong> фільтрує есе на місці: підніміть його — і сторінка на очах порожніє до того, що справді встановлено, а цього виявляється дуже мало.",
+        "press.iah.p2": "<strong>Дев'ять розділів</strong> охоплюють конкурентні теорії, найсильнішу версію аргументів обох сторін, опубліковані дослідження та гучні публічні голоси — кожне твердження позначене як установлене, спірне, спекулятивне або непізнаване.",
+        "press.iah.p3": "Есе на React тримається на <strong>одному <code>useState</code> й одному контексті</strong>, що протягує поріг униз, — без бібліотеки стану, повністю доступне з клавіатури й шанує <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "Перестановочний тест",
+        "press.chip.zeroDeps": "Нуль залежностей",
+        "press.chip.seededRng": "PRNG із сідом",
+        "press.chip.interpreter": "Інтерпретатор",
+        "press.chip.nodeCli": "Node CLI",
+        "press.chip.monorepo": "Монорепозиторій",
+        "press.runsLocally": "Працює локально",
+        "press.cliBrowser": "CLI · Браузер",
         "press.chip.singleFile": "HTML в одному файлі",
         "press.chip.keyframes": "CSS-кейфрейми",
         "press.chip.inlineSvg": "Вбудований SVG",
@@ -7308,7 +7877,7 @@
         "split.onMyOwn": "独立完成。",
         "split.fiveProducts": "九个项目。",
         "press.label": "独立作品",
-        "press.meta": "一间工作室 · 八个项目 · 独立交付",
+        "press.meta": "一间工作室 · 十五个项目 · 独立交付",
         "press.folio": "印版",
         "press.workshop.label": "工坊",
         "press.workshop.meta": "四个项目 · 引擎、模拟与客户作品",
@@ -7336,8 +7905,44 @@
         "press.live": "已上线",
         "press.visit": "访问",
         "press.source": "源码",
-        "press.foot": "九个仓库 · 全部公开 · 八个在线",
+        "press.foot": "十五个仓库 · 全部公开 · 十二个在线",
         "press.footLink": "在 GitHub 上查看全部 ↗",
+        "press.lab.label": "实验室",
+        "press.lab.meta": "四个实验 · 模拟、语言与工具",
+        "press.reading.label": "阅览室",
+        "press.reading.meta": "两篇长文 · 用软件写成的编辑作品",
+        "press.prim.line": "两种神经网络——一种追捕，一种逃逸——在红皇后法则下协同演化。这个实验从设计之初就允许得出「无效应」的结论。",
+        "press.prim.p1": "NEAT 式的<strong>可演化拓扑</strong>，运行在全局创新登记之下，配合基于兼容距离的物种分化与显式适应度共享——没有任何架构是设计出来的，全部由突变生成。",
+        "press.prim.p2": "每条突触都带有自己可演化的学习率，因此<strong>生命周期内的可塑性</strong>是以规则而非权重被继承。循环连接与记忆在 10 次运行中出现了 10 次。",
+        "press.prim.p3": "结论来自一次针对「冻结捕食者」对照组的<strong>双侧置换检验，共 20,000 次重排</strong>——统计量与阈值都在第一次运行之前就已锁定。",
+        "press.lex.line": "一个起初没有任何共同词汇的群体。词汇、漂移的神话与禁忌，仅仅靠对话就自行组装了起来。",
+        "press.lex.p1": "单个文件里的三套耦合模型——用于词汇的<strong>命名游戏</strong>、传话游戏式的神话变异，以及由可选<strong>元规范</strong>支撑的禁令传播。",
+        "press.lex.p2": "声望偏好与从众偏好这两种<strong>传播偏差</strong>运行在两种拓扑上——充分混合以形成全局共识，空间结构则产生持久的地域方言。",
+        "press.lex.p3": "每一次随机抽取都来自同一个带种子的 <code>mulberry32</code> 伪随机数发生器，因此<strong>任何一次运行都能按种子精确重放</strong>。共识、分裂与无尽漂移都是有效结果。",
+        "press.wend.line": "一门小型编程语言，执行历史本身就是语言的一部分——你可以把一次运行倒带，然后追问某个值是何时改变的。",
+        "press.wend.p1": "一个<strong>零依赖、1,700 行的解释器</strong>——词法器、语法分析器，以及在每一步之间让出控制权的生成器求值器，因此一次运行可以单步、暂停并倒带。",
+        "press.wend.p2": "<strong>可逆执行与取值历史</strong>——确定性种子让每次运行都可复现，<code>--trace</code> 会重放每个绑定的变化过程，而不只是打印它的最终值。",
+        "press.wend.p3": "两处共用同一个运行时——读取 stdin 的 <strong>Node 命令行</strong>，以及带时间轴拖动条的浏览器演练场——外加一等公民般的 <code>group_by</code>、<code>to_csv</code> 与 <code>|&gt;</code> 管道。",
+        "press.fathom.line": "一款 RSVP 速读器——每次只显示一个词，并锚定在视线真正落点的那个字母上，让目光完全不必移动。",
+        "press.fathom.p1": "一个<strong>与框架无关的核心包</strong>——分词器、最佳识别点求解、计时与播放控制——其上叠加一个 React 阅读器，整个 monorepo 由 <strong>122 条测试</strong>守住。",
+        "press.fathom.p2": "节奏是<strong>经过漂移校正的，而不是朴素的定时器</strong>：每分钟 100 到 800 词，长词停留更久，从句与句末有真正的停顿。",
+        "press.fathom.p3": "PDF 与 EPUB <strong>完全在本机解析</strong>；<code>prefers-reduced-motion</code> 会关闭自动推进，改为手动逐词前进，并提供不闪烁的全文视图。",
+        "press.fuego.line": "一部交互式火山地质图集，出自一个从小看着群山呼吸长大的人之手——危地马拉的火环，以长文形式呈现。",
+        "press.fuego.p1": "一束<strong>跟随光标的聚光</strong>把两层地质影像互相遮罩，于是移动指针就像掀开地表。",
+        "press.fuego.p2": "四座持续活跃山峰的完整档案——<strong>富埃戈、帕卡亚、圣地亚吉托与阿卡特南戈</strong>——包含海拔、喷发节律与历史记录。",
+        "press.fuego.p3": "一篇关于火之群岛的长文——它的板块构造、文化分量与人命代价——以 <strong>Playfair Display 搭配 Inter</strong> 排版。",
+        "press.iah.line": "一篇关于机器意识的长文，其中每一条支撑性论断都标注了认知置信度——而页面本身就在演绎它自己的论点。",
+        "press.iah.p1": "一个<strong>确定性阈值控件</strong>就地过滤全文——把它调高，页面会肉眼可见地被掏空，只剩下真正确定的部分，而那少得惊人。",
+        "press.iah.p2": "<strong>九个章节</strong>贯穿相互竞争的理论、双方最强版本的论证、已发表的研究，以及公共领域里最响亮的声音——每条论断都被标为已确立、有争议、推测性或不可知。",
+        "press.iah.p3": "整篇 React 文章只靠<strong>一个 <code>useState</code> 和一个 context</strong> 把阈值向下传递——没有状态库，完全可用键盘操作，并尊重 <code>prefers-reduced-motion</code>。",
+        "press.chip.permutation": "置换检验",
+        "press.chip.zeroDeps": "零依赖",
+        "press.chip.seededRng": "带种子伪随机",
+        "press.chip.interpreter": "解释器",
+        "press.chip.nodeCli": "Node 命令行",
+        "press.chip.monorepo": "Monorepo",
+        "press.runsLocally": "本地运行",
+        "press.cliBrowser": "命令行 · 浏览器",
         "press.chip.singleFile": "单文件 HTML",
         "press.chip.keyframes": "CSS 关键帧",
         "press.chip.inlineSvg": "内联 SVG",
@@ -7532,7 +8137,7 @@
         "split.onMyOwn": "بمفردي.",
         "split.fiveProducts": "تسعة مشاريع.",
         "press.label": "عمل مستقل",
-        "press.meta": "استوديو واحد · ثمانية مشاريع · بمفردي",
+        "press.meta": "استوديو واحد · خمسة عشر مشروعًا · بمفردي",
         "press.folio": "لوح",
         "press.workshop.label": "الورشة",
         "press.workshop.meta": "أربعة مشاريع · محرّكات ومحاكاة وأعمال عملاء",
@@ -7560,8 +8165,44 @@
         "press.live": "مباشر",
         "press.visit": "زيارة",
         "press.source": "الكود",
-        "press.foot": "تسعة مستودعات · جميعها عامة · ثمانية تعمل",
+        "press.foot": "خمسة عشر مستودعًا · جميعها عامة · اثنا عشر تعمل",
         "press.footLink": "كل شيء على GitHub ↗",
+        "press.lab.label": "المختبر",
+        "press.lab.meta": "أربع تجارب · محاكاة ولغات وأدوات",
+        "press.reading.label": "قاعة المطالعة",
+        "press.reading.meta": "عملان مطوّلان · تحرير مبنيّ كبرمجية",
+        "press.prim.line": "نوعان من الشبكات العصبية — أحدهما يطارد والآخر يهرب — يتطوّران معًا تحت قانون الملكة الحمراء. تجربة صُمّمت لتحتمل نتيجة صفرية.",
+        "press.prim.p1": "<strong>بنية قابلة للتطوّر</strong> على طريقة NEAT ضمن سجلّ ابتكار عام، مع انتواع بمسافة التوافق ومشاركة صريحة للياقة — لا معمارية مصمَّمة، بل كلّها ناتجة عن الطفرة.",
+        "press.prim.p2": "كل مشبك عصبي يحمل معدّل تعلّم قابلًا للتطوّر خاصًّا به، فتُورَّث <strong>المرونة خلال حياة العميل</strong> كقاعدة لا كأوزان. ظهر التكرار والذاكرة في 10 تشغيلات من أصل 10.",
+        "press.prim.p3": "الحكم هو <strong>اختبار تبديل ثنائي الطرف على 20,000 خلط</strong> مقابل مجموعة ضابطة بمفترس مجمَّد — وقد حُدّد المقياس والعتبة قبل التشغيل الأول.",
+        "press.lex.line": "مجموعة تبدأ بلا كلمات مشتركة على الإطلاق. ثم تتشكّل من تلقاء نفسها مفردات، وأسطورة متنقّلة، ومحرَّم — من مجرّد الحديث.",
+        "press.lex.p1": "ثلاثة نماذج مترابطة في ملف واحد — <strong>لعبة تسمية</strong> للمفردات، وطفرة على طريقة الهاتف المكسور للأسطورة، وانتشار للمحظورات تسنده <strong>قاعدة فوقية</strong> اختيارية.",
+        "press.lex.p2": "<strong>انحيازات النقل</strong> بالمكانة وبالمجاراة تعمل على طوبولوجيتين — مختلطة تمامًا للإجماع العام، ومكانية للهجات إقليمية راسخة.",
+        "press.lex.p3": "كل اختيار عشوائي يأتي من مولّد <code>mulberry32</code> واحد ببذرة، لذا <strong>تُعاد أي جولة بالضبط</strong> انطلاقًا من بذرتها. الإجماع والتشظّي والانجراف اللانهائي كلّها نتائج صحيحة.",
+        "press.wend.line": "لغة برمجة صغيرة يكون فيها تاريخ التنفيذ جزءًا من اللغة نفسها — تُرجِع التشغيل إلى الوراء وتسأل: متى تغيّرت هذه القيمة؟",
+        "press.wend.p1": "<strong>مفسّر من 1,700 سطر بلا أي اعتماديات</strong> — محلّل لفظي ونحوي ومقيّم قائم على المولّدات يتنازل عن التحكّم بين الخطوات، فيمكن تنفيذ الجولة خطوة بخطوة وإيقافها وإرجاعها.",
+        "press.wend.p2": "<strong>تنفيذ قابل للعكس وتاريخ للقيم</strong> — البذور الحتمية تجعل كل تشغيل قابلًا لإعادة الإنتاج، و<code>--trace</code> يعيد تشغيل كيفية تغيّر كل ارتباط بدل طباعة قيمته الأخيرة فقط.",
+        "press.wend.p3": "زمن تشغيل واحد في الموضعين — <strong>واجهة أوامر Node</strong> تقرأ stdin، وساحة تجريب في المتصفح بشريط زمني قابل للسحب — إضافة إلى <code>group_by</code> و<code>to_csv</code> وأنابيب <code>|&gt;</code> من الدرجة الأولى.",
+        "press.fathom.line": "قارئ سريع بأسلوب RSVP — كلمة واحدة في كل مرة، كلٌّ منها مثبّتة على الحرف الذي تقع عليه العين فعلًا، حتى لا تضطر النظرة إلى التنقّل.",
+        "press.fathom.p1": "<strong>حزمة أساسية مستقلة عن أي إطار عمل</strong> — مُقطِّع نصوص، وحساب لنقطة التعرّف المثلى، وتوقيت وتحكّم بالتشغيل — يعلوها قارئ React، يحرسها <strong>122 اختبارًا</strong> عبر المستودع الموحّد.",
+        "press.fathom.p2": "الإيقاع <strong>مصحَّح للانحراف، لا فاصل زمني ساذج</strong>: من 100 إلى 800 كلمة في الدقيقة، مع مكوث أطول عند الكلمات الطويلة ووقفات حقيقية عند نهايات الجُمَل والعبارات.",
+        "press.fathom.p3": "تُحلَّل ملفات PDF وEPUB <strong>بالكامل على الجهاز</strong>، ويُوقف <code>prefers-reduced-motion</code> التقدّم التلقائي لصالح التنقّل اليدوي وعرض نصّ كامل بلا وميض.",
+        "press.fuego.line": "أطلس تفاعلي لجيولوجيا البراكين، بناه من نشأ يرى الجبال تتنفّس — حلقة النار في غواتيمالا، بصيغة مطوّلة.",
+        "press.fuego.p1": "<strong>بقعة ضوء تتبع المؤشر</strong> تُقنّع صورتين جيولوجيتين متراكبتين إحداهما بالأخرى، فيصبح تحريك المؤشر أشبه بكشف سطح الأرض.",
+        "press.fuego.p2": "ملفّات كاملة للقمم الأربع النشطة باستمرار — <strong>فويغو وباكايا وسانتياغيتو وأكاتينانغو</strong> — مع الارتفاع وإيقاع الثورانات والسجل التاريخي.",
+        "press.fuego.p3": "مقال مطوّل عن أرخبيل النار — تكتونياته ووزنه الثقافي وكلفته البشرية — مصفوف بخط <strong>Playfair Display فوق Inter</strong>.",
+        "press.iah.line": "مقال مطوّل عن وعي الآلة، كل ادّعاء حامل فيه يحمل وسمًا لدرجة اليقين المعرفي — والصفحة نفسها تجسّد حجّتها.",
+        "press.iah.p1": "<strong>مقبض لعتبة اليقين</strong> يُرشّح المقال في مكانه — ارفعه فتفرغ الصفحة أمام عينيك حتى لا يبقى إلا المستقرّ، وهو قليل جدًّا.",
+        "press.iah.p2": "<strong>تسعة أقسام</strong> تغطي النظريات المتنافسة، وأقوى صياغة لحجّة كل طرف، والأبحاث المنشورة، والأصوات العامة الأعلى — وكل ادّعاء موسوم بأنه راسخ أو متنازَع عليه أو تخميني أو غير قابل للمعرفة.",
+        "press.iah.p3": "مقال React واحد يقوم على <strong><code>useState</code> واحد وسياق واحد</strong> يمرّران العتبة إلى الأسفل — بلا مكتبة حالة، ويعمل بالكامل بلوحة المفاتيح، ويحترم <code>prefers-reduced-motion</code>.",
+        "press.chip.permutation": "اختبار تبديل",
+        "press.chip.zeroDeps": "بلا اعتماديات",
+        "press.chip.seededRng": "مولّد عشوائي ببذرة",
+        "press.chip.interpreter": "مفسّر",
+        "press.chip.nodeCli": "واجهة أوامر Node",
+        "press.chip.monorepo": "مستودع موحّد",
+        "press.runsLocally": "يعمل محليًّا",
+        "press.cliBrowser": "سطر الأوامر · المتصفح",
         "press.chip.singleFile": "HTML بملف واحد",
         "press.chip.keyframes": "إطارات CSS",
         "press.chip.inlineSvg": "SVG مضمَّن",

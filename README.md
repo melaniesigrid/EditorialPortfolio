@@ -11,7 +11,7 @@ Built as a deliberate exercise in editorial typography, motion, and craft — wi
 ## ✦ Highlights
 
 - **Single static HTML file** — no build pipeline, no dependencies, deploys via drag-and-drop
-- **"The Press Run" project showcase** — five independent products laid out as letterpress plates on an asymmetric editorial spread; hovering a plate "pulls an impression" (paper floods up from the base, type reverses to ink, the registration crosshair rotates)
+- **"The Press Run" project showcase** — fifteen independent projects laid out as letterpress plates on an asymmetric editorial spread, grouped into four runs (The Line, The Workshop, The Laboratory, The Reading Room); hovering a plate "pulls an impression" (paper floods up from the base, type reverses to ink, the registration crosshair rotates)
 - **Ten-language i18n** (EN, ES, DE, FR, HE, RU, PT, UK, ZH, AR) with full RTL support for Arabic and Hebrew, browser-language auto-detect, and `localStorage` persistence
 - **Editorial brutalist aesthetic** — `Anton` display + `Cormorant Garamond` italic + `IBM Plex Mono` + `DM Sans`
 - **Scroll-driven motion** — staggered reveals, fill-on-scroll text, parallax cursor effects on work cards, animated mesh background
