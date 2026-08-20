@@ -19,14 +19,20 @@
   <meta content="Melanie Baratto" name="author" />
   <meta content="index, follow, max-image-preview:large" name="robots" />
   <meta content="#0E0E0E" name="theme-color" />
-  <link href="https://melaniesigrid.github.io" rel="canonical" />
+  <link href="https://melaniesigrid.com/" rel="canonical" />
   <!-- Open Graph -->
   <meta content="Melanie Baratto — Software Developer · Front-End" data-i18n-content="meta.ogTitle"
     property="og:title" />
   <meta content="React · React Native · Redux specialist. Building precise, beautiful interfaces in Toronto."
     data-i18n-content="meta.ogDescription" property="og:description" />
-  <meta content="https://melaniesigrid.github.io/images/melaniemainpic.webp" property="og:image" />
-  <meta content="https://melaniesigrid.github.io" property="og:url" />
+  <meta content="https://melaniesigrid.com/images/og-card.png" property="og:image" />
+  <meta content="1200" property="og:image:width" />
+  <meta content="630" property="og:image:height" />
+  <meta content="image/png" property="og:image:type" />
+  <meta content="Melanie Baratto — Software Developer, front-end specialty, Toronto" property="og:image:alt" />
+  <meta content="https://melaniesigrid.com/" property="og:url" />
+  <meta content="Melanie Baratto" property="og:site_name" />
+  <meta content="en_CA" property="og:locale" />
   <meta name="google-site-verification" content="hvMdHQSuT6WXgaEvPK6s27vhL2ZZ6T-nUJ8gPDCvkag" />
   <meta content="website" property="og:type" />
   <!-- Twitter/X -->
@@ -35,7 +41,8 @@
     name="twitter:title" />
   <meta content="React · React Native · Redux specialist based in Toronto." data-i18n-content="meta.twitterDescription"
     name="twitter:description" />
-  <meta content="https://melaniesigrid.github.io/images/melaniemainpic.webp" name="twitter:image" />
+  <meta content="https://melaniesigrid.com/images/og-card.png" name="twitter:image" />
+  <meta content="Melanie Baratto — Software Developer, front-end specialty, Toronto" name="twitter:image:alt" />
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
     {
@@ -43,7 +50,8 @@
       "@type": "Person",
       "name": "Melanie Baratto",
       "jobTitle": "Software Developer (Front-End)",
-      "url": "https://melaniesigrid.github.io",
+      "url": "https://melaniesigrid.com/",
+      "image": "https://melaniesigrid.com/images/og-card.png",
       "email": "melaniesigrid@protonmail.com",
       "sameAs": [
         "https://linkedin.com/in/melaniesigrid",
@@ -4028,6 +4036,9 @@
     html[lang="he"] .lb::before {
       content: 'ב'
     }
+  
+    /* headings adopted for structure; the classes already own their type */
+    h1.hero-sub, h2.work-header-label, h2.press-label, h2.exp-label { margin: 0; }
   </style>
 </head>
 
@@ -4103,10 +4114,10 @@
       <div id="hero-logo">
         <span class="lm" data-i18n="brand.initialM">M</span><span class="lb" data-i18n="brand.initialB">B</span>
       </div>
-      <div class="hero-sub">
+      <h1 class="hero-sub">
         <span data-i18n="hero.name">Melanie Baratto</span><br />
         <span data-i18n="hero.title" style="font-size:.85em;opacity:.7">Software Developer · Front-End Specialty</span>
-      </div>
+      </h1>
     </div>
     <div class="hero-bottom">
       <p class="hero-desc" data-i18n-html="hero.desc">I design and build <em>precise, high-performance products</em> —
@@ -4225,7 +4236,7 @@
   <!-- ══ WORK ════════════════════════════════ -->
   <section id="work">
     <div class="work-header">
-      <div class="work-header-label" data-i18n="work.label">Work Experience</div>
+      <h2 class="work-header-label" data-i18n="work.label">Work Experience</h2>
     </div>
     <!-- Specialty callout -->
     <div class="specialty-bar">
@@ -4426,7 +4437,7 @@
   <!-- ══ THE PRESS RUN — INDEPENDENT WORK ════════════════════════════════ -->
   <section class="press" id="studio">
     <div class="press-header">
-      <div class="press-label" data-i18n="press.label">Independent Work</div>
+      <h2 class="press-label" data-i18n="press.label">Independent Work</h2>
       <div class="press-meta" data-i18n="press.meta">One studio · seventeen projects · shipped solo</div>
     </div>
 
@@ -5208,7 +5219,7 @@
   <!-- ══ EXPERTISE ═══════════════════════════ -->
   <section id="expertise">
     <div class="exp-header">
-      <div class="exp-label" data-i18n="expertise.label">Expertise</div>
+      <h2 class="exp-label" data-i18n="expertise.label">Expertise</h2>
     </div>
     <div class="sk-grid" style="margin-top:2rem">
       <div class="sk" data-sk=""><span class="sk-n">JavaScript</span><span class="sk-l"

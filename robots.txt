@@ -1,0 +1,5 @@
+# melaniesigrid.com
+User-agent: *
+Allow: /
+
+Sitemap: https://melaniesigrid.com/sitemap.xml
