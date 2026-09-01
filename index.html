@@ -4039,6 +4039,62 @@
   
     /* headings adopted for structure; the classes already own their type */
     h1.hero-sub, h2.work-header-label, h2.press-label, h2.exp-label { margin: 0; }
+
+    /* ══════════════════════════════════════
+   SOCIAL MARKS — one inline sprite, currentColor
+══════════════════════════════════════ */
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+    }
+
+    .hl-ico {
+      width: 1.15em;
+      height: 1.15em;
+      fill: currentColor;
+      flex: none;
+      opacity: .72;
+      transition: opacity .28s, transform .28s cubic-bezier(.2, .7, .3, 1);
+    }
+
+    .hero-links a:hover .hl-ico {
+      opacity: 1;
+      transform: translateY(-3px) rotate(-8deg);
+    }
+
+    .cl-item-top {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .cl-ico {
+      width: 1.05rem;
+      height: 1.05rem;
+      fill: currentColor;
+      flex: none;
+      color: rgba(244, 241, 236, .5);
+      transition: color .25s, transform .3s cubic-bezier(.2, .7, .3, 1);
+    }
+
+    .cl-item:hover .cl-ico {
+      color: var(--red);
+      transform: translateY(-3px) rotate(-8deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .hl-ico,
+      .cl-ico {
+        transition: opacity .28s, color .25s;
+      }
+
+      .hero-links a:hover .hl-ico,
+      .cl-item:hover .cl-ico {
+        transform: none;
+      }
+    }
   </style>
 </head>
 
@@ -4046,6 +4102,32 @@
   <a class="skip-link" data-i18n="nav.skip" href="#work">Skip to main content</a>
   <div aria-hidden="true" id="cur"></div>
   <div aria-hidden="true" id="cur-r"></div>
+  <!-- ══ ICON SPRITE ═════════════════════════
+       Decorative marks; every one sits beside a real text label,
+       so they carry no accessible name of their own. -->
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-github" viewBox="0 0 24 24">
+        <path
+          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </symbol>
+      <symbol id="i-medium" viewBox="0 0 24 24">
+        <path
+          d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+      </symbol>
+      <symbol id="i-wellfound" viewBox="0 0 24 24">
+        <path d="M3 3h8v2H5v14h14v-6h2v8H3V3zm10 0h8v8h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H13V3z" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <path d="M2 4h20v16H2V4zm2 2v.35l8 5.33 8-5.33V6H4zm16 2.75l-7.4 4.94a1 1 0 0 1-1.2 0L4 8.75V18h16V8.75z" />
+      </symbol>
+    </defs>
+  </svg>
   <!-- ══ MOBILE NAV ══════════════════════════ -->
   <div aria-label="Mobile navigation menu" aria-modal="true" class="nav-mobile" data-i18n-aria-label="nav.mobileAria"
     id="mobileNav" role="dialog">
@@ -4123,10 +4205,22 @@
       <p class="hero-desc" data-i18n-html="hero.desc">I design and build <em>precise, high-performance products</em> —
         React and TypeScript on the front, <em>Python/Django</em> and .NET behind it. Thoughtful code. Serious craft.</p>
       <div class="hero-links">
-        <a href="https://github.com/melaniesigrid" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/melaniesigrid" target="_blank">LinkedIn</a>
-        <a href="https://medium.com/@melaniesigrid" target="_blank">Medium</a>
-        <a href="https://wellfound.com/u/melanie-sigrid-arellano-baratto" target="_blank">Wellfound</a>
+        <a href="https://github.com/melaniesigrid" target="_blank"><svg class="hl-ico" aria-hidden="true"
+            focusable="false">
+            <use href="#i-github" />
+          </svg>GitHub</a>
+        <a href="https://linkedin.com/in/melaniesigrid" target="_blank"><svg class="hl-ico" aria-hidden="true"
+            focusable="false">
+            <use href="#i-linkedin" />
+          </svg>LinkedIn</a>
+        <a href="https://medium.com/@melaniesigrid" target="_blank"><svg class="hl-ico" aria-hidden="true"
+            focusable="false">
+            <use href="#i-medium" />
+          </svg>Medium</a>
+        <a href="https://wellfound.com/u/melanie-sigrid-arellano-baratto" target="_blank"><svg class="hl-ico"
+            aria-hidden="true" focusable="false">
+            <use href="#i-wellfound" />
+          </svg>Wellfound</a>
       </div>
       <a class="hero-cta" data-i18n-html="hero.cta" href="mailto:melaniesigrid@protonmail.com">Let's create together
         <span class="txt-glyph">↗︎</span></a>
@@ -5504,23 +5598,48 @@
     <!-- LINKS GRID -->
     <div class="contact-links-row" data-obs="">
       <a class="cl-item" href="https://github.com/melaniesigrid" target="_blank">
-        <span class="cl-item-label">GitHub</span>
+        <span class="cl-item-top">
+          <svg class="cl-ico" aria-hidden="true" focusable="false">
+            <use href="#i-github" />
+          </svg>
+          <span class="cl-item-label">GitHub</span>
+        </span>
         <span class="cl-item-val">github.com/melaniesigrid</span>
       </a>
       <a class="cl-item" href="https://linkedin.com/in/melaniesigrid" target="_blank">
-        <span class="cl-item-label">LinkedIn</span>
+        <span class="cl-item-top">
+          <svg class="cl-ico" aria-hidden="true" focusable="false">
+            <use href="#i-linkedin" />
+          </svg>
+          <span class="cl-item-label">LinkedIn</span>
+        </span>
         <span class="cl-item-val">linkedin.com/in/melaniesigrid</span>
       </a>
       <a class="cl-item" href="https://medium.com/@melaniesigrid" target="_blank">
-        <span class="cl-item-label">Medium</span>
+        <span class="cl-item-top">
+          <svg class="cl-ico" aria-hidden="true" focusable="false">
+            <use href="#i-medium" />
+          </svg>
+          <span class="cl-item-label">Medium</span>
+        </span>
         <span class="cl-item-val">medium.com/@melaniesigrid</span>
       </a>
       <a class="cl-item" href="https://wellfound.com/u/melanie-sigrid-arellano-baratto" target="_blank">
-        <span class="cl-item-label">Wellfound</span>
+        <span class="cl-item-top">
+          <svg class="cl-ico" aria-hidden="true" focusable="false">
+            <use href="#i-wellfound" />
+          </svg>
+          <span class="cl-item-label">Wellfound</span>
+        </span>
         <span class="cl-item-val">wellfound.com/u/melanie-sigrid</span>
       </a>
       <a class="cl-item" href="mailto:melaniesigrid@protonmail.com">
-        <span class="cl-item-label" data-i18n="contact.emailLabel">Email</span>
+        <span class="cl-item-top">
+          <svg class="cl-ico" aria-hidden="true" focusable="false">
+            <use href="#i-mail" />
+          </svg>
+          <span class="cl-item-label" data-i18n="contact.emailLabel">Email</span>
+        </span>
         <span class="cl-item-val">melaniesigrid@protonmail.com</span>
       </a>
     </div>
