@@ -4095,6 +4095,128 @@
         transform: none;
       }
     }
+
+    /* ══════════════════════════════════════
+   EXPERTISE — tier colour, legend, edge accent
+   Tier is read straight off the i18n key, so the
+   colour survives every language switch.
+══════════════════════════════════════ */
+    .sk-l[data-i18n="level.expert"] {
+      color: var(--red);
+      font-weight: 500;
+    }
+
+    .sk-l[data-i18n="level.advanced"] {
+      color: var(--amber);
+    }
+
+    .sk-l[data-i18n="level.core"],
+    .sk-l[data-i18n="level.passionate"] {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Hover inverts the cell to ink; keep the tier legible on dark. */
+    .sk:hover .sk-l {
+      color: var(--paper)
+    }
+
+    .sk:hover .sk-l[data-i18n="level.expert"] {
+      color: var(--red)
+    }
+
+    .sk:hover .sk-l[data-i18n="level.advanced"] {
+      color: var(--amber)
+    }
+
+    .sk {
+      position: relative;
+    }
+
+    .sk::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background: var(--red);
+      transition: width .22s;
+    }
+
+    .sk:hover::before {
+      width: 3px;
+    }
+
+    .exp-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.35rem;
+      align-items: center;
+    }
+
+    .exp-key {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-family: var(--M);
+      font-size: .72rem;
+      font-weight: 400;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dim2);
+    }
+
+    .exp-dot {
+      width: .5rem;
+      height: .5rem;
+      border-radius: 50%;
+      flex: none;
+    }
+
+    .exp-dot-expert {
+      background: var(--red)
+    }
+
+    .exp-dot-advanced {
+      background: var(--amber)
+    }
+
+    .exp-dot-proficient {
+      background: var(--dim2)
+    }
+
+    @media (max-width:700px) {
+      .exp-legend {
+        gap: .9rem;
+        width: 100%;
+        padding-top: .9rem;
+      }
+    }
+
+    /* ══════════════════════════════════════
+   SCROLL PROGRESS — thin rule across the top
+══════════════════════════════════════ */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      z-index: 9999;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .scroll-progress i {
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      will-change: transform;
+    }
   </style>
 </head>
 
@@ -4102,6 +4224,7 @@
   <a class="skip-link" data-i18n="nav.skip" href="#work">Skip to main content</a>
   <div aria-hidden="true" id="cur"></div>
   <div aria-hidden="true" id="cur-r"></div>
+  <div aria-hidden="true" class="scroll-progress" id="scrollProgress"><i></i></div>
   <!-- ══ ICON SPRITE ═════════════════════════
        Decorative marks; every one sits beside a real text label,
        so they carry no accessible name of their own. -->
@@ -5314,6 +5437,15 @@
   <section id="expertise">
     <div class="exp-header">
       <h2 class="exp-label" data-i18n="expertise.label">Expertise</h2>
+      <!-- Legend reuses the existing level.* keys, so it translates with everything else. -->
+      <div class="exp-legend">
+        <span class="exp-key"><i class="exp-dot exp-dot-expert" aria-hidden="true"></i><span
+            data-i18n="level.expert">Expert</span></span>
+        <span class="exp-key"><i class="exp-dot exp-dot-advanced" aria-hidden="true"></i><span
+            data-i18n="level.advanced">Advanced</span></span>
+        <span class="exp-key"><i class="exp-dot exp-dot-proficient" aria-hidden="true"></i><span
+            data-i18n="level.proficient">Proficient</span></span>
+      </div>
     </div>
     <div class="sk-grid" style="margin-top:2rem">
       <div class="sk" data-sk=""><span class="sk-n">JavaScript</span><span class="sk-l"
@@ -9028,6 +9160,36 @@
   })();
 </script>
 
+<!-- Scroll progress. Deliberately its own IIFE: a throw in here must not
+     reach the reveal observers, which every section depends on to become
+     visible at all. -->
+<script>
+  (function () {
+    var bar = document.getElementById('scrollProgress');
+    if (!bar) return;
+    var fill = bar.firstElementChild;
+    if (!fill) return;
+    var queued = false;
+
+    function paint() {
+      queued = false;
+      var doc = document.documentElement;
+      var full = Math.max(doc.scrollHeight, document.body.scrollHeight) - window.innerHeight;
+      var pct = full > 0 ? Math.min(1, Math.max(0, window.pageYOffset / full)) : 0;
+      fill.style.transform = 'scaleX(' + pct + ')';
+    }
+
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(paint);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    paint();
+  })();
+</script>
 <!-- Vercel Web Analytics + Speed Insights (real-user Core Web Vitals).
      Both 404 harmlessly until enabled on the project in the Vercel dashboard. -->
 <script defer src="/_vercel/insights/script.js"></script>
