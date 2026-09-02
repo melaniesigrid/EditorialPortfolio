@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shipshape — Case Study — Melanie Baratto</title>
+  <meta name="description" data-i18n-content="meta.desc"
+    content="How Shipshape is built: readiness rubrics and kanban boards across a portfolio, where one foreign key keeps the standard from decaying into a document nobody opens." />
+  <link rel="canonical" href="https://melaniesigrid.com/work/shipshape.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Shipshape — Case Study" />
+  <meta property="og:url" content="https://melaniesigrid.com/work/shipshape.html" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Cormorant+Garamond:ital,wght@1,300;1,600;1,700&amp;family=IBM+Plex+Mono:wght@300;400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" />
+  <link rel="stylesheet" href="case.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main" data-i18n="ui.skip">Skip to content</a>
+
+  <div class="rail">
+    <a class="rail-back" href="../index.html#studio" data-i18n="ui.back">Independent Work</a>
+    <div class="lang" id="lang">
+      <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="listbox">
+        <span data-lang-current>EN</span>
+      </button>
+      <div class="lang-menu" role="listbox" aria-label="Language" data-i18n-aria-label="lang.aria"></div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <header class="masthead">
+      <div class="folio">
+        <span class="folio-word" data-i18n="ui.case">Case</span>
+        <span class="folio-no">05</span>
+      </div>
+      <h1>Shipshape</h1>
+      <p class="lede" data-i18n-html="ss.lede">Most project tools track <strong>what you are doing</strong>. Shipshape
+        also tracks <strong>what "done" is supposed to mean</strong> — written once, applied to every project you own —
+        and turns whatever falls short into cards on that project's board.</p>
+      <div class="masthead-foot">
+        <span class="status status--local" data-i18n="ui.local">Runs locally</span>
+        <div class="mast-links">
+          <a class="mast-link" href="https://melaniesigrid.github.io/shipshape-brand/" rel="noopener" target="_blank"
+            data-i18n="ss.brand">Brand page</a>
+          <a class="mast-link" href="https://github.com/melaniesigrid/shipshape-platform" rel="noopener" target="_blank"
+            data-i18n="ui.source">Source</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══ GETTING IN ══════════════════════════════════════════════════ -->
+    <section class="band rise" id="entry">
+      <p class="band-label" data-i18n="sec.entry">Getting in</p>
+      <div class="entry">
+        <div>
+          <h2 data-i18n="h.where">Where it lives</h2>
+          <dl class="where">
+            <div>
+              <dt data-i18n="ss.w1.t">Brand page</dt>
+              <dd><a href="https://melaniesigrid.github.io/shipshape-brand/" rel="noopener"
+                  target="_blank">shipshape-brand</a>
+                <span data-i18n="ss.w1.d">— live, open to anyone.</span>
+              </dd>
+            </div>
+            <div>
+              <dt data-i18n="ss.w2.t">Source</dt>
+              <dd><a href="https://github.com/melaniesigrid/shipshape-platform" rel="noopener"
+                  target="_blank">melaniesigrid/shipshape-platform</a></dd>
+            </div>
+            <div>
+              <dt data-i18n="ss.w3.t">The app</dt>
+              <dd><span data-i18n="ss.w3.d">Not deployed. The domain logic is finished and its 49 tests pass; the web
+                  app runs locally.</span></dd>
+            </div>
+          </dl>
+        </div>
+        <div>
+          <h2 data-i18n="h.howin">How to sign in</h2>
+          <ol class="howin">
+            <li data-i18n-html="ss.in1">The <strong>brand page needs nothing</strong> — a standalone page with no build
+              step, so the design can be judged before any of the software is installed.</li>
+            <li data-i18n-html="ss.in2">To run the app: <code>pnpm install</code>, then <code>pnpm db:push</code> to
+              create the schema and <code>pnpm db:seed</code> to load the built-in standards and a demo portfolio.</li>
+            <li data-i18n-html="ss.in3"><code>pnpm dev</code>, then open <code>localhost:3000</code> and enter the email
+              address the seed created.</li>
+            <li data-i18n-html="ss.in4">There is <strong>no password</strong>. The app emails a one-time link — and with
+              no mail provider configured it <strong>prints the link to the terminal instead</strong>, so local
+              development works with nothing to set up.</li>
+            <li data-i18n-html="ss.in5">Want just the domain logic? <code>pnpm test</code> runs all 49 tests with
+              <strong>no install at all</strong> — the core package has zero dependencies.</li>
+          </ol>
+          <p class="aside" data-i18n="ss.aside">That last point is deliberate. The scoring rules are the part worth
+            reviewing, so they were built to be reviewable in isolation — no database, no environment, no server.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ HOW IT WORKS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="how">
+      <p class="band-label" data-i18n="sec.how">How it works</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-no">01</span>
+          <h3 data-i18n="ss.s1.h">Write the standard once</h3>
+          <p data-i18n="ss.s1.p">A list of things that must be true before something is ready — each with a weight, and
+            guidance saying what "met" actually looks like.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">02</span>
+          <h3 data-i18n="ss.s2.h">Apply it to everything</h3>
+          <p data-i18n="ss.s2.p">Every project gets scored against the same list, so the answers can be lined up next to
+            each other and actually compared.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">03</span>
+          <h3 data-i18n="ss.s3.h">The gaps become work</h3>
+          <p data-i18n="ss.s3.p">Each thing that is not met turns into a card on that project's board, carrying the
+            guidance as its acceptance criteria.</p>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="ss.note">The question it is built to answer is not "how is this project doing". It
+        is <strong>"which of the eight things we own still cannot take a payment"</strong> — and answering that needs
+        one standard held across a whole portfolio, not eight separate opinions.</p>
+    </section>
+
+    <!-- ══ THE LOOP ════════════════════════════════════════════════════ -->
+    <section class="band rise" id="arch">
+      <p class="band-label" data-i18n="sec.arch">How the pieces fit</p>
+      <figure>
+        <svg viewBox="0 0 660 290" width="100%" role="img" aria-label="How a standard becomes work"
+          data-i18n-aria-label="ss.arch.alt">
+          <defs>
+            <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+            <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#E03A12" />
+            </marker>
+          </defs>
+
+          <rect x="12" y="72" width="136" height="86" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="80" y="102" text-anchor="middle" font-family="Anton, sans-serif" font-size="14" fill="#F4F1EC">RUBRIC</text>
+          <text x="80" y="122" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#888078">weighted criteria</text>
+          <text x="80" y="139" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B07A1E">guidance required</text>
+
+          <line x1="152" y1="115" x2="188" y2="115" stroke="#E03A12" stroke-width="1.6" marker-end="url(#r)" />
+
+          <rect x="194" y="48" width="118" height="30" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="253" y="68" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#888078">project A</text>
+          <rect x="194" y="86" width="118" height="30" fill="none" stroke="#F4F1EC" stroke-width="1.6" />
+          <text x="253" y="106" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F4F1EC">project B</text>
+          <rect x="194" y="124" width="118" height="30" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="253" y="144" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#888078">project C</text>
+          <text x="253" y="172" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a544e">…eight of them</text>
+
+          <line x1="316" y1="101" x2="352" y2="101" stroke="#888078" stroke-width="1.4" marker-end="url(#a)" />
+
+          <rect x="358" y="70" width="140" height="62" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="428" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#F4F1EC">assessments</text>
+          <text x="428" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#888078">met · partial</text>
+          <text x="428" y="125" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#888078">not met · waived</text>
+
+          <line x1="502" y1="88" x2="540" y2="70" stroke="#888078" stroke-width="1.4" marker-end="url(#a)" />
+          <rect x="546" y="42" width="100" height="44" fill="none" stroke="#B07A1E" stroke-width="1.6" />
+          <text x="596" y="70" text-anchor="middle" font-family="Anton, sans-serif" font-size="17" fill="#F4F1EC">57%</text>
+
+          <line x1="428" y1="136" x2="428" y2="176" stroke="#E03A12" stroke-width="1.6" marker-end="url(#r)" />
+          <text x="436" y="160" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#E03A12">not met →</text>
+
+          <rect x="346" y="180" width="164" height="56" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="428" y="204" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">a card on the board</text>
+          <text x="428" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#888078">guidance = acceptance criteria</text>
+
+          <path d="M346 208 H80 V162" fill="none" stroke="#E03A12" stroke-width="1.6" stroke-dasharray="5 4"
+            marker-end="url(#r)" />
+          <text x="212" y="262" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#E03A12">the card remembers which criterion it satisfies</text>
+        </svg>
+        <figcaption data-i18n-html="ss.arch.cap">The dashed line back is the part that matters. A card knows <strong>which
+            criterion it exists to satisfy</strong>, so finishing the work updates the score rather than leaving it to
+          somebody to remember. Without that one link, the standard decays into a document nobody opens.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ SCHEMA ══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="data">
+      <p class="band-label" data-i18n="sec.data">What it remembers</p>
+      <figure>
+        <svg viewBox="0 0 660 300" width="100%" role="img" aria-label="Database diagram"
+          data-i18n-aria-label="ss.data.alt">
+          <defs>
+            <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+            <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#E03A12" />
+            </marker>
+          </defs>
+
+          <rect x="256" y="14" width="148" height="42" fill="none" stroke="#B07A1E" stroke-width="1.8" />
+          <text x="330" y="41" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="#F4F1EC">tenants</text>
+
+          <line x1="284" y1="60" x2="128" y2="96" stroke="#B07A1E" stroke-width="1.3" marker-end="url(#b)" />
+          <line x1="316" y1="60" x2="256" y2="96" stroke="#B07A1E" stroke-width="1.3" marker-end="url(#b)" />
+          <line x1="352" y1="60" x2="412" y2="96" stroke="#B07A1E" stroke-width="1.3" marker-end="url(#b)" />
+          <line x1="380" y1="60" x2="544" y2="96" stroke="#B07A1E" stroke-width="1.3" marker-end="url(#b)" />
+
+          <rect x="14" y="100" width="140" height="42" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="84" y="126" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#888078">users · memberships</text>
+          <rect x="14" y="150" width="140" height="40" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="84" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">tokens · sessions</text>
+
+          <rect x="186" y="100" width="140" height="42" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="256" y="126" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">rubrics</text>
+          <line x1="256" y1="146" x2="256" y2="176" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <rect x="180" y="180" width="152" height="44" fill="none" stroke="#E03A12" stroke-width="1.8" />
+          <text x="256" y="200" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#F4F1EC">rubric_criteria</text>
+          <text x="256" y="216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#888078">weight · required · guidance</text>
+
+          <rect x="346" y="100" width="132" height="42" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="412" y="126" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">projects</text>
+          <line x1="412" y1="146" x2="412" y2="176" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <rect x="346" y="180" width="132" height="44" fill="none" stroke="#888078" stroke-width="1.3" />
+          <text x="412" y="200" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#888078">project_rubrics</text>
+          <text x="412" y="216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">assessments</text>
+
+          <rect x="486" y="100" width="160" height="42" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="566" y="126" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F4F1EC">boards · columns</text>
+          <line x1="566" y1="146" x2="566" y2="176" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <rect x="486" y="180" width="160" height="44" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="566" y="207" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="#F4F1EC">cards</text>
+
+          <path d="M486 202 H330 V228" fill="none" stroke="#E03A12" stroke-width="1.8" stroke-dasharray="5 4"
+            marker-end="url(#c)" />
+          <text x="412" y="248" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#E03A12">cards.criterion_id</text>
+          <text x="330" y="282" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a544e">14 tables · every one scoped to a tenant</text>
+        </svg>
+        <figcaption data-i18n-html="ss.data.cap">Fourteen tables, and one of them earns its place more than the rest:
+          the dashed link is <strong>a single nullable foreign key from a card back to the criterion it
+            satisfies.</strong> That one column is the difference between a kanban board that happens to sit next to a
+          checklist and a board that keeps the checklist honest.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ BANDS ═══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="bands">
+      <p class="band-label" data-i18n="ss.bands.label">How a project is graded</p>
+      <div class="stack">
+        <div class="stack-group">
+          <h3 data-i18n="ss.b1.h">Ready</h3>
+          <ul>
+            <li data-i18n="ss.b1.p">Everything required is met, and the weighted score clears the bar</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.b2.h">On track</h3>
+          <ul>
+            <li data-i18n="ss.b2.p">Scoring well, with nothing required outstanding</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.b3.h">At risk</h3>
+          <ul>
+            <li data-i18n="ss.b3.p">Enough gaps that the date is no longer safe</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.b4.h">Blocked</h3>
+          <ul>
+            <li data-i18n="ss.b4.p">Something marked required is not met — no score can rescue this</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.b5.h">Waived</h3>
+          <ul>
+            <li data-i18n="ss.b5.p">Deliberately excused, with a reason recorded — not silently skipped</li>
+          </ul>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="ss.bands.note">All the arithmetic is done in <strong>whole numbers</strong> —
+        weights in points, credit in hundredths of a percent — so the same portfolio never shows two slightly different
+        percentages depending on which screen you are looking at.</p>
+    </section>
+
+    <!-- ══ LANGUAGES ═══════════════════════════════════════════════════ -->
+    <section class="band rise" id="langs">
+      <p class="band-label" data-i18n="sec.langs">Languages used</p>
+      <div class="langs">
+        <div class="lrow">
+          <span class="lrow-name">TypeScript<span data-i18n="ss.l1">domain, data layer, design tokens</span></span>
+          <span class="lrow-track"><span class="lrow-fill" style="width:67%"></span></span>
+          <span class="lrow-pct">67%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">TSX<span data-i18n="ss.l2">Next.js · the four screens</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--2" style="width:17%"></span></span>
+          <span class="lrow-pct">17%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">JavaScript<span data-i18n="ss.l3">build and brand scripts</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--3" style="width:12%"></span></span>
+          <span class="lrow-pct">12%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">CSS<span data-i18n="ss.l4">generated theme tokens</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--4" style="width:4%"></span></span>
+          <span class="lrow-pct">4%</span>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="ss.lang.note">About <strong>10,600 lines</strong> across four packages, plus a
+        standalone brand page. The largest share sits in the domain package — <strong>which has no database, no
+          environment and no network in it at all</strong>, and is why 49 tests run in under a second with nothing
+        installed.</p>
+    </section>
+
+    <!-- ══ STACK ═══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="stack">
+      <p class="band-label" data-i18n="sec.stack">Technical skills</p>
+      <div class="stack">
+        <div class="stack-group">
+          <h3 data-i18n="ss.g1">Domain</h3>
+          <ul>
+            <li class="key">TypeScript</li>
+            <li class="key">Pure functions</li>
+            <li>Integer arithmetic</li>
+            <li>Weighted scoring</li>
+            <li>Validation</li>
+            <li>node:test</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.g2">Data</h3>
+          <ul>
+            <li class="key">PostgreSQL</li>
+            <li class="key">Drizzle ORM</li>
+            <li>Neon</li>
+            <li>Multi-tenant</li>
+            <li>Transactions</li>
+            <li>Schema design</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.g3">Web</h3>
+          <ul>
+            <li class="key">Next.js</li>
+            <li>App Router</li>
+            <li>React</li>
+            <li>Passwordless auth</li>
+            <li>Server sessions</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.g4">Design system</h3>
+          <ul>
+            <li class="key">Design tokens</li>
+            <li>Generated themes</li>
+            <li>Colour maths</li>
+            <li>Light and dark</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.g5">Tooling</h3>
+          <ul>
+            <li class="key">pnpm workspaces</li>
+            <li>Turborepo</li>
+            <li>Node 22</li>
+            <li>ESLint</li>
+            <li>GitHub Pages</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="ss.g6">Practice</h3>
+          <ul>
+            <li>Monorepo</li>
+            <li>Domain-driven design</li>
+            <li>Test-first domain</li>
+            <li>Kanban · WIP limits</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ NUMBERS ═════════════════════════════════════════════════════ -->
+    <section class="band rise" id="figures">
+      <p class="band-label" data-i18n="sec.figures">By the numbers</p>
+      <div class="figures">
+        <div class="fig"><b>49</b><span data-i18n="ss.f1">Domain tests, all passing</span></div>
+        <div class="fig"><b>14</b><span data-i18n="ss.f2">Database tables</span></div>
+        <div class="fig"><b>4</b><span data-i18n="ss.f3">Packages in the monorepo</span></div>
+        <div class="fig"><b>8</b><span data-i18n="ss.f4">Projects in the demo portfolio</span></div>
+        <div class="fig"><b>10.6k</b><span data-i18n="ss.f5">Lines of code</span></div>
+      </div>
+    </section>
+
+    <!-- ══ ACHIEVEMENTS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="did">
+      <p class="band-label" data-i18n="sec.did">Key achievements</p>
+      <ul class="did">
+        <li><span class="did-no">01</span>
+          <span data-i18n-html="ss.d1"><strong>The domain, the schema, the app and the design system</strong> — four
+            packages in one repository, written from an empty directory.</span>
+        </li>
+        <li><span class="did-no">02</span>
+          <span data-i18n-html="ss.d2"><strong>Made the scoring reviewable on its own.</strong> The rules live in a
+            package with zero dependencies and zero I/O, so all 49 tests run with nothing installed — which is what let
+            the hard part be finished and verified before the database existed.</span>
+        </li>
+        <li><span class="did-no">03</span>
+          <span data-i18n-html="ss.d3"><strong>Refused to let a criterion exist without guidance.</strong> If you cannot
+            write down what "met" looks like, it is not ready to be scored — so guidance is a required field, not an
+            optional note.</span>
+        </li>
+        <li><span class="did-no">04</span>
+          <span data-i18n-html="ss.d4"><strong>Kept the public brand page honest without leaking.</strong> The real
+            portfolio page is scored against real projects; a build script swaps in illustrative data and <em>refuses to
+              write the file</em> if any real project name survives.</span>
+        </li>
+        <li><span class="did-no">05</span>
+          <span data-i18n-html="ss.d5"><strong>Left signup out on purpose.</strong> Sign-in is invite-only, because an
+            open passwordless form on a product with no billing is a spam magnet rather than a growth feature.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ══ KEYWORDS ════════════════════════════════════════════════════ -->
+    <section class="band rise" id="keywords">
+      <p class="band-label" data-i18n="sec.keywords">Skills &amp; keywords</p>
+      <p class="keywords">TypeScript · JavaScript · React · Next.js · App Router · TSX · Node.js · Node 22 · PostgreSQL
+        · SQL · Drizzle ORM · Neon · Schema design · Database transactions · Multi-tenant architecture · Tenant
+        isolation · Passwordless authentication · Magic links · Session management · Domain-driven design · Pure
+        functions · Deterministic scoring · Integer arithmetic · Unit testing · node:test · Test-first development ·
+        Validation · pnpm · pnpm workspaces · Turborepo · Monorepo · Design systems · Design tokens · Theme generation ·
+        Colour maths · Light and dark themes · CSS · HTML5 · SVG · Accessibility · Git · GitHub · GitHub Pages · CI/CD ·
+        Kanban · WIP limits · Portfolio management · Readiness assessment · Full-stack development · SaaS</p>
+    </section>
+
+  </main>
+
+  <footer class="case-foot">
+    <p data-i18n="ui.footNote">Melanie Baratto · Case study</p>
+    <a class="foot-back" href="../index.html#studio" data-i18n="ui.footBack">The press run</a>
+  </footer>
+
+  <script src="i18n/shipshape.js"></script>
+  <script src="case.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windward — Case Study — Melanie Baratto</title>
+  <meta name="description" data-i18n-content="meta.desc"
+    content="How Windward is built: three services in three languages grading investment portfolios — a Rails 8 API, a Python FastAPI engine and a React SPA, with 654 tests." />
+  <link rel="canonical" href="https://melaniesigrid.com/work/windward.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Windward — Case Study" />
+  <meta property="og:url" content="https://melaniesigrid.com/work/windward.html" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Cormorant+Garamond:ital,wght@1,300;1,600;1,700&amp;family=IBM+Plex+Mono:wght@300;400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" />
+  <link rel="stylesheet" href="case.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main" data-i18n="ui.skip">Skip to content</a>
+
+  <div class="rail">
+    <a class="rail-back" href="../index.html#studio" data-i18n="ui.back">Independent Work</a>
+    <div class="lang" id="lang">
+      <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="listbox">
+        <span data-lang-current>EN</span>
+      </button>
+      <div class="lang-menu" role="listbox" aria-label="Language" data-i18n-aria-label="lang.aria"></div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <header class="masthead">
+      <div class="folio">
+        <span class="folio-word" data-i18n="ui.case">Case</span>
+        <span class="folio-no">01</span>
+      </div>
+      <h1>Windward</h1>
+      <p class="lede" data-i18n-html="wd.lede">A <strong>report card for investment portfolios</strong>. You say what
+        you own, and it grades you A to F on five measures against fifteen years of real market history — then explains,
+        in plain English, why.</p>
+      <div class="masthead-foot">
+        <span class="status status--local" data-i18n="ui.local">Runs locally</span>
+        <div class="mast-links">
+          <a class="mast-link" href="https://github.com/melaniesigrid/windward" rel="noopener" target="_blank"
+            data-i18n="ui.source">Source</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══ GETTING IN ══════════════════════════════════════════════════ -->
+    <section class="band rise" id="entry">
+      <p class="band-label" data-i18n="sec.entry">Getting in</p>
+      <div class="entry">
+        <div>
+          <h2 data-i18n="h.where">Where it lives</h2>
+          <dl class="where">
+            <div>
+              <dt data-i18n="wd.w1.t">Source</dt>
+              <dd><a href="https://github.com/melaniesigrid/windward" rel="noopener"
+                  target="_blank">melaniesigrid/windward</a></dd>
+            </div>
+            <div>
+              <dt data-i18n="wd.w2.t">Hosted</dt>
+              <dd><span data-i18n="wd.w2.d">Not deployed. There is a Docker Compose stack and CI, but no hosting
+                  configuration — so this one runs on your machine.</span></dd>
+            </div>
+          </dl>
+          <p class="aside" data-i18n="wd.aside">Three processes have to be up at once, which is exactly the cost of the
+            architecture: the split that keeps maths out of the API is also the split that makes it three things to
+            start.</p>
+        </div>
+        <div>
+          <h2 data-i18n="h.howin">How to sign in</h2>
+          <ol class="howin">
+            <li data-i18n-html="wd.in1">Bring up Postgres: <code>docker compose -f infra/docker-compose.yml up -d
+                db</code>.</li>
+            <li data-i18n-html="wd.in2">Start the <strong>engine</strong> on port 8000, then the <strong>Rails
+                API</strong> on 3000, then the <strong>web app</strong> on 5173. The README has the three commands.</li>
+            <li data-i18n-html="wd.in3"><code>bin/rails db:setup</code> seeds a demo account —
+              <code>demo@windward.test</code> — with a portfolio already in it, so there is something to grade on the
+              first screen.</li>
+            <li data-i18n-html="wd.in4">Sign in with <strong>that email and password</strong>. Unlike the other projects
+              here this one does have passwords: they are hashed with bcrypt, and the session is a signed JWT issued by
+              the Rails API.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ HOW IT WORKS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="how">
+      <p class="band-label" data-i18n="sec.how">How it works</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-no">01</span>
+          <h3 data-i18n="wd.s1.h">You list what you own</h3>
+          <p data-i18n="wd.s1.p">Type in your investments and how much of each you hold. That is the whole input.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">02</span>
+          <h3 data-i18n="wd.s2.h">The maths runs</h3>
+          <p data-i18n="wd.s2.p">It compares you against a simple index fund over fifteen years of real market history.
+          </p>
+        </div>
+        <div class="step">
+          <span class="step-no">03</span>
+          <h3 data-i18n="wd.s3.h">You get a grade</h3>
+          <p data-i18n="wd.s3.p">A letter grade per category, plus what is dragging you down and by how much.</p>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="wd.note">The grade is the easy part. <strong>The hard part is being able to defend
+          it months later</strong> — which is why every run is stored rather than recalculated on demand.</p>
+    </section>
+
+    <!-- ══ ARCHITECTURE ════════════════════════════════════════════════ -->
+    <section class="band rise" id="arch">
+      <p class="band-label" data-i18n="sec.arch">How the pieces fit</p>
+      <figure>
+        <svg viewBox="0 0 660 300" width="100%" role="img" aria-label="Architecture diagram"
+          data-i18n-aria-label="wd.arch.alt">
+          <defs>
+            <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+          </defs>
+
+          <rect x="10" y="110" width="120" height="66" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="70" y="138" text-anchor="middle" font-family="Anton, sans-serif" font-size="14" fill="#F4F1EC">WEB APP</text>
+          <text x="70" y="157" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">React · Vite · TS</text>
+
+          <line x1="134" y1="143" x2="212" y2="143" stroke="#888078" stroke-width="1.5" marker-end="url(#a)" />
+
+          <rect x="218" y="98" width="150" height="90" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="293" y="128" text-anchor="middle" font-family="Anton, sans-serif" font-size="16" fill="#F4F1EC">RAILS API</text>
+          <text x="293" y="148" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">Ruby · Rails 8</text>
+          <text x="293" y="166" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B07A1E">never does maths</text>
+
+          <line x1="372" y1="143" x2="450" y2="143" stroke="#888078" stroke-width="1.5" marker-end="url(#a)" />
+
+          <rect x="456" y="98" width="150" height="90" fill="none" stroke="#B07A1E" stroke-width="1.8" />
+          <text x="531" y="128" text-anchor="middle" font-family="Anton, sans-serif" font-size="16" fill="#F4F1EC">ENGINE</text>
+          <text x="531" y="148" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">Python · FastAPI</text>
+          <text x="531" y="166" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B07A1E">never does auth</text>
+
+          <line x1="293" y1="192" x2="293" y2="222" stroke="#888078" stroke-width="1.5" marker-end="url(#a)" />
+          <ellipse cx="293" cy="234" rx="56" ry="8" fill="none" stroke="#888078" stroke-width="1.5" />
+          <path d="M237 234 v24 a56 8 0 0 0 112 0 v-24" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="293" y="253" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F4F1EC">PostgreSQL</text>
+          <text x="293" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a544e">11 tables</text>
+
+          <line x1="293" y1="92" x2="293" y2="62" stroke="#5a544e" stroke-width="1.4" stroke-dasharray="4 3"
+            marker-end="url(#a)" />
+          <rect x="188" y="20" width="210" height="38" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="293" y="44" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#888078">5 market-data providers</text>
+        </svg>
+        <figcaption data-i18n-html="wd.arch.cap">Three separate programs that talk to each other, and one rule holding
+          the shape: <strong>Rails never does maths, and the engine never does auth or persistence.</strong> The API
+          sits in the middle and is in charge — it checks who you are, stores everything, fetches prices from outside
+          companies, and asks the Python program to do the sums.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ SCHEMA ══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="data">
+      <p class="band-label" data-i18n="sec.data">What it remembers</p>
+      <figure>
+        <svg viewBox="0 0 660 290" width="100%" role="img" aria-label="Database diagram"
+          data-i18n-aria-label="wd.data.alt">
+          <defs>
+            <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+            <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#E03A12" />
+            </marker>
+          </defs>
+
+          <rect x="12" y="112" width="112" height="46" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="68" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">users</text>
+
+          <line x1="128" y1="135" x2="164" y2="135" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <text x="146" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a544e">1:N</text>
+
+          <rect x="168" y="112" width="120" height="46" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="228" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">portfolios</text>
+
+          <line x1="292" y1="135" x2="328" y2="135" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <text x="310" y="128" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a544e">1:N</text>
+
+          <rect x="332" y="112" width="116" height="46" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="390" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">holdings</text>
+
+          <line x1="452" y1="135" x2="488" y2="135" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <rect x="492" y="112" width="120" height="46" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="552" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">securities</text>
+
+          <line x1="552" y1="162" x2="552" y2="196" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <rect x="492" y="200" width="120" height="44" fill="none" stroke="#888078" stroke-width="1.3" />
+          <text x="552" y="227" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#888078">price_bars</text>
+
+          <line x1="228" y1="162" x2="228" y2="196" stroke="#E03A12" stroke-width="1.6" marker-end="url(#r)" />
+          <rect x="150" y="200" width="156" height="52" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="228" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">analysis_runs</text>
+          <text x="228" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#B07A1E">every grade ever given</text>
+
+          <text x="330" y="278" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5a544e">+ fx_rates · factor_returns · corporate_actions · ingestion_runs</text>
+        </svg>
+        <figcaption data-i18n-html="wd.data.cap">The red box is the one that makes the product defensible.
+          <strong>Every grade the app has ever shown is stored, not recomputed</strong> — so the same question is never
+          calculated twice, and a number a user saw months ago can still be looked up and explained rather than
+          re-derived and quietly disagreed with.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ LANGUAGES ═══════════════════════════════════════════════════ -->
+    <section class="band rise" id="langs">
+      <p class="band-label" data-i18n="sec.langs">Languages used</p>
+      <div class="langs">
+        <div class="lrow">
+          <span class="lrow-name">TypeScript<span data-i18n="wd.l1">React 19 · the SPA</span></span>
+          <span class="lrow-track"><span class="lrow-fill" style="width:49%"></span></span>
+          <span class="lrow-pct">49%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">Python<span data-i18n="wd.l2">FastAPI · the maths</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--2" style="width:22%"></span></span>
+          <span class="lrow-pct">22%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">CSS<span data-i18n="wd.l3">the design system</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--3" style="width:15%"></span></span>
+          <span class="lrow-pct">15%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">Ruby<span data-i18n="wd.l4">Rails 8 · auth, data, rules</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--4" style="width:14%"></span></span>
+          <span class="lrow-pct">14%</span>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="wd.lang.note">Roughly <strong>44,000 lines</strong> in total. Ruby is the smallest
+        slice and the most important one: it is the only part that handles logins, saves data, and talks to outside
+        companies for market prices.</p>
+    </section>
+
+    <!-- ══ STACK ═══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="stack">
+      <p class="band-label" data-i18n="sec.stack">Technical skills</p>
+      <div class="stack">
+        <div class="stack-group">
+          <h3 data-i18n="wd.g1">Backend — Ruby</h3>
+          <ul>
+            <li class="key">Ruby on Rails 8</li>
+            <li class="key">Ruby 3.3</li>
+            <li>Active Record</li>
+            <li>REST API</li>
+            <li>JWT</li>
+            <li>bcrypt</li>
+            <li>Puma</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="wd.g2">Backend — Python</h3>
+          <ul>
+            <li class="key">Python 3.11</li>
+            <li class="key">FastAPI</li>
+            <li>NumPy</li>
+            <li>pandas</li>
+            <li>SciPy</li>
+            <li>SQLAlchemy</li>
+            <li>Pydantic</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="wd.g3">Frontend</h3>
+          <ul>
+            <li class="key">TypeScript</li>
+            <li class="key">React 19</li>
+            <li>Vite</li>
+            <li>React Router</li>
+            <li>TanStack Query</li>
+            <li>SVG</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="wd.g4">Data</h3>
+          <ul>
+            <li class="key">PostgreSQL</li>
+            <li>Schema design</li>
+            <li>Migrations</li>
+            <li>Caching</li>
+            <li>Rate limiting</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="wd.g5">Testing</h3>
+          <ul>
+            <li class="key">RSpec</li>
+            <li class="key">pytest</li>
+            <li>Vitest</li>
+            <li>FactoryBot</li>
+            <li>WebMock</li>
+            <li>RuboCop</li>
+            <li>Ruff</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="wd.g6">Infrastructure</h3>
+          <ul>
+            <li class="key">Docker</li>
+            <li>Docker Compose</li>
+            <li>GitHub Actions</li>
+            <li>CI/CD</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ NUMBERS ═════════════════════════════════════════════════════ -->
+    <section class="band rise" id="figures">
+      <p class="band-label" data-i18n="sec.figures">By the numbers</p>
+      <div class="figures">
+        <div class="fig"><b>3</b><span data-i18n="wd.f1">Services, three languages</span></div>
+        <div class="fig"><b>654</b><span data-i18n="wd.f2">Automated tests</span></div>
+        <div class="fig"><b>5</b><span data-i18n="wd.f3">Market-data providers</span></div>
+        <div class="fig"><b>11</b><span data-i18n="wd.f4">Database tables</span></div>
+        <div class="fig"><b>15 yr</b><span data-i18n="wd.f5">Of market history analysed</span></div>
+        <div class="fig"><b>44k</b><span data-i18n="wd.f6">Lines of code</span></div>
+      </div>
+    </section>
+
+    <!-- ══ ACHIEVEMENTS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="did">
+      <p class="band-label" data-i18n="sec.did">Key achievements</p>
+      <ul class="did">
+        <li><span class="did-no">01</span>
+          <span data-i18n-html="wd.d1"><strong>The whole thing, alone</strong> — database design, the API, the maths,
+            the website, the tests, and the container and CI setup.</span>
+        </li>
+        <li><span class="did-no">02</span>
+          <span data-i18n-html="wd.d2"><strong>Enforced a boundary across three languages.</strong> Rails owns auth and
+            persistence and does no arithmetic; the Python engine does the arithmetic and is stateless. Each half can be
+            reasoned about, and tested, without the other.</span>
+        </li>
+        <li><span class="did-no">03</span>
+          <span data-i18n-html="wd.d3"><strong>Connected five market-data providers</strong> behind one shared
+            interface, so the app can get real share prices and swapping a provider is a configuration change rather
+            than a rewrite.</span>
+        </li>
+        <li><span class="did-no">04</span>
+          <span data-i18n-html="wd.d4"><strong>Made it remember its own answers.</strong> The same question is never
+            calculated twice, and any number shown to a user months ago can still be looked up and explained.</span>
+        </li>
+        <li><span class="did-no">05</span>
+          <span data-i18n-html="wd.d5"><strong>Wrote 654 automated tests</strong> across RSpec, pytest and Vitest that
+            run on every change, so a mistake in the maths gets caught before anyone sees a wrong number.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ══ KEYWORDS ════════════════════════════════════════════════════ -->
+    <section class="band rise" id="keywords">
+      <p class="band-label" data-i18n="sec.keywords">Skills &amp; keywords</p>
+      <p class="keywords">Ruby · Ruby on Rails · Rails 8 · Ruby 3.3 · Active Record · RSpec · RuboCop · REST API · API
+        design · PostgreSQL · SQL · JWT authentication · bcrypt · Puma · Background jobs · Caching · Rate limiting ·
+        Python · Python 3.11 · FastAPI · NumPy · pandas · SciPy · SQLAlchemy · Pydantic · pytest · Ruff · TypeScript ·
+        JavaScript · React · React 19 · Vite · React Router · TanStack Query · HTML5 · CSS3 · SVG · Responsive design ·
+        Web accessibility · Vitest · ESLint · Docker · Docker Compose · GitHub Actions · CI/CD · Git · Linux ·
+        Microservices · Service-oriented architecture · Third-party API integration · Test-driven development ·
+        Full-stack development · FinTech · Financial data · Data visualisation</p>
+    </section>
+
+  </main>
+
+  <footer class="case-foot">
+    <p data-i18n="ui.footNote">Melanie Baratto · Case study</p>
+    <a class="foot-back" href="../index.html#studio" data-i18n="ui.footBack">The press run</a>
+  </footer>
+
+  <script src="i18n/windward.js"></script>
+  <script src="case.js"></script>
+</body>
+
+</html>
