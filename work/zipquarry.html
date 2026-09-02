@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZipQuarry — Case Study — Melanie Baratto</title>
+  <meta name="description"
+    data-i18n-content="meta.desc"
+    content="How ZipQuarry is built: a local prospecting engine with 30 database tables, 38 API endpoints and an AI drafting step — and how to sign in to it." />
+  <link rel="canonical" href="https://melaniesigrid.com/work/zipquarry.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="ZipQuarry — Case Study" />
+  <meta property="og:url" content="https://melaniesigrid.com/work/zipquarry.html" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Cormorant+Garamond:ital,wght@1,300;1,600;1,700&amp;family=IBM+Plex+Mono:wght@300;400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" />
+  <link rel="stylesheet" href="case.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main" data-i18n="ui.skip">Skip to content</a>
+
+  <div class="rail">
+    <a class="rail-back" href="../index.html#studio" data-i18n="ui.back">Independent Work</a>
+    <div class="lang" id="lang">
+      <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="listbox">
+        <span data-lang-current>EN</span>
+      </button>
+      <div class="lang-menu" role="listbox" aria-label="Language" data-i18n-aria-label="lang.aria"></div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <header class="masthead">
+      <div class="folio">
+        <span class="folio-word" data-i18n="ui.case">Case</span>
+        <span class="folio-no">02</span>
+      </div>
+      <h1>ZipQuarry</h1>
+      <p class="lede" data-i18n-html="zq.lede">A <strong>metal detector for salespeople</strong>. Draw a circle on a
+        map; it finds every local business inside it that looks like it needs what you sell, and writes each one a first
+        email that mentions something real about them.</p>
+      <div class="masthead-foot">
+        <span class="status" data-i18n="ui.live">Live</span>
+        <div class="mast-links">
+          <a class="mast-link" href="https://zipquarry.com" rel="noopener" target="_blank"
+            data-i18n="ui.visit">Visit</a>
+          <a class="mast-link" href="https://app.zipquarry.com" rel="noopener" target="_blank"
+            data-i18n="ui.app">Open the app</a>
+          <a class="mast-link" href="https://github.com/Northbound-Software-Studio/zipquarry-platform" rel="noopener"
+            target="_blank" data-i18n="ui.source">Source</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══ GETTING IN ══════════════════════════════════════════════════ -->
+    <section class="band rise" id="entry">
+      <p class="band-label" data-i18n="sec.entry">Getting in</p>
+      <div class="entry">
+        <div>
+          <h2 data-i18n="h.where">Where it lives</h2>
+          <dl class="where">
+            <div>
+              <dt data-i18n="zq.w1.t">The product</dt>
+              <dd><a href="https://zipquarry.com" rel="noopener" target="_blank">zipquarry.com</a>
+                <span data-i18n="zq.w1.d">— open to anyone, no sign-in.</span>
+              </dd>
+            </div>
+            <div>
+              <dt data-i18n="zq.w2.t">The app</dt>
+              <dd><a href="https://app.zipquarry.com" rel="noopener" target="_blank">app.zipquarry.com</a>
+                <span data-i18n="zq.w2.d">— sign-in required.</span>
+              </dd>
+            </div>
+            <div>
+              <dt data-i18n="zq.w3.t">Source</dt>
+              <dd><a href="https://github.com/Northbound-Software-Studio/zipquarry-platform" rel="noopener"
+                  target="_blank">Northbound-Software-Studio/zipquarry-platform</a></dd>
+            </div>
+          </dl>
+        </div>
+        <div>
+          <h2 data-i18n="h.howin">How to sign in</h2>
+          <ol class="howin">
+            <li data-i18n-html="zq.in1">Go to <strong>app.zipquarry.com</strong>. You land on a sign-in screen — there
+              is no password to remember.</li>
+            <li data-i18n-html="zq.in2">Press <strong>Continue with Google</strong>. Google asks whether you agree to
+              let ZipQuarry send email as you; that permission is what puts a draft in your own outbox instead of
+              blasting mail from a stranger's server.</li>
+            <li data-i18n-html="zq.in3">You come back signed in. The first visit walks you through what you sell, and
+              the postal address that has to appear at the foot of every cold email by law.</li>
+            <li data-i18n-html="zq.in4">Accounts are <strong>invite-only while it is in beta</strong>. If you are not on
+              the list yet, the waitlist form on zipquarry.com is the way in.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="aside" data-i18n="zq.aside">There are no passwords stored anywhere. Sign-in is Auth.js with Google as
+        the identity provider and sessions kept in the database, so signing out on one device really does end that
+        session — nothing is trusted from the browser alone.</p>
+    </section>
+
+    <!-- ══ HOW IT WORKS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="how">
+      <p class="band-label" data-i18n="sec.how">How it works</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-no">01</span>
+          <h3 data-i18n="zq.s1.h">Draw a circle</h3>
+          <p data-i18n="zq.s1.p">Type a postcode and a distance. That is the whole search — a place, and how far you are
+            willing to drive.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">02</span>
+          <h3 data-i18n="zq.s2.h">It goes looking</h3>
+          <p data-i18n="zq.s2.p">It pulls every business in that circle, then scores each one on how likely it is to
+            actually want what you sell.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">03</span>
+          <h3 data-i18n="zq.s3.h">It writes the email</h3>
+          <p data-i18n="zq.s3.p">An AI drafts a personal first message from what it found. You read it, edit it, and
+            send it from your own inbox.</p>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="zq.note">The scoring step is the point. <strong>A list of 400 businesses is not a
+          lead list</strong> — anyone can download a map. The work is deciding which twelve are worth an email this
+        week, and being able to say why.</p>
+    </section>
+
+    <!-- ══ ARCHITECTURE ════════════════════════════════════════════════ -->
+    <section class="band rise" id="arch">
+      <p class="band-label" data-i18n="sec.arch">How the pieces fit</p>
+      <figure>
+        <svg viewBox="0 0 660 300" width="100%" role="img" aria-label="Architecture diagram"
+          data-i18n-aria-label="zq.arch.alt">
+          <defs>
+            <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+          </defs>
+
+          <rect x="10" y="112" width="126" height="66" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="73" y="140" text-anchor="middle" font-family="Anton, sans-serif" font-size="15" fill="#F4F1EC">BROWSER</text>
+          <text x="73" y="160" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">React · Vite</text>
+
+          <line x1="140" y1="145" x2="222" y2="145" stroke="#888078" stroke-width="1.5" marker-end="url(#a)" />
+          <text x="181" y="137" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a544e">HTTPS</text>
+
+          <rect x="228" y="100" width="150" height="90" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="303" y="132" text-anchor="middle" font-family="Anton, sans-serif" font-size="17" fill="#F4F1EC">THE API</text>
+          <text x="303" y="152" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">Node · serverless</text>
+          <text x="303" y="170" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#B07A1E">38 endpoints</text>
+
+          <line x1="303" y1="194" x2="303" y2="222" stroke="#888078" stroke-width="1.5" marker-end="url(#a)" />
+          <ellipse cx="303" cy="234" rx="58" ry="8" fill="none" stroke="#B07A1E" stroke-width="1.5" />
+          <path d="M245 234 v26 a58 8 0 0 0 116 0 v-26" fill="none" stroke="#B07A1E" stroke-width="1.5" />
+          <text x="303" y="254" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F4F1EC">PostgreSQL</text>
+          <text x="303" y="286" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a544e">30 tables</text>
+
+          <line x1="382" y1="122" x2="464" y2="60" stroke="#5a544e" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#a)" />
+          <line x1="382" y1="136" x2="464" y2="112" stroke="#5a544e" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#a)" />
+          <line x1="382" y1="156" x2="464" y2="168" stroke="#5a544e" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#a)" />
+          <line x1="382" y1="170" x2="464" y2="222" stroke="#5a544e" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#a)" />
+
+          <rect x="470" y="38" width="180" height="42" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="560" y="64" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#888078">Google Places</text>
+
+          <rect x="470" y="92" width="180" height="42" fill="none" stroke="#E03A12" stroke-width="1.5" />
+          <text x="560" y="118" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">Claude</text>
+
+          <rect x="470" y="146" width="180" height="42" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="560" y="172" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#888078">Gmail API</text>
+
+          <rect x="470" y="200" width="180" height="42" fill="none" stroke="#5a544e" stroke-width="1.3" />
+          <text x="560" y="226" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#888078">Stripe</text>
+        </svg>
+        <figcaption data-i18n-html="zq.arch.cap">Everything goes through the middle box. The browser never talks to
+          Google, Claude, Stripe or your inbox directly — <strong>it cannot</strong>, because the keys for those live
+          only on the server. That single choke point is also where the app checks who you are and whether your plan
+          still has searches left in it.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ SCHEMA ══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="data">
+      <p class="band-label" data-i18n="sec.data">What it remembers</p>
+      <figure>
+        <svg viewBox="0 0 660 300" width="100%" role="img" aria-label="Database diagram"
+          data-i18n-aria-label="zq.data.alt">
+          <defs>
+            <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+            <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#E03A12" />
+            </marker>
+          </defs>
+
+          <rect x="12" y="128" width="118" height="46" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="71" y="156" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">users</text>
+
+          <line x1="134" y1="151" x2="176" y2="151" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <text x="155" y="144" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a544e">1:N</text>
+
+          <rect x="180" y="128" width="118" height="46" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="239" y="156" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">searches</text>
+
+          <line x1="302" y1="151" x2="344" y2="151" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <text x="323" y="144" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a544e">1:N</text>
+
+          <rect x="348" y="128" width="124" height="46" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="410" y="156" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">prospects</text>
+
+          <line x1="410" y1="178" x2="410" y2="212" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <rect x="344" y="216" width="132" height="44" fill="none" stroke="#888078" stroke-width="1.3" />
+          <text x="410" y="243" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#888078">score_history</text>
+
+          <line x1="476" y1="151" x2="514" y2="151" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <text x="495" y="144" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a544e">1:N</text>
+
+          <rect x="518" y="128" width="130" height="46" fill="none" stroke="#888078" stroke-width="1.5" />
+          <text x="583" y="156" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#F4F1EC">outreach_emails</text>
+
+          <line x1="583" y1="178" x2="583" y2="212" stroke="#888078" stroke-width="1.4" marker-end="url(#b)" />
+          <rect x="518" y="216" width="130" height="44" fill="none" stroke="#888078" stroke-width="1.3" />
+          <text x="583" y="243" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#888078">follow_ups</text>
+
+          <rect x="348" y="30" width="124" height="46" fill="none" stroke="#E03A12" stroke-width="1.6"
+            stroke-dasharray="5 3" />
+          <text x="410" y="58" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#E03A12">suppressions</text>
+          <line x1="476" y1="60" x2="556" y2="122" stroke="#E03A12" stroke-width="1.5" stroke-dasharray="5 3"
+            marker-end="url(#c)" />
+        </svg>
+        <figcaption data-i18n-html="zq.data.cap">Read it left to right: <strong>one person runs a search, the search
+            turns up businesses, and each business earns at most one first email.</strong> The dashed box is the one
+          that matters legally — an unsubscribe is checked before every send, so a person who opted out cannot be
+          reached again even by a later search that rediscovers them.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ LANGUAGES ═══════════════════════════════════════════════════ -->
+    <section class="band rise" id="langs">
+      <p class="band-label" data-i18n="sec.langs">Languages used</p>
+      <div class="langs">
+        <div class="lrow">
+          <span class="lrow-name">JavaScript<span data-i18n="zq.l1">Node.js · the API and the tools</span></span>
+          <span class="lrow-track"><span class="lrow-fill" style="width:50%"></span></span>
+          <span class="lrow-pct">50%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">JSX<span data-i18n="zq.l2">React 18 · the screens</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--2" style="width:43%"></span></span>
+          <span class="lrow-pct">43%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">SQL<span data-i18n="zq.l3">PostgreSQL · 28 migrations</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--3" style="width:5%"></span></span>
+          <span class="lrow-pct">5%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">CSS<span data-i18n="zq.l4">Tailwind and design tokens</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--4" style="width:2%"></span></span>
+          <span class="lrow-pct">2%</span>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="zq.lang.note">Roughly <strong>37,000 lines</strong> of application code, plus a
+        marketing site in the same repository that is deliberately plain HTML with no build step — so a copy change
+        never needs a deploy pipeline to go out.</p>
+    </section>
+
+    <!-- ══ STACK ═══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="stack">
+      <p class="band-label" data-i18n="sec.stack">Technical skills</p>
+      <div class="stack">
+        <div class="stack-group">
+          <h3 data-i18n="zq.g1">Frontend</h3>
+          <ul>
+            <li class="key">JavaScript</li>
+            <li class="key">React 18</li>
+            <li>Vite</li>
+            <li>React Router</li>
+            <li>TanStack Query</li>
+            <li>Tailwind CSS</li>
+            <li>shadcn/ui</li>
+            <li>Radix UI</li>
+            <li>Framer Motion</li>
+            <li>Recharts</li>
+            <li>Leaflet</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="zq.g2">Backend</h3>
+          <ul>
+            <li class="key">Node.js</li>
+            <li class="key">Serverless</li>
+            <li>REST API</li>
+            <li>Auth.js</li>
+            <li>OAuth 2.0</li>
+            <li>Cron jobs</li>
+            <li>Webhooks</li>
+            <li>Rate limiting</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="zq.g3">Data</h3>
+          <ul>
+            <li class="key">PostgreSQL</li>
+            <li class="key">SQL</li>
+            <li>Neon</li>
+            <li>Migrations</li>
+            <li>Multi-tenant</li>
+            <li>Zod</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="zq.g4">AI</h3>
+          <ul>
+            <li class="key">Anthropic Claude</li>
+            <li>Prompt engineering</li>
+            <li>Structured output</li>
+            <li>Prompt evals</li>
+            <li>Lead scoring</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="zq.g5">Services</h3>
+          <ul>
+            <li>Google Places</li>
+            <li>Google Geocoding</li>
+            <li>Gmail API</li>
+            <li class="key">Stripe</li>
+            <li>Sentry</li>
+            <li>Vercel</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="zq.g6">Practice</h3>
+          <ul>
+            <li>CI/CD</li>
+            <li>Git</li>
+            <li>Automated testing</li>
+            <li>Design systems</li>
+            <li>CASL</li>
+            <li>CAN-SPAM</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ NUMBERS ═════════════════════════════════════════════════════ -->
+    <section class="band rise" id="figures">
+      <p class="band-label" data-i18n="sec.figures">By the numbers</p>
+      <div class="figures">
+        <div class="fig"><b>30</b><span data-i18n="zq.f1">Database tables</span></div>
+        <div class="fig"><b>38</b><span data-i18n="zq.f2">API endpoints</span></div>
+        <div class="fig"><b>130</b><span data-i18n="zq.f3">React components</span></div>
+        <div class="fig"><b>48</b><span data-i18n="zq.f4">Test suites</span></div>
+        <div class="fig"><b>28</b><span data-i18n="zq.f5">Migrations</span></div>
+        <div class="fig"><b>37k</b><span data-i18n="zq.f6">Lines of code</span></div>
+      </div>
+    </section>
+
+    <!-- ══ ACHIEVEMENTS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="did">
+      <p class="band-label" data-i18n="sec.did">Key achievements</p>
+      <ul class="did">
+        <li><span class="did-no">01</span>
+          <span data-i18n-html="zq.d1"><strong>The whole product, alone</strong> — the screens, the API, the database
+            design, the AI prompts, the payments, the marketing site and the deployment.</span>
+        </li>
+        <li><span class="did-no">02</span>
+          <span data-i18n-html="zq.d2"><strong>Made the AI's judgement checkable.</strong> Every score a business is
+            given is stored with the reasons behind it, so a number shown weeks ago can still be explained rather than
+            shrugged at.</span>
+        </li>
+        <li><span class="did-no">03</span>
+          <span data-i18n-html="zq.d3"><strong>Built the unsubscribe path before the send path.</strong> Cold email is
+            regulated on both sides of the border; the opt-out list, the physical address requirement and the one-click
+            unsubscribe are enforced in code, not left to the user to remember.</span>
+        </li>
+        <li><span class="did-no">04</span>
+          <span data-i18n-html="zq.d4"><strong>Took Google's OAuth review seriously.</strong> Sending mail as a user is
+            a restricted permission; the app requests the narrowest scope that does the job, and the consent screen,
+            privacy policy and domain were built to survive verification.</span>
+        </li>
+        <li><span class="did-no">05</span>
+          <span data-i18n-html="zq.d5"><strong>Migrated it off a no-code platform.</strong> The product began on a
+            hosted builder and now runs on its own database, its own API and its own auth — without the users noticing a
+            gap.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ══ KEYWORDS ════════════════════════════════════════════════════ -->
+    <section class="band rise" id="keywords">
+      <p class="band-label" data-i18n="sec.keywords">Skills &amp; keywords</p>
+      <p class="keywords">JavaScript · Node.js · React · React 18 · JSX · Vite · React Router · TanStack Query ·
+        Tailwind CSS · shadcn/ui · Radix UI · Framer Motion · Recharts · Leaflet · HTML5 · CSS3 · SVG · Responsive
+        design · Web accessibility · REST API · API design · Serverless · Vercel · PostgreSQL · SQL · Neon · Database
+        migrations · Schema design · Multi-tenant architecture · Auth.js · OAuth 2.0 · Google OAuth · Session management
+        · Stripe · Billing · Webhooks · Anthropic Claude · LLM integration · Prompt engineering · Structured output ·
+        Prompt evaluation · Google Places API · Gmail API · Third-party API integration · Rate limiting · Caching ·
+        Scheduled jobs · Sentry · Error monitoring · Zod · Automated testing · CI/CD · Git · GitHub · Design systems ·
+        CASL · CAN-SPAM · Email deliverability · Full-stack development · SaaS</p>
+    </section>
+
+  </main>
+
+  <footer class="case-foot">
+    <p data-i18n="ui.footNote">Melanie Baratto · Case study</p>
+    <a class="foot-back" href="../index.html#studio" data-i18n="ui.footBack">The press run</a>
+  </footer>
+
+  <script src="i18n/zipquarry.js"></script>
+  <script src="case.js"></script>
+</body>
+
+</html>
