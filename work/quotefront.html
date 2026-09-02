@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quotefront — Case Study — Melanie Baratto</title>
+  <meta name="description" data-i18n-content="meta.desc"
+    content="How Quotefront is built: photo-to-quote intake for trade businesses, with a hard line between what the AI describes and what plain code prices." />
+  <link rel="canonical" href="https://melaniesigrid.com/work/quotefront.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Quotefront — Case Study" />
+  <meta property="og:url" content="https://melaniesigrid.com/work/quotefront.html" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Cormorant+Garamond:ital,wght@1,300;1,600;1,700&amp;family=IBM+Plex+Mono:wght@300;400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" />
+  <link rel="stylesheet" href="case.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main" data-i18n="ui.skip">Skip to content</a>
+
+  <div class="rail">
+    <a class="rail-back" href="../index.html#studio" data-i18n="ui.back">Independent Work</a>
+    <div class="lang" id="lang">
+      <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="listbox">
+        <span data-lang-current>EN</span>
+      </button>
+      <div class="lang-menu" role="listbox" aria-label="Language" data-i18n-aria-label="lang.aria"></div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <header class="masthead">
+      <div class="folio">
+        <span class="folio-word" data-i18n="ui.case">Case</span>
+        <span class="folio-no">03</span>
+      </div>
+      <h1>Quotefront</h1>
+      <p class="lede" data-i18n-html="qf.lede">A customer photographs the job on their phone. About a minute later they
+        have <strong>a real price</strong> — worked out from that contractor's own rates, with every line of the
+        arithmetic shown.</p>
+      <div class="masthead-foot">
+        <span class="status" data-i18n="ui.live">Live</span>
+        <div class="mast-links">
+          <a class="mast-link" href="https://quotefront-platform.vercel.app/q/apex-roofing" rel="noopener"
+            target="_blank" data-i18n="qf.try">Try a quote</a>
+          <a class="mast-link" href="https://quotefront-platform.vercel.app/login" rel="noopener" target="_blank"
+            data-i18n="ui.app">Open the app</a>
+          <a class="mast-link" href="https://github.com/melaniesigrid/quotefront-platform" rel="noopener"
+            target="_blank" data-i18n="ui.source">Source</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══ GETTING IN ══════════════════════════════════════════════════ -->
+    <section class="band rise" id="entry">
+      <p class="band-label" data-i18n="sec.entry">Getting in</p>
+      <div class="entry">
+        <div>
+          <h2 data-i18n="h.where">Where it lives</h2>
+          <dl class="where">
+            <div>
+              <dt data-i18n="qf.w1.t">Roofing quote</dt>
+              <dd><a href="https://quotefront-platform.vercel.app/q/apex-roofing" rel="noopener"
+                  target="_blank">/q/apex-roofing</a>
+                <span data-i18n="qf.w1.d">— no sign-in, submit a real photo.</span>
+              </dd>
+            </div>
+            <div>
+              <dt data-i18n="qf.w2.t">Fencing quote</dt>
+              <dd><a href="https://quotefront-platform.vercel.app/q/cedar-line-fencing" rel="noopener"
+                  target="_blank">/q/cedar-line-fencing</a>
+                <span data-i18n="qf.w2.d">— different trade, different everything.</span>
+              </dd>
+            </div>
+            <div>
+              <dt data-i18n="qf.w3.t">Contractor app</dt>
+              <dd><a href="https://quotefront-platform.vercel.app/login" rel="noopener" target="_blank">/login</a>
+                <span data-i18n="qf.w3.d">— sign-in required.</span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <div>
+          <h2 data-i18n="h.howin">How to sign in</h2>
+          <ol class="howin">
+            <li data-i18n-html="qf.in1"><strong>The customer half needs no account at all.</strong> Open either quote
+              link and use it as a homeowner would — that is the demo, and it is the half that has to be effortless.
+            </li>
+            <li data-i18n-html="qf.in2">Open the two quote links back to back. Same software, but the questions, the
+              photo prompts, the units and the prices all change with the trade — <strong>fence length in linear feet,
+                not roof area in square feet.</strong></li>
+            <li data-i18n-html="qf.in3">For the contractor's dashboard, go to <strong>/login</strong> and type your
+              email. <strong>There is no password</strong> — the app emails a one-time link and clicking it signs you
+              in.</li>
+            <li data-i18n-html="qf.in4">The dashboard is <strong>invite-only</strong>: a link is only issued to an email
+              that already has an account, so an open form cannot be used to create one.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="aside" data-i18n="qf.aside">The sign-in is invite-only for a reason, not out of laziness — a
+        passwordless form on a product with no billing is an open invitation to have someone else's inbox used as a
+        relay.</p>
+    </section>
+
+    <!-- ══ HOW IT WORKS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="how">
+      <p class="band-label" data-i18n="sec.how">How it works</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-no">01</span>
+          <h3 data-i18n="qf.s1.h">Photograph the job</h3>
+          <p data-i18n="qf.s1.p">The customer stands in their own driveway and takes three photos. No measuring tape, no
+            site visit, no phone tag.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">02</span>
+          <h3 data-i18n="qf.s2.h">The AI reads them</h3>
+          <p data-i18n="qf.s2.p">It reports the material, the damage, what needs doing, and what it could not tell. It
+            never touches a number.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">03</span>
+          <h3 data-i18n="qf.s3.h">The rate card prices it</h3>
+          <p data-i18n="qf.s3.p">Ordinary arithmetic turns those findings into a range using the contractor's own rates.
+            Every adjustment is a visible line.</p>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="qf.note">That split is the whole product. <strong>Two contractors with identical
+          photos get different quotes</strong>, because they charge different rates — which is what makes the number
+        theirs rather than a market average with their logo on it.</p>
+    </section>
+
+    <!-- ══ THE BOUNDARY ════════════════════════════════════════════════ -->
+    <section class="band rise" id="arch">
+      <p class="band-label" data-i18n="sec.arch">How the pieces fit</p>
+      <figure>
+        <svg viewBox="0 0 660 300" width="100%" role="img" aria-label="Architecture diagram"
+          data-i18n-aria-label="qf.arch.alt">
+          <defs>
+            <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+            <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#E03A12" />
+            </marker>
+          </defs>
+
+          <text x="168" y="22" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5"
+            fill="#888078">DESCRIBES</text>
+          <text x="500" y="22" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5"
+            fill="#E03A12">DECIDES</text>
+          <line x1="334" y1="10" x2="334" y2="292" stroke="#E03A12" stroke-width="1.3" stroke-dasharray="6 5" />
+
+          <rect x="10" y="118" width="104" height="58" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="62" y="144" text-anchor="middle" font-family="Anton, sans-serif" font-size="14" fill="#F4F1EC">CUSTOMER</text>
+          <text x="62" y="163" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#888078">no account</text>
+
+          <line x1="118" y1="134" x2="152" y2="104" stroke="#888078" stroke-width="1.4" marker-end="url(#a)" />
+          <line x1="118" y1="160" x2="152" y2="200" stroke="#888078" stroke-width="1.4" marker-end="url(#a)" />
+
+          <rect x="158" y="52" width="150" height="56" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="233" y="76" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">Claude vision</text>
+          <text x="233" y="95" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B07A1E">no prices</text>
+
+          <rect x="158" y="204" width="150" height="52" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="233" y="235" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#888078">Vercel Blob</text>
+
+          <line x1="312" y1="86" x2="356" y2="122" stroke="#888078" stroke-width="1.4" marker-end="url(#a)" />
+          <text x="318" y="108" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a544e">findings</text>
+
+          <rect x="238" y="270" width="140" height="22" fill="none" stroke="#B07A1E" stroke-width="1.4" />
+          <text x="308" y="286" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#B07A1E">rate card</text>
+          <line x1="380" y1="278" x2="414" y2="192" stroke="#B07A1E" stroke-width="1.4" marker-end="url(#a)" />
+
+          <rect x="360" y="118" width="160" height="70" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="440" y="146" text-anchor="middle" font-family="Anton, sans-serif" font-size="15" fill="#F4F1EC">ESTIMATE</text>
+          <text x="440" y="164" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#888078">plain TypeScript</text>
+          <text x="440" y="180" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B07A1E">no AI · no network</text>
+
+          <line x1="524" y1="153" x2="556" y2="120" stroke="#E03A12" stroke-width="1.5" marker-end="url(#r)" />
+          <line x1="524" y1="153" x2="556" y2="192" stroke="#E03A12" stroke-width="1.5" marker-end="url(#r)" />
+
+          <rect x="560" y="92" width="94" height="46" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="607" y="120" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F4F1EC">Emailed</text>
+
+          <rect x="560" y="174" width="94" height="46" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="607" y="202" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F4F1EC">Dashboard</text>
+        </svg>
+        <figcaption data-i18n-html="qf.arch.cap">The dashed line is the single most important decision in the product.
+          <strong>Left of it, the AI describes. Right of it, ordinary arithmetic decides.</strong> Ask a language model
+          whether 26 × $42 = $1,092 and it is usually right and occasionally, confidently, wrong — which is unacceptable
+          for a number a customer is going to hold you to.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ SCHEMA ══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="data">
+      <p class="band-label" data-i18n="sec.data">What it remembers</p>
+      <figure>
+        <svg viewBox="0 0 660 280" width="100%" role="img" aria-label="Database diagram"
+          data-i18n-aria-label="qf.data.alt">
+          <defs>
+            <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#E03A12" />
+            </marker>
+            <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#888078" />
+            </marker>
+          </defs>
+
+          <rect x="252" y="16" width="156" height="50" fill="none" stroke="#E03A12" stroke-width="2" />
+          <text x="330" y="47" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#F4F1EC">tenants</text>
+
+          <line x1="286" y1="70" x2="120" y2="112" stroke="#E03A12" stroke-width="1.4" marker-end="url(#b)" />
+          <line x1="330" y1="70" x2="330" y2="112" stroke="#E03A12" stroke-width="1.4" marker-end="url(#b)" />
+          <line x1="374" y1="70" x2="540" y2="112" stroke="#E03A12" stroke-width="1.4" marker-end="url(#b)" />
+
+          <rect x="24" y="116" width="148" height="46" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="98" y="144" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#F4F1EC">memberships</text>
+
+          <line x1="98" y1="166" x2="98" y2="198" stroke="#888078" stroke-width="1.4" marker-end="url(#d)" />
+          <rect x="24" y="202" width="148" height="46" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="98" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#888078">users</text>
+
+          <rect x="248" y="116" width="164" height="46" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="330" y="139" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F4F1EC">login_tokens</text>
+          <text x="330" y="155" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#888078">sessions</text>
+          <text x="330" y="222" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5a544e">no password column</text>
+
+          <rect x="466" y="116" width="164" height="46" fill="none" stroke="#B07A1E" stroke-width="1.6" />
+          <text x="548" y="144" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F4F1EC">leads</text>
+
+          <line x1="548" y1="166" x2="548" y2="198" stroke="#888078" stroke-width="1.4" marker-end="url(#d)" />
+          <text x="556" y="187" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5a544e">1:N</text>
+          <rect x="466" y="202" width="164" height="46" fill="none" stroke="#888078" stroke-width="1.4" />
+          <text x="548" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#888078">lead_events</text>
+        </svg>
+        <figcaption data-i18n-html="qf.data.cap">Every arrow out of the top box is the same rule: <strong>nothing exists
+            except inside one contractor's world.</strong> Every query that touches these tables has to name whose data
+          it wants — there is no ambient "current business" the code can quietly get wrong, which is what stops one
+          contractor's leads from ever appearing on another's screen.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ══ LANGUAGES ═══════════════════════════════════════════════════ -->
+    <section class="band rise" id="langs">
+      <p class="band-label" data-i18n="sec.langs">Languages used</p>
+      <div class="langs">
+        <div class="lrow">
+          <span class="lrow-name">TypeScript<span data-i18n="qf.l1">the engine, the data layer, the API</span></span>
+          <span class="lrow-track"><span class="lrow-fill" style="width:65%"></span></span>
+          <span class="lrow-pct">65%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">TSX<span data-i18n="qf.l2">React 19 · every screen</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--2" style="width:31%"></span></span>
+          <span class="lrow-pct">31%</span>
+        </div>
+        <div class="lrow">
+          <span class="lrow-name">CSS<span data-i18n="qf.l3">design tokens, no framework</span></span>
+          <span class="lrow-track"><span class="lrow-fill lrow-fill--3" style="width:4%"></span></span>
+          <span class="lrow-pct">4%</span>
+        </div>
+      </div>
+      <p class="say" data-i18n-html="qf.lang.note">About <strong>8,000 lines</strong>, typed end to end. Small on
+        purpose: the pricing engine is a pure function with no database and no network in it, which is why it can be
+        tested exhaustively across every trade in under a second.</p>
+    </section>
+
+    <!-- ══ STACK ═══════════════════════════════════════════════════════ -->
+    <section class="band rise" id="stack">
+      <p class="band-label" data-i18n="sec.stack">Technical skills</p>
+      <div class="stack">
+        <div class="stack-group">
+          <h3 data-i18n="qf.g1">Frontend</h3>
+          <ul>
+            <li class="key">TypeScript</li>
+            <li class="key">React 19</li>
+            <li>Next.js 16</li>
+            <li>App Router</li>
+            <li>Server Components</li>
+            <li>Design tokens</li>
+            <li>Mobile-first</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="qf.g2">Backend</h3>
+          <ul>
+            <li class="key">Route handlers</li>
+            <li>Passwordless auth</li>
+            <li>One-time tokens</li>
+            <li>Server sessions</li>
+            <li>Vercel Blob</li>
+            <li>Resend</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="qf.g3">Data</h3>
+          <ul>
+            <li class="key">PostgreSQL</li>
+            <li class="key">Drizzle ORM</li>
+            <li>Neon</li>
+            <li>Multi-tenant</li>
+            <li>Integer cents</li>
+            <li>Migrations</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="qf.g4">AI</h3>
+          <ul>
+            <li class="key">Claude vision</li>
+            <li>Vercel AI Gateway</li>
+            <li>Model fallback</li>
+            <li>Structured output</li>
+            <li>Graceful degradation</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="qf.g5">Tooling</h3>
+          <ul>
+            <li class="key">pnpm workspaces</li>
+            <li>Turborepo</li>
+            <li>node:test</li>
+            <li>ESLint</li>
+            <li>Vercel</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3 data-i18n="qf.g6">Practice</h3>
+          <ul>
+            <li>Monorepo</li>
+            <li>Pure domain core</li>
+            <li>Deterministic pricing</li>
+            <li>Audit trails</li>
+            <li>PII-aware storage</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ NUMBERS ═════════════════════════════════════════════════════ -->
+    <section class="band rise" id="figures">
+      <p class="band-label" data-i18n="sec.figures">By the numbers</p>
+      <div class="figures">
+        <div class="fig"><b>6</b><span data-i18n="qf.f1">Trades supported</span></div>
+        <div class="fig"><b>7</b><span data-i18n="qf.f2">Database tables</span></div>
+        <div class="fig"><b>4</b><span data-i18n="qf.f3">Packages in the monorepo</span></div>
+        <div class="fig"><b>~1 min</b><span data-i18n="qf.f4">Photo to priced quote</span></div>
+        <div class="fig"><b>8k</b><span data-i18n="qf.f5">Lines of TypeScript</span></div>
+      </div>
+    </section>
+
+    <!-- ══ ACHIEVEMENTS ════════════════════════════════════════════════ -->
+    <section class="band rise" id="did">
+      <p class="band-label" data-i18n="sec.did">Key achievements</p>
+      <ul class="did">
+        <li><span class="did-no">01</span>
+          <span data-i18n-html="qf.d1"><strong>The whole product, alone</strong> — the customer-facing quote pages, the
+            contractor dashboard, the pricing engine, the database, the design system and the deployment.</span>
+        </li>
+        <li><span class="did-no">02</span>
+          <span data-i18n-html="qf.d2"><strong>Drew a hard line between the AI and the money.</strong> The model
+            describes what it sees; a pure, tested function does the arithmetic. That is what makes a quote explicable
+            and reproducible instead of a guess that changes each time you ask.</span>
+        </li>
+        <li><span class="did-no">03</span>
+          <span data-i18n-html="qf.d3"><strong>Made a failed AI call cost nothing.</strong> If the vision step times out
+            or returns nonsense, the lead is still saved, still priced from the customer's own measurements, still
+            emailed — and flagged so the contractor knows to open the photos personally.</span>
+        </li>
+        <li><span class="did-no">04</span>
+          <span data-i18n-html="qf.d4"><strong>Made every contractor's brand work on a dark ground.</strong> Rather than
+            rejecting colours that vanish against near-black, the code keeps the hue exactly and lifts only the
+            lightness until it clears a legibility floor — still recognisably their colour, guaranteed readable.</span>
+        </li>
+        <li><span class="did-no">05</span>
+          <span data-i18n-html="qf.d5"><strong>Fixed a useless answer with a test.</strong> The first end-to-end run
+            returned a range of $71,500–$360,000. It now returns $54,000–$144,000 for the same input, and a test caps
+            how wide a range may ever get across every trade.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ══ KEYWORDS ════════════════════════════════════════════════════ -->
+    <section class="band rise" id="keywords">
+      <p class="band-label" data-i18n="sec.keywords">Skills &amp; keywords</p>
+      <p class="keywords">TypeScript · JavaScript · React · React 19 · Next.js · Next.js 16 · App Router · Server
+        Components · TSX · HTML5 · CSS3 · SVG · Design tokens · Design systems · Responsive design · Mobile-first · Web
+        accessibility · PostgreSQL · SQL · Drizzle ORM · Neon · Schema design · Database migrations · Multi-tenant
+        architecture · Tenant isolation · Passwordless authentication · Magic links · Session management · Anthropic
+        Claude · Computer vision · Vision models · LLM integration · Prompt engineering · Structured output · Model
+        fallback · Graceful degradation · Vercel · Vercel Blob · Serverless · REST API · API design · Transactional
+        email · Resend · pnpm · Turborepo · Monorepo · Unit testing · Test-driven development · Domain-driven design ·
+        Pure functions · Audit trails · PII handling · Git · CI/CD · Full-stack development · SaaS · Construction tech
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="case-foot">
+    <p data-i18n="ui.footNote">Melanie Baratto · Case study</p>
+    <a class="foot-back" href="../index.html#studio" data-i18n="ui.footBack">The press run</a>
+  </footer>
+
+  <script src="i18n/quotefront.js"></script>
+  <script src="case.js"></script>
+</body>
+
+</html>
