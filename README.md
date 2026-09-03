@@ -67,6 +67,13 @@ Open `http://localhost:8000` and you're running the production site.
 │   ├── discordWinnerAnnouncement.webp            # NEAR section gallery
 │   ├── blockchainConferenceViews.webp            # NEAR section gallery
 │   └── melsmeta.webp                             # Mel's Meta logo
+├── work/
+│   ├── case.css / case.js                        # Shared chrome for the case studies
+│   ├── i18n/                                     # Per-case copy, ten languages
+│   └── zipquarry.html                            # Case 01
+├── writing/
+│   ├── essay.css / essay.js                      # Shared chrome for the essays
+│   └── lifting-state-up.html                     # Essay 01
 └── README.md                                     # You are here
 ```
 
