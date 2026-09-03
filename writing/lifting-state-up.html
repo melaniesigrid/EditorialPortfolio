@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lifting State Up — Melanie Baratto</title>
+  <meta name="description"
+    content="A counter said four and the cart said three. On the smallest refactor in React, the Kabbalistic doctrine of contraction, and the difference between seeing the tree and being in it." />
+  <link rel="canonical" href="https://melaniesigrid.com/writing/lifting-state-up.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Melanie Baratto" />
+  <meta name="theme-color" content="#0E0E0E" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Lifting State Up" />
+  <meta property="og:description"
+    content="A counter said four and the cart said three. On the smallest refactor in React, the Kabbalistic doctrine of contraction, and the difference between seeing the tree and being in it." />
+  <meta property="og:url" content="https://melaniesigrid.com/writing/lifting-state-up.html" />
+  <meta property="og:image" content="https://melaniesigrid.com/images/og-card.png" />
+  <meta property="og:site_name" content="Melanie Baratto" />
+  <meta property="og:locale" content="en_CA" />
+  <meta property="article:published_time" content="2026-09-02" />
+  <meta property="article:author" content="Melanie Baratto" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lifting State Up" />
+  <meta name="twitter:description"
+    content="A counter said four and the cart said three. On the smallest refactor in React, and the difference between seeing the tree and being in it." />
+  <meta name="twitter:image" content="https://melaniesigrid.com/images/og-card.png" />
+
+  <link
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230E0E0E'/%3E%3Ctext x='50' y='72' font-family='Anton,Impact,sans-serif' font-size='80' text-anchor='middle' fill='%23F4F1EC'%3EM%3C/text%3E%3C/svg%3E"
+    rel="icon" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Cormorant+Garamond:ital,wght@1,300;1,600;1,700&amp;family=IBM+Plex+Mono:wght@300;400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" />
+  <link rel="stylesheet" href="essay.css" />
+
+  <!-- Arm the scroll-reveal before first paint so nothing flashes, and disarm it
+       again if essay.js never runs. With no JavaScript at all this never fires and
+       the essay is simply visible. -->
+  <script>
+    (function () {
+      document.documentElement.classList.add('js-rise');
+      setTimeout(function () {
+        if (!window.__essayReveal) document.documentElement.classList.remove('js-rise');
+      }, 2000);
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Lifting State Up",
+    "description": "A counter said four and the cart said three. On the smallest refactor in React, the Kabbalistic doctrine of contraction, and the difference between seeing the tree and being in it.",
+    "url": "https://melaniesigrid.com/writing/lifting-state-up.html",
+    "datePublished": "2026-09-02",
+    "inLanguage": "en",
+    "image": "https://melaniesigrid.com/images/og-card.png",
+    "wordCount": 1420,
+    "author": {
+      "@type": "Person",
+      "name": "Melanie Baratto",
+      "url": "https://melaniesigrid.com/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Melanie Baratto",
+      "url": "https://melaniesigrid.com/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://melaniesigrid.com/writing/lifting-state-up.html"
+    },
+    "keywords": ["React", "state management", "software craft", "essay"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to the essay</a>
+
+  <div class="rail">
+    <a class="rail-back" href="../index.html#writing">Writing</a>
+    <span class="rail-mark">Melanie Baratto</span>
+  </div>
+
+  <main id="main">
+
+    <header class="masthead">
+      <div class="masthead-in">
+        <div class="folio">
+          <span class="folio-word">Essay</span>
+          <span class="folio-no">01</span>
+        </div>
+        <h1>Lifting State Up</h1>
+        <p class="lede">Two components on the same screen, both displaying a number that was supposed to be the same
+          number, and they disagreed — and neither of them was wrong.</p>
+        <div class="byline">
+          <span class="who">Melanie Baratto</span>
+          <span><time datetime="2026-09-02">2 September 2026</time></span>
+          <span>Six minutes</span>
+        </div>
+      </div>
+    </header>
+
+    <article class="essay">
+
+      <p class="opener rise">The bug was that the counter said four and the cart said three.</p>
+
+      <p class="rise">Not intermittently. Reliably, on a Tuesday, in a build that had passed. Two components on the
+        same screen, both displaying a number that was supposed to be the same number, and they disagreed, and neither
+        of them was wrong — each was faithfully showing what it had been given. The counter had been told four. The
+        cart had been told three. Somewhere above them both, at a level neither could see, the truth had forked.</p>
+
+      <p class="rise">You can spend a whole afternoon on this. You go up the tree one level at a time, and at each level
+        you ask: does this thing know? And mostly it doesn’t. Mostly a component is a small dutiful function that
+        receives what it is handed, arranges it, and passes some portion of it further down. It does not know where the
+        value came from. It does not know what happens to it after. It has no access to the level above it and no
+        memory of having been rendered before.</p>
+
+      <p class="rise">The fix has a name. It’s in the documentation, on a page you send junior developers, and it is
+        called <em>lifting state up</em>.</p>
+
+      <figure class="plate rise">
+        <figcaption class="plate-label">The whole refactor</figcaption>
+        <pre><code>function <span class="t">Cart</span>() {
+  <span class="k">const</span> [count, setCount] = <span class="a">useState</span>(0)
+  <span class="k">return</span> (
+    &lt;&gt;
+      &lt;<span class="t">Counter</span> count={count} /&gt;
+      &lt;<span class="t">Items</span> count={count} onAdd={setCount} /&gt;
+    &lt;/&gt;
+  )
+}</code></pre>
+      </figure>
+
+      <p class="rise">That’s all it is. The value stops living in two places that can drift and starts living in one
+        place above both of them, and the two children — who own nothing now, who are strictly poorer than they were on
+        Monday — can finally agree, because neither of them is holding anything.</p>
+
+      <p class="rise">Something worth saying plainly about this work, which sounds mystical only because it’s true: the
+        tree isn’t the interface. A component doesn’t produce buttons and text. It produces a
+        <strong>description</strong> of buttons and text — an object, a plain one, that says what ought to be on the
+        screen. Something else entirely takes that description and reconciles it against what is actually there, and
+        makes the difference vanish. You never touch the screen. You have never once in your career touched the screen.
+        You write what should be the case, and a process you did not write and cannot see makes the world match.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">There is a system for describing how an infinite thing produces a finite one, and its first
+        move is the strange one.</p>
+
+      <p class="rise">The problem it starts from: if there is something without limit, and it is genuinely without
+        limit, then there is no room anywhere for anything else. Not metaphorically no room. No room. A world cannot be
+        added to a fullness. So before anything can exist, the fullness has to withdraw from a space — contract, step
+        back, leave a vacancy — and only into that vacancy can a bounded thing be put. This is called
+        <em>tzimtzum</em>, and the word means contraction, and the entire architecture of the thing rests on it.
+        Creation begins with a subtraction.</p>
+
+      <p class="rise">Then, into that cleared space, light. Not all of it — a ray, a narrowed portion, entering a chain
+        of vessels arranged one below the next. Each vessel receives from the one above and transmits to the one below,
+        and each is more bounded, more particular, more able to be handled than the one before. What arrives at the
+        bottom is the same light that started, at a resolution a finite creature can survive. Nothing is added going
+        down. Only limited.</p>
+
+      <p class="rise">And the vessels break. This is the part the system is honest about. Some of them receive more than
+        their structure can contain and they shatter, and the light they held scatters downward into the ordinary
+        material of the world, into objects, into food, into a chair, into a conversation with someone at a bus stop —
+        sparks, in enormous number, lodged in matter, indistinguishable from the matter.</p>
+
+      <p class="rise">The work assigned to a person, then, is not to ascend. It is to go through the ordinary world
+        locating what is scattered in it and return it upward, one item at a time, by using the thing correctly. You do
+        not fix the light. The light was never damaged. You fix where it is being held.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">Both of these are systems for making an unbounded thing handleable by nesting limits, and
+        both put the fault in the container.</p>
+
+      <p class="rise">That’s the real overlap, and it isn’t decorative. When my counter and my cart disagreed, nothing
+        was wrong with the number. Four was fine. Four had never been anything but four. What was wrong was that it was
+        being held in two vessels too small to hold it in common, and the repair was not to correct either display but
+        to move the value to where it could be seen from both. <strong>Nobody debugs the data. You debug the shape of
+          what’s holding it.</strong></p>
+
+      <p class="rise">And there’s the second thing, which took me longer to notice: in both systems the work runs
+        upward, and it is undramatic. Lifting state is not a redesign. Nothing new gets built. You find the value
+        sitting in the wrong place, you take it up one level, you delete the copy, and the app is quieter afterward.
+        Nobody demos it. It doesn’t appear in the release notes. It is four lines and an afternoon and it is most of
+        what senior people actually do.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">Here is where it stops, and the stopping is the part I keep returning to.</p>
+
+      <p class="rise">I can see the tree.</p>
+
+      <p class="rise">I have it open on the left of my screen, the whole thing, root to leaf, and I can collapse a
+        branch or expand it, and when I decide that a value belongs three levels higher I simply put it three levels
+        higher, because I am outside the tree and the tree is a file. The component cannot do this. A component has no
+        idea it is in a tree. It cannot lift its own state up, cannot see the level above it, cannot know that the
+        thing it has been faithfully displaying is a stale copy of something truer held somewhere it has no access to.
+        It just renders four, correctly, forever, until someone outside comes and moves the value.</p>
+
+      <p class="rise">I am not outside the other one. That is the entire difference and it is not a small one.</p>
+
+      <p class="rise">So the sparks thing has always struck me as generous, in a way I don’t think people give it
+        credit for. It doesn’t ask you to see the tree. It doesn’t require the diagram. It says: you are inside this,
+        you cannot get a view of it, and the work available to you is local and specific and this-sized — this object,
+        this meal, this Tuesday, this person in front of you — and doing it correctly is sufficient, and you will not
+        get to watch the totals.</p>
+
+      <p class="rise">I close my laptop at seven. The tree is still on the screen when the screen goes dark, root to
+        leaf, every branch, and I know exactly where everything lives.</p>
+
+      <p class="coda rise">For eleven hours a day I get to be the developer. The rest of it I spend as a component.</p>
+
+    </article>
+
+    <footer class="colophon">
+      <div class="colophon-in">
+        <span>Essay 01 · Melanie Baratto</span>
+        <a href="../index.html#writing">All writing</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="essay.js"></script>
+</body>
+
+</html>

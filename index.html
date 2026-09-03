@@ -1548,6 +1548,162 @@
     }
 
     /* ══════════════════════════════════════
+   THE READING ROOM
+
+   An index of the essays. Same press as the
+   plates above it, but one column and quiet —
+   a shelf, not a spread.
+══════════════════════════════════════ */
+    .writing {
+      background: var(--ink);
+      border-top: 1px solid var(--rule);
+    }
+
+    .writing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 3.5rem 3rem 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .writing-label {
+      font-family: var(--M);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .writing-meta {
+      font-family: var(--M);
+      font-size: .8rem;
+      font-weight: 300;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      padding: 2.75rem 3rem 3rem;
+      text-decoration: none;
+      color: inherit;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.16, 1, .3, 1), background-color .4s;
+    }
+
+    .entry.on {
+      opacity: 1;
+      transform: none;
+    }
+
+    .entry+.entry {
+      border-top: 1px solid var(--rule);
+    }
+
+    .entry:hover {
+      background: rgba(244, 241, 236, .03);
+    }
+
+    .entry-no {
+      font-family: var(--M);
+      font-size: .78rem;
+      font-weight: 300;
+      letter-spacing: .2em;
+      color: var(--dim2);
+      padding-top: .5rem;
+      transition: color .4s;
+    }
+
+    .entry:hover .entry-no {
+      color: var(--red);
+    }
+
+    .entry-title {
+      font-family: var(--D);
+      font-weight: 400;
+      font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+      line-height: .98;
+      letter-spacing: -.005em;
+      text-transform: uppercase;
+      color: var(--paper);
+      transition: color .4s;
+    }
+
+    .entry:hover .entry-title {
+      color: var(--red);
+    }
+
+    .entry-line {
+      max-width: 58ch;
+      margin-top: 1rem;
+      font-family: var(--S);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+      line-height: 1.45;
+      color: var(--paper);
+    }
+
+    .entry-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .5rem 1.5rem;
+      margin-top: 1.5rem;
+      font-family: var(--M);
+      font-size: .72rem;
+      font-weight: 300;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--dim2);
+    }
+
+    .entry-go {
+      color: var(--dim);
+      border-bottom: 1px solid rgba(244, 241, 236, .2);
+      padding-bottom: 1px;
+      transition: color .3s, border-color .3s;
+    }
+
+    .entry:hover .entry-go {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    @media(max-width:768px) {
+      .writing-header {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .entry {
+        grid-template-columns: 1fr;
+        gap: .9rem;
+        padding: 2.25rem 1.5rem 2.5rem;
+      }
+
+      .entry-no {
+        padding-top: 0;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .entry {
+        opacity: 1;
+        transform: none;
+        transition-duration: .01ms;
+      }
+    }
+
+    /* ══════════════════════════════════════
    BETWEEN-SECTION BIG TEXT
 ══════════════════════════════════════ */
     .big-section {
@@ -4257,6 +4413,7 @@
     <button class="nav-close" data-i18n-html="nav.close" id="navClose">Close ✕</button>
     <a class="mob-link" data-i18n="nav.work" href="#work">Work</a>
     <a class="mob-link" data-i18n="nav.studio" href="#studio">Studio</a>
+    <a class="mob-link" data-i18n="nav.writing" href="#writing">Writing</a>
     <a class="mob-link" data-i18n="nav.expertise" href="#expertise">Expertise</a>
     <a class="mob-link" data-i18n="nav.about" href="#about">About</a>
     <a class="mob-link" data-i18n="nav.contact" href="#contact">Contact</a>
@@ -4269,6 +4426,7 @@
       <ul class="nav-links">
         <li><a data-i18n="nav.work" href="#work">Work</a></li>
         <li><a data-i18n="nav.studio" href="#studio">Studio</a></li>
+        <li><a data-i18n="nav.writing" href="#writing">Writing</a></li>
         <li><a data-i18n="nav.expertise" href="#expertise">Expertise</a></li>
         <li><a data-i18n="nav.about" href="#about">About</a></li>
         <li><a data-i18n="nav.contact" href="#contact">Contact</a></li>
@@ -5429,6 +5587,28 @@
         data-i18n="press.footLink">Everything on GitHub ↗</a>
     </div>
   </section>
+  <!-- ══ WRITING ═════════════════════════════ -->
+  <section class="writing" id="writing">
+    <div class="writing-header">
+      <h2 class="writing-label" data-i18n="writing.label">Writing</h2>
+      <div class="writing-meta" data-i18n="writing.meta">Essays · long form · English only</div>
+    </div>
+
+    <a class="entry" href="writing/lifting-state-up.html" data-obs="">
+      <span class="entry-no">01</span>
+      <div class="entry-body">
+        <h3 class="entry-title">Lifting State Up</h3>
+        <p class="entry-line" data-i18n="writing.lsu.line">The counter said four and the cart said three, and neither
+          of them was wrong. On the smallest refactor in React, and the difference between seeing the tree and being in
+          it.</p>
+        <div class="entry-foot">
+          <time datetime="2026-09-02" data-i18n="writing.lsu.date">2 September 2026</time>
+          <span data-i18n="writing.lsu.read">Six minutes</span>
+          <span class="entry-go" data-i18n="writing.read">Read the essay ↗</span>
+        </div>
+      </div>
+    </a>
+  </section>
   <!-- ══ BIG TEXT 2 ══════════════════════════ -->
   <div class="big-section" data-splits="">
     <span class="spl"><span class="spl-in ghost-l" data-i18n="split.cleanCode">Clean Code.</span></span>
@@ -6173,6 +6353,13 @@
       "split.beautifulThings": "Beautiful things.",
       "split.since2021": "Since 2021.",
       "nav.studio": "Studio",
+      "nav.writing": "Writing",
+      "writing.label": "Writing",
+      "writing.meta": "Essays · long form · English only",
+      "writing.lsu.line": "The counter said four and the cart said three, and neither of them was wrong. On the smallest refactor in React, and the difference between seeing the tree and being in it.",
+      "writing.lsu.date": "2 September 2026",
+      "writing.lsu.read": "Six minutes",
+      "writing.read": "Read the essay ↗",
       "split.shipped": "Shipped",
       "split.onMyOwn": "On my own.",
       "split.fiveProducts": "Nine projects.",
@@ -6448,6 +6635,13 @@
         "split.beautifulThings": "cosas hermosas.",
         "split.since2021": "Desde 2021.",
         "nav.studio": "Estudio",
+        "nav.writing": "Escritos",
+        "writing.label": "Escritos",
+        "writing.meta": "Ensayos · formato largo · solo en inglés",
+        "writing.lsu.line": "El contador decía cuatro y el carrito decía tres, y ninguno de los dos se equivocaba. Sobre la refactorización más pequeña de React y la diferencia entre ver el árbol y estar dentro de él.",
+        "writing.lsu.date": "2 de septiembre de 2026",
+        "writing.lsu.read": "Seis minutos",
+        "writing.read": "Leer el ensayo ↗",
         "split.shipped": "Lanzado",
         "split.onMyOwn": "Por mi cuenta.",
         "split.fiveProducts": "Nueve proyectos.",
@@ -6718,6 +6912,13 @@
         "split.beautifulThings": "schöne Dinge.",
         "split.since2021": "Seit 2021.",
         "nav.studio": "Studio",
+        "nav.writing": "Texte",
+        "writing.label": "Texte",
+        "writing.meta": "Essays · Langform · nur auf Englisch",
+        "writing.lsu.line": "Der Zähler sagte vier und der Warenkorb sagte drei, und keiner von beiden lag falsch. Über das kleinste Refactoring in React und den Unterschied zwischen dem Baum sehen und im Baum sein.",
+        "writing.lsu.date": "2. September 2026",
+        "writing.lsu.read": "Sechs Minuten",
+        "writing.read": "Essay lesen ↗",
         "split.shipped": "Ausgeliefert",
         "split.onMyOwn": "Im Alleingang.",
         "split.fiveProducts": "Neun Projekte.",
@@ -6988,6 +7189,13 @@
         "split.beautifulThings": "de belles choses.",
         "split.since2021": "Depuis 2021.",
         "nav.studio": "Studio",
+        "nav.writing": "Écrits",
+        "writing.label": "Écrits",
+        "writing.meta": "Essais · format long · en anglais uniquement",
+        "writing.lsu.line": "Le compteur affichait quatre et le panier affichait trois, et aucun des deux n’avait tort. Sur le plus petit refactoring de React, et sur la différence entre voir l’arbre et se trouver dedans.",
+        "writing.lsu.date": "2 septembre 2026",
+        "writing.lsu.read": "Six minutes",
+        "writing.read": "Lire l’essai ↗",
         "split.shipped": "Livré",
         "split.onMyOwn": "En solo.",
         "split.fiveProducts": "Neuf projets.",
@@ -7258,6 +7466,13 @@
         "split.beautifulThings": "דברים יפים.",
         "split.since2021": "מאז 2021.",
         "nav.studio": "סטודיו",
+        "nav.writing": "כתיבה",
+        "writing.label": "כתיבה",
+        "writing.meta": "מסות · פורמט ארוך · באנגלית בלבד",
+        "writing.lsu.line": "המונה הראה ארבע והעגלה הראתה שלוש, ואף אחד מהם לא טעה. על הריפקטור הקטן ביותר ב-React, ועל ההבדל בין לראות את העץ לבין להיות בתוכו.",
+        "writing.lsu.date": "2 בספטמבר 2026",
+        "writing.lsu.read": "שש דקות",
+        "writing.read": "לקריאת המסה ↗",
         "split.shipped": "נשלח לאוויר",
         "split.onMyOwn": "לבד לגמרי.",
         "split.fiveProducts": "תשעה פרויקטים.",
@@ -7529,6 +7744,13 @@
         "split.beautifulThings": "красивые вещи.",
         "split.since2021": "С 2021 года.",
         "nav.studio": "Студия",
+        "nav.writing": "Тексты",
+        "writing.label": "Тексты",
+        "writing.meta": "Эссе · большая форма · только на английском",
+        "writing.lsu.line": "Счётчик показывал четыре, а корзина — три, и ни один из них не ошибался. О самом маленьком рефакторинге в React и о разнице между тем, чтобы видеть дерево, и тем, чтобы находиться внутри него.",
+        "writing.lsu.date": "2 сентября 2026",
+        "writing.lsu.read": "Шесть минут",
+        "writing.read": "Читать эссе ↗",
         "split.shipped": "Выпущено",
         "split.onMyOwn": "В одиночку.",
         "split.fiveProducts": "Девять проектов.",
@@ -7802,6 +8024,13 @@
         "split.beautifulThings": "coisas belas.",
         "split.since2021": "Desde 2021.",
         "nav.studio": "Estúdio",
+        "nav.writing": "Escritos",
+        "writing.label": "Escritos",
+        "writing.meta": "Ensaios · formato longo · apenas em inglês",
+        "writing.lsu.line": "O contador dizia quatro e o carrinho dizia três, e nenhum dos dois estava errado. Sobre a menor refatoração do React e a diferença entre ver a árvore e estar dentro dela.",
+        "writing.lsu.date": "2 de setembro de 2026",
+        "writing.lsu.read": "Seis minutos",
+        "writing.read": "Ler o ensaio ↗",
         "split.shipped": "Lançado",
         "split.onMyOwn": "Por minha conta.",
         "split.fiveProducts": "Nove projetos.",
@@ -8074,6 +8303,13 @@
         "split.beautifulThings": "красиві речі.",
         "split.since2021": "З 2021 року.",
         "nav.studio": "Студія",
+        "nav.writing": "Тексти",
+        "writing.label": "Тексти",
+        "writing.meta": "Есеї · велика форма · лише англійською",
+        "writing.lsu.line": "Лічильник показував чотири, а кошик — три, і жоден із них не помилявся. Про найменший рефакторинг у React і про різницю між тим, щоб бачити дерево, і тим, щоб бути всередині нього.",
+        "writing.lsu.date": "2 вересня 2026",
+        "writing.lsu.read": "Шість хвилин",
+        "writing.read": "Читати есе ↗",
         "split.shipped": "Випущено",
         "split.onMyOwn": "Самотужки.",
         "split.fiveProducts": "Дев'ять проєктів.",
@@ -8346,6 +8582,13 @@
         "split.beautifulThings": "美好的事物。",
         "split.since2021": "自 2021 年起。",
         "nav.studio": "工作室",
+        "nav.writing": "文章",
+        "writing.label": "文章",
+        "writing.meta": "随笔 · 长文 · 仅有英文版",
+        "writing.lsu.line": "计数器显示四，购物车显示三，而两者都没有错。关于 React 中最小的一次重构，以及“看见这棵树”与“身在树中”之间的差别。",
+        "writing.lsu.date": "2026年9月2日",
+        "writing.lsu.read": "六分钟",
+        "writing.read": "阅读全文 ↗",
         "split.shipped": "已上线",
         "split.onMyOwn": "独立完成。",
         "split.fiveProducts": "九个项目。",
@@ -8618,6 +8861,13 @@
         "split.beautifulThings": "أشياء جميلة.",
         "split.since2021": "منذ 2021.",
         "nav.studio": "الاستوديو",
+        "nav.writing": "كتابات",
+        "writing.label": "كتابات",
+        "writing.meta": "مقالات · نصوص طويلة · بالإنجليزية فقط",
+        "writing.lsu.line": "كان العدّاد يقول أربعة وتقول السلة ثلاثة، ولم يكن أيّ منهما مخطئًا. عن أصغر عملية إعادة هيكلة في React، وعن الفرق بين أن ترى الشجرة وأن تكون داخلها.",
+        "writing.lsu.date": "2 سبتمبر 2026",
+        "writing.lsu.read": "ست دقائق",
+        "writing.read": "اقرأ المقال ↗",
         "split.shipped": "أُطلقت",
         "split.onMyOwn": "بمفردي.",
         "split.fiveProducts": "تسعة مشاريع.",

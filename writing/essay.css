@@ -1,0 +1,390 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   WRITING — shared stylesheet for the essays
+
+   The third long form on this site. A plate says a project exists; a case
+   page says how it is built; an essay is just a person thinking in public.
+   So the layout gives up the grid entirely and keeps one column at a
+   readable measure, with the press's own type: Anton for the title,
+   Cormorant italic for the lede and the pull quotes, DM Sans for the body,
+   IBM Plex Mono doing every label.
+
+   No build step. Loaded by every page in /writing/ alongside essay.js.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #0E0E0E;
+  --paper: #F4F1EC;
+  --red: #E03A12;
+  --dim: #888078;
+  --amber: #B07A1E;
+  --dim2: #5a544e;
+  --rule: rgba(244, 241, 236, .08);
+  --rule2: rgba(244, 241, 236, .16);
+  --body: #b9b1a8;
+
+  --D: 'Anton', Impact, sans-serif;
+  --S: 'Cormorant Garamond', Georgia, serif;
+  --M: 'IBM Plex Mono', monospace;
+  --B: 'DM Sans', system-ui, sans-serif;
+
+  --pad: clamp(1.25rem, 5vw, 3rem);
+  --measure: 34rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--body);
+  font-family: var(--B);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: .75rem 1.25rem;
+  background: var(--red);
+  color: var(--paper);
+  font-family: var(--M);
+  font-size: .75rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.skip:focus {
+  left: 0;
+}
+
+/* ── The rail ───────────────────────────────────────────────────────── */
+
+.rail {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .85rem var(--pad);
+  background: rgba(14, 14, 14, .88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.rail-back,
+.rail-mark {
+  font-family: var(--M);
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.rail-back {
+  color: var(--dim);
+}
+
+.rail-back:hover {
+  color: var(--red);
+}
+
+.rail-back::before {
+  content: '\2190';
+  margin-inline-end: .6rem;
+}
+
+.rail-mark {
+  color: var(--dim2);
+}
+
+/* ── Masthead ───────────────────────────────────────────────────────── */
+
+.masthead {
+  padding: clamp(3rem, 11vh, 7rem) var(--pad) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead-in,
+.essay > * {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.folio {
+  display: flex;
+  align-items: baseline;
+  gap: .7rem;
+  margin-bottom: 1.75rem;
+}
+
+.folio-word {
+  font-family: var(--M);
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.folio-no {
+  font-family: var(--M);
+  font-size: .72rem;
+  font-weight: 300;
+  letter-spacing: .2em;
+  color: var(--dim2);
+}
+
+.masthead h1 {
+  font-family: var(--D);
+  font-weight: 400;
+  font-size: clamp(2.9rem, 8.5vw, 5.4rem);
+  line-height: .92;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.lede {
+  margin-top: 1.6rem;
+  font-family: var(--S);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.45;
+  color: var(--paper);
+}
+
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.5rem;
+  margin: 2.5rem 0 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--M);
+  font-size: .72rem;
+  font-weight: 300;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--dim2);
+}
+
+.byline .who {
+  color: var(--dim);
+}
+
+/* ── The prose ──────────────────────────────────────────────────────── */
+
+.essay {
+  padding: clamp(2.5rem, 8vh, 4.5rem) var(--pad) 0;
+}
+
+.essay p {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 1.25vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.essay p strong {
+  color: var(--paper);
+  font-weight: 500;
+}
+
+.essay p em {
+  font-family: var(--S);
+  font-style: italic;
+  font-size: 1.14em;
+  color: var(--paper);
+}
+
+/* The first line of the piece, and of each movement after a break. */
+.opener {
+  font-size: clamp(1.1rem, 1.6vw, 1.22rem) !important;
+  color: var(--paper);
+}
+
+.essay code {
+  font-family: var(--M);
+  font-size: .88em;
+  color: var(--amber);
+}
+
+/* ── The code plate ─────────────────────────────────────────────────── */
+
+.plate {
+  max-width: min(46rem, 100%);
+  margin: 2.5rem auto 2.75rem;
+  border: 1px solid var(--rule2);
+  background: rgba(244, 241, 236, .02);
+}
+
+.plate-label {
+  padding: .6rem 1.1rem;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--M);
+  font-size: .66rem;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--dim2);
+}
+
+.plate pre {
+  overflow-x: auto;
+  padding: 1.4rem 1.1rem;
+  font-family: var(--M);
+  font-size: .82rem;
+  line-height: 1.75;
+  color: var(--body);
+  -webkit-overflow-scrolling: touch;
+}
+
+.plate pre code {
+  font-size: inherit;
+  color: inherit;
+}
+
+.plate .k {
+  color: var(--red);
+}
+
+.plate .t {
+  color: var(--paper);
+}
+
+.plate .a {
+  color: var(--amber);
+}
+
+/* ── The break between movements ────────────────────────────────────── */
+
+.turn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
+  margin: 3.5rem auto 3.25rem;
+  color: var(--red);
+}
+
+.turn::before,
+.turn::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.turn span {
+  font-family: var(--M);
+  font-size: .7rem;
+  letter-spacing: .3em;
+}
+
+/* ── The last line ──────────────────────────────────────────────────── */
+
+.coda {
+  margin-top: 3rem;
+  padding: 2.75rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--S);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.4;
+  color: var(--paper);
+}
+
+/* ── Colophon ───────────────────────────────────────────────────────── */
+
+.colophon {
+  margin-top: clamp(4rem, 12vh, 7rem);
+  padding: 2.5rem var(--pad) 4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.colophon-in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--measure);
+  margin-inline: auto;
+  font-family: var(--M);
+  font-size: .72rem;
+  font-weight: 300;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--dim2);
+}
+
+.colophon-in a {
+  color: var(--dim);
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.colophon-in a:hover {
+  color: var(--red);
+}
+
+/* ── Reveal on scroll, matching the plates on the index ─────────────── */
+
+/* Gated on a class the script sets itself: with no JavaScript, or if essay.js
+   fails to load, the essay is plain visible text rather than a blank page. */
+.js-rise .rise {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.16, 1, .3, 1);
+}
+
+.js-rise .rise.on {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-rise .rise {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
