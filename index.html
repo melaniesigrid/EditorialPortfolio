@@ -676,6 +676,239 @@
     }
 
     /* ══════════════════════════════════════
+   CLIENT WALL — monochrome marks on ink
+══════════════════════════════════════ */
+    .clients {
+      background: var(--ink);
+      padding: 4.25rem 3rem 3.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .clients-head {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .clients-label {
+      font-family: var(--M);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .clients-meta {
+      font-family: var(--M);
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-inline-start: auto;
+    }
+
+    .clients-wall {
+      --s: 1;
+      max-width: 1040px;
+      margin-inline: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1.25rem;
+    }
+
+    .client {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.75rem 2.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .9s cubic-bezier(.16, 1, .3, 1),
+        transform .9s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .clients.on .client {
+      opacity: 1;
+      transform: none;
+    }
+
+    .client:nth-child(2) { transition-delay: .06s }
+    .client:nth-child(3) { transition-delay: .12s }
+    .client:nth-child(4) { transition-delay: .18s }
+    .client:nth-child(5) { transition-delay: .24s }
+    .client:nth-child(6) { transition-delay: .30s }
+    .client:nth-child(7) { transition-delay: .36s }
+    .client:nth-child(8) { transition-delay: .42s }
+    .client:nth-child(9) { transition-delay: .48s }
+
+    /* The mark itself — dimmed until you look at it */
+    .client-logo {
+      display: block;
+      width: auto;
+      height: calc(var(--h) * var(--s));
+      opacity: .56;
+      transition: opacity .45s, transform .45s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .client:hover .client-logo {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+
+    /* Hairline marks need more of the paper to hold at rest */
+    .c-cosee,
+    .c-joseki {
+      opacity: .72;
+    }
+
+    /* Optical sizing — each mark set to the weight it reads at, not its box */
+    .c-globe { --h: 19px }
+    .c-microverse { --h: 25px }
+    .c-teamone { --h: 31px }
+    .c-alacrity { --h: 33px }
+    .c-wealthscope { --h: 33px }
+    .c-montecasino { --h: 35px }
+    .c-falkon { --h: 36px }
+    .c-northbound { --h: 20px }
+    .c-zipquarry { --h: 26px }
+    .c-cosee { --h: 32px }
+    .c-duebook { --h: 25px }
+    .c-quotefront { --h: 24px }
+    .c-millwright { --h: 24px }
+    .c-reconai { --h: 24px }
+    .c-laska { --h: 24px }
+    .c-joseki { --h: 20px }
+
+    /* Group two — the studio's own shelf */
+    .clients-wall + .clients-head {
+      margin-top: 3.25rem;
+    }
+
+    .clients-label.soft {
+      color: var(--paper);
+    }
+
+    /* Own brands — set in type, the way their own sites set them */
+    .client-word {
+      display: flex;
+      align-items: center;
+      direction: ltr;
+      height: auto;
+      color: var(--paper);
+      font-family: var(--B);
+      font-size: calc(var(--h) * var(--s));
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .client-mark {
+      width: 1.2em;
+      height: 1.2em;
+      flex: none;
+      margin-inline-end: .42em;
+    }
+
+    .c-northbound {
+      font-weight: 500;
+      letter-spacing: .09em;
+    }
+
+    .nb-dot {
+      width: .3em;
+      height: .3em;
+      margin-inline-start: .16em;
+      border-radius: 50%;
+      background: currentColor;
+      flex: none;
+    }
+
+    .c-zipquarry {
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .c-duebook {
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .c-quotefront {
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+
+    .c-millwright {
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    .c-reconai {
+      font-weight: 600;
+    }
+
+    .c-laska {
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .c-joseki .client-mark {
+      width: 1.45em;
+      height: 1.45em;
+    }
+
+    .c-joseki {
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    @media(max-width:900px) {
+      .clients {
+        padding: 3.25rem 1.5rem 2.4rem
+      }
+
+      .clients-wall {
+        --s: .82
+      }
+
+      .client {
+        padding: 1.25rem 1.6rem
+      }
+    }
+
+    @media(max-width:560px) {
+      .clients-wall {
+        --s: .68
+      }
+
+      .clients-meta {
+        margin-inline-start: 0
+      }
+
+      .client {
+        padding: 1rem 1.1rem
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .client {
+        transition: opacity .3s;
+        transform: none
+      }
+
+      .client:hover .client-logo {
+        transform: none
+      }
+    }
+
+    /* ══════════════════════════════════════
    WORK SECTION — LIGHT, giant names
    Inspired by ABCS client list layout
 ══════════════════════════════════════ */
@@ -4602,6 +4835,117 @@
       </div>
     </div>
   </div>
+  <!-- ══ CLIENT WALL ═════════════════════════ -->
+  <section class="clients" data-obs="" id="clients" aria-labelledby="clients-label">
+    <div class="clients-head">
+      <h2 class="clients-label" data-i18n="clients.label" id="clients-label">Worked With</h2>
+      <span class="clients-meta" data-i18n="clients.meta">Newsrooms · fintech · agencies · consultancies</span>
+    </div>
+    <div class="clients-wall">
+      <div class="client">
+        <img alt="The Globe and Mail" class="client-logo c-globe" decoding="async" height="18" loading="lazy"
+          src="images/logos/globeandmail.svg" width="223" />
+      </div>
+      <div class="client">
+        <img alt="Wealthscope" class="client-logo c-wealthscope" decoding="async" height="120" loading="lazy"
+          src="images/logos/wealthscope.png" width="380" />
+      </div>
+      <div class="client">
+        <img alt="Falkon Technologies" class="client-logo c-falkon" decoding="async" height="120" loading="lazy"
+          src="images/logos/falkon.png" width="411" />
+      </div>
+      <div class="client">
+        <img alt="Team One" class="client-logo c-teamone" decoding="async" height="82" loading="lazy"
+          src="images/logos/teamone.svg" width="387" />
+      </div>
+      <div class="client">
+        <img alt="Alacrity Solutions" class="client-logo c-alacrity" decoding="async" height="120" loading="lazy"
+          src="images/logos/alacrity.png" width="503" />
+      </div>
+      <div class="client">
+        <img alt="Microverse" class="client-logo c-microverse" decoding="async" height="120" loading="lazy"
+          src="images/logos/microverse.png" width="790" />
+      </div>
+      <div class="client">
+        <img alt="Cosee Studio" class="client-logo c-cosee" decoding="async" height="120" loading="lazy"
+          src="images/logos/cosee.png" width="654" />
+      </div>
+      <div class="client">
+        <img alt="Grupo Montecasino" class="client-logo c-montecasino" decoding="async" height="120" loading="lazy"
+          src="images/logos/montecasino.png" width="453" />
+      </div>
+    </div>
+    <div class="clients-head">
+      <h2 class="clients-label soft" data-i18n="clients.ownLabel">Built &amp; Run</h2>
+      <span class="clients-meta" data-i18n="clients.ownMeta">Northbound Software Studio · shipped solo</span>
+    </div>
+    <div class="clients-wall">
+      <div class="client">
+        <span class="client-logo client-word c-northbound">Northbound<i aria-hidden="true" class="nb-dot"></i></span>
+      </div>
+      <div class="client">
+        <span class="client-logo client-word c-zipquarry"><svg aria-hidden="true" class="client-mark" fill="none"
+            viewBox="0 0 32 32">
+            <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-dasharray="4 4" stroke-width="2" />
+            <circle cx="16" cy="16" fill="currentColor" r="4.5" />
+            <circle cx="24.5" cy="9" fill="currentColor" r="2.5" />
+          </svg>ZipQuarry</span>
+      </div>
+      <div class="client">
+        <span class="client-logo client-word c-duebook"><svg aria-hidden="true" class="client-mark" fill="none"
+            viewBox="0 0 32 32">
+            <rect x="4.2" y="3.2" width="23.6" height="25.6" rx="5" stroke="currentColor" stroke-width="2.2" />
+            <path d="M5.3 11.5h21.4" stroke="currentColor" stroke-width="4.4" />
+            <path d="M12.4 17.6h7.4l-4.3 8.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>Duebook</span>
+      </div>
+      <div class="client">
+        <span class="client-logo client-word c-quotefront"><svg aria-hidden="true" class="client-mark" fill="none"
+            viewBox="0 0 32 32">
+            <rect x="2.6" y="2.6" width="26.8" height="26.8" rx="6.5" stroke="currentColor" stroke-width="2.2" />
+            <path d="M10.4 10.6a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2Zm3.2 7.6 2.4 2.6" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M19.6 21.4v-10h5.2m-5.2 5.2h4.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>Quotefront</span>
+      </div>
+      <div class="client">
+        <span class="client-logo client-word c-millwright"><svg aria-hidden="true" class="client-mark" fill="none"
+            viewBox="0 0 32 32">
+            <rect x="2.6" y="2.6" width="26.8" height="26.8" rx="6.5" stroke="currentColor" stroke-width="2.2" />
+            <path d="M9 22V10l7 8 7-8v12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>Millwright</span>
+      </div>
+      <div class="client">
+        <span class="client-logo client-word c-reconai"><svg aria-hidden="true" class="client-mark" fill="none"
+            viewBox="0 0 32 32">
+            <rect x="2.8" y="5.6" width="16.4" height="20.8" rx="3.4" stroke="currentColor" stroke-width="2.2" />
+            <path d="M22.6 8.2h4.2a2.4 2.4 0 0 1 2.4 2.4v13.4a2.4 2.4 0 0 1-2.4 2.4h-9a2.4 2.4 0 0 1-2.4-2.4v-1.4"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            <path d="m7.6 15.4 3 3 5.2-5.6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>ReconAI</span>
+      </div>
+      <div class="client">
+        <span class="client-logo client-word c-laska"><svg aria-hidden="true" class="client-mark" fill="none"
+            viewBox="0 0 32 32">
+            <ellipse cx="16" cy="7.6" rx="11.2" ry="4.2" stroke="currentColor" stroke-width="2.2" />
+            <ellipse cx="16" cy="16" rx="11.2" ry="4.2" fill="currentColor" />
+            <ellipse cx="16" cy="24.4" rx="11.2" ry="4.2" stroke="currentColor" stroke-width="2.2" />
+          </svg>Laska</span>
+      </div>
+      <div class="client">
+        <span class="client-logo client-word c-joseki"><svg aria-hidden="true" class="client-mark" fill="none"
+            viewBox="0 0 32 32">
+            <path d="M16 3.4v25.2M3.4 16h25.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              opacity=".8" />
+            <circle cx="16" cy="16" r="7.4" fill="currentColor" />
+          </svg>Joseki</span>
+      </div>
+    </div>
+  </section>
   <!-- ══ BIG TEXT 1 ══════════════════════════ -->
   <div class="big-section" data-splits="">
     <span class="spl"><span class="spl-in" data-i18n="split.building">Building</span></span>
@@ -6392,6 +6736,10 @@
       "hero.title": "Software Developer — Front-End Specialist",
       "hero.desc": "I design and build <em>precise, high-performance products</em> — React and TypeScript on the front, <em>Python/Django</em> and .NET behind it. Thoughtful code. Serious craft.",
       "hero.cta": "Let’s build something exceptional <span class=\"txt-glyph\">↗︎</span>",
+      "clients.label": "Worked With",
+      "clients.meta": "Newsrooms · fintech · agencies · consultancies",
+      "clients.ownLabel": "Built & Run",
+      "clients.ownMeta": "Northbound Software Studio · shipped solo",
       "split.building": "Building",
       "split.beautifulThings": "Beautiful things.",
       "split.since2021": "Since 2021.",
@@ -6678,6 +7026,10 @@
         "hero.title": "Desarrolladora de Software — Especialista en Front-End",
         "hero.desc": "Diseño y construyo <em>productos precisos y de alto rendimiento</em>: React y TypeScript al frente, <em>Python/Django</em> y .NET por detrás. Código con intención. Artesanía real.",
         "hero.cta": "Construyamos algo excepcional <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "He trabajado con",
+        "clients.meta": "Medios · fintech · agencias · consultoras",
+        "clients.ownLabel": "Creado y operado",
+        "clients.ownMeta": "Northbound Software Studio · en solitario",
         "split.building": "Construyendo",
         "split.beautifulThings": "cosas hermosas.",
         "split.since2021": "Desde 2021.",
@@ -6959,6 +7311,10 @@
         "hero.title": "Softwareentwicklerin — Frontend-Spezialistin",
         "hero.desc": "Ich entwerfe und baue <em>präzise, performante Produkte</em> — React und TypeScript im Frontend, <em>Python/Django</em> und .NET dahinter. Durchdachter Code. Echtes Handwerk.",
         "hero.cta": "Lassen Sie uns etwas Außergewöhnliches schaffen <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "Zusammengearbeitet mit",
+        "clients.meta": "Redaktionen · Fintech · Agenturen · Beratungen",
+        "clients.ownLabel": "Selbst gebaut",
+        "clients.ownMeta": "Northbound Software Studio · im Alleingang",
         "split.building": "Ich baue",
         "split.beautifulThings": "schöne Dinge.",
         "split.since2021": "Seit 2021.",
@@ -7240,6 +7596,10 @@
         "hero.title": "Développeuse Logiciel — Spécialiste Front-End",
         "hero.desc": "Je conçois et construis des <em>produits précis et performants</em> — React et TypeScript côté front, <em>Python/Django</em> et .NET derrière. Du code réfléchi. Un vrai savoir-faire.",
         "hero.cta": "Créons quelque chose d’exceptionnel <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "Ils m’ont fait confiance",
+        "clients.meta": "Médias · fintech · agences · cabinets de conseil",
+        "clients.ownLabel": "Conçu et exploité",
+        "clients.ownMeta": "Northbound Software Studio · en solo",
         "split.building": "Créer",
         "split.beautifulThings": "de belles choses.",
         "split.since2021": "Depuis 2021.",
@@ -7521,6 +7881,10 @@
         "hero.title": "מפתחת תוכנה — מומחית Front-End",
         "hero.desc": "אני מעצבת ובונה <em>מוצרים מדויקים ומהירים</em> — React ו-TypeScript בצד הלקוח, <em>Python/Django</em> ו-.NET מאחור. קוד מחושב. אומנות אמיתית.",
         "hero.cta": "בואי נבנה משהו יוצא דופן <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "עבדתי עם",
+        "clients.meta": "מערכות חדשות · פינטק · סוכנויות · ייעוץ",
+        "clients.ownLabel": "בניתי ומפעילה",
+        "clients.ownMeta": "Northbound Software Studio · לבד",
         "split.building": "בונה",
         "split.beautifulThings": "דברים יפים.",
         "split.since2021": "מאז 2021.",
@@ -7803,6 +8167,10 @@
         "hero.title": "Разработчик ПО — специалист по Frontend",
         "hero.desc": "Я проектирую и создаю <em>точные, производительные продукты</em> — React и TypeScript на фронтенде, <em>Python/Django</em> и .NET позади. Продуманный код. Настоящее ремесло.",
         "hero.cta": "Давайте создадим нечто исключительное <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "Работала с",
+        "clients.meta": "Редакции · финтех · агентства · консалтинг",
+        "clients.ownLabel": "Создано и поддерживаю",
+        "clients.ownMeta": "Northbound Software Studio · в одиночку",
         "split.building": "Создаю",
         "split.beautifulThings": "красивые вещи.",
         "split.since2021": "С 2021 года.",
@@ -8087,6 +8455,10 @@
         "hero.title": "Desenvolvedora de Software — Especialista em Front-End",
         "hero.desc": "Desenho e construo <em>produtos precisos e de alto desempenho</em> — React e TypeScript à frente, <em>Python/Django</em> e .NET por trás. Código pensado. Ofício a sério.",
         "hero.cta": "Vamos criar algo excepcional <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "Já trabalhei com",
+        "clients.meta": "Redações · fintech · agências · consultorias",
+        "clients.ownLabel": "Criado e mantido",
+        "clients.ownMeta": "Northbound Software Studio · sozinha",
         "split.building": "Construindo",
         "split.beautifulThings": "coisas belas.",
         "split.since2021": "Desde 2021.",
@@ -8370,6 +8742,10 @@
         "hero.title": "Розробниця ПЗ — Front-End спеціалістка",
         "hero.desc": "Я проєктую і створюю <em>точні, продуктивні продукти</em> — React і TypeScript на фронтенді, <em>Python/Django</em> та .NET позаду. Продуманий код. Справжнє ремесло.",
         "hero.cta": "Створімо щось виняткове <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "Працювала з",
+        "clients.meta": "Редакції · фінтех · агенції · консалтинг",
+        "clients.ownLabel": "Створено й підтримую",
+        "clients.ownMeta": "Northbound Software Studio · самотужки",
         "split.building": "Створюю",
         "split.beautifulThings": "красиві речі.",
         "split.since2021": "З 2021 року.",
@@ -8653,6 +9029,10 @@
         "hero.title": "软件开发者 — 前端专家",
         "hero.desc": "我设计并构建<em>精确、高性能的产品</em>——前端用 React 与 TypeScript，后端用 <em>Python/Django</em> 与 .NET。深思熟虑的代码，真正的手艺。",
         "hero.cta": "一起创造卓越作品 <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "合作过的团队",
+        "clients.meta": "新闻机构 · 金融科技 · 代理商 · 咨询公司",
+        "clients.ownLabel": "自建并运营",
+        "clients.ownMeta": "Northbound Software Studio · 独立开发",
         "split.building": "构建",
         "split.beautifulThings": "美好的事物。",
         "split.since2021": "自 2021 年起。",
@@ -8936,6 +9316,10 @@
         "hero.title": "مطوّرة برمجيات — متخصصة في الواجهة الأمامية",
         "hero.desc": "أصمّم وأبني <em>منتجات دقيقة وعالية الأداء</em> — React وTypeScript في الواجهة، و<em>Python/Django</em> و.NET خلفها. كود مدروس. حِرفة حقيقية.",
         "hero.cta": "لنصنع شيئًا استثنائيًا <span class=\"txt-glyph\">↗︎</span>",
+        "clients.label": "عملتُ مع",
+        "clients.meta": "غرف الأخبار · التقنية المالية · الوكالات · الاستشارات",
+        "clients.ownLabel": "بنيتُها وأديرها",
+        "clients.ownMeta": "Northbound Software Studio · بمفردي",
         "split.building": "أبني",
         "split.beautifulThings": "أشياء جميلة.",
         "split.since2021": "منذ 2021.",
