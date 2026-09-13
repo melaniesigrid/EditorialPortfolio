@@ -676,12 +676,17 @@
     }
 
     /* ══════════════════════════════════════
-   CLIENT WALL — monochrome marks on ink
+   CLIENT BANNER — coloured marks, on the move
+   Paper ground: these logos were drawn for white,
+   and half of them go invisible on ink.
 ══════════════════════════════════════ */
     .clients {
-      background: var(--ink);
-      padding: 4.25rem 3rem 3.4rem;
-      border-bottom: 1px solid var(--rule);
+      background: var(--paper);
+      color: var(--ink);
+      padding: 3.75rem 0 4rem;
+      border-top: 1px solid var(--ruled);
+      border-bottom: 1px solid var(--ruled);
+      overflow: hidden;
     }
 
     .clients-head {
@@ -689,8 +694,13 @@
       align-items: baseline;
       gap: 1.5rem;
       flex-wrap: wrap;
-      padding-bottom: 1.1rem;
-      border-bottom: 1px solid var(--rule);
+      margin: 0 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--ruled);
+    }
+
+    .clients-wall + .clients-head {
+      margin-top: 3.5rem;
     }
 
     .clients-label {
@@ -702,24 +712,76 @@
       color: var(--red);
     }
 
+    .clients-label.soft {
+      color: var(--ink);
+    }
+
     .clients-meta {
       font-family: var(--M);
       font-size: .68rem;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: var(--dim2);
       margin-inline-start: auto;
     }
 
+    /* ── the moving rail ── */
     .clients-wall {
       --s: 1;
-      max-width: 1040px;
-      margin-inline: auto;
+      /* The rail always runs one way: a translateX marquee laid out RTL scrolls
+         into its own empty half. Logos are not language content. */
+      direction: ltr;
+      position: relative;
+      overflow: hidden;
+      padding: 1.5rem 0 .25rem;
+    }
+
+    .clients-wall::before,
+    .clients-wall::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 150px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .clients-wall::before {
+      left: 0;
+      background: linear-gradient(to right, var(--paper) 0 34%, rgba(244, 241, 236, 0));
+    }
+
+    .clients-wall::after {
+      right: 0;
+      background: linear-gradient(to left, var(--paper) 0 34%, rgba(244, 241, 236, 0));
+    }
+
+    .c-track {
       display: flex;
-      flex-wrap: wrap;
+      width: max-content;
       align-items: center;
-      justify-content: center;
-      padding-top: 1.25rem;
+      animation: clients-roll 54s linear infinite;
+    }
+
+    .clients-wall--back .c-track {
+      animation-duration: 66s;
+      animation-direction: reverse;
+    }
+
+    .clients-wall:hover .c-track,
+    .clients-wall:focus-within .c-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes clients-roll {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
     }
 
     .client {
@@ -727,165 +789,74 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.75rem 2.5rem;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .9s cubic-bezier(.16, 1, .3, 1),
-        transform .9s cubic-bezier(.16, 1, .3, 1);
+      padding: 0 2.6rem;
     }
 
-    .clients.on .client {
-      opacity: 1;
-      transform: none;
-    }
-
-    .client:nth-child(2) { transition-delay: .06s }
-    .client:nth-child(3) { transition-delay: .12s }
-    .client:nth-child(4) { transition-delay: .18s }
-    .client:nth-child(5) { transition-delay: .24s }
-    .client:nth-child(6) { transition-delay: .30s }
-    .client:nth-child(7) { transition-delay: .36s }
-    .client:nth-child(8) { transition-delay: .42s }
-    .client:nth-child(9) { transition-delay: .48s }
-
-    /* The mark itself — dimmed until you look at it */
     .client-logo {
       display: block;
       width: auto;
       height: calc(var(--h) * var(--s));
-      opacity: .56;
-      transition: opacity .45s, transform .45s cubic-bezier(.16, 1, .3, 1);
+      opacity: .88;
+      transition: opacity .4s, transform .4s cubic-bezier(.16, 1, .3, 1);
     }
 
     .client:hover .client-logo {
       opacity: 1;
-      transform: translateY(-3px);
+      transform: scale(1.06);
     }
 
-    /* Hairline marks need more of the paper to hold at rest */
-    .c-cosee,
-    .c-joseki {
-      opacity: .72;
-    }
+    /* Optical sizing — set to the weight each mark reads at, not the box it ships in */
+    .c-globe { --h: 25px }
+    .c-wealthscope { --h: 38px }
+    .c-falkon { --h: 42px }
+    .c-teamone { --h: 36px }
+    .c-alacrity { --h: 38px }
+    .c-microverse { --h: 29px }
+    .c-cosee { --h: 34px }
+    .c-montecasino { --h: 40px }
+    .c-digitalcompany { --h: 44px }
+    .c-near { --h: 33px }
 
-    /* Optical sizing — each mark set to the weight it reads at, not its box */
-    .c-globe { --h: 19px }
-    .c-microverse { --h: 25px }
-    .c-teamone { --h: 31px }
-    .c-alacrity { --h: 33px }
-    .c-wealthscope { --h: 33px }
-    .c-montecasino { --h: 35px }
-    .c-falkon { --h: 36px }
-    .c-northbound { --h: 20px }
-    .c-zipquarry { --h: 26px }
-    .c-cosee { --h: 32px }
-    .c-duebook { --h: 25px }
-    .c-quotefront { --h: 24px }
-    .c-millwright { --h: 24px }
-    .c-reconai { --h: 24px }
-    .c-laska { --h: 24px }
-    .c-joseki { --h: 20px }
-
-    /* Group two — the studio's own shelf */
-    .clients-wall + .clients-head {
-      margin-top: 3.25rem;
-    }
-
-    .clients-label.soft {
-      color: var(--paper);
-    }
-
-    /* Own brands — set in type, the way their own sites set them */
-    .client-word {
-      display: flex;
-      align-items: center;
-      direction: ltr;
-      height: auto;
-      color: var(--paper);
-      font-family: var(--B);
-      font-size: calc(var(--h) * var(--s));
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .client-mark {
-      width: 1.2em;
-      height: 1.2em;
-      flex: none;
-      margin-inline-end: .42em;
-    }
-
-    .c-northbound {
-      font-weight: 500;
-      letter-spacing: .09em;
-    }
-
-    .nb-dot {
-      width: .3em;
-      height: .3em;
-      margin-inline-start: .16em;
-      border-radius: 50%;
-      background: currentColor;
-      flex: none;
-    }
-
-    .c-zipquarry {
-      font-weight: 700;
-      letter-spacing: -.02em;
-    }
-
-    .c-duebook {
-      font-weight: 700;
-      letter-spacing: -.02em;
-    }
-
-    .c-quotefront {
-      font-weight: 700;
-      letter-spacing: -.01em;
-    }
-
-    .c-millwright {
-      font-weight: 600;
-      letter-spacing: -.01em;
-    }
-
-    .c-reconai {
-      font-weight: 600;
-    }
-
-    .c-laska {
-      font-weight: 600;
-      letter-spacing: .02em;
-    }
-
-    .c-joseki .client-mark {
-      width: 1.45em;
-      height: 1.45em;
-    }
-
-    .c-joseki {
-      font-weight: 500;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
+    .c-northbound { --h: 25px }
+    .c-zipquarry { --h: 32px }
+    .c-duebook { --h: 32px }
+    .c-quotefront { --h: 32px }
+    .c-millwright { --h: 32px }
+    .c-reconai { --h: 32px }
+    .c-laska { --h: 32px }
+    .c-joseki { --h: 32px }
 
     @media(max-width:900px) {
       .clients {
-        padding: 3.25rem 1.5rem 2.4rem
+        padding: 2.75rem 0 3rem
+      }
+
+      .clients-head {
+        margin: 0 1.5rem
       }
 
       .clients-wall {
-        --s: .82
+        --s: .82;
+        padding: 1.1rem 0 .25rem
+      }
+
+      .clients-wall + .clients-head {
+        margin-top: 2rem
+      }
+
+      .clients-wall::before,
+      .clients-wall::after {
+        width: 62px
       }
 
       .client {
-        padding: 1.25rem 1.6rem
+        padding: 0 1.6rem
       }
     }
 
     @media(max-width:560px) {
       .clients-wall {
-        --s: .68
+        --s: .7
       }
 
       .clients-meta {
@@ -893,14 +864,18 @@
       }
 
       .client {
-        padding: 1rem 1.1rem
+        padding: 0 1.15rem
       }
     }
 
+    /* Standing still, the rail becomes a plain scrollable row */
     @media(prefers-reduced-motion:reduce) {
-      .client {
-        transition: opacity .3s;
-        transform: none
+      .c-track {
+        animation: none
+      }
+
+      .clients-wall {
+        overflow-x: auto
       }
 
       .client:hover .client-logo {
@@ -4835,114 +4810,166 @@
       </div>
     </div>
   </div>
-  <!-- ══ CLIENT WALL ═════════════════════════ -->
-  <section class="clients" data-obs="" id="clients" aria-labelledby="clients-label">
+  <!-- ══ CLIENT BANNER ═══════════════════════ -->
+  <section class="clients" id="clients" aria-labelledby="clients-label">
     <div class="clients-head">
       <h2 class="clients-label" data-i18n="clients.label" id="clients-label">Worked With</h2>
-      <span class="clients-meta" data-i18n="clients.meta">Newsrooms · fintech · agencies · consultancies</span>
+      <span class="clients-meta" data-i18n="clients.meta">Newsrooms · fintech · agencies · protocols</span>
     </div>
     <div class="clients-wall">
-      <div class="client">
-        <img alt="The Globe and Mail" class="client-logo c-globe" decoding="async" height="18" loading="lazy"
-          src="images/logos/globeandmail.svg" width="223" />
-      </div>
-      <div class="client">
-        <img alt="Wealthscope" class="client-logo c-wealthscope" decoding="async" height="120" loading="lazy"
-          src="images/logos/wealthscope.png" width="380" />
-      </div>
-      <div class="client">
-        <img alt="Falkon Technologies" class="client-logo c-falkon" decoding="async" height="120" loading="lazy"
-          src="images/logos/falkon.png" width="411" />
-      </div>
-      <div class="client">
-        <img alt="Team One" class="client-logo c-teamone" decoding="async" height="82" loading="lazy"
-          src="images/logos/teamone.svg" width="387" />
-      </div>
-      <div class="client">
-        <img alt="Alacrity Solutions" class="client-logo c-alacrity" decoding="async" height="120" loading="lazy"
-          src="images/logos/alacrity.png" width="503" />
-      </div>
-      <div class="client">
-        <img alt="Microverse" class="client-logo c-microverse" decoding="async" height="120" loading="lazy"
-          src="images/logos/microverse.png" width="790" />
-      </div>
-      <div class="client">
-        <img alt="Cosee Studio" class="client-logo c-cosee" decoding="async" height="120" loading="lazy"
-          src="images/logos/cosee.png" width="654" />
-      </div>
-      <div class="client">
-        <img alt="Grupo Montecasino" class="client-logo c-montecasino" decoding="async" height="120" loading="lazy"
-          src="images/logos/montecasino.png" width="453" />
+      <div class="c-track">
+        <div class="client">
+          <img alt="The Globe and Mail" class="client-logo c-globe" decoding="async" fetchpriority="low" height="26"
+            src="images/logos/globeandmail.svg" width="232" />
+        </div>
+        <div class="client">
+          <img alt="Wealthscope" class="client-logo c-wealthscope" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/wealthscope.png" width="348" />
+        </div>
+        <div class="client">
+          <img alt="Falkon Technologies" class="client-logo c-falkon" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/falkon.png" width="377" />
+        </div>
+        <div class="client">
+          <img alt="Team One" class="client-logo c-teamone" decoding="async" fetchpriority="low" height="82"
+            src="images/logos/teamone.svg" width="387" />
+        </div>
+        <div class="client">
+          <img alt="Alacrity Solutions" class="client-logo c-alacrity" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/alacrity.png" width="462" />
+        </div>
+        <div class="client">
+          <img alt="Microverse" class="client-logo c-microverse" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/microverse.png" width="724" />
+        </div>
+        <div class="client">
+          <img alt="NEAR Protocol" class="client-logo c-near" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/near.png" width="418" />
+        </div>
+        <div class="client">
+          <img alt="Cosee Studio" class="client-logo c-cosee" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/cosee.png" width="599" />
+        </div>
+        <div class="client">
+          <img alt="Grupo Montecasino" class="client-logo c-montecasino" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/montecasino.png" width="415" />
+        </div>
+        <div class="client">
+          <img alt="Digital Company" class="client-logo c-digitalcompany" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/digitalcompany.png" width="110" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-globe" decoding="async" fetchpriority="low" height="26"
+            src="images/logos/globeandmail.svg" width="232" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-wealthscope" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/wealthscope.png" width="348" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-falkon" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/falkon.png" width="377" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-teamone" decoding="async" fetchpriority="low" height="82"
+            src="images/logos/teamone.svg" width="387" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-alacrity" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/alacrity.png" width="462" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-microverse" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/microverse.png" width="724" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-near" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/near.png" width="418" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-cosee" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/cosee.png" width="599" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-montecasino" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/montecasino.png" width="415" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-digitalcompany" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/digitalcompany.png" width="110" />
+        </div>
       </div>
     </div>
     <div class="clients-head">
       <h2 class="clients-label soft" data-i18n="clients.ownLabel">Built &amp; Run</h2>
       <span class="clients-meta" data-i18n="clients.ownMeta">Northbound Software Studio · shipped solo</span>
     </div>
-    <div class="clients-wall">
-      <div class="client">
-        <span class="client-logo client-word c-northbound">Northbound<i aria-hidden="true" class="nb-dot"></i></span>
-      </div>
-      <div class="client">
-        <span class="client-logo client-word c-zipquarry"><svg aria-hidden="true" class="client-mark" fill="none"
-            viewBox="0 0 32 32">
-            <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-dasharray="4 4" stroke-width="2" />
-            <circle cx="16" cy="16" fill="currentColor" r="4.5" />
-            <circle cx="24.5" cy="9" fill="currentColor" r="2.5" />
-          </svg>ZipQuarry</span>
-      </div>
-      <div class="client">
-        <span class="client-logo client-word c-duebook"><svg aria-hidden="true" class="client-mark" fill="none"
-            viewBox="0 0 32 32">
-            <rect x="4.2" y="3.2" width="23.6" height="25.6" rx="5" stroke="currentColor" stroke-width="2.2" />
-            <path d="M5.3 11.5h21.4" stroke="currentColor" stroke-width="4.4" />
-            <path d="M12.4 17.6h7.4l-4.3 8.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>Duebook</span>
-      </div>
-      <div class="client">
-        <span class="client-logo client-word c-quotefront"><svg aria-hidden="true" class="client-mark" fill="none"
-            viewBox="0 0 32 32">
-            <rect x="2.6" y="2.6" width="26.8" height="26.8" rx="6.5" stroke="currentColor" stroke-width="2.2" />
-            <path d="M10.4 10.6a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2Zm3.2 7.6 2.4 2.6" stroke="currentColor"
-              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M19.6 21.4v-10h5.2m-5.2 5.2h4.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>Quotefront</span>
-      </div>
-      <div class="client">
-        <span class="client-logo client-word c-millwright"><svg aria-hidden="true" class="client-mark" fill="none"
-            viewBox="0 0 32 32">
-            <rect x="2.6" y="2.6" width="26.8" height="26.8" rx="6.5" stroke="currentColor" stroke-width="2.2" />
-            <path d="M9 22V10l7 8 7-8v12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>Millwright</span>
-      </div>
-      <div class="client">
-        <span class="client-logo client-word c-reconai"><svg aria-hidden="true" class="client-mark" fill="none"
-            viewBox="0 0 32 32">
-            <rect x="2.8" y="5.6" width="16.4" height="20.8" rx="3.4" stroke="currentColor" stroke-width="2.2" />
-            <path d="M22.6 8.2h4.2a2.4 2.4 0 0 1 2.4 2.4v13.4a2.4 2.4 0 0 1-2.4 2.4h-9a2.4 2.4 0 0 1-2.4-2.4v-1.4"
-              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-            <path d="m7.6 15.4 3 3 5.2-5.6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>ReconAI</span>
-      </div>
-      <div class="client">
-        <span class="client-logo client-word c-laska"><svg aria-hidden="true" class="client-mark" fill="none"
-            viewBox="0 0 32 32">
-            <ellipse cx="16" cy="7.6" rx="11.2" ry="4.2" stroke="currentColor" stroke-width="2.2" />
-            <ellipse cx="16" cy="16" rx="11.2" ry="4.2" fill="currentColor" />
-            <ellipse cx="16" cy="24.4" rx="11.2" ry="4.2" stroke="currentColor" stroke-width="2.2" />
-          </svg>Laska</span>
-      </div>
-      <div class="client">
-        <span class="client-logo client-word c-joseki"><svg aria-hidden="true" class="client-mark" fill="none"
-            viewBox="0 0 32 32">
-            <path d="M16 3.4v25.2M3.4 16h25.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-              opacity=".8" />
-            <circle cx="16" cy="16" r="7.4" fill="currentColor" />
-          </svg>Joseki</span>
+    <div class="clients-wall clients-wall--back">
+      <div class="c-track">
+        <div class="client">
+          <img alt="Northbound" class="client-logo c-northbound" decoding="async" fetchpriority="low" height="74"
+            src="images/logos/northbound.svg" width="453" />
+        </div>
+        <div class="client">
+          <img alt="ZipQuarry" class="client-logo c-zipquarry" decoding="async" fetchpriority="low" height="115"
+            src="images/logos/zipquarry.svg" width="594" />
+        </div>
+        <div class="client">
+          <img alt="Duebook" class="client-logo c-duebook" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/duebook.svg" width="544" />
+        </div>
+        <div class="client">
+          <img alt="Quotefront" class="client-logo c-quotefront" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/quotefront.svg" width="649" />
+        </div>
+        <div class="client">
+          <img alt="Millwright" class="client-logo c-millwright" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/millwright.svg" width="600" />
+        </div>
+        <div class="client">
+          <img alt="ReconAI" class="client-logo c-reconai" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/reconai.svg" width="514" />
+        </div>
+        <div class="client">
+          <img alt="Laska" class="client-logo c-laska" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/laska.svg" width="404" />
+        </div>
+        <div class="client">
+          <img alt="Joseki" class="client-logo c-joseki" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/joseki.svg" width="417" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-northbound" decoding="async" fetchpriority="low" height="74"
+            src="images/logos/northbound.svg" width="453" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-zipquarry" decoding="async" fetchpriority="low" height="115"
+            src="images/logos/zipquarry.svg" width="594" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-duebook" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/duebook.svg" width="544" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-quotefront" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/quotefront.svg" width="649" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-millwright" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/millwright.svg" width="600" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-reconai" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/reconai.svg" width="514" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-laska" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/laska.svg" width="404" />
+        </div>
+        <div class="client" aria-hidden="true">
+          <img alt="" class="client-logo c-joseki" decoding="async" fetchpriority="low" height="110"
+            src="images/logos/joseki.svg" width="417" />
+        </div>
       </div>
     </div>
   </section>
@@ -6737,7 +6764,7 @@
       "hero.desc": "I design and build <em>precise, high-performance products</em> — React and TypeScript on the front, <em>Python/Django</em> and .NET behind it. Thoughtful code. Serious craft.",
       "hero.cta": "Let’s build something exceptional <span class=\"txt-glyph\">↗︎</span>",
       "clients.label": "Worked With",
-      "clients.meta": "Newsrooms · fintech · agencies · consultancies",
+      "clients.meta": "Newsrooms · fintech · agencies · protocols",
       "clients.ownLabel": "Built & Run",
       "clients.ownMeta": "Northbound Software Studio · shipped solo",
       "split.building": "Building",
@@ -7027,7 +7054,7 @@
         "hero.desc": "Diseño y construyo <em>productos precisos y de alto rendimiento</em>: React y TypeScript al frente, <em>Python/Django</em> y .NET por detrás. Código con intención. Artesanía real.",
         "hero.cta": "Construyamos algo excepcional <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "He trabajado con",
-        "clients.meta": "Medios · fintech · agencias · consultoras",
+        "clients.meta": "Medios · fintech · agencias · protocolos",
         "clients.ownLabel": "Creado y operado",
         "clients.ownMeta": "Northbound Software Studio · en solitario",
         "split.building": "Construyendo",
@@ -7312,7 +7339,7 @@
         "hero.desc": "Ich entwerfe und baue <em>präzise, performante Produkte</em> — React und TypeScript im Frontend, <em>Python/Django</em> und .NET dahinter. Durchdachter Code. Echtes Handwerk.",
         "hero.cta": "Lassen Sie uns etwas Außergewöhnliches schaffen <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "Zusammengearbeitet mit",
-        "clients.meta": "Redaktionen · Fintech · Agenturen · Beratungen",
+        "clients.meta": "Redaktionen · Fintech · Agenturen · Protokolle",
         "clients.ownLabel": "Selbst gebaut",
         "clients.ownMeta": "Northbound Software Studio · im Alleingang",
         "split.building": "Ich baue",
@@ -7597,7 +7624,7 @@
         "hero.desc": "Je conçois et construis des <em>produits précis et performants</em> — React et TypeScript côté front, <em>Python/Django</em> et .NET derrière. Du code réfléchi. Un vrai savoir-faire.",
         "hero.cta": "Créons quelque chose d’exceptionnel <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "Ils m’ont fait confiance",
-        "clients.meta": "Médias · fintech · agences · cabinets de conseil",
+        "clients.meta": "Médias · fintech · agences · protocoles",
         "clients.ownLabel": "Conçu et exploité",
         "clients.ownMeta": "Northbound Software Studio · en solo",
         "split.building": "Créer",
@@ -7882,7 +7909,7 @@
         "hero.desc": "אני מעצבת ובונה <em>מוצרים מדויקים ומהירים</em> — React ו-TypeScript בצד הלקוח, <em>Python/Django</em> ו-.NET מאחור. קוד מחושב. אומנות אמיתית.",
         "hero.cta": "בואי נבנה משהו יוצא דופן <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "עבדתי עם",
-        "clients.meta": "מערכות חדשות · פינטק · סוכנויות · ייעוץ",
+        "clients.meta": "מערכות חדשות · פינטק · סוכנויות · פרוטוקולים",
         "clients.ownLabel": "בניתי ומפעילה",
         "clients.ownMeta": "Northbound Software Studio · לבד",
         "split.building": "בונה",
@@ -8168,7 +8195,7 @@
         "hero.desc": "Я проектирую и создаю <em>точные, производительные продукты</em> — React и TypeScript на фронтенде, <em>Python/Django</em> и .NET позади. Продуманный код. Настоящее ремесло.",
         "hero.cta": "Давайте создадим нечто исключительное <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "Работала с",
-        "clients.meta": "Редакции · финтех · агентства · консалтинг",
+        "clients.meta": "Редакции · финтех · агентства · протоколы",
         "clients.ownLabel": "Создано и поддерживаю",
         "clients.ownMeta": "Northbound Software Studio · в одиночку",
         "split.building": "Создаю",
@@ -8456,7 +8483,7 @@
         "hero.desc": "Desenho e construo <em>produtos precisos e de alto desempenho</em> — React e TypeScript à frente, <em>Python/Django</em> e .NET por trás. Código pensado. Ofício a sério.",
         "hero.cta": "Vamos criar algo excepcional <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "Já trabalhei com",
-        "clients.meta": "Redações · fintech · agências · consultorias",
+        "clients.meta": "Redações · fintech · agências · protocolos",
         "clients.ownLabel": "Criado e mantido",
         "clients.ownMeta": "Northbound Software Studio · sozinha",
         "split.building": "Construindo",
@@ -8743,7 +8770,7 @@
         "hero.desc": "Я проєктую і створюю <em>точні, продуктивні продукти</em> — React і TypeScript на фронтенді, <em>Python/Django</em> та .NET позаду. Продуманий код. Справжнє ремесло.",
         "hero.cta": "Створімо щось виняткове <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "Працювала з",
-        "clients.meta": "Редакції · фінтех · агенції · консалтинг",
+        "clients.meta": "Редакції · фінтех · агенції · протоколи",
         "clients.ownLabel": "Створено й підтримую",
         "clients.ownMeta": "Northbound Software Studio · самотужки",
         "split.building": "Створюю",
@@ -9030,7 +9057,7 @@
         "hero.desc": "我设计并构建<em>精确、高性能的产品</em>——前端用 React 与 TypeScript，后端用 <em>Python/Django</em> 与 .NET。深思熟虑的代码，真正的手艺。",
         "hero.cta": "一起创造卓越作品 <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "合作过的团队",
-        "clients.meta": "新闻机构 · 金融科技 · 代理商 · 咨询公司",
+        "clients.meta": "新闻机构 · 金融科技 · 代理商 · 协议网络",
         "clients.ownLabel": "自建并运营",
         "clients.ownMeta": "Northbound Software Studio · 独立开发",
         "split.building": "构建",
@@ -9317,7 +9344,7 @@
         "hero.desc": "أصمّم وأبني <em>منتجات دقيقة وعالية الأداء</em> — React وTypeScript في الواجهة، و<em>Python/Django</em> و.NET خلفها. كود مدروس. حِرفة حقيقية.",
         "hero.cta": "لنصنع شيئًا استثنائيًا <span class=\"txt-glyph\">↗︎</span>",
         "clients.label": "عملتُ مع",
-        "clients.meta": "غرف الأخبار · التقنية المالية · الوكالات · الاستشارات",
+        "clients.meta": "غرف الأخبار · التقنية المالية · الوكالات · البروتوكولات",
         "clients.ownLabel": "بنيتُها وأديرها",
         "clients.ownMeta": "Northbound Software Studio · بمفردي",
         "split.building": "أبني",
