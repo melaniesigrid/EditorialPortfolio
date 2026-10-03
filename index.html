@@ -3576,7 +3576,7 @@
     /* Image gallery — bottom row */
     .near-gallery {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
       gap: 1rem;
     }
 
@@ -3608,6 +3608,10 @@
 
     .near-gal-item:nth-child(4) {
       transition-delay: .35s
+    }
+
+    .near-gal-item:nth-child(5) {
+      transition-delay: .45s
     }
 
     .near-gal-item img {
@@ -3650,6 +3654,10 @@
 
     .near-gal-item.crowd img {
       object-position: center;
+    }
+
+    .near-gal-item.selfie img {
+      object-position: 75% center;
     }
 
     .near-gal-item.venue img {
@@ -3790,6 +3798,15 @@
 
       .near-gal-item.discord img {
         aspect-ratio: 3/2
+      }
+
+      .near-gal-item.selfie {
+        grid-column: 1 / -1
+      }
+
+      .near-gal-item.selfie img {
+        aspect-ratio: 16/9;
+        object-position: center
       }
     }
 
@@ -6423,6 +6440,10 @@
         <img alt="Views inside the conference" src="images/blockchainConferenceViews.webp" />
         <div class="near-gal-cap" data-i18n="near.views">The Views</div>
       </div>
+      <div class="near-gal-item selfie" data-near-img="">
+        <img alt="Melanie and teammate Curtis Jaekl on the hackathon floor at ETHToronto" data-i18n-alt="near.selfieAlt" decoding="async" loading="lazy" src="images/ethTorontoSelfie.webp" />
+        <div class="near-gal-cap" data-i18n="near.selfie">On the Floor</div>
+      </div>
     </div>
   </section>
   <!-- ══ ABOUT ═══════════════════════════════ -->
@@ -7167,6 +7188,8 @@
       "near.discord": "Discord Announcement",
       "near.melsMeta": "Mel’s Meta",
       "near.views": "The Views",
+      "near.selfie": "On the Floor",
+      "near.selfieAlt": "Melanie and teammate Curtis Jaekl on the hackathon floor at ETHToronto",
       "about.photoTag": "Toronto, ON ✦︎ 2026",
       "about.label": "About Melanie",
       "about.intro": "Hello World — I’m Melanie. A <strong>Software Developer</strong> with a front-end specialty and a love for UX/UI.",
@@ -7457,6 +7480,8 @@
         "near.discord": "Anuncio en Discord",
         "near.melsMeta": "Mel’s Meta",
         "near.views": "Las vistas",
+        "near.selfie": "En la sala",
+        "near.selfieAlt": "Melanie y su compañero de equipo Curtis Jaekl en la sala del hackathon de ETHToronto",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Sobre Melanie",
         "about.intro": "Hello World — soy Melanie. <strong>Desarrolladora de Software</strong> con especialidad front-end y amor por UX/UI.",
@@ -7742,6 +7767,8 @@
         "near.discord": "Discord-Ankündigung",
         "near.melsMeta": "Mel’s Meta",
         "near.views": "Die Eindrücke",
+        "near.selfie": "Mittendrin",
+        "near.selfieAlt": "Melanie und Teamkollege Curtis Jaekl im Hackathon-Saal der ETHToronto",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Über Melanie",
         "about.intro": "Hello World — ich bin Melanie. <strong>Softwareentwicklerin</strong> mit Frontend-Schwerpunkt und einer Liebe für UX/UI.",
@@ -8027,6 +8054,8 @@
         "near.discord": "Annonce Discord",
         "near.melsMeta": "Mel’s Meta",
         "near.views": "Les vues",
+        "near.selfie": "Sur place",
+        "near.selfieAlt": "Melanie et son coéquipier Curtis Jaekl dans la salle du hackathon ETHToronto",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "À propos de Melanie",
         "about.intro": "Hello World — je suis Melanie. <strong>Développeuse logiciel</strong> spécialisée en front-end, avec un amour particulier pour l’UX/UI.",
@@ -8312,6 +8341,8 @@
         "near.discord": "הודעת Discord",
         "near.melsMeta": "Mel’s Meta",
         "near.views": "מאחורי הקלעים",
+        "near.selfie": "באולם",
+        "near.selfieAlt": "מלאני וחבר הצוות קרטיס ייקל באולם ההאקתון של ETHToronto",
         "about.photoTag": "טורונטו, אונטריו ✦︎ 2026",
         "about.label": "אודות מלאני",
         "about.intro": "Hello World — אני מלאני. <strong>מפתחת תוכנה</strong> שמתמחה ב־Front-End, עם אהבה עמוקה ל־UX/UI ולפרטים הקטנים שגורמים למוצר להרגיש נכון.",
@@ -8598,6 +8629,8 @@
         "near.discord": "Анонс в Discord",
         "near.melsMeta": "Mel’s Meta",
         "near.views": "Виды",
+        "near.selfie": "В зале",
+        "near.selfieAlt": "Мелани и её напарник по команде Кёртис Джекл в зале хакатона ETHToronto",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "О Melanie",
         "about.intro": "Hello World — я Melanie. <strong>Разработчик ПО</strong> с фронтенд-специализацией и любовью к UX/UI.",
@@ -8890,6 +8923,8 @@
         "near.discord": "Anúncio no Discord",
         "near.melsMeta": "Mel's Meta",
         "near.views": "As vistas",
+        "near.selfie": "No salão",
+        "near.selfieAlt": "Melanie e o colega de equipe Curtis Jaekl no salão do hackathon ETHToronto",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Sobre Melanie",
         "about.intro": "Hello World — eu sou Melanie. <strong>Desenvolvedora de Software</strong> com especialidade em front-end e paixão por UX/UI.",
@@ -9177,6 +9212,8 @@
         "near.discord": "Оголошення в Discord",
         "near.melsMeta": "Mel's Meta",
         "near.views": "Краєвиди",
+        "near.selfie": "У залі",
+        "near.selfieAlt": "Мелані та її колега по команді Кертіс Джекл у залі хакатону ETHToronto",
         "about.photoTag": "Торонто, Онтаріо ✦︎ 2026",
         "about.label": "Про Мелані",
         "about.intro": "Hello World — я Мелані. <strong>Розробниця ПЗ</strong> із фронтенд-спеціалізацією та любов'ю до UX/UI.",
@@ -9464,6 +9501,8 @@
         "near.discord": "Discord 公告",
         "near.melsMeta": "Mel's Meta",
         "near.views": "风景",
+        "near.selfie": "现场",
+        "near.selfieAlt": "Melanie 与队友 Curtis Jaekl 在 ETHToronto 黑客松现场",
         "about.photoTag": "多伦多，安大略 ✦︎ 2026",
         "about.label": "关于 Melanie",
         "about.intro": "Hello World — 我是 Melanie。专注于前端的<strong>软件开发者</strong>，热爱 UX/UI 设计。",
@@ -9751,6 +9790,8 @@
         "near.discord": "إعلان Discord",
         "near.melsMeta": "Mel's Meta",
         "near.views": "المشاهد",
+        "near.selfie": "في القاعة",
+        "near.selfieAlt": "ميلاني وزميلها في الفريق كيرتس جيكل في قاعة هاكاثون ETHToronto",
         "about.photoTag": "تورنتو، أونتاريو ✦︎ 2026",
         "about.label": "نبذة عن ميلاني",
         "about.intro": "Hello World — أنا ميلاني. <strong>مطوّرة برمجيات</strong> متخصصة في الواجهة الأمامية مع شغف بـUX/UI.",
