@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════════════════
-   WRITING — shared script for the essays
+   WRITING: shared script for the essays
 
    Deliberately almost nothing. An essay page has no language switcher, no
    form and no state; the only behaviour it wants is the same staggered

@@ -1,16 +1,16 @@
 /* ══════════════════════════════════════════════════════════════════════════
-   CASE STUDIES — shared behaviour
+   CASE STUDIES: shared behaviour
 
    Mirrors the index's i18n contract exactly: the same data-i18n attributes,
-   the same RTL list, and the same `mb_lang` storage key — so a visitor who
+   the same RTL list, and the same `mb_lang` storage key, so a visitor who
    picked Português on the home page lands here already in Português.
 
    Chrome that repeats on every case page (section headings, Visit / Source,
    the folio word) lives in SHARED below. Page-specific copy is set by
    work/i18n/<slug>.js as window.CASE_I18N and merged over it.
 
-   Where the index already has wording for a label — Live, Visit, Source,
-   Independent Work — that exact wording is reused rather than re-translated,
+   Where the index already has wording for a label (Live, Visit, Source,
+   Independent Work), that exact wording is reused rather than re-translated,
    so the two halves of the site never disagree with each other.
    ══════════════════════════════════════════════════════════════════════════ */
 

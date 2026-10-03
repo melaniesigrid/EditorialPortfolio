@@ -1,8 +1,8 @@
-# Melanie Baratto — Portfolio
+# Melanie Baratto · Portfolio
 
 A single-page personal portfolio for [Melanie Baratto](https://github.com/melaniesigrid), a Software Developer with a front-end specialty based in Toronto.
 
-Built as a deliberate exercise in editorial typography, motion, and craft — without a framework, without a build step, and without a `node_modules` folder.
+Built as a deliberate exercise in editorial typography, motion, and craft, without a framework, without a build step, and without a `node_modules` folder.
 
 🌐 **Live:** [melaniesigrid.github.io](https://melaniesigrid.github.io/EditorialPortfolio/)
 
@@ -10,16 +10,16 @@ Built as a deliberate exercise in editorial typography, motion, and craft — wi
 
 ## ✦ Highlights
 
-- **Single static HTML file** — no build pipeline, no dependencies, deploys via drag-and-drop
-- **"The Press Run" project showcase** — seventeen independent projects laid out as letterpress plates on an asymmetric editorial spread, grouped into five runs (The Line, The Workshop, The Laboratory, The Reading Room, The Assay); hovering a plate "pulls an impression" (paper floods up from the base, type reverses to ink, the registration crosshair rotates)
+- **Single static HTML file**: no build pipeline, no dependencies, deploys via drag-and-drop
+- **"The Press Run" project showcase**: seventeen independent projects laid out as letterpress plates on an asymmetric editorial spread, grouped into five runs (The Line, The Workshop, The Laboratory, The Reading Room, The Assay); hovering a plate "pulls an impression" (paper floods up from the base, type reverses to ink, the registration crosshair rotates)
 - **Ten-language i18n** (EN, ES, DE, FR, HE, RU, PT, UK, ZH, AR) with full RTL support for Arabic and Hebrew, browser-language auto-detect, and `localStorage` persistence
-- **Editorial brutalist aesthetic** — `Anton` display + `Cormorant Garamond` italic + `IBM Plex Mono` + `DM Sans`
-- **Scroll-driven motion** — staggered reveals, fill-on-scroll text, parallax cursor effects on work cards, animated mesh background
+- **Editorial brutalist aesthetic**: `Anton` display + `Cormorant Garamond` italic + `IBM Plex Mono` + `DM Sans`
+- **Scroll-driven motion**: staggered reveals, fill-on-scroll text, parallax cursor effects on work cards, animated mesh background
 - **Glassmorphism**, drop-in letter animations with idle breathing/shimmer/ghost-echo, custom cursor with adaptive light/dark detection
 - **Functional contact form** wired to [Formspree](https://formspree.io) with full client-side validation, sending state, and live region status announcements
-- **Full accessibility pass** — skip link, `:focus-visible` rings, semantic landmarks, `aria-live` for form status, `aria-pressed` for toggles, `aria-hidden` on decorative elements
-- **SEO complete** — Open Graph tags, Twitter cards, Schema.org `Person` + `Occupation` + `award` structured data, `knowsLanguage` array, dynamic `<html lang>` updates
-- **Mobile-first responsive** — `vh` + `vw` clamps, sticky nav with adaptive theming, dedicated touch breakpoints
+- **Full accessibility pass**: skip link, `:focus-visible` rings, semantic landmarks, `aria-live` for form status, `aria-pressed` for toggles, `aria-hidden` on decorative elements
+- **SEO complete**: Open Graph tags, Twitter cards, Schema.org `Person` + `Occupation` + `award` structured data, `knowsLanguage` array, dynamic `<html lang>` updates
+- **Mobile-first responsive**: `vh` + `vw` clamps, sticky nav with adaptive theming, dedicated touch breakpoints
 
 ---
 
@@ -59,7 +59,7 @@ Open `http://localhost:8000` and you're running the production site.
 
 ```
 .
-├── index.html                                    # Entire site — markup, styles, scripts, translations
+├── index.html                                    # Entire site: markup, styles, scripts, translations
 ├── images/
 │   ├── melaniemainpic.webp                       # About-section portrait (with Roko)
 │   ├── BlockchainFuturistConference.webp         # NEAR section gallery
@@ -81,7 +81,7 @@ Open `http://localhost:8000` and you're running the production site.
 
 ## ✦ Customizing
 
-**Adding a new language** — extend the `i18n` object in the inline `<script>` near the bottom of `index.html`:
+**Adding a new language**: extend the `i18n` object in the inline `<script>` near the bottom of `index.html`:
 
 ```js
 const i18n = {
@@ -103,9 +103,9 @@ Then add a button in the `.lang-dropdown` markup:
 </button>
 ```
 
-**Updating the contact form endpoint** — replace the Formspree URL in the `submit` handler. The form ID is `contactForm`.
+**Updating the contact form endpoint**: replace the Formspree URL in the `submit` handler. The form ID is `contactForm`.
 
-**Adjusting the theme** — all colors and type tokens live in CSS custom properties at the top of `<style>`:
+**Adjusting the theme**: all colors and type tokens live in CSS custom properties at the top of `<style>`:
 
 ```css
 :root {
@@ -146,7 +146,7 @@ Then add a button in the `.lang-dropdown` markup:
 
 ## ✦ Contact
 
-**Melanie Baratto** — Software Developer · Front-End Specialty
+**Melanie Baratto** · Software Developer · Front-End Specialty
 📍 Toronto, ON
 
 - ✉️ [melaniesigrid@protonmail.com](mailto:melaniesigrid@protonmail.com)
@@ -161,7 +161,7 @@ Then add a button in the `.lang-dropdown` markup:
 
 This repository is published publicly so the live site can be hosted via GitHub Pages, but the code, content, design, copy, photographs, and personal information are not licensed for reuse, redistribution, or derivative works.
 If you'd like to discuss using parts of this work, please reach out first.
-The **content** — copy, photographs, design choices, and personal information — is © Melanie Baratto and is not licensed for reuse.
+The **content** (copy, photographs, design choices, and personal information) is © Melanie Baratto and is not licensed for reuse.
 
 ---
 

@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════════════════
-   CASE STUDIES — shared stylesheet
+   CASE STUDIES: shared stylesheet
 
    The long-form counterpart to The Press Run. A plate on the index tells you
    a project exists in four lines; a case page tells you how it is built and
@@ -122,7 +122,7 @@ a {
   content: '\2192';
 }
 
-/* language switch — same behaviour and markup contract as the index */
+/* language switch: same behaviour and markup contract as the index */
 .lang {
   position: relative;
 }

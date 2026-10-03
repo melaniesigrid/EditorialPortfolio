@@ -4,16 +4,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZipQuarry — Case Study — Melanie Baratto</title>
+  <title>ZipQuarry · Case Study · Melanie Baratto</title>
   <meta name="description"
     data-i18n-content="meta.desc"
-    content="How ZipQuarry is built: a local prospecting engine with 30 database tables, 38 API endpoints and an AI drafting step — and how to sign in to it." />
+    content="How ZipQuarry is built: a local prospecting engine with 30 database tables, 38 API endpoints and an AI drafting step, and how to sign in to it." />
   <link rel="canonical" href="https://melaniesigrid.com/work/zipquarry.html" />
   <meta name="robots" content="index,follow" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="ZipQuarry — Case Study" />
+  <meta property="og:title" content="ZipQuarry · Case Study" />
   <meta property="og:url" content="https://melaniesigrid.com/work/zipquarry.html" />
+  <meta property="og:description" content="How ZipQuarry is built: a local prospecting engine with 30 database tables, 38 API endpoints and an AI drafting step." />
+  <meta property="og:site_name" content="Melanie Baratto" />
+  <meta property="og:image" content="https://melaniesigrid.com/images/og-card.png" />
+  <meta property="og:image:alt" content="Melanie Baratto · Software Developer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZipQuarry · Case Study" />
+  <meta name="twitter:description" content="How ZipQuarry is built: a local prospecting engine with 30 database tables, 38 API endpoints and an AI drafting step." />
+  <meta name="twitter:image" content="https://melaniesigrid.com/images/og-card.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "ZipQuarry · Case Study",
+    "description": "How ZipQuarry is built: a local prospecting engine with 30 database tables, 38 API endpoints and an AI drafting step.",
+    "url": "https://melaniesigrid.com/work/zipquarry.html",
+    "image": "https://melaniesigrid.com/images/og-card.png",
+    "inLanguage": "en",
+    "author": { "@type": "Person", "name": "Melanie Baratto", "url": "https://melaniesigrid.com/" },
+    "about": { "@type": "SoftwareApplication", "name": "ZipQuarry", "url": "https://zipquarry.com", "applicationCategory": "BusinessApplication", "operatingSystem": "Web" }
+  }
+  </script>
 
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,7 +48,7 @@
   <a class="skip" href="#main" data-i18n="ui.skip">Skip to content</a>
 
   <div class="rail">
-    <a class="rail-back" href="../index.html#studio" data-i18n="ui.back">Independent Work</a>
+    <a class="rail-back" href="/#studio" data-i18n="ui.back">Independent Work</a>
     <div class="lang" id="lang">
       <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="listbox">
         <span data-lang-current>EN</span>
@@ -70,13 +91,13 @@
             <div>
               <dt data-i18n="zq.w1.t">The product</dt>
               <dd><a href="https://zipquarry.com" rel="noopener" target="_blank">zipquarry.com</a>
-                <span data-i18n="zq.w1.d">— open to anyone, no sign-in.</span>
+                <span data-i18n="zq.w1.d">· open to anyone, no sign-in.</span>
               </dd>
             </div>
             <div>
               <dt data-i18n="zq.w2.t">The app</dt>
               <dd><a href="https://app.zipquarry.com" rel="noopener" target="_blank">app.zipquarry.com</a>
-                <span data-i18n="zq.w2.d">— sign-in required.</span>
+                <span data-i18n="zq.w2.d">· sign-in required.</span>
               </dd>
             </div>
             <div>
@@ -89,7 +110,7 @@
         <div>
           <h2 data-i18n="h.howin">How to sign in</h2>
           <ol class="howin">
-            <li data-i18n-html="zq.in1">Go to <strong>app.zipquarry.com</strong>. You land on a sign-in screen — there
+            <li data-i18n-html="zq.in1">Go to <strong>app.zipquarry.com</strong>. You land on a sign-in screen: there
               is no password to remember.</li>
             <li data-i18n-html="zq.in2">Press <strong>Continue with Google</strong>. Google asks whether you agree to
               let ZipQuarry send email as you; that permission is what puts a draft in your own outbox instead of
@@ -103,7 +124,7 @@
       </div>
       <p class="aside" data-i18n="zq.aside">There are no passwords stored anywhere. Sign-in is Auth.js with Google as
         the identity provider and sessions kept in the database, so signing out on one device really does end that
-        session — nothing is trusted from the browser alone.</p>
+        session. Nothing is trusted from the browser alone.</p>
     </section>
 
     <!-- ══ HOW IT WORKS ════════════════════════════════════════════════ -->
@@ -113,7 +134,7 @@
         <div class="step">
           <span class="step-no">01</span>
           <h3 data-i18n="zq.s1.h">Draw a circle</h3>
-          <p data-i18n="zq.s1.p">Type a postcode and a distance. That is the whole search — a place, and how far you are
+          <p data-i18n="zq.s1.p">Type a postcode and a distance. That is the whole search: a place, and how far you are
             willing to drive.</p>
         </div>
         <div class="step">
@@ -130,7 +151,7 @@
         </div>
       </div>
       <p class="say" data-i18n-html="zq.note">The scoring step is the point. <strong>A list of 400 businesses is not a
-          lead list</strong> — anyone can download a map. The work is deciding which twelve are worth an email this
+          lead list</strong>. Anyone can download a map. The work is deciding which twelve are worth an email this
         week, and being able to say why.</p>
     </section>
 
@@ -183,7 +204,7 @@
           <text x="560" y="226" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#888078">Stripe</text>
         </svg>
         <figcaption data-i18n-html="zq.arch.cap">Everything goes through the middle box. The browser never talks to
-          Google, Claude, Stripe or your inbox directly — <strong>it cannot</strong>, because the keys for those live
+          Google, Claude, Stripe or your inbox directly. <strong>It cannot</strong>, because the keys for those live
           only on the server. That single choke point is also where the app checks who you are and whether your plan
           still has searches left in it.</figcaption>
       </figure>
@@ -243,7 +264,7 @@
         </svg>
         <figcaption data-i18n-html="zq.data.cap">Read it left to right: <strong>one person runs a search, the search
             turns up businesses, and each business earns at most one first email.</strong> The dashed box is the one
-          that matters legally — an unsubscribe is checked before every send, so a person who opted out cannot be
+          that matters legally: an unsubscribe is checked before every send, so a person who opted out cannot be
           reached again even by a later search that rediscovers them.</figcaption>
       </figure>
     </section>
@@ -274,7 +295,7 @@
         </div>
       </div>
       <p class="say" data-i18n-html="zq.lang.note">Roughly <strong>37,000 lines</strong> of application code, plus a
-        marketing site in the same repository that is deliberately plain HTML with no build step — so a copy change
+        marketing site in the same repository that is deliberately plain HTML with no build step, so a copy change
         never needs a deploy pipeline to go out.</p>
     </section>
 
@@ -375,7 +396,7 @@
       <p class="band-label" data-i18n="sec.did">Key achievements</p>
       <ul class="did">
         <li><span class="did-no">01</span>
-          <span data-i18n-html="zq.d1"><strong>The whole product, alone</strong> — the screens, the API, the database
+          <span data-i18n-html="zq.d1"><strong>The whole product, alone</strong>: the screens, the API, the database
             design, the AI prompts, the payments, the marketing site and the deployment.</span>
         </li>
         <li><span class="did-no">02</span>
@@ -395,7 +416,7 @@
         </li>
         <li><span class="did-no">05</span>
           <span data-i18n-html="zq.d5"><strong>Migrated it off a no-code platform.</strong> The product began on a
-            hosted builder and now runs on its own database, its own API and its own auth — without the users noticing a
+            hosted builder and now runs on its own database, its own API and its own auth, without the users noticing a
             gap.</span>
         </li>
       </ul>
@@ -418,7 +439,7 @@
 
   <footer class="case-foot">
     <p data-i18n="ui.footNote">Melanie Baratto · Case study</p>
-    <a class="foot-back" href="../index.html#studio" data-i18n="ui.footBack">The press run</a>
+    <a class="foot-back" href="/#studio" data-i18n="ui.footBack">The press run</a>
   </footer>
 
   <script src="i18n/zipquarry.js"></script>
