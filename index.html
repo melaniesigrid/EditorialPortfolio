@@ -3710,15 +3710,109 @@
     }
 
     /* Embedded game video */
+    /* A match-clock panel: the game's numbers on the left, the video as a taped-up screen on the right */
     .vex-video {
-      max-width: 960px;
-      margin: 0 0 4rem
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      align-items: center;
+      gap: 3rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2.5rem 3rem;
+      margin: 0 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.16, 1, .3, 1)
     }
 
+    .vex-video.on {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* faint field grid behind the stats, like the 12x12 tiles */
+    .vex-video::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(244, 241, 236, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 241, 236, .05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none
+    }
+
+    .vex-board,
+    .vex-screen {
+      position: relative;
+      min-width: 0
+    }
+
+    .vex-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin: 1.25rem 0 1.5rem
+    }
+
+    .vex-stat {
+      border-top: 1px solid rgba(244, 241, 236, .18);
+      padding-top: .75rem
+    }
+
+    .vex-stat dt {
+      font-family: var(--D);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1;
+      color: var(--red);
+      letter-spacing: -.01em;
+      font-variant-numeric: tabular-nums
+    }
+
+    .vex-stat dd {
+      margin: .4rem 0 0;
+      font-family: var(--M);
+      font-size: .75rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 236, .6)
+    }
+
+    .vex-video-cap {
+      font-family: var(--S);
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(244, 241, 236, .55);
+      margin: 0
+    }
+
+    /* the screen: a paper-framed print taped to the panel, like the banner photo */
     .vex-video-frame {
       aspect-ratio: 16/9;
-      background: var(--ink);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, .25)
+      max-width: 100%;
+      background: #000;
+      border: 10px solid var(--paper);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, .55);
+      transform: rotate(1.5deg);
+      transition: transform .5s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .vex-screen::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      width: 84px;
+      height: 24px;
+      transform: translateX(-50%) rotate(-2deg);
+      background: rgba(214, 200, 160, .75);
+      z-index: 1
+    }
+
+    .vex-video:hover .vex-video-frame {
+      transform: rotate(0)
     }
 
     .vex-video-frame iframe {
@@ -3728,12 +3822,32 @@
       display: block
     }
 
-    .vex-video-cap {
-      font-family: var(--S);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--dim2);
-      margin-top: .75rem
+    @media (max-width: 900px) {
+      .vex-video {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2.25rem 1.5rem 1.75rem
+      }
+
+      .vex-screen {
+        order: -1
+      }
+
+      .vex-video-frame {
+        border-width: 6px
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .vex-video {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+
+      .vex-video-frame {
+        transition: none
+      }
     }
 
     @media(max-width:900px) {
@@ -7450,18 +7564,28 @@
           first contacts in tech. They helped me build the career I have today. Every career starts somewhere.
           Mine started with a robot.
         </p>
-        <p class="near-caption-sub" data-i18n-html="vex.about"><strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Centre at Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of about 4,000 worldwide. <em>Roundup</em> was played on a 12 by 12 foot field: two alliances of two robots, a 20-second autonomous period, then two minutes of driver control.</p>
+        <p class="near-caption-sub" data-i18n-html="vex.about"><strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Centre at Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of about 4,000 worldwide.</p>
       </div>
     </div>
-    <div class="vex-video">
-      <div class="near-team-label" data-i18n="vex.videoLabel">The game we played</div>
-      <div class="vex-video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/F54n7yZQJ4U" loading="lazy"
-          title="VEX Robotics Competition: Roundup, 2010-2011 game animation" data-i18n-title="vex.videoTitle"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="vex-video" data-near-img="">
+      <div class="vex-board">
+        <div class="near-team-label" data-i18n="vex.videoLabel">The game we played</div>
+        <dl class="vex-stats">
+          <div class="vex-stat"><dt>12×12</dt><dd data-i18n="vex.statField">Foot field</dd></div>
+          <div class="vex-stat"><dt>2v2</dt><dd data-i18n="vex.statAlliance">Alliances of two robots</dd></div>
+          <div class="vex-stat"><dt>0:20</dt><dd data-i18n="vex.statAuto">Autonomous, no hands</dd></div>
+          <div class="vex-stat"><dt>2:00</dt><dd data-i18n="vex.statDriver">Driver control</dd></div>
+        </dl>
+        <p class="vex-video-cap" data-i18n="vex.videoCap">The official VEX Robotics animation of the VEX Robotics Competition: Roundup game, 2010-2011.</p>
       </div>
-      <p class="vex-video-cap" data-i18n="vex.videoCap">The official VEX Robotics animation of the VEX Robotics Competition: Roundup game, 2010-2011.</p>
+      <div class="vex-screen">
+        <div class="vex-video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/F54n7yZQJ4U" loading="lazy"
+            title="VEX Robotics Competition: Roundup, 2010-2011 game animation" data-i18n-title="vex.videoTitle"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
     <div class="near-gallery">
       <div class="near-gal-item" data-near-img="">
@@ -8414,7 +8538,11 @@
       "vex.fieldAlt": "Robot 3330E taken apart between matches",
       "vex.stamp3": "April 2011",
       "vex.floor": "<strong>On the floor:</strong> teams from all over the world shared the arena. We ate there, we slept there, and the matches never stopped.",
-      "vex.about": "<strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Centre at Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of about 4,000 worldwide. <em>Roundup</em> was played on a 12 by 12 foot field: two alliances of two robots, a 20-second autonomous period, then two minutes of driver control.",
+      "vex.about": "<strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Centre at Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of about 4,000 worldwide.",
+      "vex.statField": "Foot field",
+      "vex.statAlliance": "Alliances of two robots",
+      "vex.statAuto": "Autonomous, no hands",
+      "vex.statDriver": "Driver control",
       "vex.videoLabel": "The game we played",
       "vex.videoTitle": "VEX Robotics Competition: Roundup, 2010-2011 game animation",
       "vex.videoCap": "The official VEX Robotics animation of the VEX Robotics Competition: Roundup game, 2010-2011.",
@@ -8776,7 +8904,11 @@
         "vex.fieldAlt": "El robot 3330E desarmado entre partidas",
         "vex.stamp3": "Abril de 2011",
         "vex.floor": "<strong>En la arena:</strong> equipos de todo el mundo compartíamos el mismo espacio. Ahí comíamos, ahí dormíamos, y las competencias nunca paraban.",
-        "vex.about": "<strong>Sobre el evento:</strong> del 14 al 16 de abril de 2011, en el ESPN Wide World of Sports Centre de Walt Disney World. Casi 10,000 participantes de 16 países, y casi 600 equipos clasificados de unos 4,000 en todo el mundo. <em>Roundup</em> se jugaba en una cancha de 12 por 12 pies: dos alianzas de dos robots, un periodo autónomo de 20 segundos y luego dos minutos de control manual.",
+        "vex.about": "<strong>Sobre el evento:</strong> del 14 al 16 de abril de 2011, en el ESPN Wide World of Sports Centre de Walt Disney World. Casi 10,000 participantes de 16 países, y casi 600 equipos clasificados de unos 4,000 en todo el mundo.",
+        "vex.statField": "Cancha en pies",
+        "vex.statAlliance": "Alianzas de dos robots",
+        "vex.statAuto": "Autónomo, sin manos",
+        "vex.statDriver": "Control manual",
         "vex.videoLabel": "El juego que jugamos",
         "vex.videoTitle": "VEX Robotics Competition: Roundup, animación del juego 2010-2011",
         "vex.videoCap": "La animación oficial de VEX Robotics del juego VEX Robotics Competition: Roundup, 2010-2011.",
@@ -9133,7 +9265,11 @@
         "vex.fieldAlt": "Roboter 3330E zwischen zwei Matches zerlegt",
         "vex.stamp3": "April 2011",
         "vex.floor": "<strong>In der Halle:</strong> Teams aus der ganzen Welt teilten sich die Arena. Wir aßen dort, wir schliefen dort, und die Matches hörten nie auf.",
-        "vex.about": "<strong>Zum Event:</strong> 14. bis 16. April 2011 im ESPN Wide World of Sports Centre in Walt Disney World. Fast 10.000 Teilnehmende aus 16 Ländern und knapp 600 Teams, die sich aus rund 4.000 weltweit qualifiziert hatten. <em>Roundup</em> wurde auf einem 12 mal 12 Fuß großen Feld gespielt: zwei Allianzen aus je zwei Robotern, 20 Sekunden autonome Phase, dann zwei Minuten Fahrersteuerung.",
+        "vex.about": "<strong>Zum Event:</strong> 14. bis 16. April 2011 im ESPN Wide World of Sports Centre in Walt Disney World. Fast 10.000 Teilnehmende aus 16 Ländern und knapp 600 Teams, die sich aus rund 4.000 weltweit qualifiziert hatten.",
+        "vex.statField": "Fuß Spielfeld",
+        "vex.statAlliance": "Allianzen aus zwei Robotern",
+        "vex.statAuto": "Autonom, ohne Hände",
+        "vex.statDriver": "Fahrersteuerung",
         "vex.videoLabel": "Das Spiel, das wir spielten",
         "vex.videoTitle": "VEX Robotics Competition: Roundup, Spielanimation 2010-2011",
         "vex.videoCap": "Die offizielle Animation von VEX Robotics zum Spiel der VEX Robotics Competition: Roundup, 2010-2011.",
@@ -9490,7 +9626,11 @@
         "vex.fieldAlt": "Le robot 3330E démonté entre deux matchs",
         "vex.stamp3": "Avril 2011",
         "vex.floor": "<strong>Dans l’arène :</strong> des équipes du monde entier partageaient le même espace. On y mangeait, on y dormait, et les matchs ne s’arrêtaient jamais.",
-        "vex.about": "<strong>L’événement :</strong> du 14 au 16 avril 2011, à l’ESPN Wide World of Sports Centre de Walt Disney World. Près de 10 000 participants de 16 pays, et près de 600 équipes qualifiées sur environ 4 000 dans le monde. <em>Roundup</em> se jouait sur un terrain de 12 pieds sur 12 : deux alliances de deux robots, 20 secondes en mode autonome, puis deux minutes de pilotage.",
+        "vex.about": "<strong>L’événement :</strong> du 14 au 16 avril 2011, à l’ESPN Wide World of Sports Centre de Walt Disney World. Près de 10 000 participants de 16 pays, et près de 600 équipes qualifiées sur environ 4 000 dans le monde.",
+        "vex.statField": "Terrain en pieds",
+        "vex.statAlliance": "Alliances de deux robots",
+        "vex.statAuto": "Autonome, sans les mains",
+        "vex.statDriver": "Pilotage",
         "vex.videoLabel": "Le jeu auquel nous avons joué",
         "vex.videoTitle": "VEX Robotics Competition: Roundup, animation du jeu 2010-2011",
         "vex.videoCap": "L’animation officielle de VEX Robotics pour le jeu de la VEX Robotics Competition: Roundup, 2010-2011.",
@@ -9847,7 +9987,11 @@
         "vex.fieldAlt": "רובוט 3330E מפורק בין משחקים",
         "vex.stamp3": "אפריל 2011",
         "vex.floor": "<strong>באולם:</strong> קבוצות מכל העולם חלקו את אותה זירה. אכלנו שם, ישנו שם, והמשחקים לא הפסיקו לרגע.",
-        "vex.about": "<strong>על האירוע:</strong> 14 עד 16 באפריל 2011, ב־ESPN Wide World of Sports Centre שבוולט דיסני וורלד. כמעט 10,000 משתתפים מ־16 מדינות, וכמעט 600 קבוצות שהעפילו מתוך כ־4,000 ברחבי העולם. <em>Roundup</em> שוחק על מגרש בגודל 12 על 12 רגל: שתי בריתות של שני רובוטים כל אחת, 20 שניות של פעולה אוטונומית ואז שתי דקות של שליטה ידנית.",
+        "vex.about": "<strong>על האירוע:</strong> 14 עד 16 באפריל 2011, ב־ESPN Wide World of Sports Centre שבוולט דיסני וורלד. כמעט 10,000 משתתפים מ־16 מדינות, וכמעט 600 קבוצות שהעפילו מתוך כ־4,000 ברחבי העולם.",
+        "vex.statField": "מגרש ברגל",
+        "vex.statAlliance": "בריתות של שני רובוטים",
+        "vex.statAuto": "אוטונומי, בלי ידיים",
+        "vex.statDriver": "שליטה ידנית",
         "vex.videoLabel": "המשחק ששיחקנו",
         "vex.videoTitle": "VEX Robotics Competition: Roundup, אנימציית המשחק 2010-2011",
         "vex.videoCap": "האנימציה הרשמית של VEX Robotics למשחק VEX Robotics Competition: Roundup, 2010-2011.",
@@ -10205,7 +10349,11 @@
         "vex.fieldAlt": "Робот 3330E, разобранный между матчами",
         "vex.stamp3": "Апрель 2011",
         "vex.floor": "<strong>На арене:</strong> команды со всего мира делили одно пространство. Мы там ели, там спали, а матчи не прекращались ни на минуту.",
-        "vex.about": "<strong>О событии:</strong> 14–16 апреля 2011 года, ESPN Wide World of Sports Centre в Walt Disney World. Почти 10 000 участников из 16 стран и почти 600 команд, отобранных из примерно 4 000 по всему миру. В <em>Roundup</em> играли на поле 12 на 12 футов: два альянса по два робота, 20 секунд автономного режима, затем две минуты ручного управления.",
+        "vex.about": "<strong>О событии:</strong> 14–16 апреля 2011 года, ESPN Wide World of Sports Centre в Walt Disney World. Почти 10 000 участников из 16 стран и почти 600 команд, отобранных из примерно 4 000 по всему миру.",
+        "vex.statField": "Поле в футах",
+        "vex.statAlliance": "Альянсы из двух роботов",
+        "vex.statAuto": "Автономно, без рук",
+        "vex.statDriver": "Ручное управление",
         "vex.videoLabel": "Игра, в которую мы играли",
         "vex.videoTitle": "VEX Robotics Competition: Roundup, анимация игры 2010-2011",
         "vex.videoCap": "Официальная анимация VEX Robotics об игре VEX Robotics Competition: Roundup, 2010-2011.",
@@ -10569,7 +10717,11 @@
         "vex.fieldAlt": "O robô 3330E desmontado entre partidas",
         "vex.stamp3": "Abril de 2011",
         "vex.floor": "<strong>Na arena:</strong> equipes do mundo todo dividiam o mesmo espaço. Comíamos lá, dormíamos lá, e as partidas nunca paravam.",
-        "vex.about": "<strong>Sobre o evento:</strong> de 14 a 16 de abril de 2011, no ESPN Wide World of Sports Centre, no Walt Disney World. Quase 10.000 participantes de 16 países, e quase 600 equipes classificadas entre cerca de 4.000 no mundo todo. <em>Roundup</em> era jogado em um campo de 12 por 12 pés: duas alianças de dois robôs, um período autônomo de 20 segundos e depois dois minutos de controle manual.",
+        "vex.about": "<strong>Sobre o evento:</strong> de 14 a 16 de abril de 2011, no ESPN Wide World of Sports Centre, no Walt Disney World. Quase 10.000 participantes de 16 países, e quase 600 equipes classificadas entre cerca de 4.000 no mundo todo.",
+        "vex.statField": "Campo em pés",
+        "vex.statAlliance": "Alianças de dois robôs",
+        "vex.statAuto": "Autônomo, sem mãos",
+        "vex.statDriver": "Controle manual",
         "vex.videoLabel": "O jogo que jogamos",
         "vex.videoTitle": "VEX Robotics Competition: Roundup, animação do jogo 2010-2011",
         "vex.videoCap": "A animação oficial da VEX Robotics do jogo VEX Robotics Competition: Roundup, 2010-2011.",
@@ -10928,7 +11080,11 @@
         "vex.fieldAlt": "Робот 3330E, розібраний між матчами",
         "vex.stamp3": "Квітень 2011",
         "vex.floor": "<strong>На арені:</strong> команди з усього світу ділили один простір. Ми там їли, там спали, а матчі не припинялися ні на хвилину.",
-        "vex.about": "<strong>Про подію:</strong> 14–16 квітня 2011 року, ESPN Wide World of Sports Centre у Walt Disney World. Майже 10 000 учасників із 16 країн і майже 600 команд, відібраних із приблизно 4 000 по всьому світу. У <em>Roundup</em> грали на полі 12 на 12 футів: два альянси по два роботи, 20 секунд автономного режиму, потім дві хвилини ручного керування.",
+        "vex.about": "<strong>Про подію:</strong> 14–16 квітня 2011 року, ESPN Wide World of Sports Centre у Walt Disney World. Майже 10 000 учасників із 16 країн і майже 600 команд, відібраних із приблизно 4 000 по всьому світу.",
+        "vex.statField": "Поле у футах",
+        "vex.statAlliance": "Альянси з двох роботів",
+        "vex.statAuto": "Автономно, без рук",
+        "vex.statDriver": "Ручне керування",
         "vex.videoLabel": "Гра, в яку ми грали",
         "vex.videoTitle": "VEX Robotics Competition: Roundup, анімація гри 2010-2011",
         "vex.videoCap": "Офіційна анімація VEX Robotics про гру VEX Robotics Competition: Roundup, 2010-2011.",
@@ -11287,7 +11443,11 @@
         "vex.fieldAlt": "两场比赛之间被拆开的 3330E 机器人",
         "vex.stamp3": "2011 年 4 月",
         "vex.floor": "<strong>在赛场上：</strong>来自世界各地的队伍共用同一个场馆。我们在那里吃饭、在那里睡觉，比赛从未停过。",
-        "vex.about": "<strong>关于赛事：</strong>2011 年 4 月 14 日至 16 日，在华特迪士尼世界的 ESPN Wide World of Sports Centre 举行。来自 16 个国家的近 10,000 名参与者，近 600 支队伍从全球约 4,000 支队伍中晋级。<em>Roundup</em> 在 12×12 英尺的场地上进行：两个联盟各两台机器人，先是 20 秒自动阶段，然后是两分钟手动操控。",
+        "vex.about": "<strong>关于赛事：</strong>2011 年 4 月 14 日至 16 日，在华特迪士尼世界的 ESPN Wide World of Sports Centre 举行。来自 16 个国家的近 10,000 名参与者，近 600 支队伍从全球约 4,000 支队伍中晋级。",
+        "vex.statField": "英尺场地",
+        "vex.statAlliance": "两台机器人组成联盟",
+        "vex.statAuto": "自动阶段，无人操控",
+        "vex.statDriver": "手动操控",
         "vex.videoLabel": "我们参加的比赛项目",
         "vex.videoTitle": "VEX Robotics Competition: Roundup，2010-2011 赛季比赛动画",
         "vex.videoCap": "VEX Robotics 官方制作的 VEX Robotics Competition: Roundup 比赛动画，2010-2011 赛季。",
@@ -11646,7 +11806,11 @@
         "vex.fieldAlt": "الروبوت 3330E مفككًا بين المباريات",
         "vex.stamp3": "أبريل 2011",
         "vex.floor": "<strong>في الساحة:</strong> فرق من كل أنحاء العالم تقاسمت المكان نفسه. أكلنا هناك ونمنا هناك، والمباريات لم تتوقف أبدًا.",
-        "vex.about": "<strong>عن الحدث:</strong> من 14 إلى 16 أبريل 2011، في ESPN Wide World of Sports Centre في والت ديزني وورلد. قرابة 10,000 مشارك من 16 دولة، ونحو 600 فريق تأهلوا من بين قرابة 4,000 فريق حول العالم. كانت <em>Roundup</em> تُلعب على ملعب مساحته 12 × 12 قدمًا: تحالفان من روبوتين لكل منهما، و20 ثانية من التشغيل الذاتي، ثم دقيقتان من التحكم اليدوي.",
+        "vex.about": "<strong>عن الحدث:</strong> من 14 إلى 16 أبريل 2011، في ESPN Wide World of Sports Centre في والت ديزني وورلد. قرابة 10,000 مشارك من 16 دولة، ونحو 600 فريق تأهلوا من بين قرابة 4,000 فريق حول العالم.",
+        "vex.statField": "ملعب بالأقدام",
+        "vex.statAlliance": "تحالفات من روبوتين",
+        "vex.statAuto": "تشغيل ذاتي بلا أيدٍ",
+        "vex.statDriver": "تحكم يدوي",
         "vex.videoLabel": "اللعبة التي لعبناها",
         "vex.videoTitle": "VEX Robotics Competition: Roundup، رسوم متحركة للعبة موسم 2010-2011",
         "vex.videoCap": "الرسوم المتحركة الرسمية من VEX Robotics للعبة VEX Robotics Competition: Roundup لموسم 2010-2011.",
