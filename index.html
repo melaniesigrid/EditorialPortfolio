@@ -3705,6 +3705,37 @@
       justify-content: flex-end
     }
 
+    .near-entry .near-banner-photo img {
+      object-fit: cover
+    }
+
+    /* Embedded game video */
+    .vex-video {
+      max-width: 960px;
+      margin: 0 0 4rem
+    }
+
+    .vex-video-frame {
+      aspect-ratio: 16/9;
+      background: var(--ink);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .25)
+    }
+
+    .vex-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block
+    }
+
+    .vex-video-cap {
+      font-family: var(--S);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dim2);
+      margin-top: .75rem
+    }
+
     @media(max-width:900px) {
       .near-entry {
         margin-top: 4rem
@@ -7475,14 +7506,14 @@
         <div class="near-banner-team">
           <div class="near-banner-photo">
             <div class="near-banner-photo-inner">
-              <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="Team Guatemala holding the Guatemalan flag on the floor of the VEX Robotics World Championship 2011" data-i18n-alt="vex.teamAlt" src="images/vexTeamGuatemala.webp" />
+              <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="Robot 3330E on the competition field" data-i18n-alt="vex.fieldAlt" src="images/vexOnTheField.webp" />
             </div>
           </div>
           <div class="near-banner-stamp">
             <strong data-i18n="vex.teamTitle">Team 3330E</strong>
             <span class="near-stamp-name" data-i18n="vex.stamp1">Representing Guatemala</span><br />
             <span class="near-stamp-name" data-i18n="vex.stamp2">Orlando, Florida</span><br />
-            <span class="near-stamp-name">2011</span>
+            <span class="near-stamp-name" data-i18n="vex.stamp3">April 2011</span>
           </div>
         </div>
       </div>
@@ -7505,35 +7536,57 @@
           <p class="near-caption" data-i18n-html="vex.caption">
             In 2011 I was part of the team that built a robot and took it to the
             <strong>VEX Robotics World Championship</strong> at ESPN Wide World of Sports in Orlando,
-            competing for <strong>Guatemala</strong> as team 3330E. That season’s game was <em>Round Up</em>.
-            It was my first tech event, and my first time building something that had to work in front of a crowd. 🤖
+            competing for <strong>Guatemala</strong> as team 3330E. Our robot was never finished. Over three days
+            we took it apart and rebuilt it again and again, changing it with every bit of intel we gathered on the
+            other teams. 🤖
+          </p>
+          <p class="near-caption-sub" data-i18n-html="vex.floor">
+            <strong>On the floor:</strong> teams from all over the world shared the arena. We ate there, we slept
+            there, and the matches never stopped.
           </p>
           <p class="near-caption-sub" data-i18n-html="vex.why">
-            <strong>Why it matters:</strong> the people I met on that arena floor became my first contacts in tech,
-            and they helped me build the career I have today. Every career starts somewhere. Mine started with a robot.
+            <strong>Why it matters:</strong> it was my first tech event, and the people I met on that floor became my
+            first contacts in tech. They helped me build the career I have today. Every career starts somewhere.
+            Mine started with a robot.
+          </p>
+          <p class="near-caption-sub" data-i18n-html="vex.about">
+            <strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Complex at
+            Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of
+            about 4,000 worldwide. <em>Round Up</em> was played on a 12 by 12 foot field: two alliances of two
+            robots, a 20-second autonomous period, then two minutes of driver control.
           </p>
         </div>
       </div>
+      <div class="vex-video">
+        <div class="near-team-label" data-i18n="vex.videoLabel">The game we played</div>
+        <div class="vex-video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/F54n7yZQJ4U" loading="lazy"
+            title="VEX Robotics Competition: Round Up, 2010-2011 game animation" data-i18n-title="vex.videoTitle"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="vex-video-cap" data-i18n="vex.videoCap">The official VEX Robotics animation of Round Up, the 2010-2011 game.</p>
+      </div>
       <div class="near-gallery">
         <div class="near-gal-item" data-near-img="">
-          <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="The ESPN Wide World of Sports entrance arch in Orlando" data-i18n-alt="vex.archAlt" src="images/vexEspnArch.webp" />
-          <div class="near-gal-cap" data-i18n="vex.arch">The Venue</div>
+          <img data-lightbox="" decoding="async" loading="lazy" width="540" height="720" alt="Robot 3330E from above, flying the Guatemalan flag and a VEX Robotics Competition flag" data-i18n-alt="vex.robotAlt" src="images/vexRobot3330E.webp" />
+          <div class="near-gal-cap" data-i18n="vex.robot">Our Robot</div>
+        </div>
+        <div class="near-gal-item" data-near-img="">
+          <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="Robot 3330E partly taken apart on the Round Up field, between the red and blue rings" data-i18n-alt="vex.ringsAlt" src="images/vexRoundUpRings.webp" />
+          <div class="near-gal-cap" data-i18n="vex.rings">Always Rebuilding</div>
         </div>
         <div class="near-gal-item" data-near-img="">
           <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="A signpost reading VEX Robotics World Championship 2011, with arrows pointing to Guatemala and other competing countries" data-i18n-alt="vex.signAlt" src="images/vexWorldsSign.webp" />
           <div class="near-gal-cap" data-i18n="vex.sign">World Championship</div>
         </div>
         <div class="near-gal-item" data-near-img="">
-          <img data-lightbox="" decoding="async" loading="lazy" width="540" height="720" alt="Robot 3330E from above, flying the Guatemalan flag and a VEX Robotics Competition flag" data-i18n-alt="vex.robotAlt" src="images/vexRobot3330E.webp" />
-          <div class="near-gal-cap" data-i18n="vex.robot">Our Robot</div>
-        </div>
-        <div class="near-gal-item" data-near-img="">
           <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="The competition arena inside the Jostens Center, with rows of team pits and match fields" data-i18n-alt="vex.arenaAlt" src="images/vexArena.webp" />
           <div class="near-gal-cap" data-i18n="vex.arena">The Arena</div>
         </div>
         <div class="near-gal-item wide" data-near-img="">
-          <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="Robot 3330E on the competition field" data-i18n-alt="vex.fieldAlt" src="images/vexOnTheField.webp" />
-          <div class="near-gal-cap" data-i18n="vex.field">On the Field</div>
+          <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="The Guatemalan team with a team from California, including Juan Carlos Gonzalez and Vijay Kumar, holding the Guatemalan flag at the VEX Robotics World Championship 2011" data-i18n-alt="vex.teamAlt" src="images/vexTeamGuatemala.webp" />
+          <div class="near-gal-cap" data-i18n="vex.team">Guatemala + California, with Juan Carlos Gonzalez &amp; Vijay Kumar</div>
         </div>
       </div>
     </div>
@@ -8363,22 +8416,28 @@
       "vex.teamTitle": "Team 3330E",
       "vex.stamp1": "Representing Guatemala",
       "vex.stamp2": "Orlando, Florida",
-      "vex.teamAlt": "Team Guatemala holding the Guatemalan flag on the floor of the VEX Robotics World Championship 2011",
+      "vex.teamAlt": "The Guatemalan team with a team from California, including Juan Carlos Gonzalez and Vijay Kumar, holding the Guatemalan flag at the VEX Robotics World Championship 2011",
       "vex.line1": "Where",
       "vex.line2": "It All",
       "vex.line3": "Started.",
-      "vex.caption": "In 2011 I was part of the team that built a robot and took it to the <strong>VEX Robotics World Championship</strong> at ESPN Wide World of Sports in Orlando, competing for <strong>Guatemala</strong> as team 3330E. That season’s game was <em>Round Up</em>. It was my first tech event, and my first time building something that had to work in front of a crowd. 🤖",
-      "vex.why": "<strong>Why it matters:</strong> the people I met on that arena floor became my first contacts in tech, and they helped me build the career I have today. Every career starts somewhere. Mine started with a robot.",
-      "vex.arch": "The Venue",
+      "vex.caption": "In 2011 I was part of the team that built a robot and took it to the <strong>VEX Robotics World Championship</strong> at ESPN Wide World of Sports in Orlando, competing for <strong>Guatemala</strong> as team 3330E. Our robot was never finished. Over three days we took it apart and rebuilt it again and again, changing it with every bit of intel we gathered on the other teams. 🤖",
+      "vex.why": "<strong>Why it matters:</strong> it was my first tech event, and the people I met on that floor became my first contacts in tech. They helped me build the career I have today. Every career starts somewhere. Mine started with a robot.",
       "vex.sign": "World Championship",
       "vex.robot": "Our Robot",
       "vex.arena": "The Arena",
-      "vex.field": "On the Field",
-      "vex.archAlt": "The ESPN Wide World of Sports entrance arch in Orlando",
       "vex.signAlt": "A signpost reading VEX Robotics World Championship 2011, with arrows pointing to Guatemala and other competing countries",
       "vex.robotAlt": "Robot 3330E from above, flying the Guatemalan flag and a VEX Robotics Competition flag",
       "vex.arenaAlt": "The competition arena inside the Jostens Center, with rows of team pits and match fields",
       "vex.fieldAlt": "Robot 3330E on the competition field",
+      "vex.stamp3": "April 2011",
+      "vex.floor": "<strong>On the floor:</strong> teams from all over the world shared the arena. We ate there, we slept there, and the matches never stopped.",
+      "vex.about": "<strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Complex at Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of about 4,000 worldwide. <em>Round Up</em> was played on a 12 by 12 foot field: two alliances of two robots, a 20-second autonomous period, then two minutes of driver control.",
+      "vex.videoLabel": "The game we played",
+      "vex.videoTitle": "VEX Robotics Competition: Round Up, 2010-2011 game animation",
+      "vex.videoCap": "The official VEX Robotics animation of Round Up, the 2010-2011 game.",
+      "vex.rings": "Always Rebuilding",
+      "vex.team": "Guatemala + California, with Juan Carlos Gonzalez & Vijay Kumar",
+      "vex.ringsAlt": "Robot 3330E partly taken apart on the Round Up field, between the red and blue rings",
       "about.photoTag": "Toronto, ON ✦︎ 2026",
       "about.label": "About Melanie",
       "about.intro": "Hello World, I’m Melanie. A <strong>Full-Stack Software Developer</strong> with a love for UX/UI.",
@@ -8719,22 +8778,28 @@
         "vex.teamTitle": "Equipo 3330E",
         "vex.stamp1": "Representando a Guatemala",
         "vex.stamp2": "Orlando, Florida",
-        "vex.teamAlt": "El equipo de Guatemala con la bandera guatemalteca en el Campeonato Mundial VEX Robotics 2011",
+        "vex.teamAlt": "El equipo de Guatemala con un equipo de California, incluidos Juan Carlos Gonzalez y Vijay Kumar, sosteniendo la bandera de Guatemala en el Campeonato Mundial VEX Robotics 2011",
         "vex.line1": "Donde",
         "vex.line2": "Todo",
         "vex.line3": "Empezó.",
-        "vex.caption": "En 2011 formé parte del equipo que construyó un robot y lo llevó al <strong>Campeonato Mundial VEX Robotics</strong> en ESPN Wide World of Sports, en Orlando, compitiendo por <strong>Guatemala</strong> como el equipo 3330E. El juego de esa temporada fue <em>Round Up</em>. Fue mi primer evento de tecnología y la primera vez que construí algo que tenía que funcionar frente al público. 🤖",
-        "vex.why": "<strong>Por qué importa:</strong> las personas que conocí en esa arena se convirtieron en mis primeros contactos en tecnología, y me ayudaron a construir la carrera que tengo hoy. Toda carrera empieza en algún lugar. La mía empezó con un robot.",
-        "vex.arch": "La sede",
+        "vex.caption": "En 2011 formé parte del equipo que construyó un robot y lo llevó al <strong>Campeonato Mundial VEX Robotics</strong> en ESPN Wide World of Sports, en Orlando, compitiendo por <strong>Guatemala</strong> como el equipo 3330E. Nuestro robot nunca estuvo terminado. Durante tres días lo desarmamos y lo volvimos a armar una y otra vez, cambiándolo con cada dato que reuníamos sobre los otros equipos. 🤖",
+        "vex.why": "<strong>Por qué importa:</strong> fue mi primer evento de tecnología, y las personas que conocí ahí se convirtieron en mis primeros contactos en tecnología. Me ayudaron a construir la carrera que tengo hoy. Toda carrera empieza en algún lugar. La mía empezó con un robot.",
         "vex.sign": "Campeonato Mundial",
         "vex.robot": "Nuestro robot",
         "vex.arena": "La arena",
-        "vex.field": "En la cancha",
-        "vex.archAlt": "El arco de entrada de ESPN Wide World of Sports en Orlando",
         "vex.signAlt": "Un letrero del Campeonato Mundial VEX Robotics 2011, con flechas que apuntan a Guatemala y a otros países participantes",
         "vex.robotAlt": "El robot 3330E visto desde arriba, con la bandera de Guatemala y una bandera de VEX Robotics Competition",
         "vex.arenaAlt": "La arena de competencia dentro del Jostens Center, con filas de pits de equipos y canchas",
         "vex.fieldAlt": "El robot 3330E en la cancha de competencia",
+        "vex.stamp3": "Abril de 2011",
+        "vex.floor": "<strong>En la arena:</strong> equipos de todo el mundo compartíamos el mismo espacio. Ahí comíamos, ahí dormíamos, y las competencias nunca paraban.",
+        "vex.about": "<strong>Sobre el evento:</strong> del 14 al 16 de abril de 2011, en el ESPN Wide World of Sports Complex de Walt Disney World. Casi 10,000 participantes de 16 países, y casi 600 equipos clasificados de unos 4,000 en todo el mundo. <em>Round Up</em> se jugaba en una cancha de 12 por 12 pies: dos alianzas de dos robots, un periodo autónomo de 20 segundos y luego dos minutos de control manual.",
+        "vex.videoLabel": "El juego que jugamos",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up, animación del juego 2010-2011",
+        "vex.videoCap": "La animación oficial de VEX Robotics de Round Up, el juego de 2010-2011.",
+        "vex.rings": "Siempre reconstruyendo",
+        "vex.team": "Guatemala + California, con Juan Carlos Gonzalez y Vijay Kumar",
+        "vex.ringsAlt": "El robot 3330E parcialmente desarmado en la cancha de Round Up, entre los aros rojos y azules",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Sobre Melanie",
         "about.intro": "Hello World, soy Melanie. <strong>Desarrolladora de Software Full-Stack</strong> con amor por UX/UI.",
@@ -9070,22 +9135,28 @@
         "vex.teamTitle": "Team 3330E",
         "vex.stamp1": "Für Guatemala",
         "vex.stamp2": "Orlando, Florida",
-        "vex.teamAlt": "Team Guatemala mit der guatemaltekischen Flagge bei der VEX Robotics World Championship 2011",
+        "vex.teamAlt": "Das Team aus Guatemala mit einem Team aus Kalifornien, darunter Juan Carlos Gonzalez und Vijay Kumar, mit der Flagge Guatemalas bei der VEX Robotics World Championship 2011",
         "vex.line1": "Wo",
         "vex.line2": "Alles",
         "vex.line3": "Begann.",
-        "vex.caption": "2011 war ich Teil des Teams, das einen Roboter baute und ihn zur <strong>VEX Robotics World Championship</strong> im ESPN Wide World of Sports in Orlando brachte, als Team 3330E für <strong>Guatemala</strong>. Das Spiel dieser Saison hieß <em>Round Up</em>. Es war mein erstes Tech-Event und das erste Mal, dass ich etwas baute, das vor Publikum funktionieren musste. 🤖",
-        "vex.why": "<strong>Warum es zählt:</strong> Die Menschen, die ich in dieser Arena kennenlernte, wurden meine ersten Kontakte in der Tech-Welt, und sie haben mir geholfen, die Karriere aufzubauen, die ich heute habe. Jede Karriere beginnt irgendwo. Meine begann mit einem Roboter.",
-        "vex.arch": "Der Ort",
+        "vex.caption": "2011 war ich Teil des Teams, das einen Roboter baute und ihn zur <strong>VEX Robotics World Championship</strong> im ESPN Wide World of Sports in Orlando brachte, als Team 3330E für <strong>Guatemala</strong>. Unser Roboter war nie fertig. Drei Tage lang bauten wir ihn immer wieder auseinander und neu zusammen und passten ihn mit allem an, was wir über die anderen Teams herausfanden. 🤖",
+        "vex.why": "<strong>Warum es zählt:</strong> Es war mein erstes Tech-Event, und die Menschen, die ich dort kennenlernte, wurden meine ersten Kontakte in der Tech-Welt. Sie haben mir geholfen, die Karriere aufzubauen, die ich heute habe. Jede Karriere beginnt irgendwo. Meine begann mit einem Roboter.",
         "vex.sign": "Weltmeisterschaft",
         "vex.robot": "Unser Roboter",
         "vex.arena": "Die Arena",
-        "vex.field": "Auf dem Spielfeld",
-        "vex.archAlt": "Der Eingangsbogen des ESPN Wide World of Sports in Orlando",
         "vex.signAlt": "Ein Wegweiser der VEX Robotics World Championship 2011 mit Pfeilen nach Guatemala und in andere Teilnehmerländer",
         "vex.robotAlt": "Roboter 3330E von oben, mit der Flagge Guatemalas und einer VEX-Robotics-Competition-Flagge",
         "vex.arenaAlt": "Die Wettkampfarena im Jostens Center mit Reihen von Team-Boxen und Spielfeldern",
         "vex.fieldAlt": "Roboter 3330E auf dem Spielfeld",
+        "vex.stamp3": "April 2011",
+        "vex.floor": "<strong>In der Halle:</strong> Teams aus der ganzen Welt teilten sich die Arena. Wir aßen dort, wir schliefen dort, und die Matches hörten nie auf.",
+        "vex.about": "<strong>Zum Event:</strong> 14. bis 16. April 2011 im ESPN Wide World of Sports Complex in Walt Disney World. Fast 10.000 Teilnehmende aus 16 Ländern und knapp 600 Teams, die sich aus rund 4.000 weltweit qualifiziert hatten. <em>Round Up</em> wurde auf einem 12 mal 12 Fuß großen Feld gespielt: zwei Allianzen aus je zwei Robotern, 20 Sekunden autonome Phase, dann zwei Minuten Fahrersteuerung.",
+        "vex.videoLabel": "Das Spiel, das wir spielten",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up, Spielanimation 2010-2011",
+        "vex.videoCap": "Die offizielle Animation von VEX Robotics zu Round Up, dem Spiel der Saison 2010-2011.",
+        "vex.rings": "Ständig im Umbau",
+        "vex.team": "Guatemala + Kalifornien, mit Juan Carlos Gonzalez & Vijay Kumar",
+        "vex.ringsAlt": "Roboter 3330E teilweise zerlegt auf dem Round-Up-Spielfeld, zwischen roten und blauen Ringen",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Über Melanie",
         "about.intro": "Hello World, ich bin Melanie. <strong>Full-Stack-Softwareentwicklerin</strong> mit einer Liebe für UX/UI.",
@@ -9421,22 +9492,28 @@
         "vex.teamTitle": "Équipe 3330E",
         "vex.stamp1": "Pour le Guatemala",
         "vex.stamp2": "Orlando, Floride",
-        "vex.teamAlt": "L’équipe du Guatemala avec le drapeau guatémaltèque au championnat du monde VEX Robotics 2011",
+        "vex.teamAlt": "L’équipe du Guatemala avec une équipe de Californie, dont Juan Carlos Gonzalez et Vijay Kumar, tenant le drapeau guatémaltèque au championnat du monde VEX Robotics 2011",
         "vex.line1": "Là où",
         "vex.line2": "Tout a",
         "vex.line3": "Commencé.",
-        "vex.caption": "En 2011, je faisais partie de l’équipe qui a construit un robot et l’a emmené au <strong>championnat du monde VEX Robotics</strong> à l’ESPN Wide World of Sports d’Orlando, pour représenter le <strong>Guatemala</strong> sous le numéro 3330E. Le jeu de cette saison s’appelait <em>Round Up</em>. C’était mon premier événement tech, et la première fois que je construisais quelque chose qui devait fonctionner devant un public. 🤖",
-        "vex.why": "<strong>Pourquoi c’est important :</strong> les personnes rencontrées dans cette arène sont devenues mes premiers contacts dans la tech, et elles m’ont aidée à bâtir la carrière que j’ai aujourd’hui. Chaque carrière commence quelque part. La mienne a commencé avec un robot.",
-        "vex.arch": "Le lieu",
+        "vex.caption": "En 2011, je faisais partie de l’équipe qui a construit un robot et l’a emmené au <strong>championnat du monde VEX Robotics</strong> à l’ESPN Wide World of Sports d’Orlando, pour représenter le <strong>Guatemala</strong> sous le numéro 3330E. Notre robot n’a jamais été terminé. Pendant trois jours, nous l’avons démonté et remonté encore et encore, en le modifiant avec chaque information recueillie sur les autres équipes. 🤖",
+        "vex.why": "<strong>Pourquoi c’est important :</strong> c’était mon premier événement tech, et les personnes rencontrées là-bas sont devenues mes premiers contacts dans la tech. Elles m’ont aidée à bâtir la carrière que j’ai aujourd’hui. Chaque carrière commence quelque part. La mienne a commencé avec un robot.",
         "vex.sign": "Championnat du monde",
         "vex.robot": "Notre robot",
         "vex.arena": "L’arène",
-        "vex.field": "Sur le terrain",
-        "vex.archAlt": "L’arche d’entrée de l’ESPN Wide World of Sports à Orlando",
         "vex.signAlt": "Un panneau du championnat du monde VEX Robotics 2011, avec des flèches vers le Guatemala et d’autres pays participants",
         "vex.robotAlt": "Le robot 3330E vu de dessus, avec le drapeau du Guatemala et un drapeau VEX Robotics Competition",
         "vex.arenaAlt": "L’arène de compétition dans le Jostens Center, avec des rangées de stands d’équipes et de terrains",
         "vex.fieldAlt": "Le robot 3330E sur le terrain de compétition",
+        "vex.stamp3": "Avril 2011",
+        "vex.floor": "<strong>Dans l’arène :</strong> des équipes du monde entier partageaient le même espace. On y mangeait, on y dormait, et les matchs ne s’arrêtaient jamais.",
+        "vex.about": "<strong>L’événement :</strong> du 14 au 16 avril 2011, à l’ESPN Wide World of Sports Complex de Walt Disney World. Près de 10 000 participants de 16 pays, et près de 600 équipes qualifiées sur environ 4 000 dans le monde. <em>Round Up</em> se jouait sur un terrain de 12 pieds sur 12 : deux alliances de deux robots, 20 secondes en mode autonome, puis deux minutes de pilotage.",
+        "vex.videoLabel": "Le jeu auquel nous avons joué",
+        "vex.videoTitle": "VEX Robotics Competition : Round Up, animation du jeu 2010-2011",
+        "vex.videoCap": "L’animation officielle de VEX Robotics pour Round Up, le jeu de la saison 2010-2011.",
+        "vex.rings": "Toujours en chantier",
+        "vex.team": "Guatemala + Californie, avec Juan Carlos Gonzalez et Vijay Kumar",
+        "vex.ringsAlt": "Le robot 3330E en partie démonté sur le terrain de Round Up, entre les anneaux rouges et bleus",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "À propos de Melanie",
         "about.intro": "Hello World, je suis Melanie. <strong>Développeuse logiciel full-stack</strong>, avec un amour particulier pour l’UX/UI.",
@@ -9772,22 +9849,28 @@
         "vex.teamTitle": "קבוצה 3330E",
         "vex.stamp1": "מייצגים את גואטמלה",
         "vex.stamp2": "אורלנדו, פלורידה",
-        "vex.teamAlt": "נבחרת גואטמלה מחזיקה את דגל גואטמלה באליפות העולם של VEX Robotics 2011",
+        "vex.teamAlt": "נבחרת גואטמלה עם קבוצה מקליפורניה, ובהם חואן קרלוס גונזלס וויג׳אי קומאר, מחזיקים את דגל גואטמלה באליפות העולם של VEX Robotics 2011",
         "vex.line1": "כאן",
         "vex.line2": "הכול",
         "vex.line3": "התחיל.",
-        "vex.caption": "בשנת 2011 הייתי חלק מהקבוצה שבנתה רובוט והביאה אותו ל<strong>אליפות העולם של VEX Robotics</strong> ב־ESPN Wide World of Sports באורלנדו, כשהתחרינו בשם <strong>גואטמלה</strong> כקבוצה 3330E. המשחק של אותה עונה נקרא <em>Round Up</em>. זה היה אירוע הטכנולוגיה הראשון שלי, והפעם הראשונה שבניתי משהו שהיה צריך לעבוד מול קהל. 🤖",
-        "vex.why": "<strong>למה זה חשוב:</strong> האנשים שפגשתי באולם הזה הפכו לאנשי הקשר הראשונים שלי בעולם הטכנולוגיה, והם עזרו לי לבנות את הקריירה שיש לי היום. כל קריירה מתחילה איפשהו. שלי התחילה ברובוט.",
-        "vex.arch": "המקום",
+        "vex.caption": "בשנת 2011 הייתי חלק מהקבוצה שבנתה רובוט והביאה אותו ל<strong>אליפות העולם של VEX Robotics</strong> ב־ESPN Wide World of Sports באורלנדו, כשהתחרינו בשם <strong>גואטמלה</strong> כקבוצה 3330E. הרובוט שלנו אף פעם לא היה גמור. במשך שלושה ימים פירקנו והרכבנו אותו שוב ושוב, ושינינו אותו לפי כל פיסת מידע שאספנו על הקבוצות האחרות. 🤖",
+        "vex.why": "<strong>למה זה חשוב:</strong> זה היה אירוע הטכנולוגיה הראשון שלי, והאנשים שפגשתי שם הפכו לאנשי הקשר הראשונים שלי בעולם הטכנולוגיה. הם עזרו לי לבנות את הקריירה שיש לי היום. כל קריירה מתחילה איפשהו. שלי התחילה ברובוט.",
         "vex.sign": "אליפות העולם",
         "vex.robot": "הרובוט שלנו",
         "vex.arena": "הזירה",
-        "vex.field": "על המגרש",
-        "vex.archAlt": "קשת הכניסה של ESPN Wide World of Sports באורלנדו",
         "vex.signAlt": "שלט של אליפות העולם של VEX Robotics 2011, עם חצים המצביעים לגואטמלה ולמדינות משתתפות נוספות",
         "vex.robotAlt": "רובוט 3330E מלמעלה, עם דגל גואטמלה ודגל VEX Robotics Competition",
         "vex.arenaAlt": "זירת התחרות בתוך Jostens Center, עם שורות של עמדות קבוצות ומגרשי משחק",
         "vex.fieldAlt": "רובוט 3330E על מגרש התחרות",
+        "vex.stamp3": "אפריל 2011",
+        "vex.floor": "<strong>באולם:</strong> קבוצות מכל העולם חלקו את אותה זירה. אכלנו שם, ישנו שם, והמשחקים לא הפסיקו לרגע.",
+        "vex.about": "<strong>על האירוע:</strong> 14 עד 16 באפריל 2011, ב־ESPN Wide World of Sports Complex שבוולט דיסני וורלד. כמעט 10,000 משתתפים מ־16 מדינות, וכמעט 600 קבוצות שהעפילו מתוך כ־4,000 ברחבי העולם. <em>Round Up</em> שוחק על מגרש בגודל 12 על 12 רגל: שתי בריתות של שני רובוטים כל אחת, 20 שניות של פעולה אוטונומית ואז שתי דקות של שליטה ידנית.",
+        "vex.videoLabel": "המשחק ששיחקנו",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up, אנימציית המשחק 2010-2011",
+        "vex.videoCap": "האנימציה הרשמית של VEX Robotics ל־Round Up, המשחק של עונת 2010-2011.",
+        "vex.rings": "תמיד בבנייה מחדש",
+        "vex.team": "גואטמלה + קליפורניה, עם חואן קרלוס גונזלס וויג׳אי קומאר",
+        "vex.ringsAlt": "רובוט 3330E מפורק בחלקו על מגרש Round Up, בין הטבעות האדומות והכחולות",
         "about.photoTag": "טורונטו, אונטריו ✦︎ 2026",
         "about.label": "אודות מלאני",
         "about.intro": "Hello World. אני מלאני. <strong>מפתחת תוכנה Full-Stack</strong>, עם אהבה עמוקה ל־UX/UI ולפרטים הקטנים שגורמים למוצר להרגיש נכון.",
@@ -10124,22 +10207,28 @@
         "vex.teamTitle": "Команда 3330E",
         "vex.stamp1": "За Гватемалу",
         "vex.stamp2": "Орландо, Флорида",
-        "vex.teamAlt": "Сборная Гватемалы с гватемальским флагом на чемпионате мира VEX Robotics 2011",
+        "vex.teamAlt": "Сборная Гватемалы с командой из Калифорнии, включая Хуана Карлоса Гонсалеса и Виджая Кумара, с гватемальским флагом на чемпионате мира VEX Robotics 2011",
         "vex.line1": "Где",
         "vex.line2": "Всё",
         "vex.line3": "Началось.",
-        "vex.caption": "В 2011 году я была в команде, которая собрала робота и привезла его на <strong>чемпионат мира VEX Robotics</strong> в ESPN Wide World of Sports в Орландо. Мы выступали за <strong>Гватемалу</strong> под номером 3330E. Игра того сезона называлась <em>Round Up</em>. Это было моё первое технологическое мероприятие и первый раз, когда я строила что-то, что должно было работать на глазах у зрителей. 🤖",
-        "vex.why": "<strong>Почему это важно:</strong> люди, с которыми я познакомилась на той арене, стали моими первыми контактами в технологиях и помогли мне построить карьеру, которая у меня есть сегодня. Каждая карьера с чего-то начинается. Моя началась с робота.",
-        "vex.arch": "Место",
+        "vex.caption": "В 2011 году я была в команде, которая собрала робота и привезла его на <strong>чемпионат мира VEX Robotics</strong> в ESPN Wide World of Sports в Орландо. Мы выступали за <strong>Гватемалу</strong> под номером 3330E. Наш робот так и не был закончен. Три дня мы снова и снова разбирали и собирали его, меняя с каждой крупицей сведений о других командах. 🤖",
+        "vex.why": "<strong>Почему это важно:</strong> это было моё первое технологическое мероприятие, и люди, с которыми я там познакомилась, стали моими первыми контактами в технологиях. Они помогли мне построить карьеру, которая у меня есть сегодня. Каждая карьера с чего-то начинается. Моя началась с робота.",
         "vex.sign": "Чемпионат мира",
         "vex.robot": "Наш робот",
         "vex.arena": "Арена",
-        "vex.field": "На поле",
-        "vex.archAlt": "Входная арка ESPN Wide World of Sports в Орландо",
         "vex.signAlt": "Указатель чемпионата мира VEX Robotics 2011 со стрелками на Гватемалу и другие страны-участницы",
         "vex.robotAlt": "Робот 3330E сверху, с флагом Гватемалы и флагом VEX Robotics Competition",
         "vex.arenaAlt": "Соревновательная арена в Jostens Center с рядами командных боксов и игровых полей",
         "vex.fieldAlt": "Робот 3330E на соревновательном поле",
+        "vex.stamp3": "Апрель 2011",
+        "vex.floor": "<strong>На арене:</strong> команды со всего мира делили одно пространство. Мы там ели, там спали, а матчи не прекращались ни на минуту.",
+        "vex.about": "<strong>О событии:</strong> 14–16 апреля 2011 года, ESPN Wide World of Sports Complex в Walt Disney World. Почти 10 000 участников из 16 стран и почти 600 команд, отобранных из примерно 4 000 по всему миру. В <em>Round Up</em> играли на поле 12 на 12 футов: два альянса по два робота, 20 секунд автономного режима, затем две минуты ручного управления.",
+        "vex.videoLabel": "Игра, в которую мы играли",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up, анимация игры 2010-2011",
+        "vex.videoCap": "Официальная анимация VEX Robotics об игре Round Up сезона 2010-2011.",
+        "vex.rings": "Вечная пересборка",
+        "vex.team": "Гватемала + Калифорния, с Хуаном Карлосом Гонсалесом и Виджаем Кумаром",
+        "vex.ringsAlt": "Робот 3330E, частично разобранный, на поле Round Up среди красных и синих колец",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "О Melanie",
         "about.intro": "Hello World, я Melanie. <strong>Full-stack разработчик ПО</strong> с любовью к UX/UI.",
@@ -10482,22 +10571,28 @@
         "vex.teamTitle": "Equipe 3330E",
         "vex.stamp1": "Representando a Guatemala",
         "vex.stamp2": "Orlando, Flórida",
-        "vex.teamAlt": "A equipe da Guatemala segurando a bandeira guatemalteca no Campeonato Mundial VEX Robotics 2011",
+        "vex.teamAlt": "A equipe da Guatemala com uma equipe da Califórnia, incluindo Juan Carlos Gonzalez e Vijay Kumar, segurando a bandeira guatemalteca no Campeonato Mundial VEX Robotics 2011",
         "vex.line1": "Onde",
         "vex.line2": "Tudo",
         "vex.line3": "Começou.",
-        "vex.caption": "Em 2011 fiz parte da equipe que construiu um robô e o levou ao <strong>Campeonato Mundial VEX Robotics</strong> no ESPN Wide World of Sports, em Orlando, competindo pela <strong>Guatemala</strong> como a equipe 3330E. O jogo daquela temporada era o <em>Round Up</em>. Foi meu primeiro evento de tecnologia e a primeira vez que construí algo que precisava funcionar na frente do público. 🤖",
-        "vex.why": "<strong>Por que importa:</strong> as pessoas que conheci naquela arena se tornaram meus primeiros contatos na tecnologia, e me ajudaram a construir a carreira que tenho hoje. Toda carreira começa em algum lugar. A minha começou com um robô.",
-        "vex.arch": "O local",
+        "vex.caption": "Em 2011 fiz parte da equipe que construiu um robô e o levou ao <strong>Campeonato Mundial VEX Robotics</strong> no ESPN Wide World of Sports, em Orlando, competindo pela <strong>Guatemala</strong> como a equipe 3330E. Nosso robô nunca ficou pronto. Durante três dias nós o desmontamos e remontamos de novo e de novo, mudando-o com cada informação que reuníamos sobre as outras equipes. 🤖",
+        "vex.why": "<strong>Por que importa:</strong> foi meu primeiro evento de tecnologia, e as pessoas que conheci lá se tornaram meus primeiros contatos na tecnologia. Elas me ajudaram a construir a carreira que tenho hoje. Toda carreira começa em algum lugar. A minha começou com um robô.",
         "vex.sign": "Campeonato Mundial",
         "vex.robot": "Nosso robô",
         "vex.arena": "A arena",
-        "vex.field": "Em campo",
-        "vex.archAlt": "O arco de entrada do ESPN Wide World of Sports em Orlando",
         "vex.signAlt": "Uma placa do Campeonato Mundial VEX Robotics 2011, com setas apontando para a Guatemala e outros países participantes",
         "vex.robotAlt": "O robô 3330E visto de cima, com a bandeira da Guatemala e uma bandeira da VEX Robotics Competition",
         "vex.arenaAlt": "A arena de competição dentro do Jostens Center, com fileiras de boxes das equipes e campos de jogo",
         "vex.fieldAlt": "O robô 3330E no campo de competição",
+        "vex.stamp3": "Abril de 2011",
+        "vex.floor": "<strong>Na arena:</strong> equipes do mundo todo dividiam o mesmo espaço. Comíamos lá, dormíamos lá, e as partidas nunca paravam.",
+        "vex.about": "<strong>Sobre o evento:</strong> de 14 a 16 de abril de 2011, no ESPN Wide World of Sports Complex, no Walt Disney World. Quase 10.000 participantes de 16 países, e quase 600 equipes classificadas entre cerca de 4.000 no mundo todo. <em>Round Up</em> era jogado em um campo de 12 por 12 pés: duas alianças de dois robôs, um período autônomo de 20 segundos e depois dois minutos de controle manual.",
+        "vex.videoLabel": "O jogo que jogamos",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up, animação do jogo 2010-2011",
+        "vex.videoCap": "A animação oficial da VEX Robotics de Round Up, o jogo de 2010-2011.",
+        "vex.rings": "Sempre reconstruindo",
+        "vex.team": "Guatemala + Califórnia, com Juan Carlos Gonzalez e Vijay Kumar",
+        "vex.ringsAlt": "O robô 3330E parcialmente desmontado no campo de Round Up, entre os anéis vermelhos e azuis",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Sobre Melanie",
         "about.intro": "Hello World, eu sou Melanie. <strong>Desenvolvedora de Software Full-Stack</strong> com paixão por UX/UI.",
@@ -10835,22 +10930,28 @@
         "vex.teamTitle": "Команда 3330E",
         "vex.stamp1": "За Гватемалу",
         "vex.stamp2": "Орландо, Флорида",
-        "vex.teamAlt": "Збірна Гватемали з гватемальським прапором на чемпіонаті світу VEX Robotics 2011",
+        "vex.teamAlt": "Збірна Гватемали з командою з Каліфорнії, зокрема Хуаном Карлосом Гонсалесом і Віджаєм Кумаром, із гватемальським прапором на чемпіонаті світу VEX Robotics 2011",
         "vex.line1": "Де",
         "vex.line2": "Усе",
         "vex.line3": "Почалося.",
-        "vex.caption": "У 2011 році я була в команді, яка зібрала робота й привезла його на <strong>чемпіонат світу VEX Robotics</strong> в ESPN Wide World of Sports в Орландо. Ми виступали за <strong>Гватемалу</strong> під номером 3330E. Гра того сезону називалася <em>Round Up</em>. Це був мій перший технологічний захід і перший раз, коли я будувала щось, що мало працювати на очах у глядачів. 🤖",
-        "vex.why": "<strong>Чому це важливо:</strong> люди, з якими я познайомилася на тій арені, стали моїми першими контактами в технологіях і допомогли мені побудувати кар’єру, яку я маю сьогодні. Кожна кар’єра з чогось починається. Моя почалася з робота.",
-        "vex.arch": "Місце",
+        "vex.caption": "У 2011 році я була в команді, яка зібрала робота й привезла його на <strong>чемпіонат світу VEX Robotics</strong> в ESPN Wide World of Sports в Орландо. Ми виступали за <strong>Гватемалу</strong> під номером 3330E. Наш робот так і не був завершений. Три дні ми знову й знову розбирали та збирали його, змінюючи з кожною крихтою відомостей про інші команди. 🤖",
+        "vex.why": "<strong>Чому це важливо:</strong> це був мій перший технологічний захід, і люди, з якими я там познайомилася, стали моїми першими контактами в технологіях. Вони допомогли мені побудувати кар’єру, яку я маю сьогодні. Кожна кар’єра з чогось починається. Моя почалася з робота.",
         "vex.sign": "Чемпіонат світу",
         "vex.robot": "Наш робот",
         "vex.arena": "Арена",
-        "vex.field": "На полі",
-        "vex.archAlt": "Вхідна арка ESPN Wide World of Sports в Орландо",
         "vex.signAlt": "Покажчик чемпіонату світу VEX Robotics 2011 зі стрілками на Гватемалу та інші країни-учасниці",
         "vex.robotAlt": "Робот 3330E згори, з прапором Гватемали та прапором VEX Robotics Competition",
         "vex.arenaAlt": "Змагальна арена в Jostens Center з рядами командних боксів та ігрових полів",
         "vex.fieldAlt": "Робот 3330E на змагальному полі",
+        "vex.stamp3": "Квітень 2011",
+        "vex.floor": "<strong>На арені:</strong> команди з усього світу ділили один простір. Ми там їли, там спали, а матчі не припинялися ні на хвилину.",
+        "vex.about": "<strong>Про подію:</strong> 14–16 квітня 2011 року, ESPN Wide World of Sports Complex у Walt Disney World. Майже 10 000 учасників із 16 країн і майже 600 команд, відібраних із приблизно 4 000 по всьому світу. У <em>Round Up</em> грали на полі 12 на 12 футів: два альянси по два роботи, 20 секунд автономного режиму, потім дві хвилини ручного керування.",
+        "vex.videoLabel": "Гра, в яку ми грали",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up, анімація гри 2010-2011",
+        "vex.videoCap": "Офіційна анімація VEX Robotics про гру Round Up сезону 2010-2011.",
+        "vex.rings": "Вічна перебудова",
+        "vex.team": "Гватемала + Каліфорнія, з Хуаном Карлосом Гонсалесом і Віджаєм Кумаром",
+        "vex.ringsAlt": "Робот 3330E, частково розібраний, на полі Round Up серед червоних і синіх кілець",
         "about.photoTag": "Торонто, Онтаріо ✦︎ 2026",
         "about.label": "Про Мелані",
         "about.intro": "Hello World, я Мелані. <strong>Full-stack розробниця ПЗ</strong> з любов'ю до UX/UI.",
@@ -11188,22 +11289,28 @@
         "vex.teamTitle": "3330E 队",
         "vex.stamp1": "代表危地马拉",
         "vex.stamp2": "佛罗里达州奥兰多",
-        "vex.teamAlt": "危地马拉队在 2011 年 VEX 机器人世界锦标赛现场举着危地马拉国旗",
+        "vex.teamAlt": "危地马拉队与一支加州队伍（包括 Juan Carlos Gonzalez 和 Vijay Kumar）在 2011 年 VEX 机器人世界锦标赛上举着危地马拉国旗合影",
         "vex.line1": "一切",
         "vex.line2": "从这里",
         "vex.line3": "开始。",
-        "vex.caption": "2011 年，我所在的团队制作了一台机器人，并带着它参加了在奥兰多 ESPN Wide World of Sports 举办的 <strong>VEX 机器人世界锦标赛</strong>，以 3330E 队的身份代表<strong>危地马拉</strong>参赛。那个赛季的比赛项目叫 <em>Round Up</em>。那是我的第一次科技活动，也是我第一次制作必须在观众面前正常运转的东西。🤖",
-        "vex.why": "<strong>为什么重要：</strong>我在那个赛场上认识的人，成了我在科技领域最早的人脉，也帮助我走到了今天的职业道路。每段职业生涯都有起点。我的起点是一台机器人。",
-        "vex.arch": "场馆",
+        "vex.caption": "2011 年，我所在的团队制作了一台机器人，并带着它参加了在奥兰多 ESPN Wide World of Sports 举办的 <strong>VEX 机器人世界锦标赛</strong>，以 3330E 队的身份代表<strong>危地马拉</strong>参赛。我们的机器人从来没有真正完工。三天里，我们一次又一次地把它拆开再装好，根据收集到的其他队伍的每一条情报不断改进。🤖",
+        "vex.why": "<strong>为什么重要：</strong>那是我的第一次科技活动，我在那里认识的人成了我在科技领域最早的人脉，也帮助我走到了今天的职业道路。每段职业生涯都有起点。我的起点是一台机器人。",
         "vex.sign": "世界锦标赛",
         "vex.robot": "我们的机器人",
         "vex.arena": "赛场",
-        "vex.field": "比赛中",
-        "vex.archAlt": "奥兰多 ESPN Wide World of Sports 的入口拱门",
         "vex.signAlt": "2011 年 VEX 机器人世界锦标赛的路标，箭头指向危地马拉和其他参赛国家",
         "vex.robotAlt": "从上方拍摄的 3330E 机器人，插着危地马拉国旗和 VEX Robotics Competition 旗帜",
         "vex.arenaAlt": "Jostens Center 内的比赛场馆，一排排队伍工作区和比赛场地",
         "vex.fieldAlt": "比赛场地上的 3330E 机器人",
+        "vex.stamp3": "2011 年 4 月",
+        "vex.floor": "<strong>在赛场上：</strong>来自世界各地的队伍共用同一个场馆。我们在那里吃饭、在那里睡觉，比赛从未停过。",
+        "vex.about": "<strong>关于赛事：</strong>2011 年 4 月 14 日至 16 日，在华特迪士尼世界的 ESPN Wide World of Sports Complex 举行。来自 16 个国家的近 10,000 名参与者，近 600 支队伍从全球约 4,000 支队伍中晋级。<em>Round Up</em> 在 12×12 英尺的场地上进行：两个联盟各两台机器人，先是 20 秒自动阶段，然后是两分钟手动操控。",
+        "vex.videoLabel": "我们参加的比赛项目",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up，2010-2011 赛季比赛动画",
+        "vex.videoCap": "VEX Robotics 官方制作的 Round Up 动画，2010-2011 赛季比赛项目。",
+        "vex.rings": "一直在重装",
+        "vex.team": "危地马拉 + 加州，与 Juan Carlos Gonzalez 和 Vijay Kumar",
+        "vex.ringsAlt": "部分拆开的 3330E 机器人在 Round Up 场地上，周围是红色和蓝色圆环",
         "about.photoTag": "多伦多，安大略 ✦︎ 2026",
         "about.label": "关于 Melanie",
         "about.intro": "Hello World，我是 Melanie。<strong>全栈软件开发者</strong>，热爱 UX/UI 设计。",
@@ -11541,22 +11648,28 @@
         "vex.teamTitle": "فريق 3330E",
         "vex.stamp1": "نمثّل غواتيمالا",
         "vex.stamp2": "أورلاندو، فلوريدا",
-        "vex.teamAlt": "فريق غواتيمالا يحمل العلم الغواتيمالي في بطولة العالم VEX Robotics 2011",
+        "vex.teamAlt": "فريق غواتيمالا مع فريق من كاليفورنيا، من بينهم خوان كارلوس غونزاليس وفيجاي كومار، يحملون علم غواتيمالا في بطولة العالم VEX Robotics 2011",
         "vex.line1": "هنا",
         "vex.line2": "بدأ",
         "vex.line3": "كل شيء.",
-        "vex.caption": "في عام 2011 كنت جزءًا من الفريق الذي صنع روبوتًا وأخذه إلى <strong>بطولة العالم VEX Robotics</strong> في ESPN Wide World of Sports في أورلاندو، متنافسين باسم <strong>غواتيمالا</strong> كفريق 3330E. كانت لعبة ذلك الموسم <em>Round Up</em>. كانت أول فعالية تقنية أحضرها، وأول مرة أبني فيها شيئًا كان عليه أن يعمل أمام الجمهور. 🤖",
-        "vex.why": "<strong>لماذا يهم ذلك:</strong> الأشخاص الذين التقيتهم في تلك الساحة أصبحوا أول معارفي في عالم التقنية، وساعدوني في بناء المسيرة المهنية التي أعيشها اليوم. كل مسيرة تبدأ من مكان ما. مسيرتي بدأت بروبوت.",
-        "vex.arch": "المكان",
+        "vex.caption": "في عام 2011 كنت جزءًا من الفريق الذي صنع روبوتًا وأخذه إلى <strong>بطولة العالم VEX Robotics</strong> في ESPN Wide World of Sports في أورلاندو، متنافسين باسم <strong>غواتيمالا</strong> كفريق 3330E. لم يكتمل روبوتنا أبدًا. على مدى ثلاثة أيام فككناه وأعدنا تركيبه مرة بعد مرة، وغيّرناه مع كل معلومة جمعناها عن الفرق الأخرى. 🤖",
+        "vex.why": "<strong>لماذا يهم ذلك:</strong> كانت أول فعالية تقنية أحضرها، والأشخاص الذين التقيتهم هناك أصبحوا أول معارفي في عالم التقنية. ساعدوني في بناء المسيرة المهنية التي أعيشها اليوم. كل مسيرة تبدأ من مكان ما. مسيرتي بدأت بروبوت.",
         "vex.sign": "بطولة العالم",
         "vex.robot": "روبوتنا",
         "vex.arena": "الساحة",
-        "vex.field": "في الملعب",
-        "vex.archAlt": "قوس مدخل ESPN Wide World of Sports في أورلاندو",
         "vex.signAlt": "لافتة بطولة العالم VEX Robotics 2011 مع أسهم تشير إلى غواتيمالا ودول مشاركة أخرى",
         "vex.robotAlt": "الروبوت 3330E من الأعلى، يحمل علم غواتيمالا وعلم VEX Robotics Competition",
         "vex.arenaAlt": "ساحة المنافسة داخل Jostens Center مع صفوف من أجنحة الفرق وملاعب المباريات",
         "vex.fieldAlt": "الروبوت 3330E على ملعب المنافسة",
+        "vex.stamp3": "أبريل 2011",
+        "vex.floor": "<strong>في الساحة:</strong> فرق من كل أنحاء العالم تقاسمت المكان نفسه. أكلنا هناك ونمنا هناك، والمباريات لم تتوقف أبدًا.",
+        "vex.about": "<strong>عن الحدث:</strong> من 14 إلى 16 أبريل 2011، في ESPN Wide World of Sports Complex في والت ديزني وورلد. قرابة 10,000 مشارك من 16 دولة، ونحو 600 فريق تأهلوا من بين قرابة 4,000 فريق حول العالم. كانت <em>Round Up</em> تُلعب على ملعب مساحته 12 × 12 قدمًا: تحالفان من روبوتين لكل منهما، و20 ثانية من التشغيل الذاتي، ثم دقيقتان من التحكم اليدوي.",
+        "vex.videoLabel": "اللعبة التي لعبناها",
+        "vex.videoTitle": "VEX Robotics Competition: Round Up، رسوم متحركة للعبة موسم 2010-2011",
+        "vex.videoCap": "الرسوم المتحركة الرسمية من VEX Robotics للعبة Round Up لموسم 2010-2011.",
+        "vex.rings": "إعادة بناء دائمة",
+        "vex.team": "غواتيمالا + كاليفورنيا، مع خوان كارلوس غونزاليس وفيجاي كومار",
+        "vex.ringsAlt": "الروبوت 3330E مفكك جزئيًا على ملعب Round Up بين الحلقات الحمراء والزرقاء",
         "about.photoTag": "تورنتو، أونتاريو ✦︎ 2026",
         "about.label": "نبذة عن ميلاني",
         "about.intro": "Hello World. أنا ميلاني. <strong>مطوّرة برمجيات Full-Stack</strong> مع شغف بـUX/UI.",
