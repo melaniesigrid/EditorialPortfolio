@@ -3696,6 +3696,66 @@
       background: linear-gradient(to top, rgba(54, 57, 63, .95), transparent)
     }
 
+    /* Second and later entries in Beyond the Code */
+    .near-entry {
+      margin-top: 6rem
+    }
+
+    .near-entry-head {
+      justify-content: flex-end
+    }
+
+    .near-entry .near-banner-photo img {
+      object-fit: cover
+    }
+
+    /* Embedded game video */
+    .vex-video {
+      max-width: 960px;
+      margin: 0 0 4rem
+    }
+
+    .vex-video-frame {
+      aspect-ratio: 16/9;
+      background: var(--ink);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .25)
+    }
+
+    .vex-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block
+    }
+
+    .vex-video-cap {
+      font-family: var(--S);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dim2);
+      margin-top: .75rem
+    }
+
+    @media(max-width:900px) {
+      .near-entry {
+        margin-top: 4rem
+      }
+
+      /* Longer stamp lines drop under the photo instead of widening the banner */
+      .near-banner-team {
+        flex-wrap: wrap;
+        row-gap: 1.75rem
+      }
+
+      .near-gal-item.wide {
+        grid-column: 1 / -1
+      }
+
+      .near-gal-item.wide img {
+        aspect-ratio: 16/9
+      }
+    }
+
 
 
     .near-link {
@@ -7340,91 +7400,181 @@
     <!-- Header strip -->
     <div class="near-header">
       <h2 class="near-label" data-i18n="near.label">Beyond the Code</h2>
-      <div class="near-header-meta" data-i18n="near.meta">ETHToronto · Hackathon · 1st Place</div>
+      <div class="near-header-meta" data-i18n="vex.meta">VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011</div>
     </div>
-    <!-- Editorial achievement banner -->
+    <!-- ── 01 · VEX Robotics World Championship 2011 ── -->
     <div class="near-banner" data-near-hero="">
       <div class="near-banner-mark">01</div>
       <div class="near-banner-body">
-        <div class="near-banner-eyebrow" data-i18n="near.eyebrow">🏆 First Place · NEAR Inc. Bounty</div>
-        <div class="near-banner-title">Mel’s Meta</div>
-        <div class="near-banner-meta" data-i18n-html="near.bannerMeta">
-          Awarded at <a href="https://www.ethtoronto.ca/" rel="noopener" target="_blank">#ETHToronto</a> Hackathon,
-          presented by NEAR Inc.
-        </div>
+        <div class="near-banner-eyebrow" data-i18n="vex.eyebrow">My First Robot · Team 3330E</div>
+        <div class="near-banner-title">VEX Robotics Competition: Roundup</div>
+        <div class="near-banner-meta" data-i18n-html="vex.bannerMeta">Hosted at the ESPN Wide World of Sports Centre, Orlando</div>
       </div>
       <div class="near-banner-team">
         <div class="near-banner-photo">
           <div class="near-banner-photo-inner">
-            <img data-lightbox="" decoding="async" loading="lazy" width="800" height="455" alt="Team photo at the hackathon" src="images/nearBountyWinners.webp" />
+            <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="Robot 3330E taken apart between matches" data-i18n-alt="vex.fieldAlt" src="images/vexOnTheField.webp" />
           </div>
         </div>
         <div class="near-banner-stamp">
-          <strong data-i18n="near.teamTitle">The Team</strong>
-          <span class="near-stamp-name">Curtis Jaekl</span><br />
-          <span class="near-stamp-name">Anton Romankov</span><br />
-          <span class="near-stamp-name">Daniel Makarov</span><br />
-          <span class="near-stamp-name">Melanie Baratto</span>
+          <strong data-i18n="vex.teamTitle">Team 3330E</strong>
+          <span class="near-stamp-name" data-i18n="vex.stamp1">Representing Guatemala</span><br />
+          <span class="near-stamp-name" data-i18n="vex.stamp2">Orlando, Florida</span><br />
+          <span class="near-stamp-name" data-i18n="vex.stamp3">April 2011</span>
         </div>
       </div>
     </div>
-    <!-- Headline + caption -->
     <div class="near-content">
       <div>
         <div class="near-fill-line" data-fill-line="">
-          <span class="near-ghost" data-i18n="near.line1">Built &amp;</span>
-          <span class="near-solid" data-fill="" data-i18n="near.line1">Built &amp;</span>
+          <span class="near-ghost" data-i18n="vex.line1">Where</span>
+          <span class="near-solid" data-fill="" data-i18n="vex.line1">Where</span>
         </div>
         <div class="near-fill-line" data-fill-line="">
-          <span class="near-ghost" data-i18n="near.line2">Won</span>
-          <span class="near-solid red" data-fill="" data-i18n="near.line2">Won</span>
+          <span class="near-ghost" data-i18n="vex.line2">It All</span>
+          <span class="near-solid red" data-fill="" data-i18n="vex.line2">It All</span>
         </div>
         <div class="near-fill-line" data-fill-line="">
-          <span class="near-ghost" data-i18n="near.line3">Overnight.</span>
-          <span class="near-solid" data-fill="" data-i18n="near.line3">Overnight.</span>
+          <span class="near-ghost" data-i18n="vex.line3">Started.</span>
+          <span class="near-solid" data-fill="" data-i18n="vex.line3">Started.</span>
         </div>
       </div>
       <div class="near-caption-col">
-        <p class="near-caption" data-i18n-html="near.caption">
-          My team and I won the <strong><a class="near-link" href="https://www.near.org/" rel="noopener"
-              target="_blank">NEAR Protocol</a> bounty at #ETHToronto</strong>,
-          building <strong>Mel’s Meta</strong>, a decentralized funding platform for small volunteer
-          organizations, powered by <a class="near-link" href="https://www.near.org/" rel="noopener"
-            target="_blank">NEAR</a> smart contracts.
-          We stayed up all night writing it.  ✨
+        <p class="near-caption" data-i18n-html="vex.caption">In 2011 I was part of the team that built a robot and took it to the <strong>VEX Robotics Competition: Roundup</strong>, hosted at the ESPN Wide World of Sports Centre in Orlando, competing for <strong>Guatemala</strong> as team 3330E. Our robot was never finished. Over three days we took it apart and rebuilt it again and again, changing it with every bit of intel we gathered on the other teams.</p>
+        <p class="near-caption-sub" data-i18n-html="vex.floor">
+          <strong>On the floor:</strong> teams from all over the world shared the arena. We ate there, we slept
+          there, and the matches never stopped.
         </p>
-        <p class="near-caption-sub" data-i18n-html="near.about">
-          <strong>About NEAR:</strong> the modular, high-speed protocol powering the agentic future:
-          the execution layer for AI-native apps where agents own assets, make decisions, and transact freely across
-          networks.
+        <p class="near-caption-sub" data-i18n-html="vex.why">
+          <strong>Why it matters:</strong> it was my first tech event, and the people I met on that floor became my
+          first contacts in tech. They helped me build the career I have today. Every career starts somewhere.
+          Mine started with a robot.
         </p>
-        <div class="near-team-label" data-i18n="near.builtWith">Built with</div>
-        <p class="near-team">
-          <span>Curtis Jaekl</span> · <span>Anton Romankov</span> · <span>Daniel Makarov</span>
-        </p>
+        <p class="near-caption-sub" data-i18n-html="vex.about"><strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Centre at Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of about 4,000 worldwide. <em>Roundup</em> was played on a 12 by 12 foot field: two alliances of two robots, a 20-second autonomous period, then two minutes of driver control.</p>
       </div>
     </div>
-    <!-- Image gallery -->
+    <div class="vex-video">
+      <div class="near-team-label" data-i18n="vex.videoLabel">The game we played</div>
+      <div class="vex-video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/F54n7yZQJ4U" loading="lazy"
+          title="VEX Robotics Competition: Roundup, 2010-2011 game animation" data-i18n-title="vex.videoTitle"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="vex-video-cap" data-i18n="vex.videoCap">The official VEX Robotics animation of the VEX Robotics Competition: Roundup game, 2010-2011.</p>
+    </div>
     <div class="near-gallery">
-      <div class="near-gal-item venue" data-near-img="">
-        <img data-lightbox="" decoding="async" loading="lazy" width="800" height="800" alt="Blockchain Futurist Conference stage" src="images/BlockchainFuturistConference.webp" />
-        <div class="near-gal-cap" data-i18n="near.venue">The Venue</div>
+      <div class="near-gal-item" data-near-img="">
+        <img data-lightbox="" decoding="async" loading="lazy" width="540" height="720" alt="Robot 3330E from above, flying the Guatemalan flag and a VEX Robotics Competition flag" data-i18n-alt="vex.robotAlt" src="images/vexRobot3330E.webp" />
+        <div class="near-gal-cap" data-i18n="vex.robot">Our Robot</div>
       </div>
-      <div class="near-gal-item discord" data-near-img="">
-        <img data-lightbox="" decoding="async" loading="lazy" width="1080" height="472" alt="Discord announcement: 1st Place Mel Meta" src="images/discordWinnerAnnouncement.webp" />
-        <div class="near-gal-cap discord-cap" data-i18n="near.discord">Discord Announcement</div>
+      <div class="near-gal-item" data-near-img="">
+        <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="Robot 3330E playing a match on the arena, among the red and blue Roundup rings" data-i18n-alt="vex.ringsAlt" src="images/vexRoundUpRings.webp" />
+        <div class="near-gal-cap" data-i18n="vex.rings">In a Match</div>
       </div>
-      <div class="near-gal-item melsmeta" data-near-img="">
-        <img data-lightbox="" decoding="async" loading="lazy" width="500" height="500" alt="Mel's Meta logo" src="images/melsmeta.webp" />
-        <div class="near-gal-cap dark" data-i18n="near.melsMeta">Mel’s Meta</div>
+      <div class="near-gal-item" data-near-img="">
+        <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="A signpost at the ESPN Wide World of Sports Centre for the VEX Robotics Competition: Roundup, with arrows pointing to Guatemala and other competing countries" data-i18n-alt="vex.signAlt" src="images/vexWorldsSign.webp" />
+        <div class="near-gal-cap" data-i18n="vex.sign">The Signpost</div>
       </div>
-      <div class="near-gal-item crowd" data-near-img="">
-        <img data-lightbox="" decoding="async" loading="lazy" width="1280" height="959" alt="Views inside the conference" src="images/blockchainConferenceViews.webp" />
-        <div class="near-gal-cap" data-i18n="near.views">The Views</div>
+      <div class="near-gal-item" data-near-img="">
+        <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="The competition arena inside the Jostens Center, with rows of team pits and match fields" data-i18n-alt="vex.arenaAlt" src="images/vexArena.webp" />
+        <div class="near-gal-cap" data-i18n="vex.arena">The Arena</div>
       </div>
-      <div class="near-gal-item selfie" data-near-img="">
-        <img data-lightbox="" decoding="async" loading="lazy" width="1280" height="720" alt="Melanie and teammate Curtis Jaekl on the hackathon floor at ETHToronto" data-i18n-alt="near.selfieAlt" src="images/ethTorontoSelfie.webp" />
-        <div class="near-gal-cap" data-i18n="near.selfie">On the Floor</div>
+      <div class="near-gal-item wide" data-near-img="">
+        <img data-lightbox="" decoding="async" loading="lazy" width="720" height="540" alt="The Guatemalan team with a team from California, including Juan Carlos Gonzalez and Vijay Kumar, holding the Guatemalan flag at the VEX Robotics Competition: Roundup, hosted at the ESPN Wide World of Sports Centre" data-i18n-alt="vex.teamAlt" src="images/vexTeamGuatemala.webp" />
+        <div class="near-gal-cap" data-i18n="vex.team">Guatemala + California, with Juan Carlos Gonzalez &amp; Vijay Kumar</div>
+      </div>
+    </div>
+
+    <!-- ── 02 · NEAR bounty, ETHToronto ── -->
+    <div class="near-entry" data-fill-scope="">
+      <div class="near-header near-entry-head">
+        <div class="near-header-meta" data-i18n="near.meta">ETHToronto · Hackathon · 1st Place</div>
+      </div>
+      <!-- Editorial achievement banner -->
+      <div class="near-banner" data-near-hero="">
+        <div class="near-banner-mark">02</div>
+        <div class="near-banner-body">
+          <div class="near-banner-eyebrow" data-i18n="near.eyebrow">🏆 First Place · NEAR Inc. Bounty</div>
+          <div class="near-banner-title">Mel’s Meta</div>
+          <div class="near-banner-meta" data-i18n-html="near.bannerMeta">
+            Awarded at <a href="https://www.ethtoronto.ca/" rel="noopener" target="_blank">#ETHToronto</a> Hackathon,
+            presented by NEAR Inc.
+          </div>
+        </div>
+        <div class="near-banner-team">
+          <div class="near-banner-photo">
+            <div class="near-banner-photo-inner">
+              <img data-lightbox="" decoding="async" loading="lazy" width="800" height="455" alt="Team photo at the hackathon" src="images/nearBountyWinners.webp" />
+            </div>
+          </div>
+          <div class="near-banner-stamp">
+            <strong data-i18n="near.teamTitle">The Team</strong>
+            <span class="near-stamp-name">Curtis Jaekl</span><br />
+            <span class="near-stamp-name">Anton Romankov</span><br />
+            <span class="near-stamp-name">Daniel Makarov</span><br />
+            <span class="near-stamp-name">Melanie Baratto</span>
+          </div>
+        </div>
+      </div>
+      <!-- Headline + caption -->
+      <div class="near-content">
+        <div>
+          <div class="near-fill-line" data-fill-line="">
+            <span class="near-ghost" data-i18n="near.line1">Built &amp;</span>
+            <span class="near-solid" data-fill="" data-i18n="near.line1">Built &amp;</span>
+          </div>
+          <div class="near-fill-line" data-fill-line="">
+            <span class="near-ghost" data-i18n="near.line2">Won</span>
+            <span class="near-solid red" data-fill="" data-i18n="near.line2">Won</span>
+          </div>
+          <div class="near-fill-line" data-fill-line="">
+            <span class="near-ghost" data-i18n="near.line3">Overnight.</span>
+            <span class="near-solid" data-fill="" data-i18n="near.line3">Overnight.</span>
+          </div>
+        </div>
+        <div class="near-caption-col">
+          <p class="near-caption" data-i18n-html="near.caption">
+            My team and I won the <strong><a class="near-link" href="https://www.near.org/" rel="noopener"
+                target="_blank">NEAR Protocol</a> bounty at #ETHToronto</strong>,
+            building <strong>Mel’s Meta</strong>, a decentralized funding platform for small volunteer
+            organizations, powered by <a class="near-link" href="https://www.near.org/" rel="noopener"
+              target="_blank">NEAR</a> smart contracts.
+            We stayed up all night writing it.  ✨
+          </p>
+          <p class="near-caption-sub" data-i18n-html="near.about">
+            <strong>About NEAR:</strong> the modular, high-speed protocol powering the agentic future:
+            the execution layer for AI-native apps where agents own assets, make decisions, and transact freely across
+            networks.
+          </p>
+          <div class="near-team-label" data-i18n="near.builtWith">Built with</div>
+          <p class="near-team">
+            <span>Curtis Jaekl</span> · <span>Anton Romankov</span> · <span>Daniel Makarov</span>
+          </p>
+        </div>
+      </div>
+      <!-- Image gallery -->
+      <div class="near-gallery">
+        <div class="near-gal-item venue" data-near-img="">
+          <img data-lightbox="" decoding="async" loading="lazy" width="800" height="800" alt="Blockchain Futurist Conference stage" src="images/BlockchainFuturistConference.webp" />
+          <div class="near-gal-cap" data-i18n="near.venue">The Venue</div>
+        </div>
+        <div class="near-gal-item discord" data-near-img="">
+          <img data-lightbox="" decoding="async" loading="lazy" width="1080" height="472" alt="Discord announcement: 1st Place Mel Meta" src="images/discordWinnerAnnouncement.webp" />
+          <div class="near-gal-cap discord-cap" data-i18n="near.discord">Discord Announcement</div>
+        </div>
+        <div class="near-gal-item melsmeta" data-near-img="">
+          <img data-lightbox="" decoding="async" loading="lazy" width="500" height="500" alt="Mel's Meta logo" src="images/melsmeta.webp" />
+          <div class="near-gal-cap dark" data-i18n="near.melsMeta">Mel’s Meta</div>
+        </div>
+        <div class="near-gal-item crowd" data-near-img="">
+          <img data-lightbox="" decoding="async" loading="lazy" width="1280" height="959" alt="Views inside the conference" src="images/blockchainConferenceViews.webp" />
+          <div class="near-gal-cap" data-i18n="near.views">The Views</div>
+        </div>
+        <div class="near-gal-item selfie" data-near-img="">
+          <img data-lightbox="" decoding="async" loading="lazy" width="1280" height="720" alt="Melanie and teammate Curtis Jaekl on the hackathon floor at ETHToronto" data-i18n-alt="near.selfieAlt" src="images/ethTorontoSelfie.webp" />
+          <div class="near-gal-cap" data-i18n="near.selfie">On the Floor</div>
+        </div>
       </div>
     </div>
   </section>
@@ -7440,11 +7590,7 @@
     <div class="about-text" data-about="">
       <h2 class="about-section-label" data-i18n="about.label">About Melanie</h2>
       <p class="about-intro" data-i18n-html="about.intro">Hello World, I’m Melanie. A <strong>Full-Stack Software Developer</strong> with a love for UX/UI.</p>
-      <p class="about-body" data-i18n-html="about.body1">I didn't take the straight line. I studied <em>Pharmacy</em> at
-        university before realizing
-        the technology I'd loved since attending the <em>2011 VEX Robotics Round Up</em> wasn't a hobby. It was
-        the work. I switched to <strong>Computer Science</strong>, and every piece of what I learned before it still
-        informs how I build today. Precision. Care for the user. The understanding that small decisions compound.</p>
+      <p class="about-body" data-i18n-html="about.body1">I didn’t take the straight line. I studied <em>Pharmacy</em> at university before realizing the technology I’d loved since attending the <em>2011 VEX Robotics Competition: Roundup</em>, hosted at the ESPN Wide World of Sports Centre, wasn’t a hobby. It was the work. I switched to <strong>Computer Science</strong>, and every piece of what I learned before it still informs how I build today. Precision. Care for the user. The understanding that small decisions compound.</p>
       <p class="about-body" data-i18n-html="about.body2">At <a class="about-link" href="https://www.falkon.net/"
           rel="noopener" target="_blank"><strong>Falkon Technologies</strong></a> I worked across multiple client
         verticals,
@@ -7909,31 +8055,46 @@
       imgs.forEach(img => imgIO.observe(img));
 
       /* Hero image reveal */
-      const hero = section.querySelector('[data-near-hero]');
-      if (hero) {
+      const heroes = section.querySelectorAll('[data-near-hero]');
+      if (heroes.length) {
         const heroIO = new IntersectionObserver(entries => {
           entries.forEach(e => {
             if (e.isIntersecting) {
               e.target.classList.add('on');
-              heroIO.disconnect();
+              heroIO.unobserve(e.target);
             }
           });
         }, {
           threshold: .15
         });
-        heroIO.observe(hero);
+        heroes.forEach(h => heroIO.observe(h));
       }
+
+      /* Each entry fills on its own scroll: a fill belongs to its nearest
+         [data-fill-scope], or to the section itself for the first entry. */
+      const scopeOf = new Map();
+      const perScope = new Map();
+      fills.forEach(fill => {
+        const scope = fill.parentElement.closest('[data-fill-scope]') || section;
+        const i = perScope.get(scope) || 0;
+        perScope.set(scope, i + 1);
+        scopeOf.set(fill, { scope, i });
+      });
 
       /* Text fill on scroll: width% driven by scroll progress */
       function onScroll() {
-        const rect = section.getBoundingClientRect();
         const winH = window.innerHeight;
-        // progress: 0 when section top hits bottom of screen, 1 when section is 60% scrolled past
+        // progress: 0 when the entry's top hits bottom of screen, 1 after 1.4 screens of scroll
         const total = winH * 1.4;
-        const entered = winH - rect.top;
-        const progress = Math.min(Math.max(entered / total, 0), 1);
+        const progressOf = new Map();
 
-        fills.forEach((fill, i) => {
+        fills.forEach(fill => {
+          const { scope, i } = scopeOf.get(fill);
+          if (!progressOf.has(scope)) {
+            const entered = winH - scope.getBoundingClientRect().top;
+            progressOf.set(scope, Math.min(Math.max(entered / total, 0), 1));
+          }
+          const progress = progressOf.get(scope);
           // stagger each line slightly
           const lineProgress = Math.min(Math.max((progress - i * 0.08) / 0.7, 0), 1);
           // ease
@@ -8232,10 +8393,38 @@
       "near.views": "The Views",
       "near.selfie": "On the Floor",
       "near.selfieAlt": "Melanie and teammate Curtis Jaekl on the hackathon floor at ETHToronto",
+      "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+      "vex.eyebrow": "My First Robot · Team 3330E",
+      "vex.bannerMeta": "Hosted at the ESPN Wide World of Sports Centre, Orlando",
+      "vex.teamTitle": "Team 3330E",
+      "vex.stamp1": "Representing Guatemala",
+      "vex.stamp2": "Orlando, Florida",
+      "vex.teamAlt": "The Guatemalan team with a team from California, including Juan Carlos Gonzalez and Vijay Kumar, holding the Guatemalan flag at the VEX Robotics Competition: Roundup, hosted at the ESPN Wide World of Sports Centre",
+      "vex.line1": "Where",
+      "vex.line2": "It All",
+      "vex.line3": "Started.",
+      "vex.caption": "In 2011 I was part of the team that built a robot and took it to the <strong>VEX Robotics Competition: Roundup</strong>, hosted at the ESPN Wide World of Sports Centre in Orlando, competing for <strong>Guatemala</strong> as team 3330E. Our robot was never finished. Over three days we took it apart and rebuilt it again and again, changing it with every bit of intel we gathered on the other teams.",
+      "vex.why": "<strong>Why it matters:</strong> it was my first tech event, and the people I met on that floor became my first contacts in tech. They helped me build the career I have today. Every career starts somewhere. Mine started with a robot.",
+      "vex.sign": "The Signpost",
+      "vex.robot": "Our Robot",
+      "vex.arena": "The Arena",
+      "vex.signAlt": "A signpost at the ESPN Wide World of Sports Centre for the VEX Robotics Competition: Roundup, with arrows pointing to Guatemala and other competing countries",
+      "vex.robotAlt": "Robot 3330E from above, flying the Guatemalan flag and a VEX Robotics Competition flag",
+      "vex.arenaAlt": "The competition arena inside the Jostens Center, with rows of team pits and match fields",
+      "vex.fieldAlt": "Robot 3330E taken apart between matches",
+      "vex.stamp3": "April 2011",
+      "vex.floor": "<strong>On the floor:</strong> teams from all over the world shared the arena. We ate there, we slept there, and the matches never stopped.",
+      "vex.about": "<strong>About the event:</strong> April 14 to 16, 2011, at the ESPN Wide World of Sports Centre at Walt Disney World. Nearly 10,000 participants from 16 countries, and almost 600 teams that qualified out of about 4,000 worldwide. <em>Roundup</em> was played on a 12 by 12 foot field: two alliances of two robots, a 20-second autonomous period, then two minutes of driver control.",
+      "vex.videoLabel": "The game we played",
+      "vex.videoTitle": "VEX Robotics Competition: Roundup, 2010-2011 game animation",
+      "vex.videoCap": "The official VEX Robotics animation of the VEX Robotics Competition: Roundup game, 2010-2011.",
+      "vex.rings": "In a Match",
+      "vex.team": "Guatemala + California, with Juan Carlos Gonzalez & Vijay Kumar",
+      "vex.ringsAlt": "Robot 3330E playing a match on the arena, among the red and blue Roundup rings",
       "about.photoTag": "Toronto, ON ✦︎ 2026",
       "about.label": "About Melanie",
       "about.intro": "Hello World, I’m Melanie. A <strong>Full-Stack Software Developer</strong> with a love for UX/UI.",
-      "about.body1": "I didn’t take the straight line. I studied <em>Pharmacy</em> at university before realizing the technology I’d loved since attending the <em>2011 VEX Robotics Round Up</em> wasn’t a hobby. It was the work. I switched to <strong>Computer Science</strong>, and every piece of what I learned before it still informs how I build today. Precision. Care for the user. The understanding that small decisions compound.",
+      "about.body1": "I didn’t take the straight line. I studied <em>Pharmacy</em> at university before realizing the technology I’d loved since attending the <em>2011 VEX Robotics Competition: Roundup</em>, hosted at the ESPN Wide World of Sports Centre, wasn’t a hobby. It was the work. I switched to <strong>Computer Science</strong>, and every piece of what I learned before it still informs how I build today. Precision. Care for the user. The understanding that small decisions compound.",
       "about.body2": "At <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> I worked across multiple client verticals, building mobile apps in React Native and owning complex form systems for insurance clients. At <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> I built data-rich interfaces for an investment portfolio analysis platform serving DIY investors, financial advisors, and enterprise clients, translating complex market data into actionable intelligence.",
       "about.body3": "Off-screen I’m probably planning a trip, studying a new language, watching <em>Wuthering Heights</em> for the hundredth time, or listening to <em>Grimes</em> on a long walk with Roko, my <em>furry co-founder</em>. The same curiosity that makes a great traveler makes a great engineer.",
       "about.fact1.label": "Passion",
@@ -8566,10 +8755,38 @@
         "near.views": "Las vistas",
         "near.selfie": "En la sala",
         "near.selfieAlt": "Melanie y su compañero de equipo Curtis Jaekl en la sala del hackathon de ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "Mi primer robot · Equipo 3330E",
+        "vex.bannerMeta": "Celebrada en el ESPN Wide World of Sports Centre, Orlando",
+        "vex.teamTitle": "Equipo 3330E",
+        "vex.stamp1": "Representando a Guatemala",
+        "vex.stamp2": "Orlando, Florida",
+        "vex.teamAlt": "El equipo de Guatemala con un equipo de California, incluidos Juan Carlos Gonzalez y Vijay Kumar, sosteniendo la bandera de Guatemala en la VEX Robotics Competition: Roundup, celebrada en el ESPN Wide World of Sports Centre",
+        "vex.line1": "Donde",
+        "vex.line2": "Todo",
+        "vex.line3": "Empezó.",
+        "vex.caption": "En 2011 formé parte del equipo que construyó un robot y lo llevó a la <strong>VEX Robotics Competition: Roundup</strong>, celebrada en el ESPN Wide World of Sports Centre en Orlando, compitiendo por <strong>Guatemala</strong> como el equipo 3330E. Nuestro robot nunca estuvo terminado. Durante tres días lo desarmamos y lo volvimos a armar una y otra vez, cambiándolo con cada dato que reuníamos sobre los otros equipos.",
+        "vex.why": "<strong>Por qué importa:</strong> fue mi primer evento de tecnología, y las personas que conocí ahí se convirtieron en mis primeros contactos en tecnología. Me ayudaron a construir la carrera que tengo hoy. Toda carrera empieza en algún lugar. La mía empezó con un robot.",
+        "vex.sign": "El letrero",
+        "vex.robot": "Nuestro robot",
+        "vex.arena": "La arena",
+        "vex.signAlt": "Un letrero en el ESPN Wide World of Sports Centre para la VEX Robotics Competition: Roundup, con flechas que apuntan a Guatemala y a otros países participantes",
+        "vex.robotAlt": "El robot 3330E visto desde arriba, con la bandera de Guatemala y una bandera de VEX Robotics Competition",
+        "vex.arenaAlt": "La arena de competencia dentro del Jostens Center, con filas de pits de equipos y canchas",
+        "vex.fieldAlt": "El robot 3330E desarmado entre partidas",
+        "vex.stamp3": "Abril de 2011",
+        "vex.floor": "<strong>En la arena:</strong> equipos de todo el mundo compartíamos el mismo espacio. Ahí comíamos, ahí dormíamos, y las competencias nunca paraban.",
+        "vex.about": "<strong>Sobre el evento:</strong> del 14 al 16 de abril de 2011, en el ESPN Wide World of Sports Centre de Walt Disney World. Casi 10,000 participantes de 16 países, y casi 600 equipos clasificados de unos 4,000 en todo el mundo. <em>Roundup</em> se jugaba en una cancha de 12 por 12 pies: dos alianzas de dos robots, un periodo autónomo de 20 segundos y luego dos minutos de control manual.",
+        "vex.videoLabel": "El juego que jugamos",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup, animación del juego 2010-2011",
+        "vex.videoCap": "La animación oficial de VEX Robotics del juego VEX Robotics Competition: Roundup, 2010-2011.",
+        "vex.rings": "En plena partida",
+        "vex.team": "Guatemala + California, con Juan Carlos Gonzalez y Vijay Kumar",
+        "vex.ringsAlt": "El robot 3330E jugando una partida en la arena, entre los aros rojos y azules de Roundup",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Sobre Melanie",
         "about.intro": "Hello World, soy Melanie. <strong>Desarrolladora de Software Full-Stack</strong> con amor por UX/UI.",
-        "about.body1": "No seguí una línea recta. Estudié <em>Farmacia</em> en la universidad antes de darme cuenta de que la tecnología que amaba desde el <em>2011 VEX Robotics Round Up</em> no era un hobby: era el trabajo. Me cambié a <strong>Ciencias de la Computación</strong>, y todo lo que aprendí antes sigue influyendo en cómo construyo hoy: precisión, cuidado por el usuario y la comprensión de que las pequeñas decisiones se acumulan.",
+        "about.body1": "No seguí una línea recta. Estudié <em>Farmacia</em> en la universidad antes de darme cuenta de que la tecnología que amaba desde el <em>2011 VEX Robotics Competition: Roundup</em>, celebrada en el ESPN Wide World of Sports Centre, no era un hobby: era el trabajo. Me cambié a <strong>Ciencias de la Computación</strong>, y todo lo que aprendí antes sigue influyendo en cómo construyo hoy: precisión, cuidado por el usuario y la comprensión de que las pequeñas decisiones se acumulan.",
         "about.body2": "En <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> trabajé con varios tipos de clientes, construyendo apps móviles en React Native y liderando sistemas complejos de formularios para seguros. En <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> construí interfaces ricas en datos para una plataforma de análisis de portafolios de inversión, transformando datos de mercado complejos en inteligencia accionable.",
         "about.body3": "Fuera de la pantalla probablemente estoy planeando un viaje, estudiando un idioma nuevo, viendo <em>Wuthering Heights</em> por centésima vez, o escuchando <em>Grimes</em> en una caminata larga con Roko, mi <em>cofundador peludo</em>. La misma curiosidad que hace a una gran viajera también hace a una gran ingeniera.",
         "about.fact1.label": "Pasión",
@@ -8895,10 +9112,38 @@
         "near.views": "Die Eindrücke",
         "near.selfie": "Mittendrin",
         "near.selfieAlt": "Melanie und Teamkollege Curtis Jaekl im Hackathon-Saal der ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "Mein erster Roboter · Team 3330E",
+        "vex.bannerMeta": "Ausgetragen im ESPN Wide World of Sports Centre, Orlando",
+        "vex.teamTitle": "Team 3330E",
+        "vex.stamp1": "Für Guatemala",
+        "vex.stamp2": "Orlando, Florida",
+        "vex.teamAlt": "Das Team aus Guatemala mit einem Team aus Kalifornien, darunter Juan Carlos Gonzalez und Vijay Kumar, mit der Flagge Guatemalas bei der VEX Robotics Competition: Roundup im ESPN Wide World of Sports Centre",
+        "vex.line1": "Wo",
+        "vex.line2": "Alles",
+        "vex.line3": "Begann.",
+        "vex.caption": "2011 war ich Teil des Teams, das einen Roboter baute und ihn zur <strong>VEX Robotics Competition: Roundup</strong> im ESPN Wide World of Sports Centre in Orlando brachte, als Team 3330E für <strong>Guatemala</strong>. Unser Roboter war nie fertig. Drei Tage lang bauten wir ihn immer wieder auseinander und neu zusammen und passten ihn mit allem an, was wir über die anderen Teams herausfanden.",
+        "vex.why": "<strong>Warum es zählt:</strong> Es war mein erstes Tech-Event, und die Menschen, die ich dort kennenlernte, wurden meine ersten Kontakte in der Tech-Welt. Sie haben mir geholfen, die Karriere aufzubauen, die ich heute habe. Jede Karriere beginnt irgendwo. Meine begann mit einem Roboter.",
+        "vex.sign": "Der Wegweiser",
+        "vex.robot": "Unser Roboter",
+        "vex.arena": "Die Arena",
+        "vex.signAlt": "Ein Wegweiser im ESPN Wide World of Sports Centre für die VEX Robotics Competition: Roundup, mit Pfeilen nach Guatemala und in andere Teilnehmerländer",
+        "vex.robotAlt": "Roboter 3330E von oben, mit der Flagge Guatemalas und einer VEX-Robotics-Competition-Flagge",
+        "vex.arenaAlt": "Die Wettkampfarena im Jostens Center mit Reihen von Team-Boxen und Spielfeldern",
+        "vex.fieldAlt": "Roboter 3330E zwischen zwei Matches zerlegt",
+        "vex.stamp3": "April 2011",
+        "vex.floor": "<strong>In der Halle:</strong> Teams aus der ganzen Welt teilten sich die Arena. Wir aßen dort, wir schliefen dort, und die Matches hörten nie auf.",
+        "vex.about": "<strong>Zum Event:</strong> 14. bis 16. April 2011 im ESPN Wide World of Sports Centre in Walt Disney World. Fast 10.000 Teilnehmende aus 16 Ländern und knapp 600 Teams, die sich aus rund 4.000 weltweit qualifiziert hatten. <em>Roundup</em> wurde auf einem 12 mal 12 Fuß großen Feld gespielt: zwei Allianzen aus je zwei Robotern, 20 Sekunden autonome Phase, dann zwei Minuten Fahrersteuerung.",
+        "vex.videoLabel": "Das Spiel, das wir spielten",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup, Spielanimation 2010-2011",
+        "vex.videoCap": "Die offizielle Animation von VEX Robotics zum Spiel der VEX Robotics Competition: Roundup, 2010-2011.",
+        "vex.rings": "Mitten im Match",
+        "vex.team": "Guatemala + Kalifornien, mit Juan Carlos Gonzalez & Vijay Kumar",
+        "vex.ringsAlt": "Roboter 3330E spielt ein Match in der Arena, zwischen den roten und blauen Roundup-Ringen",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Über Melanie",
         "about.intro": "Hello World, ich bin Melanie. <strong>Full-Stack-Softwareentwicklerin</strong> mit einer Liebe für UX/UI.",
-        "about.body1": "Mein Weg war nicht geradlinig. Ich studierte <em>Pharmazie</em> an der Universität, bevor mir klar wurde, dass die Technologie, die ich seit dem <em>2011 VEX Robotics Round Up</em> liebte, kein Hobby war, sondern die Arbeit. Ich wechselte zur <strong>Informatik</strong>, und alles, was ich davor gelernt habe, prägt bis heute meine Arbeit: Präzision, Sorgfalt für Nutzerinnen und Nutzer und das Verständnis, dass kleine Entscheidungen große Wirkung haben.",
+        "about.body1": "Mein Weg war nicht geradlinig. Ich studierte <em>Pharmazie</em> an der Universität, bevor mir klar wurde, dass die Technologie, die ich seit dem <em>2011 VEX Robotics Competition: Roundup</em>, im ESPN Wide World of Sports Centre, liebte, kein Hobby war, sondern die Arbeit. Ich wechselte zur <strong>Informatik</strong>, und alles, was ich davor gelernt habe, prägt bis heute meine Arbeit: Präzision, Sorgfalt für Nutzerinnen und Nutzer und das Verständnis, dass kleine Entscheidungen große Wirkung haben.",
         "about.body2": "Bei <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> arbeitete ich in mehreren Kundenbranchen: mobile Apps in React Native und komplexe Formularsysteme für Versicherungskunden. Bei <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> baute ich datenreiche Interfaces für eine Investment-Portfolio-Analyseplattform und übersetzte komplexe Marktdaten in nutzbare Erkenntnisse.",
         "about.body3": "Abseits des Bildschirms plane ich wahrscheinlich eine Reise, lerne eine neue Sprache, schaue zum hundertsten Mal <em>Wuthering Heights</em> oder höre <em>Grimes</em> auf einem langen Spaziergang mit Roko, meinem <em>felligen Mitgründer</em>. Dieselbe Neugier, die eine gute Reisende ausmacht, macht auch eine gute Entwicklerin aus.",
         "about.fact1.label": "Leidenschaft",
@@ -9224,10 +9469,38 @@
         "near.views": "Les vues",
         "near.selfie": "Sur place",
         "near.selfieAlt": "Melanie et son coéquipier Curtis Jaekl dans la salle du hackathon ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "Mon premier robot · Équipe 3330E",
+        "vex.bannerMeta": "Organisée à l’ESPN Wide World of Sports Centre, Orlando",
+        "vex.teamTitle": "Équipe 3330E",
+        "vex.stamp1": "Pour le Guatemala",
+        "vex.stamp2": "Orlando, Floride",
+        "vex.teamAlt": "L’équipe du Guatemala avec une équipe de Californie, dont Juan Carlos Gonzalez et Vijay Kumar, tenant le drapeau guatémaltèque à la VEX Robotics Competition: Roundup, organisée à l’ESPN Wide World of Sports Centre",
+        "vex.line1": "Là où",
+        "vex.line2": "Tout a",
+        "vex.line3": "Commencé.",
+        "vex.caption": "En 2011, je faisais partie de l’équipe qui a construit un robot et l’a emmené à la <strong>VEX Robotics Competition: Roundup</strong>, organisée à l’ESPN Wide World of Sports Centre d’Orlando, pour représenter le <strong>Guatemala</strong> sous le numéro 3330E. Notre robot n’a jamais été terminé. Pendant trois jours, nous l’avons démonté et remonté encore et encore, en le modifiant avec chaque information recueillie sur les autres équipes.",
+        "vex.why": "<strong>Pourquoi c’est important :</strong> c’était mon premier événement tech, et les personnes rencontrées là-bas sont devenues mes premiers contacts dans la tech. Elles m’ont aidée à bâtir la carrière que j’ai aujourd’hui. Chaque carrière commence quelque part. La mienne a commencé avec un robot.",
+        "vex.sign": "Le panneau",
+        "vex.robot": "Notre robot",
+        "vex.arena": "L’arène",
+        "vex.signAlt": "Un panneau à l’ESPN Wide World of Sports Centre pour la VEX Robotics Competition: Roundup, avec des flèches vers le Guatemala et d’autres pays participants",
+        "vex.robotAlt": "Le robot 3330E vu de dessus, avec le drapeau du Guatemala et un drapeau VEX Robotics Competition",
+        "vex.arenaAlt": "L’arène de compétition dans le Jostens Center, avec des rangées de stands d’équipes et de terrains",
+        "vex.fieldAlt": "Le robot 3330E démonté entre deux matchs",
+        "vex.stamp3": "Avril 2011",
+        "vex.floor": "<strong>Dans l’arène :</strong> des équipes du monde entier partageaient le même espace. On y mangeait, on y dormait, et les matchs ne s’arrêtaient jamais.",
+        "vex.about": "<strong>L’événement :</strong> du 14 au 16 avril 2011, à l’ESPN Wide World of Sports Centre de Walt Disney World. Près de 10 000 participants de 16 pays, et près de 600 équipes qualifiées sur environ 4 000 dans le monde. <em>Roundup</em> se jouait sur un terrain de 12 pieds sur 12 : deux alliances de deux robots, 20 secondes en mode autonome, puis deux minutes de pilotage.",
+        "vex.videoLabel": "Le jeu auquel nous avons joué",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup, animation du jeu 2010-2011",
+        "vex.videoCap": "L’animation officielle de VEX Robotics pour le jeu de la VEX Robotics Competition: Roundup, 2010-2011.",
+        "vex.rings": "En plein match",
+        "vex.team": "Guatemala + Californie, avec Juan Carlos Gonzalez et Vijay Kumar",
+        "vex.ringsAlt": "Le robot 3330E en plein match dans l’arène, entre les anneaux rouges et bleus de Roundup",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "À propos de Melanie",
         "about.intro": "Hello World, je suis Melanie. <strong>Développeuse logiciel full-stack</strong>, avec un amour particulier pour l’UX/UI.",
-        "about.body1": "Je n’ai pas suivi une ligne droite. J’ai étudié la <em>pharmacie</em> à l’université avant de comprendre que la technologie que j’aimais depuis le <em>2011 VEX Robotics Round Up</em> n’était pas un hobby. C’était le métier. Je suis passée à l’<strong>informatique</strong>, et tout ce que j’ai appris avant continue d’influencer ma façon de construire aujourd’hui : précision, attention à l’utilisateur, et compréhension que les petites décisions s’accumulent.",
+        "about.body1": "Je n’ai pas suivi une ligne droite. J’ai étudié la <em>pharmacie</em> à l’université avant de comprendre que la technologie que j’aimais depuis le <em>2011 VEX Robotics Competition: Roundup</em>, organisée à l’ESPN Wide World of Sports Centre, n’était pas un hobby. C’était le métier. Je suis passée à l’<strong>informatique</strong>, et tout ce que j’ai appris avant continue d’influencer ma façon de construire aujourd’hui : précision, attention à l’utilisateur, et compréhension que les petites décisions s’accumulent.",
         "about.body2": "Chez <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a>, j’ai travaillé sur plusieurs secteurs clients : applications mobiles en React Native et systèmes de formulaires complexes pour l’assurance. Chez <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a>, j’ai créé des interfaces riches en données pour une plateforme d’analyse de portefeuilles d’investissement, en transformant des données de marché complexes en intelligence actionnable.",
         "about.body3": "Hors écran, je suis probablement en train de planifier un voyage, d’apprendre une nouvelle langue, de regarder <em>Wuthering Heights</em> pour la centième fois, ou d’écouter <em>Grimes</em> lors d’une longue promenade avec Roko, mon <em>cofondateur à fourrure</em>. La même curiosité qui fait une grande voyageuse fait aussi une grande ingénieure.",
         "about.fact1.label": "Passion",
@@ -9553,10 +9826,38 @@
         "near.views": "מאחורי הקלעים",
         "near.selfie": "באולם",
         "near.selfieAlt": "מלאני וחבר הצוות קרטיס ייקל באולם ההאקתון של ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "הרובוט הראשון שלי · קבוצה 3330E",
+        "vex.bannerMeta": "נערכה ב־ESPN Wide World of Sports Centre, אורלנדו",
+        "vex.teamTitle": "קבוצה 3330E",
+        "vex.stamp1": "מייצגים את גואטמלה",
+        "vex.stamp2": "אורלנדו, פלורידה",
+        "vex.teamAlt": "נבחרת גואטמלה עם קבוצה מקליפורניה, ובהם חואן קרלוס גונזלס וויג׳אי קומאר, מחזיקים את דגל גואטמלה ב־VEX Robotics Competition: Roundup, שנערכה ב־ESPN Wide World of Sports Centre",
+        "vex.line1": "כאן",
+        "vex.line2": "הכול",
+        "vex.line3": "התחיל.",
+        "vex.caption": "בשנת 2011 הייתי חלק מהקבוצה שבנתה רובוט והביאה אותו ל־<strong>VEX Robotics Competition: Roundup</strong>, שנערכה ב־ESPN Wide World of Sports Centre באורלנדו, כשהתחרינו בשם <strong>גואטמלה</strong> כקבוצה 3330E. הרובוט שלנו אף פעם לא היה גמור. במשך שלושה ימים פירקנו והרכבנו אותו שוב ושוב, ושינינו אותו לפי כל פיסת מידע שאספנו על הקבוצות האחרות.",
+        "vex.why": "<strong>למה זה חשוב:</strong> זה היה אירוע הטכנולוגיה הראשון שלי, והאנשים שפגשתי שם הפכו לאנשי הקשר הראשונים שלי בעולם הטכנולוגיה. הם עזרו לי לבנות את הקריירה שיש לי היום. כל קריירה מתחילה איפשהו. שלי התחילה ברובוט.",
+        "vex.sign": "השלט",
+        "vex.robot": "הרובוט שלנו",
+        "vex.arena": "הזירה",
+        "vex.signAlt": "שלט ב־ESPN Wide World of Sports Centre של VEX Robotics Competition: Roundup, עם חצים המצביעים לגואטמלה ולמדינות משתתפות נוספות",
+        "vex.robotAlt": "רובוט 3330E מלמעלה, עם דגל גואטמלה ודגל VEX Robotics Competition",
+        "vex.arenaAlt": "זירת התחרות בתוך Jostens Center, עם שורות של עמדות קבוצות ומגרשי משחק",
+        "vex.fieldAlt": "רובוט 3330E מפורק בין משחקים",
+        "vex.stamp3": "אפריל 2011",
+        "vex.floor": "<strong>באולם:</strong> קבוצות מכל העולם חלקו את אותה זירה. אכלנו שם, ישנו שם, והמשחקים לא הפסיקו לרגע.",
+        "vex.about": "<strong>על האירוע:</strong> 14 עד 16 באפריל 2011, ב־ESPN Wide World of Sports Centre שבוולט דיסני וורלד. כמעט 10,000 משתתפים מ־16 מדינות, וכמעט 600 קבוצות שהעפילו מתוך כ־4,000 ברחבי העולם. <em>Roundup</em> שוחק על מגרש בגודל 12 על 12 רגל: שתי בריתות של שני רובוטים כל אחת, 20 שניות של פעולה אוטונומית ואז שתי דקות של שליטה ידנית.",
+        "vex.videoLabel": "המשחק ששיחקנו",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup, אנימציית המשחק 2010-2011",
+        "vex.videoCap": "האנימציה הרשמית של VEX Robotics למשחק VEX Robotics Competition: Roundup, 2010-2011.",
+        "vex.rings": "באמצע משחק",
+        "vex.team": "גואטמלה + קליפורניה, עם חואן קרלוס גונזלס וויג׳אי קומאר",
+        "vex.ringsAlt": "רובוט 3330E משחק בזירה, בין הטבעות האדומות והכחולות של Roundup",
         "about.photoTag": "טורונטו, אונטריו ✦︎ 2026",
         "about.label": "אודות מלאני",
         "about.intro": "Hello World. אני מלאני. <strong>מפתחת תוכנה Full-Stack</strong>, עם אהבה עמוקה ל־UX/UI ולפרטים הקטנים שגורמים למוצר להרגיש נכון.",
-        "about.body1": "לא הגעתי לתחום במסלול הכי ישר, וזה דווקא חלק גדול מהדרך שבה אני חושבת. למדתי <em>רוקחות</em> באוניברסיטה, עד שהבנתי שהטכנולוגיה שאהבתי מאז <em>2011 VEX Robotics Round Up</em> היא לא תחביב צדדי, אלא המקום שבו אני אמורה לעבוד. עברתי ל<strong>מדעי המחשב</strong>, וכל מה שלמדתי לפני כן עדיין נכנס לקוד שלי: דיוק, אחריות כלפי המשתמשים, והבנה שהחלטות קטנות מצטברות לחוויה שלמה.",
+        "about.body1": "לא הגעתי לתחום במסלול הכי ישר, וזה דווקא חלק גדול מהדרך שבה אני חושבת. למדתי <em>רוקחות</em> באוניברסיטה, עד שהבנתי שהטכנולוגיה שאהבתי מאז <em>2011 VEX Robotics Competition: Roundup</em>, שנערכה ב־ESPN Wide World of Sports Centre, היא לא תחביב צדדי, אלא המקום שבו אני אמורה לעבוד. עברתי ל<strong>מדעי המחשב</strong>, וכל מה שלמדתי לפני כן עדיין נכנס לקוד שלי: דיוק, אחריות כלפי המשתמשים, והבנה שהחלטות קטנות מצטברות לחוויה שלמה.",
         "about.body2": "ב־<a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> עבדתי על כמה עולמות מוצר במקביל: אפליקציות מובייל ב־React Native, מערכות טפסים מורכבות ואינטגרציות עבור לקוחות ביטוח. ב־<a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> בניתי ממשקים עתירי נתונים לפלטפורמת ניתוח תיקי השקעות, והפכתי נתוני שוק מורכבים לתובנות שאפשר להבין ולפעול לפיהן.",
         "about.body3": "מחוץ למסך אני כנראה מתכננת את הטיול הבא, לומדת שפה חדשה, צופה שוב ב־<em>Wuthering Heights</em>, או הולכת עם רוקו (ה<em>שותף הפרוותי</em> שלי) ומקשיבה ל־<em>Grimes</em>. אותה סקרנות שהופכת מישהי למטיילת טובה הופכת אותה גם למהנדסת טובה.",
         "about.fact1.label": "אהבה גדולה",
@@ -9883,10 +10184,38 @@
         "near.views": "Виды",
         "near.selfie": "В зале",
         "near.selfieAlt": "Мелани и её напарник по команде Кёртис Джекл в зале хакатона ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "Мой первый робот · Команда 3330E",
+        "vex.bannerMeta": "Проходило в ESPN Wide World of Sports Centre, Орландо",
+        "vex.teamTitle": "Команда 3330E",
+        "vex.stamp1": "За Гватемалу",
+        "vex.stamp2": "Орландо, Флорида",
+        "vex.teamAlt": "Сборная Гватемалы с командой из Калифорнии, включая Хуана Карлоса Гонсалеса и Виджая Кумара, с гватемальским флагом на VEX Robotics Competition: Roundup в ESPN Wide World of Sports Centre",
+        "vex.line1": "Где",
+        "vex.line2": "Всё",
+        "vex.line3": "Началось.",
+        "vex.caption": "В 2011 году я была в команде, которая собрала робота и привезла его на <strong>VEX Robotics Competition: Roundup</strong> в ESPN Wide World of Sports Centre в Орландо. Мы выступали за <strong>Гватемалу</strong> под номером 3330E. Наш робот так и не был закончен. Три дня мы снова и снова разбирали и собирали его, меняя с каждой крупицей сведений о других командах.",
+        "vex.why": "<strong>Почему это важно:</strong> это было моё первое технологическое мероприятие, и люди, с которыми я там познакомилась, стали моими первыми контактами в технологиях. Они помогли мне построить карьеру, которая у меня есть сегодня. Каждая карьера с чего-то начинается. Моя началась с робота.",
+        "vex.sign": "Указатель",
+        "vex.robot": "Наш робот",
+        "vex.arena": "Арена",
+        "vex.signAlt": "Указатель в ESPN Wide World of Sports Centre для VEX Robotics Competition: Roundup, со стрелками на Гватемалу и другие страны-участницы",
+        "vex.robotAlt": "Робот 3330E сверху, с флагом Гватемалы и флагом VEX Robotics Competition",
+        "vex.arenaAlt": "Соревновательная арена в Jostens Center с рядами командных боксов и игровых полей",
+        "vex.fieldAlt": "Робот 3330E, разобранный между матчами",
+        "vex.stamp3": "Апрель 2011",
+        "vex.floor": "<strong>На арене:</strong> команды со всего мира делили одно пространство. Мы там ели, там спали, а матчи не прекращались ни на минуту.",
+        "vex.about": "<strong>О событии:</strong> 14–16 апреля 2011 года, ESPN Wide World of Sports Centre в Walt Disney World. Почти 10 000 участников из 16 стран и почти 600 команд, отобранных из примерно 4 000 по всему миру. В <em>Roundup</em> играли на поле 12 на 12 футов: два альянса по два робота, 20 секунд автономного режима, затем две минуты ручного управления.",
+        "vex.videoLabel": "Игра, в которую мы играли",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup, анимация игры 2010-2011",
+        "vex.videoCap": "Официальная анимация VEX Robotics об игре VEX Robotics Competition: Roundup, 2010-2011.",
+        "vex.rings": "Во время матча",
+        "vex.team": "Гватемала + Калифорния, с Хуаном Карлосом Гонсалесом и Виджаем Кумаром",
+        "vex.ringsAlt": "Робот 3330E играет матч на арене среди красных и синих колец Roundup",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "О Melanie",
         "about.intro": "Hello World, я Melanie. <strong>Full-stack разработчик ПО</strong> с любовью к UX/UI.",
-        "about.body1": "Мой путь не был прямым. Я изучала <em>фармацию</em> в университете, прежде чем поняла, что технологии, которые я полюбила ещё после <em>2011 VEX Robotics Round Up</em>, были не хобби, а работой. Я перешла в <strong>Computer Science</strong>, и всё, чему я научилась раньше, до сих пор влияет на то, как я создаю продукты: точность, забота о пользователе и понимание, что маленькие решения накапливаются.",
+        "about.body1": "Мой путь не был прямым. Я изучала <em>фармацию</em> в университете, прежде чем поняла, что технологии, которые я полюбила ещё после <em>2011 VEX Robotics Competition: Roundup</em>, в ESPN Wide World of Sports Centre,, были не хобби, а работой. Я перешла в <strong>Computer Science</strong>, и всё, чему я научилась раньше, до сих пор влияет на то, как я создаю продукты: точность, забота о пользователе и понимание, что маленькие решения накапливаются.",
         "about.body2": "В <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> я работала с несколькими клиентскими направлениями: создавала мобильные приложения на React Native и отвечала за сложные системы форм для страховых клиентов. В <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> я строила насыщенные данными интерфейсы для платформы анализа инвестиционных портфелей, превращая сложные рыночные данные в практические инсайты.",
         "about.body3": "Вне экрана я, скорее всего, планирую путешествие, учу новый язык, смотрю <em>Wuthering Heights</em> в сотый раз или слушаю <em>Grimes</em> на длинной прогулке с Roko, моим <em>пушистым сооснователем</em>. Та же любознательность, которая делает человека хорошим путешественником, делает и хорошего инженера.",
         "about.fact1.label": "Страсть",
@@ -10219,10 +10548,38 @@
         "near.views": "As vistas",
         "near.selfie": "No salão",
         "near.selfieAlt": "Melanie e o colega de equipe Curtis Jaekl no salão do hackathon ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "Meu primeiro robô · Equipe 3330E",
+        "vex.bannerMeta": "Realizada no ESPN Wide World of Sports Centre, Orlando",
+        "vex.teamTitle": "Equipe 3330E",
+        "vex.stamp1": "Representando a Guatemala",
+        "vex.stamp2": "Orlando, Flórida",
+        "vex.teamAlt": "A equipe da Guatemala com uma equipe da Califórnia, incluindo Juan Carlos Gonzalez e Vijay Kumar, segurando a bandeira guatemalteca na VEX Robotics Competition: Roundup, realizada no ESPN Wide World of Sports Centre",
+        "vex.line1": "Onde",
+        "vex.line2": "Tudo",
+        "vex.line3": "Começou.",
+        "vex.caption": "Em 2011 fiz parte da equipe que construiu um robô e o levou à <strong>VEX Robotics Competition: Roundup</strong>, realizada no ESPN Wide World of Sports Centre, em Orlando, competindo pela <strong>Guatemala</strong> como a equipe 3330E. Nosso robô nunca ficou pronto. Durante três dias nós o desmontamos e remontamos de novo e de novo, mudando-o com cada informação que reuníamos sobre as outras equipes.",
+        "vex.why": "<strong>Por que importa:</strong> foi meu primeiro evento de tecnologia, e as pessoas que conheci lá se tornaram meus primeiros contatos na tecnologia. Elas me ajudaram a construir a carreira que tenho hoje. Toda carreira começa em algum lugar. A minha começou com um robô.",
+        "vex.sign": "A placa",
+        "vex.robot": "Nosso robô",
+        "vex.arena": "A arena",
+        "vex.signAlt": "Uma placa no ESPN Wide World of Sports Centre da VEX Robotics Competition: Roundup, com setas apontando para a Guatemala e outros países participantes",
+        "vex.robotAlt": "O robô 3330E visto de cima, com a bandeira da Guatemala e uma bandeira da VEX Robotics Competition",
+        "vex.arenaAlt": "A arena de competição dentro do Jostens Center, com fileiras de boxes das equipes e campos de jogo",
+        "vex.fieldAlt": "O robô 3330E desmontado entre partidas",
+        "vex.stamp3": "Abril de 2011",
+        "vex.floor": "<strong>Na arena:</strong> equipes do mundo todo dividiam o mesmo espaço. Comíamos lá, dormíamos lá, e as partidas nunca paravam.",
+        "vex.about": "<strong>Sobre o evento:</strong> de 14 a 16 de abril de 2011, no ESPN Wide World of Sports Centre, no Walt Disney World. Quase 10.000 participantes de 16 países, e quase 600 equipes classificadas entre cerca de 4.000 no mundo todo. <em>Roundup</em> era jogado em um campo de 12 por 12 pés: duas alianças de dois robôs, um período autônomo de 20 segundos e depois dois minutos de controle manual.",
+        "vex.videoLabel": "O jogo que jogamos",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup, animação do jogo 2010-2011",
+        "vex.videoCap": "A animação oficial da VEX Robotics do jogo VEX Robotics Competition: Roundup, 2010-2011.",
+        "vex.rings": "Em partida",
+        "vex.team": "Guatemala + Califórnia, com Juan Carlos Gonzalez e Vijay Kumar",
+        "vex.ringsAlt": "O robô 3330E jogando uma partida na arena, entre os anéis vermelhos e azuis de Roundup",
         "about.photoTag": "Toronto, ON ✦︎ 2026",
         "about.label": "Sobre Melanie",
         "about.intro": "Hello World, eu sou Melanie. <strong>Desenvolvedora de Software Full-Stack</strong> com paixão por UX/UI.",
-        "about.body1": "Não segui o caminho mais reto. Estudei <em>Farmácia</em> na universidade antes de perceber que a tecnologia que amava desde o <em>2011 VEX Robotics Round Up</em> não era um hobby. Era o trabalho. Migrei para <strong>Ciência da Computação</strong>, e tudo que aprendi antes ainda informa como construo hoje. Precisão. Cuidado com o usuário. O entendimento de que pequenas decisões se acumulam.",
+        "about.body1": "Não segui o caminho mais reto. Estudei <em>Farmácia</em> na universidade antes de perceber que a tecnologia que amava desde o <em>2011 VEX Robotics Competition: Roundup</em>, realizada no ESPN Wide World of Sports Centre, não era um hobby. Era o trabalho. Migrei para <strong>Ciência da Computação</strong>, e tudo que aprendi antes ainda informa como construo hoje. Precisão. Cuidado com o usuário. O entendimento de que pequenas decisões se acumulam.",
         "about.body2": "Na <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> trabalhei com múltiplos clientes, construindo apps mobile em React Native e liderando sistemas de formulários complexos para clientes de seguros. Na <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> construí interfaces ricas em dados para uma plataforma de análise de portfólios de investimento, transformando dados complexos de mercado em inteligência acionável.",
         "about.body3": "Fora da tela provavelmente estou planejando uma viagem, estudando um novo idioma, assistindo <em>Wuthering Heights</em> pela centésima vez, ou ouvindo <em>Grimes</em> em uma longa caminhada com Roko, meu <em>cofundador peludo</em>. A mesma curiosidade que faz uma grande viajante faz uma grande engenheira.",
         "about.fact1.label": "Paixão",
@@ -10550,10 +10907,38 @@
         "near.views": "Краєвиди",
         "near.selfie": "У залі",
         "near.selfieAlt": "Мелані та її колега по команді Кертіс Джекл у залі хакатону ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "Мій перший робот · Команда 3330E",
+        "vex.bannerMeta": "Проходило в ESPN Wide World of Sports Centre, Орландо",
+        "vex.teamTitle": "Команда 3330E",
+        "vex.stamp1": "За Гватемалу",
+        "vex.stamp2": "Орландо, Флорида",
+        "vex.teamAlt": "Збірна Гватемали з командою з Каліфорнії, зокрема Хуаном Карлосом Гонсалесом і Віджаєм Кумаром, із гватемальським прапором на VEX Robotics Competition: Roundup в ESPN Wide World of Sports Centre",
+        "vex.line1": "Де",
+        "vex.line2": "Усе",
+        "vex.line3": "Почалося.",
+        "vex.caption": "У 2011 році я була в команді, яка зібрала робота й привезла його на <strong>VEX Robotics Competition: Roundup</strong> в ESPN Wide World of Sports Centre в Орландо. Ми виступали за <strong>Гватемалу</strong> під номером 3330E. Наш робот так і не був завершений. Три дні ми знову й знову розбирали та збирали його, змінюючи з кожною крихтою відомостей про інші команди.",
+        "vex.why": "<strong>Чому це важливо:</strong> це був мій перший технологічний захід, і люди, з якими я там познайомилася, стали моїми першими контактами в технологіях. Вони допомогли мені побудувати кар’єру, яку я маю сьогодні. Кожна кар’єра з чогось починається. Моя почалася з робота.",
+        "vex.sign": "Покажчик",
+        "vex.robot": "Наш робот",
+        "vex.arena": "Арена",
+        "vex.signAlt": "Покажчик в ESPN Wide World of Sports Centre для VEX Robotics Competition: Roundup, зі стрілками на Гватемалу та інші країни-учасниці",
+        "vex.robotAlt": "Робот 3330E згори, з прапором Гватемали та прапором VEX Robotics Competition",
+        "vex.arenaAlt": "Змагальна арена в Jostens Center з рядами командних боксів та ігрових полів",
+        "vex.fieldAlt": "Робот 3330E, розібраний між матчами",
+        "vex.stamp3": "Квітень 2011",
+        "vex.floor": "<strong>На арені:</strong> команди з усього світу ділили один простір. Ми там їли, там спали, а матчі не припинялися ні на хвилину.",
+        "vex.about": "<strong>Про подію:</strong> 14–16 квітня 2011 року, ESPN Wide World of Sports Centre у Walt Disney World. Майже 10 000 учасників із 16 країн і майже 600 команд, відібраних із приблизно 4 000 по всьому світу. У <em>Roundup</em> грали на полі 12 на 12 футів: два альянси по два роботи, 20 секунд автономного режиму, потім дві хвилини ручного керування.",
+        "vex.videoLabel": "Гра, в яку ми грали",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup, анімація гри 2010-2011",
+        "vex.videoCap": "Офіційна анімація VEX Robotics про гру VEX Robotics Competition: Roundup, 2010-2011.",
+        "vex.rings": "Під час матчу",
+        "vex.team": "Гватемала + Каліфорнія, з Хуаном Карлосом Гонсалесом і Віджаєм Кумаром",
+        "vex.ringsAlt": "Робот 3330E грає матч на арені серед червоних і синіх кілець Roundup",
         "about.photoTag": "Торонто, Онтаріо ✦︎ 2026",
         "about.label": "Про Мелані",
         "about.intro": "Hello World, я Мелані. <strong>Full-stack розробниця ПЗ</strong> з любов'ю до UX/UI.",
-        "about.body1": "Мій шлях не був прямим. Я вивчала <em>фармацію</em> в університеті, поки не зрозуміла, що технології, які я полюбила з часів <em>2011 VEX Robotics Round Up</em>, були не хобі, а роботою. Я перейшла до <strong>комп'ютерних наук</strong>, і все, чому навчилася раніше, досі впливає на те, як я будую продукти: точність, турбота про користувача, розуміння, що маленькі рішення накопичуються.",
+        "about.body1": "Мій шлях не був прямим. Я вивчала <em>фармацію</em> в університеті, поки не зрозуміла, що технології, які я полюбила з часів <em>2011 VEX Robotics Competition: Roundup</em>, в ESPN Wide World of Sports Centre,, були не хобі, а роботою. Я перейшла до <strong>комп'ютерних наук</strong>, і все, чому навчилася раніше, досі впливає на те, як я будую продукти: точність, турбота про користувача, розуміння, що маленькі рішення накопичуються.",
         "about.body2": "У <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> я працювала з кількома клієнтськими напрямками: створювала мобільні застосунки на React Native та відповідала за складні системи форм для страхових клієнтів. У <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> я будувала насичені даними інтерфейси для платформи аналізу інвестиційних портфелів, перетворюючи складні ринкові дані на практичні інсайти.",
         "about.body3": "Поза екраном я, мабуть, планую подорож, вивчаю нову мову, дивлюся <em>Wuthering Heights</em> у сотий раз або слухаю <em>Grimes</em> на довгій прогулянці з Roko, моїм <em>пухнастим співзасновником</em>. Та сама цікавість, що робить мандрівника чудовим, робить і чудового інженера.",
         "about.fact1.label": "Пристрасть",
@@ -10881,10 +11266,38 @@
         "near.views": "风景",
         "near.selfie": "现场",
         "near.selfieAlt": "Melanie 与队友 Curtis Jaekl 在 ETHToronto 黑客松现场",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "我的第一个机器人 · 3330E 队",
+        "vex.bannerMeta": "在奥兰多 ESPN Wide World of Sports Centre 举办",
+        "vex.teamTitle": "3330E 队",
+        "vex.stamp1": "代表危地马拉",
+        "vex.stamp2": "佛罗里达州奥兰多",
+        "vex.teamAlt": "危地马拉队与一支加州队伍（包括 Juan Carlos Gonzalez 和 Vijay Kumar）在 ESPN Wide World of Sports Centre 举办的 VEX Robotics Competition: Roundup 上举着危地马拉国旗合影",
+        "vex.line1": "一切",
+        "vex.line2": "从这里",
+        "vex.line3": "开始。",
+        "vex.caption": "2011 年，我所在的团队制作了一台机器人，并带着它参加了在奥兰多 ESPN Wide World of Sports Centre 举办的 <strong>VEX Robotics Competition: Roundup</strong>，以 3330E 队的身份代表<strong>危地马拉</strong>参赛。我们的机器人从来没有真正完工。三天里，我们一次又一次地把它拆开再装好，根据收集到的其他队伍的每一条情报不断改进。",
+        "vex.why": "<strong>为什么重要：</strong>那是我的第一次科技活动，我在那里认识的人成了我在科技领域最早的人脉，也帮助我走到了今天的职业道路。每段职业生涯都有起点。我的起点是一台机器人。",
+        "vex.sign": "路标",
+        "vex.robot": "我们的机器人",
+        "vex.arena": "赛场",
+        "vex.signAlt": "ESPN Wide World of Sports Centre 里 VEX Robotics Competition: Roundup 的路标，箭头指向危地马拉和其他参赛国家",
+        "vex.robotAlt": "从上方拍摄的 3330E 机器人，插着危地马拉国旗和 VEX Robotics Competition 旗帜",
+        "vex.arenaAlt": "Jostens Center 内的比赛场馆，一排排队伍工作区和比赛场地",
+        "vex.fieldAlt": "两场比赛之间被拆开的 3330E 机器人",
+        "vex.stamp3": "2011 年 4 月",
+        "vex.floor": "<strong>在赛场上：</strong>来自世界各地的队伍共用同一个场馆。我们在那里吃饭、在那里睡觉，比赛从未停过。",
+        "vex.about": "<strong>关于赛事：</strong>2011 年 4 月 14 日至 16 日，在华特迪士尼世界的 ESPN Wide World of Sports Centre 举行。来自 16 个国家的近 10,000 名参与者，近 600 支队伍从全球约 4,000 支队伍中晋级。<em>Roundup</em> 在 12×12 英尺的场地上进行：两个联盟各两台机器人，先是 20 秒自动阶段，然后是两分钟手动操控。",
+        "vex.videoLabel": "我们参加的比赛项目",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup，2010-2011 赛季比赛动画",
+        "vex.videoCap": "VEX Robotics 官方制作的 VEX Robotics Competition: Roundup 比赛动画，2010-2011 赛季。",
+        "vex.rings": "比赛中",
+        "vex.team": "危地马拉 + 加州，与 Juan Carlos Gonzalez 和 Vijay Kumar",
+        "vex.ringsAlt": "3330E 机器人正在赛场上比赛，周围是 Roundup 的红色和蓝色圆环",
         "about.photoTag": "多伦多，安大略 ✦︎ 2026",
         "about.label": "关于 Melanie",
         "about.intro": "Hello World，我是 Melanie。<strong>全栈软件开发者</strong>，热爱 UX/UI 设计。",
-        "about.body1": "我走的不是直线。在意识到自 <em>2011 VEX Robotics Round Up</em> 以来热爱的技术不是爱好而是事业之前，我在大学学习了<em>药学</em>。我转向了<strong>计算机科学</strong>，之前学到的一切至今仍影响着我的构建方式：精准、对用户的关怀，以及理解小决策会不断积累。",
+        "about.body1": "我走的不是直线。在意识到自 2011 年在 ESPN Wide World of Sports Centre 举办的 <em>VEX Robotics Competition: Roundup</em> 以来热爱的技术不是爱好而是事业之前，我在大学学习了<em>药学</em>。我转向了<strong>计算机科学</strong>，之前学到的一切至今仍影响着我的构建方式：精准、对用户的关怀，以及理解小决策会不断积累。",
         "about.body2": "在 <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a>，我跨多个客户领域工作：用 React Native 构建移动应用，并负责保险客户的复杂表单系统。在 <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a>，我为投资组合分析平台构建数据丰富的界面，将复杂的市场数据转化为可操作的情报。",
         "about.body3": "屏幕之外，我可能在计划下一次旅行、学习新语言、第一百次看 <em>Wuthering Heights</em>，或者带着 Roko（我的<em>毛茸茸联合创始人</em>）长走时听 <em>Grimes</em>。让一个人成为出色旅行者的好奇心，同样让人成为出色的工程师。",
         "about.fact1.label": "热情",
@@ -11212,10 +11625,38 @@
         "near.views": "المشاهد",
         "near.selfie": "في القاعة",
         "near.selfieAlt": "ميلاني وزميلها في الفريق كيرتس جيكل في قاعة هاكاثون ETHToronto",
+        "vex.meta": "VEX Robotics Competition: Roundup · ESPN Wide World of Sports Centre · 2011",
+        "vex.eyebrow": "أول روبوت لي · فريق 3330E",
+        "vex.bannerMeta": "أقيمت في ESPN Wide World of Sports Centre، أورلاندو",
+        "vex.teamTitle": "فريق 3330E",
+        "vex.stamp1": "نمثّل غواتيمالا",
+        "vex.stamp2": "أورلاندو، فلوريدا",
+        "vex.teamAlt": "فريق غواتيمالا مع فريق من كاليفورنيا، من بينهم خوان كارلوس غونزاليس وفيجاي كومار، يحملون علم غواتيمالا في VEX Robotics Competition: Roundup التي أقيمت في ESPN Wide World of Sports Centre",
+        "vex.line1": "هنا",
+        "vex.line2": "بدأ",
+        "vex.line3": "كل شيء.",
+        "vex.caption": "في عام 2011 كنت جزءًا من الفريق الذي صنع روبوتًا وأخذه إلى <strong>VEX Robotics Competition: Roundup</strong> التي أقيمت في ESPN Wide World of Sports Centre في أورلاندو، متنافسين باسم <strong>غواتيمالا</strong> كفريق 3330E. لم يكتمل روبوتنا أبدًا. على مدى ثلاثة أيام فككناه وأعدنا تركيبه مرة بعد مرة، وغيّرناه مع كل معلومة جمعناها عن الفرق الأخرى.",
+        "vex.why": "<strong>لماذا يهم ذلك:</strong> كانت أول فعالية تقنية أحضرها، والأشخاص الذين التقيتهم هناك أصبحوا أول معارفي في عالم التقنية. ساعدوني في بناء المسيرة المهنية التي أعيشها اليوم. كل مسيرة تبدأ من مكان ما. مسيرتي بدأت بروبوت.",
+        "vex.sign": "اللافتة",
+        "vex.robot": "روبوتنا",
+        "vex.arena": "الساحة",
+        "vex.signAlt": "لافتة في ESPN Wide World of Sports Centre لـ VEX Robotics Competition: Roundup مع أسهم تشير إلى غواتيمالا ودول مشاركة أخرى",
+        "vex.robotAlt": "الروبوت 3330E من الأعلى، يحمل علم غواتيمالا وعلم VEX Robotics Competition",
+        "vex.arenaAlt": "ساحة المنافسة داخل Jostens Center مع صفوف من أجنحة الفرق وملاعب المباريات",
+        "vex.fieldAlt": "الروبوت 3330E مفككًا بين المباريات",
+        "vex.stamp3": "أبريل 2011",
+        "vex.floor": "<strong>في الساحة:</strong> فرق من كل أنحاء العالم تقاسمت المكان نفسه. أكلنا هناك ونمنا هناك، والمباريات لم تتوقف أبدًا.",
+        "vex.about": "<strong>عن الحدث:</strong> من 14 إلى 16 أبريل 2011، في ESPN Wide World of Sports Centre في والت ديزني وورلد. قرابة 10,000 مشارك من 16 دولة، ونحو 600 فريق تأهلوا من بين قرابة 4,000 فريق حول العالم. كانت <em>Roundup</em> تُلعب على ملعب مساحته 12 × 12 قدمًا: تحالفان من روبوتين لكل منهما، و20 ثانية من التشغيل الذاتي، ثم دقيقتان من التحكم اليدوي.",
+        "vex.videoLabel": "اللعبة التي لعبناها",
+        "vex.videoTitle": "VEX Robotics Competition: Roundup، رسوم متحركة للعبة موسم 2010-2011",
+        "vex.videoCap": "الرسوم المتحركة الرسمية من VEX Robotics للعبة VEX Robotics Competition: Roundup لموسم 2010-2011.",
+        "vex.rings": "خلال مباراة",
+        "vex.team": "غواتيمالا + كاليفورنيا، مع خوان كارلوس غونزاليس وفيجاي كومار",
+        "vex.ringsAlt": "الروبوت 3330E يلعب مباراة في الساحة بين حلقات Roundup الحمراء والزرقاء",
         "about.photoTag": "تورنتو، أونتاريو ✦︎ 2026",
         "about.label": "نبذة عن ميلاني",
         "about.intro": "Hello World. أنا ميلاني. <strong>مطوّرة برمجيات Full-Stack</strong> مع شغف بـUX/UI.",
-        "about.body1": "لم أسلك الطريق المستقيم. درستُ <em>الصيدلة</em> في الجامعة قبل أن أدرك أن التقنية التي أحببتها منذ <em>VEX Robotics Round Up 2011</em> لم تكن هواية، بل كانت العمل. تحوّلتُ إلى <strong>علوم الحاسوب</strong>، وكل ما تعلّمته قبل ذلك لا يزال يُشكّل طريقة بنائي اليوم. الدقة. الاهتمام بالمستخدم. وفهم أن القرارات الصغيرة تتراكم.",
+        "about.body1": "لم أسلك الطريق المستقيم. درستُ <em>الصيدلة</em> في الجامعة قبل أن أدرك أن التقنية التي أحببتها منذ <em>2011 VEX Robotics Competition: Roundup</em>, التي أقيمت في ESPN Wide World of Sports Centre, لم تكن هواية، بل كانت العمل. تحوّلتُ إلى <strong>علوم الحاسوب</strong>، وكل ما تعلّمته قبل ذلك لا يزال يُشكّل طريقة بنائي اليوم. الدقة. الاهتمام بالمستخدم. وفهم أن القرارات الصغيرة تتراكم.",
         "about.body2": "في <a class=\"about-link\" href=\"https://www.falkon.net/\" target=\"_blank\" rel=\"noopener\"><strong>Falkon Technologies</strong></a> عملتُ عبر قطاعات عملاء متعددة: بناء تطبيقات محمولة بـReact Native وإدارة أنظمة نماذج معقدة لعملاء التأمين. في <a class=\"about-link\" href=\"https://www.wealthscope.ca/\" target=\"_blank\" rel=\"noopener\"><strong>Wealthscope</strong></a> بنيتُ واجهات غنية بالبيانات لمنصة تحليل محافظ الاستثمار، وحوّلتُ بيانات السوق المعقدة إلى معلومات قابلة للتنفيذ.",
         "about.body3": "خارج الشاشة، أنا على الأرجح أخطط لرحلة، أتعلم لغة جديدة، أشاهد <em>Wuthering Heights</em> للمرة المئة، أو أستمع إلى <em>Grimes</em> في نزهة طويلة مع Roko، <em>الشريك المؤسس الفروي</em>. نفس الفضول الذي يصنع مسافرًا رائعًا يصنع مهندسًا رائعًا.",
         "about.fact1.label": "الشغف",
