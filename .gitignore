@@ -11,3 +11,6 @@
 
 # OS
 Thumbs.db
+node_modules/
+.env*
+.vercel
