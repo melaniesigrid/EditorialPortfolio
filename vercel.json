@@ -12,5 +12,11 @@
       "destination": "https://melaniesigrid.com/:path*",
       "permanent": true
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron",
+      "schedule": "0 13 * * *"
+    }
   ]
 }

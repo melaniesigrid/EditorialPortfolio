@@ -7974,13 +7974,14 @@
     </div>
     <!-- BOOKING: the main way in. The calendar is built in this page (BOOKING
          script at the end of <body>); open times and bookings go through
-         api/slots.js and api/book.js to Cal.com. The form below stays as the
+         api/slots.js and api/book.js, which hold the time as a request that
+         Melanie accepts by email (api/respond.js). The form below stays as the
          alternative. -->
     <div class="book-wrap" id="book" data-section="book">
       <div class="book-intro">
         <div class="form-intro-label" data-i18n="book.label">Book a call</div>
         <h3 class="form-intro-heading" data-i18n-html="book.heading">Pick a time,<br><strong>let’s talk.</strong></h3>
-        <p class="form-intro-body" data-i18n="book.body">Hiring, a freelance project, or a question about something I’ve built: choose a time that suits you and it goes straight onto my calendar. The invite and the video link arrive by email.</p>
+        <p class="form-intro-body" data-i18n="book.body">Hiring, a freelance project, or a question about something I’ve built: pick a time that suits you and send it as a request. I confirm by email, then the calendar invite and the video link arrive.</p>
         <ul class="book-facts">
           <li data-i18n="book.fact1">30 minutes</li>
           <li data-i18n="book.fact2">Video call, link sent by email</li>
@@ -7989,7 +7990,7 @@
         <p class="book-alt" data-i18n-html="book.alt">Prefer to write? <a class="form-link" href="#contactForm">Send me a message instead</a>.</p>
       </div>
       <div class="bk" data-bk-inline>
-        <noscript><p class="bk-noscript"><a href="https://cal.com/northboundsoftwarestudio/30min" target="_blank" rel="noopener">Open the booking calendar ↗</a></p></noscript>
+        <noscript><p class="bk-noscript"><a href="#contactForm">Send me a message to find a time ↓</a></p></noscript>
       </div>
     </div>
     <!-- LINKS GRID -->
@@ -8432,7 +8433,7 @@
       /* booking calendar (book.*) */
       "book.label": "Book a call",
       "book.heading": "Pick a time,<br><strong>let’s talk.</strong>",
-      "book.body": "Hiring, a freelance project, or a question about something I’ve built: choose a time that suits you and it goes straight onto my calendar. The invite and the video link arrive by email.",
+      "book.body": "Hiring, a freelance project, or a question about something I’ve built: pick a time that suits you and send it as a request. I confirm by email, then the calendar invite and the video link arrive.",
       "book.fact1": "30 minutes",
       "book.fact2": "Video call, link sent by email",
       "book.fact3": "Times shown in your time zone",
@@ -8446,7 +8447,7 @@
       "book.pickDay": "Pick a marked day to see open times.",
       "book.noneDay": "No open times on this day.",
       "book.noneMonth": "Nothing open this month. Try the next one.",
-      "book.noneAll": "No open times in the next two months.",
+      "book.noneAll": "No open times in the next ten days.",
       "book.noneAllMsg": "Send me a message and I’ll find a time ↓",
       "book.tz": "Time zone",
       "book.video": "Video call",
@@ -8456,17 +8457,17 @@
       "book.email": "Email",
       "book.notes": "What would you like to talk about? (optional)",
       "book.notesPh": "A sentence or two is plenty.",
-      "book.confirm": "Confirm booking",
-      "book.booking": "Booking…",
-      "book.doneH": "You’re booked.",
-      "book.doneP": "The calendar invite and the video link are on their way to {email}.",
+      "book.confirm": "Request this time",
+      "book.booking": "Sending…",
+      "book.doneH": "Request sent.",
+      "book.doneP": "I’ll confirm by email, usually within a day. The calendar invite and the video link will go to {email}.",
       "book.again": "Book another time",
       "book.errTaken": "Someone just took that time. Please pick another one.",
       "book.errTime": "That time has already passed. Please pick another one.",
       "book.errDown": "The calendar isn’t answering right now.",
       "book.errFields": "Please add your name and a valid email.",
       "book.errRate": "Too many bookings from this connection. Please email me instead.",
-      "book.fallback": "Open the calendar on Cal.com ↗",
+      "book.fallback": "Send me a message instead ↓",
       "book.close": "Close",
       "book.dialogTitle": "Book a 30-minute call",
       "meta.title": "Melanie Baratto | Full-Stack Software Developer, Toronto",
@@ -8805,7 +8806,7 @@
         /* booking calendar (book.*) */
         "book.label": "Agenda una llamada",
         "book.heading": "Elige un horario,<br><strong>hablemos.</strong>",
-        "book.body": "Una vacante, un proyecto freelance o una pregunta sobre algo que he construido: elige el horario que mejor te venga y queda directamente en mi calendario. La invitación y el enlace de la videollamada te llegan por correo.",
+        "book.body": "Una vacante, un proyecto freelance o una pregunta sobre algo que he construido: elige el horario que mejor te venga y envíalo como solicitud. Lo confirmo por correo y luego te llegan la invitación y el enlace de la videollamada.",
         "book.fact1": "30 minutos",
         "book.fact2": "Videollamada, enlace por correo",
         "book.fact3": "Horarios en tu zona horaria",
@@ -8819,7 +8820,7 @@
         "book.pickDay": "Elige un día marcado para ver los horarios libres.",
         "book.noneDay": "No hay horarios libres este día.",
         "book.noneMonth": "No queda nada libre este mes. Prueba con el siguiente.",
-        "book.noneAll": "No hay horarios libres en los próximos dos meses.",
+        "book.noneAll": "No hay horarios libres en los próximos diez días.",
         "book.noneAllMsg": "Envíame un mensaje y buscaré un horario ↓",
         "book.tz": "Zona horaria",
         "book.video": "Videollamada",
@@ -8829,17 +8830,17 @@
         "book.email": "Correo electrónico",
         "book.notes": "¿De qué te gustaría hablar? (opcional)",
         "book.notesPh": "Con una o dos frases basta.",
-        "book.confirm": "Confirmar reserva",
-        "book.booking": "Reservando…",
-        "book.doneH": "¡Listo, reservado!",
-        "book.doneP": "La invitación y el enlace de la videollamada van de camino a {email}.",
+        "book.confirm": "Solicitar este horario",
+        "book.booking": "Enviando…",
+        "book.doneH": "Solicitud enviada.",
+        "book.doneP": "Te confirmo por correo, normalmente en menos de un día. La invitación y el enlace de la videollamada llegarán a {email}.",
         "book.again": "Reservar otro horario",
         "book.errTaken": "Alguien acaba de reservar ese horario. Elige otro, por favor.",
         "book.errTime": "Ese horario ya pasó. Elige otro, por favor.",
         "book.errDown": "El calendario no responde en este momento.",
         "book.errFields": "Escribe tu nombre y un correo válido.",
         "book.errRate": "Demasiadas reservas desde esta conexión. Mejor escríbeme por correo.",
-        "book.fallback": "Abrir el calendario en Cal.com ↗",
+        "book.fallback": "Envíame un mensaje ↓",
         "book.close": "Cerrar",
         "book.dialogTitle": "Agenda una llamada de 30 minutos",
         "meta.title": "Melanie Baratto | Desarrolladora de Software Full-Stack, Toronto",
@@ -9173,7 +9174,7 @@
         /* booking calendar (book.*) */
         "book.label": "Gespräch buchen",
         "book.heading": "Termin wählen.<br><strong>Wir sprechen.</strong>",
-        "book.body": "Eine Stelle, ein Freelance-Projekt oder eine Frage zu etwas, das ich gebaut habe: Wählen Sie einen passenden Termin, er landet direkt in meinem Kalender. Einladung und Videolink kommen per E-Mail.",
+        "book.body": "Eine Stelle, ein Freelance-Projekt oder eine Frage zu etwas, das ich gebaut habe: Wählen Sie eine passende Zeit und senden Sie sie als Anfrage. Ich bestätige per E-Mail, danach kommen die Kalendereinladung und der Videolink.",
         "book.fact1": "30 Minuten",
         "book.fact2": "Videocall, Link per E-Mail",
         "book.fact3": "Zeiten in Ihrer Zeitzone",
@@ -9187,7 +9188,7 @@
         "book.pickDay": "Wählen Sie einen markierten Tag, um freie Zeiten zu sehen.",
         "book.noneDay": "An diesem Tag ist nichts frei.",
         "book.noneMonth": "In diesem Monat ist nichts mehr frei. Versuchen Sie den nächsten.",
-        "book.noneAll": "In den nächsten zwei Monaten sind keine Zeiten frei.",
+        "book.noneAll": "In den nächsten zehn Tagen sind keine Zeiten frei.",
         "book.noneAllMsg": "Schreiben Sie mir, und ich finde einen Termin ↓",
         "book.tz": "Zeitzone",
         "book.video": "Videocall",
@@ -9197,17 +9198,17 @@
         "book.email": "E-Mail",
         "book.notes": "Worüber möchten Sie sprechen? (optional)",
         "book.notesPh": "Ein, zwei Sätze genügen.",
-        "book.confirm": "Termin bestätigen",
-        "book.booking": "Wird gebucht…",
-        "book.doneH": "Der Termin steht.",
-        "book.doneP": "Die Kalendereinladung mit dem Videolink ist unterwegs an {email}.",
+        "book.confirm": "Diese Zeit anfragen",
+        "book.booking": "Wird gesendet…",
+        "book.doneH": "Anfrage gesendet.",
+        "book.doneP": "Ich bestätige per E-Mail, meist innerhalb eines Tages. Die Kalendereinladung und der Videolink gehen an {email}.",
         "book.again": "Anderen Termin buchen",
         "book.errTaken": "Dieser Termin wurde gerade vergeben. Bitte wählen Sie einen anderen.",
         "book.errTime": "Dieser Termin ist schon vorbei. Bitte wählen Sie einen anderen.",
         "book.errDown": "Der Kalender antwortet gerade nicht.",
         "book.errFields": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse an.",
         "book.errRate": "Zu viele Buchungen von dieser Verbindung. Schreiben Sie mir bitte stattdessen eine E-Mail.",
-        "book.fallback": "Kalender auf Cal.com öffnen ↗",
+        "book.fallback": "Schreiben Sie mir stattdessen ↓",
         "book.close": "Schließen",
         "book.dialogTitle": "30-minütiges Gespräch buchen",
         "meta.title": "Melanie Baratto | Full-Stack-Softwareentwicklerin, Toronto",
@@ -9541,7 +9542,7 @@
         /* booking calendar (book.*) */
         "book.label": "Prendre rendez-vous",
         "book.heading": "Choisissez un créneau,<br><strong>parlons-en.</strong>",
-        "book.body": "Un poste, une mission en freelance ou une question sur un de mes projets : choisissez le créneau qui vous convient, il s’inscrit directement dans mon agenda. L’invitation et le lien vidéo arrivent par courriel.",
+        "book.body": "Un recrutement, un projet freelance ou une question sur quelque chose que j’ai construit : choisissez un créneau qui vous convient et envoyez-le comme demande. Je confirme par e-mail, puis l’invitation et le lien de visio arrivent.",
         "book.fact1": "30 minutes",
         "book.fact2": "Appel vidéo, lien envoyé par courriel",
         "book.fact3": "Horaires dans votre fuseau horaire",
@@ -9555,7 +9556,7 @@
         "book.pickDay": "Choisissez un jour marqué pour voir les créneaux libres.",
         "book.noneDay": "Aucun créneau libre ce jour-là.",
         "book.noneMonth": "Plus rien de libre ce mois-ci. Essayez le suivant.",
-        "book.noneAll": "Aucun créneau libre dans les deux prochains mois.",
+        "book.noneAll": "Aucun créneau libre dans les dix prochains jours.",
         "book.noneAllMsg": "Écrivez-moi et je trouverai un moment ↓",
         "book.tz": "Fuseau horaire",
         "book.video": "Appel vidéo",
@@ -9565,17 +9566,17 @@
         "book.email": "Courriel",
         "book.notes": "De quoi aimeriez-vous parler ? (facultatif)",
         "book.notesPh": "Une phrase ou deux suffisent.",
-        "book.confirm": "Confirmer le rendez-vous",
-        "book.booking": "Réservation…",
-        "book.doneH": "C’est réservé.",
-        "book.doneP": "L’invitation et le lien vidéo sont en route vers {email}.",
+        "book.confirm": "Demander ce créneau",
+        "book.booking": "Envoi…",
+        "book.doneH": "Demande envoyée.",
+        "book.doneP": "Je confirme par e-mail, en général sous un jour. L’invitation et le lien de visio seront envoyés à {email}.",
         "book.again": "Réserver un autre créneau",
         "book.errTaken": "Quelqu’un vient de prendre ce créneau. Choisissez-en un autre, s’il vous plaît.",
         "book.errTime": "Ce créneau est déjà passé. Choisissez-en un autre, s’il vous plaît.",
         "book.errDown": "Le calendrier ne répond pas pour le moment.",
         "book.errFields": "Indiquez votre nom et une adresse courriel valide.",
         "book.errRate": "Trop de réservations depuis cette connexion. Écrivez-moi plutôt par courriel.",
-        "book.fallback": "Ouvrir le calendrier sur Cal.com ↗",
+        "book.fallback": "Écrivez-moi plutôt ↓",
         "book.close": "Fermer",
         "book.dialogTitle": "Réserver un appel de 30 minutes",
         "meta.title": "Melanie Baratto | Développeuse logiciel full-stack, Toronto",
@@ -9909,7 +9910,7 @@
         /* booking calendar (book.*) */
         "book.label": "קביעת שיחה",
         "book.heading": "בוחרים שעה,<br><strong>ומדברים.</strong>",
-        "book.body": "משרה, פרויקט פרילנס או שאלה על משהו שבניתי: בוחרים מועד שנוח לכם, והוא נכנס ישר ליומן שלי. ההזמנה וקישור הווידאו מגיעים במייל.",
+        "book.body": "גיוס, פרויקט פרילנס או שאלה על משהו שבניתי: בחרו זמן שנוח לכם ושלחו אותו כבקשה. אאשר במייל, ואז יגיעו הזמנת היומן וקישור הווידאו.",
         "book.fact1": "30 דקות",
         "book.fact2": "שיחת וידאו, הקישור נשלח במייל",
         "book.fact3": "השעות מוצגות לפי אזור הזמן שלכם",
@@ -9923,7 +9924,7 @@
         "book.pickDay": "בחרו יום מסומן כדי לראות שעות פנויות.",
         "book.noneDay": "אין שעות פנויות ביום הזה.",
         "book.noneMonth": "אין זמנים פנויים החודש. נסו את החודש הבא.",
-        "book.noneAll": "אין זמנים פנויים בחודשיים הקרובים.",
+        "book.noneAll": "אין זמנים פנויים בעשרת הימים הקרובים.",
         "book.noneAllMsg": "שלחו לי הודעה ואמצא זמן ↓",
         "book.tz": "אזור זמן",
         "book.video": "שיחת וידאו",
@@ -9933,17 +9934,17 @@
         "book.email": "אימייל",
         "book.notes": "על מה תרצו לדבר? (לא חובה)",
         "book.notesPh": "משפט או שניים מספיקים.",
-        "book.confirm": "אישור הפגישה",
-        "book.booking": "קובעים…",
-        "book.doneH": "הפגישה נקבעה.",
-        "book.doneP": "ההזמנה ליומן וקישור הווידאו בדרך אל {email}.",
+        "book.confirm": "בקשת הזמן הזה",
+        "book.booking": "שולח…",
+        "book.doneH": "הבקשה נשלחה.",
+        "book.doneP": "אאשר במייל, בדרך כלל תוך יום. הזמנת היומן וקישור הווידאו יישלחו אל {email}.",
         "book.again": "קביעת מועד נוסף",
         "book.errTaken": "מישהו תפס את השעה הזו ממש עכשיו. בחרו שעה אחרת, בבקשה.",
         "book.errTime": "השעה הזו כבר עברה. בחרו שעה אחרת, בבקשה.",
         "book.errDown": "היומן לא מגיב כרגע.",
         "book.errFields": "נא למלא שם וכתובת אימייל תקינה.",
         "book.errRate": "יותר מדי הזמנות מהחיבור הזה. אפשר לכתוב לי במייל במקום.",
-        "book.fallback": "פתיחת היומן ב־Cal.com ↗",
+        "book.fallback": "שלחו לי הודעה במקום ↓",
         "book.close": "סגירה",
         "book.dialogTitle": "קביעת שיחה של 30 דקות",
         "meta.title": "מלאני באראטו | מפתחת תוכנה Full-Stack, טורונטו",
@@ -10278,7 +10279,7 @@
         /* booking calendar (book.*) */
         "book.label": "Записаться на звонок",
         "book.heading": "Выберите время,<br><strong>поговорим.</strong>",
-        "book.body": "Вакансия, фриланс-проект или вопрос о чём-то, что я сделала: выберите удобное время, и встреча сразу появится в моём календаре. Приглашение и ссылка на видеозвонок придут на почту.",
+        "book.body": "Вакансия, фриланс-проект или вопрос о том, что я сделала: выберите удобное время и отправьте запрос. Я подтвержу по почте, после этого придут приглашение в календарь и ссылка на видеозвонок.",
         "book.fact1": "30 минут",
         "book.fact2": "Видеозвонок, ссылка придёт на почту",
         "book.fact3": "Время в вашем часовом поясе",
@@ -10292,7 +10293,7 @@
         "book.pickDay": "Выберите отмеченный день, чтобы увидеть свободное время.",
         "book.noneDay": "В этот день свободного времени нет.",
         "book.noneMonth": "В этом месяце всё занято. Посмотрите следующий.",
-        "book.noneAll": "В ближайшие два месяца свободного времени нет.",
+        "book.noneAll": "В ближайшие десять дней свободного времени нет.",
         "book.noneAllMsg": "Напишите мне, и я найду время ↓",
         "book.tz": "Часовой пояс",
         "book.video": "Видеозвонок",
@@ -10302,17 +10303,17 @@
         "book.email": "Эл. почта",
         "book.notes": "О чём хотите поговорить? (необязательно)",
         "book.notesPh": "Пары предложений достаточно.",
-        "book.confirm": "Подтвердить запись",
-        "book.booking": "Записываем…",
-        "book.doneH": "Готово, вы записаны.",
-        "book.doneP": "Приглашение в календарь и ссылка на видеозвонок отправлены на {email}.",
+        "book.confirm": "Запросить это время",
+        "book.booking": "Отправка…",
+        "book.doneH": "Запрос отправлен.",
+        "book.doneP": "Я подтвержу по почте, обычно в течение дня. Приглашение в календарь и ссылка на видеозвонок придут на {email}.",
         "book.again": "Выбрать другое время",
         "book.errTaken": "Это время только что заняли. Пожалуйста, выберите другое.",
         "book.errTime": "Это время уже прошло. Пожалуйста, выберите другое.",
         "book.errDown": "Календарь сейчас не отвечает.",
         "book.errFields": "Укажите имя и действующий адрес почты.",
         "book.errRate": "Слишком много записей с этого подключения. Лучше напишите мне на почту.",
-        "book.fallback": "Открыть календарь на Cal.com ↗",
+        "book.fallback": "Напишите мне вместо этого ↓",
         "book.close": "Закрыть",
         "book.dialogTitle": "Звонок на 30 минут",
         "meta.title": "Melanie Baratto | Full-Stack разработчик ПО, Торонто",
@@ -10649,7 +10650,7 @@
         /* booking calendar (book.*) */
         "book.label": "Agende uma conversa",
         "book.heading": "Escolha um horário,<br><strong>vamos conversar.</strong>",
-        "book.body": "Uma vaga, um projeto freelance ou uma dúvida sobre algo que construí: escolha o horário que funciona para você e ele entra direto na minha agenda. O convite e o link da videochamada chegam por e-mail.",
+        "book.body": "Uma vaga, um projeto freelance ou uma pergunta sobre algo que construí: escolha um horário que funcione para você e envie como solicitação. Eu confirmo por e-mail e depois chegam o convite e o link da videochamada.",
         "book.fact1": "30 minutos",
         "book.fact2": "Videochamada, link por e-mail",
         "book.fact3": "Horários no seu fuso horário",
@@ -10663,7 +10664,7 @@
         "book.pickDay": "Escolha um dia marcado para ver os horários livres.",
         "book.noneDay": "Nenhum horário livre neste dia.",
         "book.noneMonth": "Nada livre neste mês. Tente o próximo.",
-        "book.noneAll": "Não há horários livres nos próximos dois meses.",
+        "book.noneAll": "Não há horários livres nos próximos dez dias.",
         "book.noneAllMsg": "Me envie uma mensagem e eu encontro um horário ↓",
         "book.tz": "Fuso horário",
         "book.video": "Videochamada",
@@ -10673,17 +10674,17 @@
         "book.email": "E-mail",
         "book.notes": "Sobre o que você quer conversar? (opcional)",
         "book.notesPh": "Uma ou duas frases bastam.",
-        "book.confirm": "Confirmar agendamento",
-        "book.booking": "Agendando…",
-        "book.doneH": "Agendado!",
-        "book.doneP": "O convite e o link da videochamada estão a caminho de {email}.",
+        "book.confirm": "Solicitar este horário",
+        "book.booking": "Enviando…",
+        "book.doneH": "Solicitação enviada.",
+        "book.doneP": "Eu confirmo por e-mail, geralmente em até um dia. O convite e o link da videochamada vão para {email}.",
         "book.again": "Agendar outro horário",
         "book.errTaken": "Alguém acabou de reservar esse horário. Escolha outro, por favor.",
         "book.errTime": "Esse horário já passou. Escolha outro, por favor.",
         "book.errDown": "A agenda não está respondendo agora.",
         "book.errFields": "Informe seu nome e um e-mail válido.",
         "book.errRate": "Muitos agendamentos a partir desta conexão. Melhor me escrever por e-mail.",
-        "book.fallback": "Abrir a agenda no Cal.com ↗",
+        "book.fallback": "Me envie uma mensagem ↓",
         "book.close": "Fechar",
         "book.dialogTitle": "Agende uma conversa de 30 minutos",
         "meta.title": "Melanie Baratto | Desenvolvedora de Software Full-Stack, Toronto",
@@ -11019,7 +11020,7 @@
         /* booking calendar (book.*) */
         "book.label": "Записатися на дзвінок",
         "book.heading": "Оберіть час,<br><strong>поговорімо.</strong>",
-        "book.body": "Вакансія, фриланс-проєкт чи запитання про щось, що я створила: оберіть зручний час, і зустріч одразу з’явиться в моєму календарі. Запрошення та посилання на відеодзвінок прийдуть на пошту.",
+        "book.body": "Вакансія, фриланс-проєкт чи питання про те, що я створила: оберіть зручний час і надішліть запит. Я підтверджу поштою, після цього прийдуть запрошення в календар і посилання на відеодзвінок.",
         "book.fact1": "30 хвилин",
         "book.fact2": "Відеодзвінок, посилання прийде на пошту",
         "book.fact3": "Час у вашому часовому поясі",
@@ -11033,7 +11034,7 @@
         "book.pickDay": "Оберіть позначений день, щоб побачити вільний час.",
         "book.noneDay": "Цього дня вільного часу немає.",
         "book.noneMonth": "Цього місяця все зайнято. Перегляньте наступний.",
-        "book.noneAll": "Найближчі два місяці вільного часу немає.",
+        "book.noneAll": "Найближчі десять днів вільного часу немає.",
         "book.noneAllMsg": "Напишіть мені, і я знайду час ↓",
         "book.tz": "Часовий пояс",
         "book.video": "Відеодзвінок",
@@ -11043,17 +11044,17 @@
         "book.email": "Ел. пошта",
         "book.notes": "Про що хочете поговорити? (необов’язково)",
         "book.notesPh": "Одного-двох речень достатньо.",
-        "book.confirm": "Підтвердити запис",
-        "book.booking": "Записуємо…",
-        "book.doneH": "Готово, ви записані.",
-        "book.doneP": "Запрошення в календар і посилання на відеодзвінок надіслано на {email}.",
+        "book.confirm": "Запросити цей час",
+        "book.booking": "Надсилання…",
+        "book.doneH": "Запит надіслано.",
+        "book.doneP": "Я підтверджу поштою, зазвичай протягом дня. Запрошення в календар і посилання на відеодзвінок прийдуть на {email}.",
         "book.again": "Обрати інший час",
         "book.errTaken": "Цей час щойно зайняли. Будь ласка, оберіть інший.",
         "book.errTime": "Цей час уже минув. Будь ласка, оберіть інший.",
         "book.errDown": "Календар зараз не відповідає.",
         "book.errFields": "Вкажіть ім’я та дійсну адресу пошти.",
         "book.errRate": "Забагато записів із цього підключення. Краще напишіть мені на пошту.",
-        "book.fallback": "Відкрити календар на Cal.com ↗",
+        "book.fallback": "Напишіть мені натомість ↓",
         "book.close": "Закрити",
         "book.dialogTitle": "Дзвінок на 30 хвилин",
         "meta.title": "Melanie Baratto | Full-Stack розробниця ПЗ, Торонто",
@@ -11389,7 +11390,7 @@
         /* booking calendar (book.*) */
         "book.label": "预约通话",
         "book.heading": "选个时间，<br><strong>聊一聊。</strong>",
-        "book.body": "招聘、自由职业项目，或者想聊聊我做过的某个作品：选一个您方便的时间，它会直接进入我的日历。邀请和视频链接会通过邮件发给您。",
+        "book.body": "招聘、自由职业项目，或对我做过的作品有疑问：选一个方便的时间并发送预约请求。我会通过邮件确认，之后你会收到日历邀请和视频链接。",
         "book.fact1": "30 分钟",
         "book.fact2": "视频通话，链接通过邮件发送",
         "book.fact3": "时间按您的时区显示",
@@ -11403,7 +11404,7 @@
         "book.pickDay": "选择带标记的日期，查看空闲时间。",
         "book.noneDay": "这一天没有空闲时间。",
         "book.noneMonth": "本月已无空闲时间，看看下个月吧。",
-        "book.noneAll": "未来两个月内没有空闲时间。",
+        "book.noneAll": "未来十天内没有空闲时间。",
         "book.noneAllMsg": "给我留言，我来安排时间 ↓",
         "book.tz": "时区",
         "book.video": "视频通话",
@@ -11413,17 +11414,17 @@
         "book.email": "邮箱",
         "book.notes": "您想聊些什么？（选填）",
         "book.notesPh": "一两句话就够了。",
-        "book.confirm": "确认预约",
-        "book.booking": "正在预约…",
-        "book.doneH": "预约成功。",
-        "book.doneP": "日历邀请和视频链接已发送至 {email}。",
+        "book.confirm": "请求这个时间",
+        "book.booking": "发送中…",
+        "book.doneH": "请求已发送。",
+        "book.doneP": "我会通过邮件确认，通常在一天之内。日历邀请和视频链接会发送到 {email}。",
         "book.again": "预约其他时间",
         "book.errTaken": "这个时间刚刚被别人约走了，请另选一个。",
         "book.errTime": "这个时间已经过去了，请另选一个。",
         "book.errDown": "日历暂时没有响应。",
         "book.errFields": "请填写姓名和有效的邮箱地址。",
         "book.errRate": "此连接的预约次数过多，请改用邮件联系我。",
-        "book.fallback": "在 Cal.com 上打开日历 ↗",
+        "book.fallback": "改为给我留言 ↓",
         "book.close": "关闭",
         "book.dialogTitle": "预约 30 分钟通话",
         "meta.title": "Melanie Baratto | 全栈软件开发者 · 多伦多",
@@ -11759,7 +11760,7 @@
         /* booking calendar (book.*) */
         "book.label": "احجز مكالمة",
         "book.heading": "اختر موعدًا،<br><strong>ولنتحدّث.</strong>",
-        "book.body": "وظيفة، أو مشروع عمل حرّ، أو سؤال عن شيء صنعته: اختر الوقت الذي يناسبك وسيُضاف مباشرة إلى تقويمي. تصلك الدعوة ورابط مكالمة الفيديو عبر البريد الإلكتروني.",
+        "book.body": "توظيف، أو مشروع حر، أو سؤال عن شيء بنيته: اختر وقتًا يناسبك وأرسله كطلب. سأؤكد عبر البريد الإلكتروني، ثم تصلك دعوة التقويم ورابط مكالمة الفيديو.",
         "book.fact1": "30 دقيقة",
         "book.fact2": "مكالمة فيديو، والرابط يصلك بالبريد",
         "book.fact3": "الأوقات معروضة بحسب منطقتك الزمنية",
@@ -11773,7 +11774,7 @@
         "book.pickDay": "اختر يومًا عليه علامة لرؤية الأوقات المتاحة.",
         "book.noneDay": "لا توجد أوقات متاحة في هذا اليوم.",
         "book.noneMonth": "لا شيء متاح هذا الشهر. جرّب الشهر التالي.",
-        "book.noneAll": "لا توجد أوقات متاحة خلال الشهرين القادمين.",
+        "book.noneAll": "لا توجد أوقات متاحة خلال الأيام العشرة القادمة.",
         "book.noneAllMsg": "أرسل لي رسالة وسأجد وقتًا مناسبًا ↓",
         "book.tz": "المنطقة الزمنية",
         "book.video": "مكالمة فيديو",
@@ -11783,17 +11784,17 @@
         "book.email": "البريد الإلكتروني",
         "book.notes": "عمّ تودّ أن نتحدث؟ (اختياري)",
         "book.notesPh": "جملة أو جملتان تكفيان.",
-        "book.confirm": "تأكيد الحجز",
-        "book.booking": "جارٍ الحجز…",
-        "book.doneH": "تم الحجز.",
-        "book.doneP": "دعوة التقويم ورابط الفيديو في طريقهما إلى {email}.",
+        "book.confirm": "اطلب هذا الوقت",
+        "book.booking": "جارٍ الإرسال…",
+        "book.doneH": "تم إرسال الطلب.",
+        "book.doneP": "سأؤكد عبر البريد الإلكتروني، عادةً خلال يوم. ستصل دعوة التقويم ورابط الفيديو إلى {email}.",
         "book.again": "احجز وقتًا آخر",
         "book.errTaken": "حجز شخص آخر هذا الوقت للتو. يُرجى اختيار وقت آخر.",
         "book.errTime": "هذا الوقت قد مضى. يُرجى اختيار وقت آخر.",
         "book.errDown": "التقويم لا يستجيب حاليًا.",
         "book.errFields": "يُرجى إدخال اسمك وبريد إلكتروني صالح.",
         "book.errRate": "حجوزات كثيرة من هذا الاتصال. يُرجى مراسلتي عبر البريد الإلكتروني بدلًا من ذلك.",
-        "book.fallback": "افتح التقويم على Cal.com ↗",
+        "book.fallback": "أرسل لي رسالة بدلًا من ذلك ↓",
         "book.close": "إغلاق",
         "book.dialogTitle": "احجز مكالمة مدتها 30 دقيقة",
         "meta.title": "Melanie Baratto | مطوّرة برمجيات Full-Stack، تورنتو",
@@ -12464,17 +12465,17 @@
      with open days marked, times in the visitor's time zone (switchable), a
      short details step and a confirmation. Mounted inline in #book and in a
      <dialog> for the hero button. Open times come from /api/slots, bookings go
-     to /api/book; both proxy Cal.com's public API. Strings are the book.*
+     to /api/book as a request Melanie accepts by email. Strings are the book.*
      keys in the translation table. Its own IIFE, so a throw stays here. -->
 <script>
   (function () {
     'use strict';
-    var FALLBACK = 'https://cal.com/northboundsoftwarestudio/30min';
+    var FALLBACK = '#contactForm';   // the message form, when the calendar can't help
     // Site language to Intl locale. Arabic keeps Latin digits, like the rest of the page.
     var LOCALES = { en: 'en-CA', es: 'es', de: 'de', fr: 'fr', he: 'he', ru: 'ru', pt: 'pt-BR', uk: 'uk', zh: 'zh-CN', ar: 'ar-u-nu-latn' };
     // First day of the week when Intl cannot say (1 = Monday, 7 = Sunday).
     var FIRST_DAY = { en: 7, he: 7, pt: 7, ar: 6 };
-    var DAYS_AHEAD = 60;
+    var DAYS_AHEAD = 10;   // matches HORIZON_DAYS in api/_hours.js
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var root = document.documentElement;
     var cache = {};      // tz -> Promise<days>
@@ -12580,7 +12581,8 @@
       function down() {
         side.innerHTML = '';
         side.appendChild(h('p', 'bk-err', t('errDown')));
-        var a = h('a', 'bk-fallback', t('fallback')); a.href = FALLBACK; a.target = '_blank'; a.rel = 'noopener';
+        var a = h('a', 'bk-fallback', t('fallback')); a.href = FALLBACK;
+        a.addEventListener('click', function () { var d = el.closest('dialog'); if (d && d.open) d.close(); });
         side.appendChild(a);
       }
 
@@ -12642,7 +12644,7 @@
       }
 
       // Nothing open in the whole window (the calendar is fully booked or
-      // availability is switched off on Cal.com). Every day would sit greyed
+      // no hours are set in api/_hours.js). Every day would sit greyed
       // out with nothing to click, which reads as a frozen calendar, so say so
       // and point to the message form instead.
       function noneAll() {
@@ -12810,13 +12812,13 @@
       root.classList.add('bk-lock');
     }
 
-    /* The hero button opens the calendar. Its href becomes the Cal.com page,
+    /* The hero button opens the calendar. Its href becomes the booking section,
        so the analytics click rule still counts it as book_call, and a
-       new-tab click (or a browser without <dialog>) lands on Cal.com itself.
+       new-tab click (or a browser without <dialog>) lands on the calendar in the page.
        With no script at all it stays the mailto it was. */
     var heroCta = document.querySelector('.hero-cta');
     if (heroCta && typeof HTMLDialogElement === 'function' && 'showModal' in HTMLDialogElement.prototype) {
-      heroCta.setAttribute('href', FALLBACK);
+      heroCta.setAttribute('href', '#book');
       heroCta.setAttribute('aria-haspopup', 'dialog');
       heroCta.addEventListener('pointerenter', function () { fetchSlots(localTz).catch(function () {}); }, { passive: true });
       heroCta.addEventListener('click', function (e) {

@@ -1,0 +1,14 @@
+{
+  "name": "melaniesigrid-portfolio",
+  "private": true,
+  "description": "melaniesigrid.com: static page plus the booking functions in api/",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "1.2.0"
+  }
+}
