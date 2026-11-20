@@ -242,6 +242,61 @@ a {
   color: var(--amber);
 }
 
+/* Links inside the running text: a hairline, never a colour change. */
+.essay p a {
+  text-decoration: underline;
+  text-decoration-color: var(--dim2);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  transition: text-decoration-color .2s;
+}
+
+.essay p a:hover {
+  text-decoration-color: var(--red);
+}
+
+/* ── Sources ────────────────────────────────────────────────────────── */
+
+.sources {
+  max-width: min(46rem, 100%);
+  margin: 3rem auto 0;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+}
+
+.sources-label {
+  margin: 0 0 1rem;
+  font-family: var(--M);
+  font-size: .66rem;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--dim2);
+}
+
+.sources ol {
+  margin: 0;
+  padding-left: 1.6rem;
+  font-family: var(--M);
+  font-size: .8rem;
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.sources li+li {
+  margin-top: .35rem;
+}
+
+.sources a {
+  text-decoration: underline;
+  text-decoration-color: var(--dim2);
+  text-underline-offset: .18em;
+}
+
+.sources a:hover {
+  text-decoration-color: var(--red);
+}
+
 /* ── The code plate ─────────────────────────────────────────────────── */
 
 .plate {

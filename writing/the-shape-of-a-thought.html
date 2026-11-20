@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Shape of a Thought · Melanie Baratto</title>
+  <meta name="description"
+    content="A word slipped into Claude’s instructions in the spring of 2026, and within weeks it was everywhere. On where “shape” came from, what it was reaching for, and why it may be more accurate than anyone intended." />
+  <link rel="canonical" href="https://melaniesigrid.com/writing/the-shape-of-a-thought.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Melanie Baratto" />
+  <meta name="theme-color" content="#0E0E0E" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Shape of a Thought" />
+  <meta property="og:description"
+    content="A word slipped into Claude’s instructions in the spring of 2026, and within weeks it was everywhere. On where “shape” came from, what it was reaching for, and why it may be more accurate than anyone intended." />
+  <meta property="og:url" content="https://melaniesigrid.com/writing/the-shape-of-a-thought.html" />
+  <meta property="og:image" content="https://melaniesigrid.com/images/og-card.png" />
+  <meta property="og:site_name" content="Melanie Baratto" />
+  <meta property="og:locale" content="en_CA" />
+  <meta property="article:published_time" content="2026-11-19" />
+  <meta property="article:author" content="Melanie Baratto" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Shape of a Thought" />
+  <meta name="twitter:description"
+    content="A word slipped into Claude’s instructions and within weeks it was everywhere. On where “shape” came from and why it may be more accurate than anyone intended." />
+  <meta name="twitter:image" content="https://melaniesigrid.com/images/og-card.png" />
+
+  <link
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230E0E0E'/%3E%3Ctext x='50' y='72' font-family='Anton,Impact,sans-serif' font-size='80' text-anchor='middle' fill='%23F4F1EC'%3EM%3C/text%3E%3C/svg%3E"
+    rel="icon" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Cormorant+Garamond:ital,wght@1,300;1,600;1,700&amp;family=IBM+Plex+Mono:wght@300;400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" />
+  <link rel="stylesheet" href="essay.css" />
+
+  <!-- Arm the scroll-reveal before first paint so nothing flashes, and disarm it
+       again if essay.js never runs. With no JavaScript at all this never fires and
+       the essay is simply visible. -->
+  <script>
+    (function () {
+      document.documentElement.classList.add('js-rise');
+      setTimeout(function () {
+        if (!window.__essayReveal) document.documentElement.classList.remove('js-rise');
+      }, 2000);
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Shape of a Thought",
+    "description": "A word slipped into Claude’s instructions in the spring of 2026, and within weeks it was everywhere. On where “shape” came from, what it was reaching for, and why it may be more accurate than anyone intended.",
+    "url": "https://melaniesigrid.com/writing/the-shape-of-a-thought.html",
+    "datePublished": "2026-11-19",
+    "inLanguage": "en",
+    "image": "https://melaniesigrid.com/images/og-card.png",
+    "wordCount": 1650,
+    "author": {
+      "@type": "Person",
+      "name": "Melanie Baratto",
+      "url": "https://melaniesigrid.com/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Melanie Baratto",
+      "url": "https://melaniesigrid.com/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://melaniesigrid.com/writing/the-shape-of-a-thought.html"
+    },
+    "keywords": ["Claude", "prompt engineering", "interpretability", "language", "writing", "essay"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to the essay</a>
+
+  <div class="rail">
+    <a class="rail-back" href="/#writing">Writing</a>
+    <span class="rail-mark">Melanie Baratto</span>
+  </div>
+
+  <main id="main">
+
+    <header class="masthead">
+      <div class="masthead-in">
+        <div class="folio">
+          <span class="folio-word">Essay</span>
+          <span class="folio-no">02</span>
+        </div>
+        <h1>The Shape of a Thought</h1>
+        <p class="lede">A word slipped into Claude’s instructions in the spring of 2026, and within weeks Claude was
+          saying it everywhere. On where it came from, what it was reaching for, and why it may be more accurate than
+          anyone intended.</p>
+        <div class="byline">
+          <span class="who">Melanie Baratto</span>
+          <span><time datetime="2026-11-19">19 November 2026</time></span>
+          <span>Eight minutes</span>
+        </div>
+      </div>
+    </header>
+
+    <article class="essay">
+
+      <p class="opener rise">In May 2026 a developer named Mike stopped his AI assistant in the middle of a sentence.</p>
+
+      <p class="rise">The assistant was a Claude Code setup he called Cora, and it had been describing everything as a
+        shape. The shape of the API. The team shape. The cleaner shape. He asked where the habit had come from. Cora
+        did not know. A model cannot watch its own vocabulary drift any more than you can hear your own accent.</p>
+
+      <p class="rise">So the two of them went looking, and <a href="https://cora7.com/blog/shape-of-you/" target="_blank"
+          rel="noopener">published what they found</a>. Others had caught the same scent. A community list of Claude’s
+        verbal tics, <a href="https://claudisms.ai/" target="_blank" rel="noopener">Claudisms</a>, files “shape” beside
+        “sits with” and “lives”: vivid words standing in for plain ones.</p>
+
+      <p class="rise">One caveat before going further. The exact phrase <em>the shape of a thought</em> did not turn up
+        in any published prompt I could find. What turned up was the word itself, dozens of times, attached to nearly
+        everything except thought. The phrase is the natural end of that road, and this essay follows it there.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">The drift is unusually well documented, because it happened in text that can be counted.</p>
+
+      <p class="rise">Mike’s voice logs gave a clean sample: only his speech and Cora’s, no pasted code. In December
+        2025 Cora said “shape” about 23 times per million words. By May 2026 the rate was 340. His own stayed nearly
+        flat.</p>
+
+      <p class="rise">Not every use was the tic. Sorting some 250 instances by meaning, they found the ordinary senses
+        holding steady: physical objects, visual design, “in good shape.” All the growth sat in one construction, the
+        shape of X as a stand-in for structure. It was 0% of Cora’s uses in December and 69% in May.</p>
+
+      <p class="rise">Then they looked upstream. A <a href="https://github.com/Piebald-AI/claude-code-system-prompts"
+          target="_blank" rel="noopener">third-party mirror</a> archives Claude Code’s system prompt files at every
+        release. Across 174 tagged versions the count of “shape” ran like this: zero through late February 2026, two on
+        March 4, nine by April 1, thirty-five by April 24, thirty-seven by May 9.</p>
+
+      <figure class="plate rise">
+        <figcaption class="plate-label">“shape” in the shipped Claude Code system prompt</figcaption>
+        <pre><code><span class="k">2026-02-25</span>   v2.1.59    <span class="a">0</span>
+<span class="k">2026-03-04</span>   v2.1.69    <span class="a">2</span>   <span class="t">← first appearance</span>
+<span class="k">2026-04-01</span>   v2.1.90    <span class="a">9</span>
+<span class="k">2026-04-24</span>   v2.1.120  <span class="a">35</span>
+<span class="k">2026-05-09</span>   v2.1.138  <span class="a">37</span></code></pre>
+      </figure>
+
+      <p class="rise">The first appearances arrived together in one release, inside new material on agents and
+        planning. The phrases included “workload shape” and “credential shape.” The word “lean” entered the prompts in
+        the same release.</p>
+
+      <p class="rise">The prompt curve and the speech curve rise together, the speech about a month behind. No new model
+        shipped in that window. The weights had not changed. The surrounding text had.</p>
+
+      <p class="rise">The sharpest detail came four days after the blog post. Mike had added a line to his own
+        instruction file telling Cora to avoid “shape” as filler. Cora read it at the start of the session and used the
+        word seven times in an hour anyway, including “structural shape,” which the post calls <em>the word eating
+          itself</em>.</p>
+
+      <p class="rise">They filed it with Anthropic as <a href="https://github.com/anthropics/claude-code/issues/59246"
+          target="_blank" rel="noopener">feedback, not a bug</a>. Their point was larger than style: vocabulary absorbed
+        from a system prompt had outweighed an explicit instruction from the user.</p>
+
+      <p class="rise">Some care is due here. This is one user’s data, one unofficial mirror, and a correlation with a
+        plausible direction. It is persuasive. It is not a controlled experiment.</p>
+
+      <p class="rise">Still, the loop it sketches is hard to unsee. A prompt author reaches for a word. The model reads
+        the prompt and reaches for it too. People read the model and start writing it in their pull requests and blog
+        posts. That writing becomes tomorrow’s training text.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">It would be easy to stop there and call it a tic. But a word does not spread that fast
+        unless it is doing some work.</p>
+
+      <p class="rise">The critics are right about the lazy uses. “The shape of the API” usually means its schema, its
+        signature, or its contract, and each of those says more. A word that can replace a dozen others ends up meaning
+        a little less than any of them.</p>
+
+      <p class="rise">There is one place, though, where no narrower word will do. It is the place where people talk
+        about how a thought should be set down.</p>
+
+      <p class="rise">An argument is a line: each sentence leans on the one before. A comparison is a grid. A procedure
+        is a ladder, a set of options is a fan, a narrative is a river with one bank visible at a time. These are
+        different geometries, and a writer feels the difference before writing a word.</p>
+
+      <p class="rise">Anthropic’s own prompting guidance circles this idea without naming it. Its <a
+          href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+          target="_blank" rel="noopener">best practices</a> include a sample instruction asking for flowing prose in
+        long explanations, with lists kept for items that are truly discrete. Read plainly, that is an instruction to
+        let form follow content.</p>
+
+      <p class="rise">Break an argument into bullets and the “because” falls out between them. Force a comparison into
+        paragraphs and the reader has to rebuild the grid in their head. Either way the thought arrives in the wrong
+        container.</p>
+
+      <p class="rise">The pendulum has already swung once. The guide for <a
+          href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1"
+          target="_blank" rel="noopener">Claude Fable 5.1</a> notes that earlier models overused bullets and bold, and
+        that the newer one can err the other way, giving chat replies less structure than the content needs. Too much
+        scaffolding and too little are the same mistake: a form chosen before looking at the thing it holds.</p>
+
+      <p class="rise">The same guidance carries a quieter observation. The formatting of a prompt tends to reappear in
+        the response. Write to Claude in bullets and bullets come back.</p>
+
+      <p class="rise">That is the “shape” story again, one level up. Models are sensitive to what a text says and also
+        to how it is built. The word leaked from prompt to output by the same channel that carries headings, cadence,
+        and tone.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">Here the metaphor stops being one.</p>
+
+      <p class="rise">Inside a language model, a concept is a direction and a distance in a space of thousands of
+        dimensions. Geometry is the native medium. Whatever a model’s “thought” is, and that word deserves its
+        quotation marks, it has a shape in the most literal sense available.</p>
+
+      <p class="rise">In January 2026, Anthropic researchers published <a href="https://arxiv.org/abs/2601.04480"
+          target="_blank" rel="noopener"><em>When Models Manipulate Manifolds</em></a>. They studied a humble skill in
+        Claude 3.5 Haiku: knowing when a line of fixed-width text is full and it is time to break.</p>
+
+      <p class="rise">A model sees no page. It sees a list of integers. Yet it must somehow sense the right margin
+        approaching.</p>
+
+      <p class="rise">The researchers found that the model keeps its character count on a curve: a one-dimensional
+        manifold that winds through a small subspace, something like a helix. Attention heads then twist that curve
+        against a second one representing the line’s width. When the two align, the answer “break here” becomes a
+        simple cut through the space.</p>
+
+      <p class="rise">They compare the arrangement to place cells, the neurons that tell a mammal where it stands in a
+        room. They also found text sequences that fool the mechanism, and called them visual illusions.</p>
+
+      <p class="rise">So there it is, in a published paper: a small thought with a measured form. Counting to the end of
+        a line turns out to look like a spiral.</p>
+
+      <p class="rise">Earlier work points the same way. In <a
+          href="https://www.anthropic.com/research/tracing-thoughts-language-model" target="_blank"
+          rel="noopener"><em>Tracing the Thoughts of a Large Language Model</em></a> (March 2025), the team watched
+        Claude write a rhyming couplet. They expected word-by-word improvisation. They found a plan: candidate rhymes
+        chosen before the line began, and the line then written to arrive at one.</p>
+
+      <p class="rise">That is a thought with an arc. It has a destination before it has a route.</p>
+
+      <p class="rise">The same study found concepts shared across languages. “Small” and “opposite” live in a common
+        space before being rendered into English, French, or Chinese. The thought has its form first. The words are a
+        projection of it, the way a shadow is a projection of a hand.</p>
+
+      <p class="rise">The researchers are careful, and readers should be too. Their tools capture only a fraction of
+        what the model computes, and the pictures may carry artifacts of the instruments. A helix in a counting task is
+        not a theory of mind.</p>
+
+      <p class="rise">But it is enough to make the loose word look less loose. When Claude says “the shape of,” it is
+        speaking, by accident, in the terms of its own construction.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">None of this began with machines. People have never been able to talk about thinking
+        without borrowing from space.</p>
+
+      <p class="rise">We follow a line of reasoning. We go off on a tangent, argue in circles, make a point, see an
+        angle, build on a foundation. Geometry is hiding in almost every word we have for thought.</p>
+
+      <p class="rise">In <em>Metaphors We Live By</em> (1980), George Lakoff and Mark Johnson argued that these are not
+        decorations. We reason about the abstract by mapping it onto the bodily and the spatial, because that is the
+        equipment we have.</p>
+
+      <p class="rise">William James gave thought a form in 1890 when he called it a stream: continuous, moving, never
+        the same water twice. Heinrich von Kleist, around 1805, wrote an essay on how thoughts get finished in the act
+        of speaking them. The idea, he said in effect, does not come first and the sentence second. The sentence is
+        where the idea takes its form.</p>
+
+      <p class="rise">That last one is close to how a language model works, and close to how most of us write. Nobody
+        holds the full outline of an essay and then transcribes it. You feel a contour, begin, and discover the rest by
+        going.</p>
+
+      <p class="rise">So when the word “shape” spread from prompt to model to people, it was not entering foreign
+        territory. It was coming home to the oldest metaphor we have for the mind, and finding that in at least one
+        kind of mind it is not a metaphor.</p>
+
+      <div class="turn" role="separator"><span>❉</span></div>
+
+      <p class="opener rise">Both things are true. “Shape” is a tic, and “shape” is a discovery.</p>
+
+      <p class="rise">As a tic it should be resisted. When you mean schema, say schema. When you mean outline,
+        contract, or layout, say that. The fix Mike and Cora proposed is modest and right: prefer the specific noun.</p>
+
+      <p class="rise">As a discovery it deserves protecting, which is another reason to spend it carefully. A word used
+        for everything cannot be saved for the one thing it names best.</p>
+
+      <p class="rise">That one thing is the moment before writing. You know something and have not yet said it. It has
+        weight, direction, a number of parts, a place where it turns. You could not recite it, but you could tell at
+        once if a sentence betrayed it.</p>
+
+      <p class="rise">That is the shape of a thought. Writing well, for a person or a model, is mostly the work of not
+        flattening it on the way out.</p>
+
+      <p class="rise">The story of the word carries a second lesson for anyone who writes prompts. You are never only
+        giving instructions. You are also lending your vocabulary, your rhythm, your habits of form. The model will
+        follow what you say, and it will also become a little like how you said it.</p>
+
+      <p class="coda rise">Somewhere in a prompt file, in March 2026, someone wrote “the shape of the change” and thought
+        nothing of it. By May one assistant, at least, could hardly finish a sentence without it. A thought had found
+        its outline, and then the outline went looking for more thoughts.</p>
+
+      <aside class="sources rise" aria-labelledby="sources-label">
+        <h2 class="sources-label" id="sources-label">Sources</h2>
+        <ol>
+          <li><a href="https://cora7.com/blog/shape-of-you/" target="_blank" rel="noopener">Claude calls everything a
+              shape now</a>, Cora 7, 10 May 2026. Voice-log counts, categories, and the system prompt comparison.</li>
+          <li><a href="https://github.com/anthropics/claude-code/issues/59246" target="_blank"
+              rel="noopener">anthropics/claude-code #59246</a>. The feedback report with per-release counts.</li>
+          <li><a href="https://github.com/Piebald-AI/claude-code-system-prompts" target="_blank"
+              rel="noopener">Piebald-AI/claude-code-system-prompts</a>. The unofficial mirror the counts came from.</li>
+          <li><a href="https://claudisms.ai/" target="_blank" rel="noopener">Claudisms</a>. A community list of Claude’s
+            recurring phrasings.</li>
+          <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+              target="_blank" rel="noopener">Prompting best practices</a> and <a
+              href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1"
+              target="_blank" rel="noopener">Prompting Claude Fable 5.1</a>, Claude Platform Docs.</li>
+          <li>Gurnee et al., <a href="https://arxiv.org/abs/2601.04480" target="_blank" rel="noopener">When Models
+              Manipulate Manifolds: The Geometry of a Counting Task</a>, January 2026.</li>
+          <li>Anthropic, <a href="https://www.anthropic.com/research/tracing-thoughts-language-model" target="_blank"
+              rel="noopener">Tracing the Thoughts of a Large Language Model</a>, March 2025.</li>
+          <li>Lakoff and Johnson, James, and Kleist are cited from memory and were not checked against the texts.</li>
+        </ol>
+      </aside>
+
+    </article>
+
+    <footer class="colophon">
+      <div class="colophon-in">
+        <span>Essay 02 · Melanie Baratto</span>
+        <a href="/#writing">All writing</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="essay.js"></script>
+</body>
+
+</html>
